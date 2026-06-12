@@ -29,6 +29,236 @@ def trh(en, es):  # data-tr attributes for the i18n layer (body translations)
         if es: a += f' data-es="{esc(es)}"'
     return a
 
+# ----------------------------------------------------------------------
+# UI-LABEL VERTALINGEN (NL -> EN, ES) voor de gegenereerde pagina's.
+# localize() injecteert de data-tr/data-en/data-es attributen in elk
+# element waarvan de volledige inhoud exact een NL-sleutel is. Zo worden
+# alle 35 gegenereerde pagina's vanuit één plek drietalig.
+# ----------------------------------------------------------------------
+UI_TR = {
+ # knoppen / generieke labels
+ "Bekijk diensten": ("View services","Ver servicios"),
+ "Plan een gesprek": ("Book a consultation","Reserva una consulta"),
+ "Bekijk het aanbod": ("View listings","Ver inmuebles"),
+ "Bekijk aanbod": ("View listings","Ver inmuebles"),
+ "Heel het aanbod": ("All listings","Todos los inmuebles"),
+ "Bekijk alles": ("View all","Ver todo"),
+ "Alle sectoren": ("All sectors","Todos los sectores"),
+ "Alle cases": ("All cases","Todos los casos"),
+ "Alle diensten": ("All services","Todos los servicios"),
+ "Heel het team": ("Meet the team","Todo el equipo"),
+ "Neem contact op": ("Get in touch","Contáctanos"),
+ "Bekijk cases": ("View cases","Ver casos"),
+ "Download": ("Download","Descargar"),
+ "Route &amp; contact": ("Directions &amp; contact","Cómo llegar y contacto"),
+ "LinkedIn": ("LinkedIn","LinkedIn"),
+ # eyebrows
+ "Ondersteunend": ("Support","Soporte"),
+ "Cijfers": ("Figures","Cifras"),
+ "Ook in Spanje": ("Also in Spain","También en España"),
+ "Onze visie": ("Our vision","Nuestra visión"),
+ "Professional experience": ("Professional experience","Experiencia profesional"),
+ "Hear from our leaders": ("Hear from our leaders","Escucha a nuestros líderes"),
+ "Bewezen <em>resultaat</em>": ("Proven <em>results</em>","<em>Resultados</em> probados"),
+ "Niet zeker welke dienst u nodig heeft?": ("Not sure which service you need?","¿No sabes qué servicio necesitas?"),
+ "Geen passende vacature?": ("No suitable vacancy?","¿No encuentras una vacante adecuada?"),
+ "Aanpak": ("Approach","Enfoque"),
+ "Expertises": ("Expertise","Especialidades"),
+ "Zo pakken we het <em>aan</em>": ("How we <em>approach it</em>","Cómo lo <em>abordamos</em>"),
+ "Groei mee met een <em>ambitieuze</em> vastgoedgroep": ("Grow with an <em>ambitious</em> real estate group","Crece con un grupo inmobiliario <em>ambicioso</em>"),
+ "Deze dienst ook aan de <em>Costa del Sol</em>": ("This service on the <em>Costa del Sol</em> too","Este servicio también en la <em>Costa del Sol</em>"),
+ # sectoren (los & in koppen)
+ "Kantoren": ("Offices","Oficinas"),
+ "Logistiek &amp; bedrijfsruimte": ("Logistics &amp; industrial","Logística e industrial"),
+ "Retail &amp; winkels": ("Retail &amp; shops","Retail y comercios"),
+ "Zorgvastgoed": ("Healthcare real estate","Inmuebles sanitarios"),
+ "Residentieel": ("Residential","Residencial"),
+ "Hospitality": ("Hospitality","Hostelería"),
+ "Hospitality &amp; leisure": ("Hospitality &amp; leisure","Hostelería y ocio"),
+ "Onderwijs &amp; publiek": ("Education &amp; public","Educación y sector público"),
+ "Data centers &amp; industrie": ("Data centers &amp; industry","Centros de datos e industria"),
+ "Onze diensten": ("Our services","Nuestros servicios"),
+ "Sectoren": ("Sectors","Sectores"),
+ "Onze aanpak": ("Our approach","Nuestro enfoque"),
+ "Beschikbare werkplekken": ("Available workspaces","Espacios de trabajo disponibles"),
+ "Beschikbare kantoorruimte": ("Available office space","Oficinas disponibles"),
+ "Business unit": ("Business unit","Unidad de negocio"),
+ "Diensten &amp; expertises": ("Services &amp; expertise","Servicios y especialidades"),
+ "Sectoren &amp; branches": ("Sectors &amp; industries","Sectores e industrias"),
+ "Zo werken wij": ("How we work","Cómo trabajamos"),
+ "Business cases": ("Business cases","Casos de éxito"),
+ "Het team": ("The team","El equipo"),
+ "Reviews": ("Reviews","Reseñas"),
+ "Gratis download": ("Free download","Descarga gratuita"),
+ "Veelgestelde vragen": ("Frequently asked questions","Preguntas frecuentes"),
+ "Kennis &amp; certificeringen": ("Knowledge &amp; certifications","Conocimiento y certificaciones"),
+ "Gerelateerde diensten": ("Related services","Servicios relacionados"),
+ "Werken bij Spring": ("Working at Spring","Trabajar en Spring"),
+ "Arbeidsvoorwaarden": ("Benefits","Condiciones laborales"),
+ "Sollicitatieproces": ("Application process","Proceso de selección"),
+ "Open posities": ("Open positions","Vacantes abiertas"),
+ "Ons team": ("Our team","Nuestro equipo"),
+ "Specialisme": ("Specialism","Especialidad"),
+ "Recent werk": ("Recent work","Trabajo reciente"),
+ "Over deze locatie": ("About this location","Sobre esta ubicación"),
+ "Kantoorimpressie": ("Office impression","Vista de la oficina"),
+ "Aanbod": ("Listings","Inmuebles"),
+ "Sectoren &amp; specialismen": ("Sectors &amp; specialisms","Sectores y especialidades"),
+ "Onze sectoren": ("Our sectors","Nuestros sectores"),
+ "Klantverhalen &amp; cases": ("Client stories &amp; cases","Casos de clientes"),
+ # headings (incl. <em>)
+ "Kies een <em>business unit</em>": ("Choose a <em>business unit</em>","Elige una <em>unidad de negocio</em>"),
+ "Expertise in <em>elke sector</em>": ("Expertise in <em>every sector</em>","Experiencia en <em>cada sector</em>"),
+ "Direct <em>beschikbaar</em>": ("Immediately <em>available</em>","<em>Disponible</em> de inmediato"),
+ "Voor wie we <em>werken</em>": ("Who we <em>work for</em>","Para quién <em>trabajamos</em>"),
+ "Onze <em>aanpak</em> in 4 stappen": ("Our <em>approach</em> in 4 steps","Nuestro <em>enfoque</em> en 4 pasos"),
+ "Recente <em>resultaten</em>": ("Recent <em>results</em>","<em>Resultados</em> recientes"),
+ "Uw <em>experts</em>": ("Your <em>experts</em>","Tus <em>expertos</em>"),
+ "Wat klanten <em>zeggen</em>": ("What clients <em>say</em>","Lo que dicen los <em>clientes</em>"),
+ "Onderbouwd &amp; <em>gecertificeerd</em>": ("Substantiated &amp; <em>certified</em>","Fundamentado y <em>certificado</em>"),
+ "Ook <em>interessant</em>": ("Also <em>relevant</em>","También <em>relevante</em>"),
+ "Wat je bij ons <em>krijgt</em>": ("What you <em>get</em> with us","Lo que <em>obtienes</em> con nosotros"),
+ "Zo verloopt je <em>sollicitatie</em>": ("How your <em>application</em> works","Cómo es tu <em>candidatura</em>"),
+ "Onze <em>vacatures</em>": ("Our <em>vacancies</em>","Nuestras <em>vacantes</em>"),
+ "Vragen over <em>solliciteren</em>": ("Questions about <em>applying</em>","Preguntas sobre <em>candidaturas</em>"),
+ "De mensen achter <em>Spring</em>": ("The people behind <em>Spring</em>","Las personas detrás de <em>Spring</em>"),
+ "Waar we het <em>verschil</em> maken": ("Where we make the <em>difference</em>","Donde marcamos la <em>diferencia</em>"),
+ "Gerelateerd <em>aanbod</em>": ("Related <em>listings</em>","Inmuebles <em>relacionados</em>"),
+ "Uw <em>aanspreekpunt</em>": ("Your <em>point of contact</em>","Tu <em>punto de contacto</em>"),
+ # leads / paragraphs
+ "Klik op een dienst voor de volledige business-unit-pagina met experts, cases en antwoorden.":
+   ("Click a service for the full business-unit page with experts, cases and answers.",
+    "Haz clic en un servicio para ver la página completa de la unidad de negocio, con expertos, casos y respuestas."),
+ "Van kantoren en logistiek tot retail, zorg en residentieel vastgoed.":
+   ("From offices and logistics to retail, healthcare and residential real estate.",
+    "Desde oficinas y logística hasta retail, salud e inmuebles residenciales."),
+ "Een greep uit onze serviced offices en flexibele werkplekken.":
+   ("A selection of our serviced offices and flexible workspaces.",
+    "Una selección de nuestras oficinas serviced y espacios flexibles."),
+ "Een greep uit de actuele kantoorruimte in ons aanbod.":
+   ("A selection of the current office space in our portfolio.",
+    "Una selección del espacio de oficinas actual de nuestra cartera."),
+ "Onze adviseurs denken graag met u mee — vrijblijvend en vanuit uw vraag.":
+   ("Our advisors are happy to think along with you — no obligation, starting from your question.",
+    "Nuestros asesores estarán encantados de ayudarte — sin compromiso y partiendo de tu pregunta."),
+ "Onze specialisten staan voor u klaar — bel, mail of plan een afspraak.":
+   ("Our specialists are ready to help — call, email or book an appointment.",
+    "Nuestros especialistas están a tu disposición — llama, escribe o reserva una cita."),
+ "Laat uw e-mail achter en ontvang ons praktische rapport direct in uw inbox.":
+   ("Leave your email and receive our practical report straight in your inbox.",
+    "Déjanos tu correo y recibe nuestro informe práctico directamente en tu bandeja."),
+ "Een mix van jong en ervaren talent — luister naar wat onze mensen drijft.":
+   ("A mix of young and experienced talent — hear what drives our people.",
+    "Una mezcla de talento joven y experimentado — escucha qué motiva a nuestra gente."),
+ "We maken graag kennis. Stuur een open sollicitatie — wie weet groeien we samen.":
+   ("We'd love to meet you. Send an open application — who knows, we might grow together.",
+    "Nos encantaría conocerte. Envía una candidatura abierta — quién sabe, quizá crezcamos juntos."),
+ # werkwijze-stappen (business unit)
+ "Kennismaken": ("Introduction","Conocernos"),
+ "We brengen uw vraag en situatie scherp in kaart.":
+   ("We map your question and situation precisely.","Analizamos tu pregunta y situación con precisión."),
+ "Analyse &amp; advies": ("Analysis &amp; advice","Análisis y asesoramiento"),
+ "Datagedreven advies en een concreet plan van aanpak.":
+   ("Data-driven advice and a concrete action plan.","Asesoramiento basado en datos y un plan de acción concreto."),
+ "Uitvoering": ("Execution","Ejecución"),
+ "Wij voeren uit en houden u continu op de hoogte.":
+   ("We execute and keep you continuously informed.","Ejecutamos y te mantenemos informado en todo momento."),
+ "Oplevering &amp; nazorg": ("Delivery &amp; aftercare","Entrega y seguimiento"),
+ "Resultaat opgeleverd, met nazorg waar nodig.":
+   ("Result delivered, with aftercare where needed.","Resultado entregado, con seguimiento cuando sea necesario."),
+ # cases
+ "Herpositionering kantoorobject": ("Office repositioning","Reposicionamiento de oficina"),
+ "Snelle invulling leegstand": ("Vacancy filled fast","Vacante cubierta rápido"),
+ "Aankoop beleggingsobject": ("Investment acquisition","Adquisición de inversión"),
+ # blog/kennis kaarten
+ "Kennisartikel": ("Knowledge article","Artículo"),
+ "Marktinzicht": ("Market insight","Análisis de mercado"),
+ "Zo bepaalt u de juiste strategie": ("How to set the right strategy","Cómo definir la estrategia correcta"),
+ "Begrippen": ("Glossary","Conceptos"),
+ "Belangrijke termen uitgelegd": ("Key terms explained","Términos clave explicados"),
+ "Nog een vraag?": ("Another question?","¿Otra pregunta?"),
+ # rollen / property-labels
+ "Senior Adviseur": ("Senior Advisor","Asesor sénior"),
+ "Adviseur": ("Advisor","Asesor"),
+ "Specialist": ("Specialist","Especialista"),
+ "Beschikbaar": ("Available","Disponible"),
+ "Te huur": ("For rent","En alquiler"),
+ "Te koop": ("For sale","En venta"),
+ "Kantoorruimte": ("Office space","Oficina"),
+ "Beleggingsobject": ("Investment property","Inmueble de inversión"),
+ # vacatures
+ "Bekijk vacature": ("View vacancy","Ver vacante"),
+ "Bekijk vacatures": ("View vacancies","Ver vacantes"),
+ "Open sollicitatie": ("Open application","Candidatura abierta"),
+ "Marktconform salaris &amp; bonus": ("Competitive salary &amp; bonus","Salario competitivo y bonus"),
+ "Een eerlijk salaris met een prestatieafhankelijke bonusregeling.":
+   ("A fair salary with a performance-based bonus scheme.","Un salario justo con un bonus por desempeño."),
+ "Opleiding &amp; groei": ("Training &amp; growth","Formación y crecimiento"),
+ "Ruim opleidingsbudget en een persoonlijk ontwikkelplan.":
+   ("A generous training budget and a personal development plan.","Amplio presupuesto de formación y un plan de desarrollo personal."),
+ "Hybride werken": ("Hybrid working","Trabajo híbrido"),
+ "Flexibel werken vanuit kantoor, thuis of een van onze vestigingen.":
+   ("Work flexibly from the office, home or one of our branches.","Trabaja con flexibilidad desde la oficina, casa o una de nuestras sedes."),
+ "Auto / mobiliteit": ("Car / mobility","Coche / movilidad"),
+ "Mobiliteitsregeling die past bij jouw rol en situatie.":
+   ("A mobility scheme that fits your role and situation.","Un plan de movilidad adaptado a tu puesto y situación."),
+ "Internationale kansen": ("International opportunities","Oportunidades internacionales"),
+ "Werk en groei mee over de grens — van Utrecht tot Valencia.":
+   ("Work and grow across borders — from Utrecht to Valencia.","Trabaja y crece más allá de las fronteras — de Utrecht a Valencia."),
+ "Teamspirit &amp; events": ("Team spirit &amp; events","Espíritu de equipo y eventos"),
+ "Borrels, uitjes en een hecht team dat successen samen viert.":
+   ("Drinks, outings and a close-knit team that celebrates success together.","Aperitivos, salidas y un equipo unido que celebra los éxitos juntos."),
+ "Solliciteer": ("Apply","Postula"),
+ "Stuur je cv en motivatie — binnen 5 werkdagen hoor je van ons.":
+   ("Send your CV and motivation — you'll hear from us within 5 working days.","Envía tu CV y motivación — te responderemos en 5 días laborables."),
+ "Kennismaking": ("Introduction","Conocernos"),
+ "Een open gesprek over jou, je ambities en het team.":
+   ("An open conversation about you, your ambitions and the team.","Una conversación abierta sobre ti, tus ambiciones y el equipo."),
+ "Verdiepend gesprek": ("In-depth interview","Entrevista en profundidad"),
+ "We gaan dieper in op de rol en je vakkennis.":
+   ("We dive deeper into the role and your expertise.","Profundizamos en el puesto y tus conocimientos."),
+ "Aanbod &amp; start": ("Offer &amp; start","Oferta e incorporación"),
+ "Een passend aanbod en een warm welkom in het team.":
+   ("A suitable offer and a warm welcome to the team.","Una oferta a tu medida y una cálida bienvenida al equipo."),
+ "Vastgoed met hoofd &eacute;n hart. We groeien en zoeken mensen die het verschil maken — in Utrecht, Amsterdam, Valencia en Estepona.":
+   ("Real estate with both head and heart. We're growing and looking for people who make the difference — in Utrecht, Amsterdam, Valencia and Estepona.",
+    "Inmobiliaria con cabeza y corazón. Crecemos y buscamos personas que marquen la diferencia — en Utrecht, Ámsterdam, Valencia y Estepona."),
+ "Bij Spring werk je in kleine, slagvaardige teams met korte lijnen en veel eigen verantwoordelijkheid. Je krijgt de ruimte om te ondernemen, ondersteund door de beste data en tools in de markt.":
+   ("At Spring you work in small, decisive teams with short lines and plenty of personal responsibility. You get room to take initiative, backed by the best data and tools in the market.",
+    "En Spring trabajas en equipos pequeños y resolutivos, con comunicación directa y mucha responsabilidad propia. Tienes margen para emprender, con los mejores datos y herramientas del mercado."),
+ "Of je nu start of al jaren ervaring hebt: je groeit mee met een groep die commercieel &eacute;n residentieel vastgoed onder &eacute;&eacute;n dak brengt, in Nederland en Spanje.":
+   ("Whether you're just starting out or have years of experience: you grow with a group that brings commercial and residential real estate under one roof, in the Netherlands and Spain.",
+    "Tanto si empiezas como si tienes años de experiencia: creces con un grupo que reúne inmuebles comerciales y residenciales bajo un mismo techo, en los Países Bajos y España."),
+ # sectoren / cases leads
+ "Een brede vastgoedgroep — commercieel &eacute;n residentieel. We kennen de dynamiek van elke markt waarin u actief bent.":
+   ("A broad real estate group — commercial and residential. We know the dynamics of every market you operate in.",
+    "Un grupo inmobiliario amplio — comercial y residencial. Conocemos la dinámica de cada mercado en el que operas."),
+ "Echte projecten, echte resultaten. Filter op sector of doelgroep en ontdek hoe we waarde cre&euml;ren.":
+   ("Real projects, real results. Filter by sector or audience and discover how we create value.",
+    "Proyectos reales, resultados reales. Filtra por sector o público y descubre cómo creamos valor."),
+}
+
+_LOC_TAGS = "h1|h2|h3|h4|h5|span|p|a|small|b|li"
+def localize(html):
+    """Injecteer EN/ES-vertalingen in elk element waarvan de inhoud exact een NL-sleutel is."""
+    for nl, (en, es) in UI_TR.items():
+        attrs = trh(en, es)
+        if not attrs:
+            continue
+        pat = re.compile(r'(<(' + _LOC_TAGS + r')((?:\s[^>]*)?)>)' + re.escape(nl) + r'(</\2>)')
+        def repl(m, nl=nl, attrs=attrs):
+            tag, rest, close = m.group(2), m.group(3), m.group(4)
+            if 'data-tr' in rest or 'data-i18n' in rest:
+                return m.group(0)
+            return f'<{tag}{rest}{attrs}>{nl}{close}'
+        html = pat.sub(repl, html)
+    return html
+
+def tlabel(nl):
+    """los tekstlabel met inline NL/EN/ES (voor tekst die localize niet vangt, bv. sector-chips)."""
+    en, es = UI_TR.get(nl, ("", ""))
+    return f'<span{trh(en, es)}>{nl}</span>'
+
 # real per-unit website texts (NL/EN/ES) parsed from the aanleverdocument
 _MAP = {1:"verhuur-commercieel",2:"aanhuur-kantoorruimte",3:"aanverkoop-beleggingsvastgoed",4:"serviced-offices",
         5:"taxaties-beleggingsvastgoed",6:"grootzakelijke-taxaties",7:"herbouwwaarde-verzekering",8:"vastgoeddata-marktinzichten",
@@ -146,14 +376,26 @@ for _num in sorted(_raw):
 # DATA MODEL
 # ----------------------------------------------------------------------
 DOELGROEPEN = {
-    "gebruiker":   {"num":"01","name":"Gebruiker","q":"Ik zoek een kantoor of werkplek",
-        "intro":"Op zoek naar de juiste werkomgeving? Spring vindt, onderhandelt en richt in — van een eigen kantoor tot een flexibele werkplek."},
-    "eigenaar":    {"num":"02","name":"Eigenaar","q":"Ik wil mijn vastgoed verkopen of verhuren",
-        "intro":"Haal maximaal rendement uit uw object met scherpe marketing, het juiste netwerk en betrouwbare taxaties."},
-    "investeerder":{"num":"03","name":"Investeerder","q":"Ik wil investeren in vastgoed",
-        "intro":"Van acquisitie tot beheer: datagedreven advies over de volledige levenscyclus van uw belegging."},
-    "ontwikkelaar":{"num":"04","name":"Ontwikkelaar","q":"Ik wil vastgoed ontwikkelen of optimaliseren",
-        "intro":"Van acquisitie en concept tot oplevering en verhuur — met data en taxaties als kompas."},
+    "gebruiker":   {"num":"01","name":"Gebruiker","name_en":"User","name_es":"Usuario",
+        "q":"Ik zoek een kantoor of werkplek","q_en":"I'm looking for an office or workspace","q_es":"Busco una oficina o espacio de trabajo",
+        "intro":"Op zoek naar de juiste werkomgeving? Spring vindt, onderhandelt en richt in — van een eigen kantoor tot een flexibele werkplek.",
+        "intro_en":"Looking for the right work environment? Spring finds, negotiates and fits out — from your own office to a flexible workspace.",
+        "intro_es":"¿Buscas el entorno de trabajo adecuado? Spring busca, negocia y acondiciona — desde tu propia oficina hasta un espacio flexible."},
+    "eigenaar":    {"num":"02","name":"Eigenaar","name_en":"Owner","name_es":"Propietario",
+        "q":"Ik wil mijn vastgoed verkopen of verhuren","q_en":"I want to sell or lease my property","q_es":"Quiero vender o alquilar mi inmueble",
+        "intro":"Haal maximaal rendement uit uw object met scherpe marketing, het juiste netwerk en betrouwbare taxaties.",
+        "intro_en":"Get the maximum return from your property with sharp marketing, the right network and reliable valuations.",
+        "intro_es":"Obtén el máximo rendimiento de tu inmueble con un marketing afinado, la red adecuada y tasaciones fiables."},
+    "investeerder":{"num":"03","name":"Investeerder","name_en":"Investor","name_es":"Inversor",
+        "q":"Ik wil investeren in vastgoed","q_en":"I want to invest in real estate","q_es":"Quiero invertir en inmuebles",
+        "intro":"Van acquisitie tot beheer: datagedreven advies over de volledige levenscyclus van uw belegging.",
+        "intro_en":"From acquisition to management: data-driven advice across the full lifecycle of your investment.",
+        "intro_es":"De la adquisición a la gestión: asesoramiento basado en datos durante todo el ciclo de vida de tu inversión."},
+    "ontwikkelaar":{"num":"04","name":"Ontwikkelaar","name_en":"Developer","name_es":"Promotor",
+        "q":"Ik wil vastgoed ontwikkelen of optimaliseren","q_en":"I want to develop or optimise real estate","q_es":"Quiero desarrollar u optimizar inmuebles",
+        "intro":"Van acquisitie en concept tot oplevering en verhuur — met data en taxaties als kompas.",
+        "intro_en":"From acquisition and concept to delivery and leasing — with data and valuations as your compass.",
+        "intro_es":"De la adquisición y el concepto a la entrega y el alquiler — con datos y tasaciones como brújula."},
 }
 
 # 18 officiële business units (Spring pitch), verdeeld over de 4 doelgroepen.
@@ -360,25 +602,59 @@ def li_checks(items):
 # ----------------------------------------------------------------------
 # DOELGROEP HUB PAGE
 # ----------------------------------------------------------------------
+# tuples: (nl_titel, nl_tekst, en_titel, en_tekst, es_titel, es_tekst)
 DG_WHY = {
- "gebruiker":[("Snel de juiste ruimte","We kennen de markt op straatniveau en koppelen uw eisen aan het beste beschikbare aanbod."),
-              ("Onderhandeld op uw voorwaarden","Scherpe huurprijs, incentives en flexibele voorwaarden — wij behartigen uw belang."),
-              ("Instapklaar opgeleverd","Van zoektocht tot inrichting: één partner regelt het hele traject.")],
- "eigenaar":[("Maximaal rendement","Datagedreven waardebepaling en een scherpe positionering van uw object."),
-             ("Actieve salesaanpak","Wij benaderen kopers en huurders direct en creëren beweging in de markt."),
-             ("Betrouwbare taxaties","Onafhankelijke, gevalideerde taxaties volgens de hoogste normen.")],
- "investeerder":[("De hele levenscyclus","Van acquisitie en beheer tot exit — strategisch advies in elke fase."),
-                 ("Onderbouwd met data","Actuele markt- en transactiedata als fundament onder elke beslissing."),
-                 ("Volledig ontzorgd","Asset management, beheer en administratie onder één dak.")],
- "ontwikkelaar":[("Van acquisitie tot oplevering","Begeleiding over de volledige ontwikkeling, met data en taxaties als kompas."),
-                 ("Haalbaarheid vooraf","We toetsen locatie, bestemming en markt voordat u zich vastlegt."),
-                 ("Marktinzicht als kompas","Research en advies die uw plan onderbouwen en versterken.")],
+ "gebruiker":[("Snel de juiste ruimte","We kennen de markt op straatniveau en koppelen uw eisen aan het beste beschikbare aanbod.",
+               "The right space, fast","We know the market at street level and match your requirements to the best available supply.",
+               "El espacio adecuado, rápido","Conocemos el mercado a pie de calle y conectamos tus necesidades con la mejor oferta disponible."),
+              ("Onderhandeld op uw voorwaarden","Scherpe huurprijs, incentives en flexibele voorwaarden — wij behartigen uw belang.",
+               "Negotiated on your terms","Sharp rent, incentives and flexible terms — we represent your interest.",
+               "Negociado en tus términos","Alquiler ajustado, incentivos y condiciones flexibles — defendemos tu interés."),
+              ("Instapklaar opgeleverd","Van zoektocht tot inrichting: één partner regelt het hele traject.",
+               "Move-in ready","From search to fit-out: one partner handles the entire process.",
+               "Listo para entrar","De la búsqueda al acondicionamiento: un solo socio gestiona todo el proceso.")],
+ "eigenaar":[("Maximaal rendement","Datagedreven waardebepaling en een scherpe positionering van uw object.",
+              "Maximum return","Data-driven valuation and sharp positioning of your property.",
+              "Máxima rentabilidad","Valoración basada en datos y un posicionamiento afinado de tu inmueble."),
+             ("Actieve salesaanpak","Wij benaderen kopers en huurders direct en creëren beweging in de markt.",
+              "Active sales approach","We approach buyers and tenants directly and create movement in the market.",
+              "Enfoque de ventas activo","Contactamos directamente con compradores e inquilinos y generamos movimiento en el mercado."),
+             ("Betrouwbare taxaties","Onafhankelijke, gevalideerde taxaties volgens de hoogste normen.",
+              "Reliable valuations","Independent, validated valuations to the highest standards.",
+              "Tasaciones fiables","Tasaciones independientes y validadas según los más altos estándares.")],
+ "investeerder":[("De hele levenscyclus","Van acquisitie en beheer tot exit — strategisch advies in elke fase.",
+                  "The full lifecycle","From acquisition and management to exit — strategic advice at every stage.",
+                  "Todo el ciclo de vida","De la adquisición y la gestión a la salida — asesoramiento estratégico en cada fase."),
+                 ("Onderbouwd met data","Actuele markt- en transactiedata als fundament onder elke beslissing.",
+                  "Backed by data","Current market and transaction data as the foundation of every decision.",
+                  "Respaldado por datos","Datos actuales de mercado y transacciones como base de cada decisión."),
+                 ("Volledig ontzorgd","Asset management, beheer en administratie onder één dak.",
+                  "Fully taken care of","Asset management, property management and administration under one roof.",
+                  "Totalmente despreocupado","Asset management, gestión y administración bajo un mismo techo.")],
+ "ontwikkelaar":[("Van acquisitie tot oplevering","Begeleiding over de volledige ontwikkeling, met data en taxaties als kompas.",
+                  "From acquisition to delivery","Guidance across the entire development, with data and valuations as your compass.",
+                  "De la adquisición a la entrega","Acompañamiento en todo el desarrollo, con datos y tasaciones como brújula."),
+                 ("Haalbaarheid vooraf","We toetsen locatie, bestemming en markt voordat u zich vastlegt.",
+                  "Feasibility upfront","We assess location, zoning and market before you commit.",
+                  "Viabilidad por adelantado","Evaluamos ubicación, calificación y mercado antes de que te comprometas."),
+                 ("Marktinzicht als kompas","Research en advies die uw plan onderbouwen en versterken.",
+                  "Market insight as compass","Research and advice that substantiate and strengthen your plan.",
+                  "El análisis de mercado como brújula","Investigación y asesoramiento que fundamentan y refuerzan tu plan.")],
 }
+# tuples: (nl, en, es)
 DG_QUOTE = {
- "gebruiker":"De grootste fout bij het zoeken naar ruimte is alleen naar de huurprijs kijken. Wij kijken naar groei, flexibiliteit en uw totale huisvestingsstrategie.",
- "eigenaar":"Een succesvol verhuur- of verkooptraject draait om de juiste prijs én een actieve benadering van de markt. Daar sturen we op.",
- "investeerder":"Rendement begint bij de juiste data en een scherpe strategie — en wordt geborgd door goed beheer.",
- "ontwikkelaar":"Een goede ontwikkeling begint bij de juiste acquisitie en een onderbouwd plan. Wij denken vanaf dag één mee.",
+ "gebruiker":("De grootste fout bij het zoeken naar ruimte is alleen naar de huurprijs kijken. Wij kijken naar groei, flexibiliteit en uw totale huisvestingsstrategie.",
+   "The biggest mistake when looking for space is to look only at the rent. We look at growth, flexibility and your total accommodation strategy.",
+   "El mayor error al buscar espacio es fijarse solo en el alquiler. Nosotros miramos el crecimiento, la flexibilidad y tu estrategia de espacio en conjunto."),
+ "eigenaar":("Een succesvol verhuur- of verkooptraject draait om de juiste prijs én een actieve benadering van de markt. Daar sturen we op.",
+   "A successful lease or sale comes down to the right price and an active approach to the market. That's what we steer on.",
+   "Un alquiler o una venta con éxito dependen del precio adecuado y de un enfoque activo del mercado. En eso nos centramos."),
+ "investeerder":("Rendement begint bij de juiste data en een scherpe strategie — en wordt geborgd door goed beheer.",
+   "Returns start with the right data and a sharp strategy — and are secured by good management.",
+   "La rentabilidad empieza con los datos correctos y una estrategia afinada — y se asegura con una buena gestión."),
+ "ontwikkelaar":("Een goede ontwikkeling begint bij de juiste acquisitie en een onderbouwd plan. Wij denken vanaf dag één mee.",
+   "A good development starts with the right acquisition and a well-founded plan. We think along from day one.",
+   "Un buen desarrollo empieza con la adquisición adecuada y un plan bien fundamentado. Pensamos contigo desde el primer día."),
 }
 def render_doelgroep(key):
     d = DOELGROEPEN[key]
@@ -387,7 +663,7 @@ def render_doelgroep(key):
     for j,(slug,name,_dg,tag,exp,sec) in enumerate(units):
         img = PHOTOS[j % 3]
         cards += f'''<a class="kat-card" href="unit-{slug}.html"><img src="{img}" alt=""><span class="ktag">{d['name']}</span><span class="kbody"><h3>{name}</h3><p>{tag}</p></span><span class="karr"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">{I_ARR}</svg></span></a>'''
-    why_cards = "".join(f'<div class="value"><div class="ic">{ic(I_CHECK,"2.4")}</div><h3>{t}</h3><p>{x}</p></div>' for t,x in DG_WHY[key])
+    why_cards = "".join(f'<div class="value"><div class="ic">{ic(I_CHECK,"2.4")}</div><h3{trh(ent, est)}>{t}</h3><p{trh(enx, esx)}>{x}</p></div>' for t,x,ent,enx,est,esx in DG_WHY[key])
     onder = units_for("ondersteunend")
     onder_html = ""
     if key in ("investeerder","ontwikkelaar"):
@@ -402,10 +678,10 @@ def render_doelgroep(key):
     html += f'''
 <section class="page-hero">
   <div class="container">
-    <div class="crumbs"><a href="index.html">Home</a> / Diensten / {d['name']}</div>
-    <span class="eyebrow">Doelgroep {d['num']}</span>
-    <h1>{d['name']} — <em style="color:var(--green);font-style:italic;font-weight:500">{d['q'].lower()}</em></h1>
-    <p class="lead">{d['intro']}</p>
+    <div class="crumbs"><a href="index.html">Home</a> / <span{trh("Services","Servicios")}>Diensten</span> / <span{trh(d['name_en'], d['name_es'])}>{d['name']}</span></div>
+    <span class="eyebrow"{trh(f"Audience {d['num']}", f"Público {d['num']}")}>Doelgroep {d['num']}</span>
+    <h1{trh(f"{d['name_en']} — <em style=\"color:var(--green);font-style:italic;font-weight:500\">{d['q_en']}</em>", f"{d['name_es']} — <em style=\"color:var(--green);font-style:italic;font-weight:500\">{d['q_es']}</em>")}>{d['name']} — <em style="color:var(--green);font-style:italic;font-weight:500">{d['q'].lower()}</em></h1>
+    <p class="lead"{trh(d['intro_en'], d['intro_es'])}>{d['intro']}</p>
     <div class="ph-cta"><a href="#diensten" class="btn btn--primary">Bekijk diensten</a><a href="contact.html" class="btn btn--ghost">Plan een gesprek</a></div>
     <form class="search search--light search--single" onsubmit="return false">
       <label class="seg"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>
@@ -417,17 +693,17 @@ def render_doelgroep(key):
 
 <section class="section"><div class="container"><div class="two-col">
   <div class="prose">
-    <span class="eyebrow">Voor de {d['name'].lower()}</span>
-    <h2 class="disp">{d['q']}? <em>Wij helpen u verder</em></h2>
-    <p>{d['intro']}</p>
-    <p>Of het nu om één vraag gaat of om een complex traject: u krijgt één aanspreekpunt met het hele Spring-ecosysteem erachter — commercieel én residentieel, in Nederland en Spanje.</p>
-    <a href="#diensten" class="btn btn--primary" style="margin-top:6px">Bekijk de diensten</a>
+    <span class="eyebrow"{trh(f"For the {d['name_en'].lower()}", f"Para el {d['name_es'].lower()}")}>Voor de {d['name'].lower()}</span>
+    <h2 class="disp"{trh(f"{d['q_en']}? <em>We'll help you</em>", f"{d['q_es']}? <em>Te ayudamos</em>")}>{d['q']}? <em>Wij helpen u verder</em></h2>
+    <p{trh(d['intro_en'], d['intro_es'])}>{d['intro']}</p>
+    <p{trh("Whether it's a single question or a complex process: you get one point of contact with the whole Spring ecosystem behind it — commercial and residential, in the Netherlands and Spain.", "Ya sea una sola pregunta o un proceso complejo: tienes un único punto de contacto con todo el ecosistema de Spring detrás — comercial y residencial, en los Países Bajos y España.")}>Of het nu om één vraag gaat of om een complex traject: u krijgt één aanspreekpunt met het hele Spring-ecosysteem erachter — commercieel én residentieel, in Nederland en Spanje.</p>
+    <a href="#diensten" class="btn btn--primary" style="margin-top:6px"{trh("View the services","Ver los servicios")}>Bekijk de diensten</a>
   </div>
   <div class="media-tall"><img src="images/photo-1.jpg" alt="{d['name']}"></div>
 </div></div></section>
 
 <section class="section--tight section--soft"><div class="container">
-  <div class="sec-head"><div class="t"><span class="eyebrow">Waarom Spring</span><h2 class="disp">Waarom de {d['name'].lower()} voor <em>Spring</em> kiest</h2></div></div>
+  <div class="sec-head"><div class="t"><span class="eyebrow"{trh("Why Spring","Por qué Spring")}>Waarom Spring</span><h2 class="disp"{trh(f"Why the {d['name_en'].lower()} chooses <em>Spring</em>", f"Por qué el {d['name_es'].lower()} elige <em>Spring</em>")}>Waarom de {d['name'].lower()} voor <em>Spring</em> kiest</h2></div></div>
   <div class="values-grid">{why_cards}</div>
 </div></section>
 
@@ -441,7 +717,7 @@ def render_doelgroep(key):
 <section class="section dark-sec"><div class="container">
   <div class="center" style="max-width:62ch;margin:0 auto">
     <span class="eyebrow" style="color:var(--green-soft)">Onze visie</span>
-    <p class="disp disp--light" style="font-size:clamp(1.5rem,3vw,2.3rem);line-height:1.3"><em>"{DG_QUOTE[key]}"</em></p>
+    <p class="disp disp--light" style="font-size:clamp(1.5rem,3vw,2.3rem);line-height:1.3"{trh(f'<em>"{DG_QUOTE[key][1]}"</em>', f'<em>"{DG_QUOTE[key][2]}"</em>')}><em>"{DG_QUOTE[key][0]}"</em></p>
     <p class="muted" style="margin-top:16px">— Spring Real Estate</p>
   </div>
 </div></section>
@@ -449,12 +725,12 @@ def render_doelgroep(key):
 <section class="section--tight"><div class="container">
   <div class="sec-head"><div class="t"><span class="eyebrow">Sectoren</span><h2 class="disp">Expertise in <em>elke sector</em></h2><p class="lead">Van kantoren en logistiek tot retail, zorg en residentieel vastgoed.</p></div><a href="sectoren.html" class="btn btn--ghost">Alle sectoren</a></div>
   <div class="units-grid">
-    <a class="unit" href="sectoren.html"><span class="u-dot"></span>Kantoren</a>
-    <a class="unit" href="sectoren.html"><span class="u-dot"></span>Logistiek &amp; bedrijfsruimte</a>
-    <a class="unit" href="sectoren.html"><span class="u-dot"></span>Retail &amp; winkels</a>
-    <a class="unit" href="sectoren.html"><span class="u-dot"></span>Zorgvastgoed</a>
-    <a class="unit" href="sectoren.html"><span class="u-dot"></span>Residentieel</a>
-    <a class="unit" href="sectoren.html"><span class="u-dot"></span>Hospitality</a>
+    <a class="unit" href="sectoren.html"><span class="u-dot"></span>{tlabel("Kantoren")}</a>
+    <a class="unit" href="sectoren.html"><span class="u-dot"></span>{tlabel("Logistiek &amp; bedrijfsruimte")}</a>
+    <a class="unit" href="sectoren.html"><span class="u-dot"></span>{tlabel("Retail &amp; winkels")}</a>
+    <a class="unit" href="sectoren.html"><span class="u-dot"></span>{tlabel("Zorgvastgoed")}</a>
+    <a class="unit" href="sectoren.html"><span class="u-dot"></span>{tlabel("Residentieel")}</a>
+    <a class="unit" href="sectoren.html"><span class="u-dot"></span>{tlabel("Hospitality")}</a>
   </div>
 </div></section>
 
@@ -478,7 +754,7 @@ def render_unit(idx, u):
     dgname = GROUP_NAMES[pdg]
     dglink = f"doelgroep-{pdg}.html" if pdg!="ondersteunend" else "doelgroep-investeerder.html"
     ph = PHOTOS[idx % 3]; ph2 = PHOTOS[(idx+1) % 3]
-    sectors = "".join(f'<div class="sector">{ic(I_CHECK,"2.4")} {s}</div>' for s in sec)
+    sectors = "".join(f'<div class="sector">{ic(I_CHECK,"2.4")} {tlabel(s)}</div>' for s in sec)
     crumb_dg = "" if pdg=="ondersteunend" else f'<a href="{dglink}">{dgname}</a> / '
     title_low = name.lower()
 
@@ -636,7 +912,7 @@ def render_unit(idx, u):
 {approach_html}
 <section class="section" id="expertises">
   <div class="container">
-    <div class="sec-head"><div class="t"><span class="eyebrow">Diensten &amp; expertises</span><h2 class="disp">Wat wij doen binnen <em>{title_low}</em></h2></div></div>
+    <div class="sec-head"><div class="t"><span class="eyebrow">Diensten &amp; expertises</span><h2 class="disp"{trh(f"What we do in <em>{title_low}</em>", f"Qué hacemos en <em>{title_low}</em>")}>Wat wij doen binnen <em>{title_low}</em></h2></div></div>
     <div class="usp-grid">{exp_cards}</div>
   </div>
 </section>
@@ -702,7 +978,7 @@ def render_unit(idx, u):
 </div></section>
 
 <section class="section--soft" id="faq"><div class="container">
-  <div class="sec-head"><div class="t"><span class="eyebrow">Veelgestelde vragen</span><h2 class="disp">FAQ over <em>{title_low}</em></h2></div></div>
+  <div class="sec-head"><div class="t"><span class="eyebrow">Veelgestelde vragen</span><h2 class="disp"{trh(f"FAQ about <em>{title_low}</em>", f"Preguntas sobre <em>{title_low}</em>")}>FAQ over <em>{title_low}</em></h2></div></div>
   <div class="split">
     <div class="faq-list">{faq_html}</div>
     <div class="aside-card aside-dark">
@@ -721,7 +997,7 @@ def render_unit(idx, u):
     <span class="cert">{ic(I_CHECK,"2.4")} RICS</span><span class="cert">{ic(I_CHECK,"2.4")} BREEAM expertise</span>
   </div>
   <div class="blog-grid">
-    <a class="post" href="resources.html"><div class="ph"><img src="{ph}" alt=""></div><div class="body"><span class="cat">Kennisartikel</span><h3>Trends in {name.lower()} voor 2026</h3><span class="date">12 juni 2026 · 5 min</span></div></a>
+    <a class="post" href="resources.html"><div class="ph"><img src="{ph}" alt=""></div><div class="body"><span class="cat">Kennisartikel</span><h3{trh(f"Trends in {name.lower()} for 2026", f"Tendencias en {name.lower()} para 2026")}>Trends in {name.lower()} voor 2026</h3><span class="date">12 juni 2026 · 5 min</span></div></a>
     <a class="post" href="resources.html"><div class="ph"><img src="{ph2}" alt=""></div><div class="body"><span class="cat">Marktinzicht</span><h3>Zo bepaalt u de juiste strategie</h3><span class="date">3 juni 2026 · 6 min</span></div></a>
     <a class="post" href="resources.html"><div class="ph"><img src="{PHOTOS[(idx+2)%3]}" alt=""></div><div class="body"><span class="cat">Begrippen</span><h3>Belangrijke termen uitgelegd</h3><span class="date">28 mei 2026 · 4 min</span></div></a>
   </div>
@@ -735,7 +1011,7 @@ def render_unit(idx, u):
 </div></section>
 
 <section class="section--tight" id="contact"><div class="container"><div class="cta">
-  <h2>Vragen over {name.lower()}?</h2>
+  <h2{trh(f"Questions about {name.lower()}?", f"¿Preguntas sobre {name.lower()}?")}>Vragen over {name.lower()}?</h2>
   <p>Onze specialisten staan voor u klaar — bel, mail of plan een afspraak.</p>
   <div class="btns"><a href="contact.html" class="btn btn--light btn--lg">Neem contact op</a><a href="listings.html" class="btn btn--lg" style="background:rgba(255,255,255,.16);color:#fff;border-color:rgba(255,255,255,.4)">Bekijk aanbod</a></div>
 </div></div></section>
@@ -901,7 +1177,7 @@ def render_profile(p):
     <div class="media-tall"><img src="images/{photo}" alt="{name}"></div>
     <div class="prose">
       <span class="eyebrow">Professional experience</span>
-      <h2 class="disp">Over <em>{name.split(' ')[0]}</em></h2>
+      <h2 class="disp"{trh(f"About <em>{name.split(' ')[0]}</em>", f"Sobre <em>{name.split(' ')[0]}</em>")}>Over <em>{name.split(' ')[0]}</em></h2>
       <p>{name} is {role.split('·')[0].strip().lower()} bij Spring Real Estate in {loc.split('·')[0].strip()}, met {years} ervaring. {name.split(' ')[0]} is gespecialiseerd in {spec.lower()} en werkt datagedreven samen met klanten aan de beste oplossing.</p>
       <p>"De beste resultaten ontstaan waar marktkennis en persoonlijk contact samenkomen. Ik denk met u mee over de lange termijn — niet alleen over de transactie van vandaag."</p>
       <a href="contact.html" class="btn btn--primary" style="margin-top:6px">Plan een afspraak</a>
@@ -910,7 +1186,7 @@ def render_profile(p):
 </div></section>
 
 <section class="section--tight"><div class="container">
-  <div class="sec-head"><div class="t"><span class="eyebrow">Specialisme</span><h2 class="disp">Wie {name.split(' ')[0]} <em>bedient</em></h2></div></div>
+  <div class="sec-head"><div class="t"><span class="eyebrow">Specialisme</span><h2 class="disp"{trh(f"Who {name.split(' ')[0]} <em>serves</em>", f"A quién atiende <em>{name.split(' ')[0]}</em>")}>Wie {name.split(' ')[0]} <em>bedient</em></h2></div></div>
   <div class="sector-grid">{sect}</div>
 </div></section>
 
@@ -930,14 +1206,22 @@ def render_profile(p):
 # LOCATION PAGES (eigen pagina per kantoor)
 # ----------------------------------------------------------------------
 LOCATIES = {
- "utrecht":   {"name":"Utrecht","flag":"\U0001F1F3\U0001F1F1","tag":"Hoofdkantoor","addr":"Stadhouderskade 12 · 3531 BJ Utrecht","count":"8",
-   "intro":"Vanuit ons hoofdkantoor in Utrecht bedienen we heel Nederland. Centraal gelegen en uitstekend bereikbaar — de thuisbasis van onze taxatie-, asset management- en marketingteams."},
- "amsterdam": {"name":"Amsterdam","flag":"\U0001F1F3\U0001F1F1","tag":"Zuidas","addr":"Gustav Mahlerlaan 2999 · 1082 MK Amsterdam","count":"12",
-   "intro":"Op de Zuidas, in het zakelijke hart van Nederland, zit ons team voor kantoorhuisvesting, serviced offices en investments — dicht bij onze opdrachtgevers."},
- "valencia":  {"name":"Valencia","flag":"\U0001F1EA\U0001F1F8","tag":"España","addr":"Paseo de la Alameda 7 · 46023 Valencia","count":"7",
-   "intro":"Onze vaste basis in Spanje. Vanuit Valencia begeleiden we Nederlandse investeerders en gebruikers bij acquisities en huisvesting op de Spaanse markt."},
- "estepona":  {"name":"Estepona","flag":"\U0001F1EA\U0001F1F8","tag":"España · Costa del Sol","addr":"Avenida Litoral 12 · 29680 Estepona","count":"6",
-   "intro":"Aan de Costa del Sol begeleiden we vanuit Estepona investeringen en huisvesting in Zuid-Spanje — van residentieel tot commercieel vastgoed, met lokale kennis en een Nederlands aanspreekpunt."},
+ "utrecht":   {"name":"Utrecht","flag":"\U0001F1F3\U0001F1F1","tag":"Hoofdkantoor","tag_en":"Headquarters","tag_es":"Sede central","addr":"Stadhouderskade 12 · 3531 BJ Utrecht","count":"8",
+   "intro":"Vanuit ons hoofdkantoor in Utrecht bedienen we heel Nederland. Centraal gelegen en uitstekend bereikbaar — de thuisbasis van onze taxatie-, asset management- en marketingteams.",
+   "intro_en":"From our headquarters in Utrecht we serve the whole of the Netherlands. Centrally located and easily accessible — the home base of our valuation, asset management and marketing teams.",
+   "intro_es":"Desde nuestra sede central en Utrecht damos servicio a todos los Países Bajos. Céntrica y muy accesible — la base de nuestros equipos de tasación, asset management y marketing."},
+ "amsterdam": {"name":"Amsterdam","flag":"\U0001F1F3\U0001F1F1","tag":"Zuidas","tag_en":"Zuidas","tag_es":"Zuidas","addr":"Gustav Mahlerlaan 2999 · 1082 MK Amsterdam","count":"12",
+   "intro":"Op de Zuidas, in het zakelijke hart van Nederland, zit ons team voor kantoorhuisvesting, serviced offices en investments — dicht bij onze opdrachtgevers.",
+   "intro_en":"On the Zuidas, in the business heart of the Netherlands, sits our team for office space, serviced offices and investments — close to our clients.",
+   "intro_es":"En la Zuidas, el corazón empresarial de los Países Bajos, está nuestro equipo de oficinas, serviced offices e inversiones — cerca de nuestros clientes."},
+ "valencia":  {"name":"Valencia","flag":"\U0001F1EA\U0001F1F8","tag":"España","tag_en":"Spain","tag_es":"España","addr":"Paseo de la Alameda 7 · 46023 Valencia","count":"7",
+   "intro":"Onze vaste basis in Spanje. Vanuit Valencia begeleiden we Nederlandse investeerders en gebruikers bij acquisities en huisvesting op de Spaanse markt.",
+   "intro_en":"Our permanent base in Spain. From Valencia we guide Dutch investors and users with acquisitions and accommodation in the Spanish market.",
+   "intro_es":"Nuestra base permanente en España. Desde Valencia acompañamos a inversores y usuarios neerlandeses en adquisiciones y alojamiento en el mercado español."},
+ "estepona":  {"name":"Estepona","flag":"\U0001F1EA\U0001F1F8","tag":"España · Costa del Sol","tag_en":"Spain · Costa del Sol","tag_es":"España · Costa del Sol","addr":"Avenida Litoral 12 · 29680 Estepona","count":"6",
+   "intro":"Aan de Costa del Sol begeleiden we vanuit Estepona investeringen en huisvesting in Zuid-Spanje — van residentieel tot commercieel vastgoed, met lokale kennis en een Nederlands aanspreekpunt.",
+   "intro_en":"On the Costa del Sol, from Estepona, we guide investments and accommodation in southern Spain — from residential to commercial real estate, with local knowledge and a Dutch point of contact.",
+   "intro_es":"En la Costa del Sol, desde Estepona, acompañamos inversiones y alojamiento en el sur de España — de lo residencial a lo comercial, con conocimiento local y un punto de contacto neerlandés."},
 }
 def render_locatie(key):
     L = LOCATIES[key]
@@ -950,16 +1234,16 @@ def render_locatie(key):
 <section class="page-hero">
   <div class="container">
     <div class="crumbs"><a href="index.html">Home</a> / <a href="locaties.html">Locaties</a> / {L['name']}</div>
-    <span class="eyebrow">{L['flag']} {L['tag']}</span>
+    <span class="eyebrow">{L['flag']} <span{trh(L['tag_en'], L['tag_es'])}>{L['tag']}</span></span>
     <h1>Spring in <em style="color:var(--green);font-style:italic;font-weight:500">{L['name']}</em></h1>
     <p class="lead">{L['addr']}</p>
-    <div class="ph-cta"><a href="listings.html" class="btn btn--primary">Aanbod in {L['name']}</a><a href="contact.html" class="btn btn--ghost">Route &amp; contact</a></div>
+    <div class="ph-cta"><a href="listings.html" class="btn btn--primary"{trh(f"Listings in {L['name']}", f"Inmuebles en {L['name']}")}>Aanbod in {L['name']}</a><a href="contact.html" class="btn btn--ghost">Route &amp; contact</a></div>
   </div>
 </section>
 
 <section class="section"><div class="container"><div class="two-col">
-  <div class="prose"><span class="eyebrow">Over deze locatie</span><h2 class="disp">Lokaal sterk in <em>{L['name']}</em></h2><p>{L['intro']}</p>
-    <div class="stat-pop" style="display:flex;gap:34px;margin-top:18px"><div><b style="font-size:1.9rem;font-weight:800;display:block;color:var(--green)">{L['count']}</b><span class="muted">objecten beschikbaar</span></div><div><b style="font-size:1.9rem;font-weight:800;display:block;color:var(--green)">15+</b><span class="muted">jaar in de regio</span></div></div>
+  <div class="prose"><span class="eyebrow">Over deze locatie</span><h2 class="disp"{trh(f"Locally strong in <em>{L['name']}</em>", f"Fuertes a nivel local en <em>{L['name']}</em>")}>Lokaal sterk in <em>{L['name']}</em></h2><p{trh(L['intro_en'], L['intro_es'])}>{L['intro']}</p>
+    <div class="stat-pop" style="display:flex;gap:34px;margin-top:18px"><div><b style="font-size:1.9rem;font-weight:800;display:block;color:var(--green)">{L['count']}</b><span class="muted"{trh("properties available","inmuebles disponibles")}>objecten beschikbaar</span></div><div><b style="font-size:1.9rem;font-weight:800;display:block;color:var(--green)">15+</b><span class="muted"{trh("years in the region","años en la región")}>jaar in de regio</span></div></div>
   </div>
   <div class="loc-map" style="aspect-ratio:4/3;border-radius:var(--r-lg);overflow:hidden;position:relative;background:linear-gradient(135deg,#e9efe0,#dfe7d2);border:1px solid var(--line)">
     <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%"><rect width="400" height="300" fill="#e6ecdb"/><path d="M0 170 Q120 150 240 175 T400 160" stroke="#c7d3ad" stroke-width="2" fill="none"/><path d="M90 0 L110 300" stroke="#d3ddbf" stroke-width="2"/></svg>
@@ -968,7 +1252,7 @@ def render_locatie(key):
 </div></div></section>
 
 <section class="section--tight"><div class="container">
-  <div class="sec-head"><div class="t"><span class="eyebrow">Kantoorimpressie</span><h2 class="disp">Zo ziet ons kantoor in <em>{L['name']}</em> eruit</h2></div></div>
+  <div class="sec-head"><div class="t"><span class="eyebrow">Kantoorimpressie</span><h2 class="disp"{trh(f"Our office in <em>{L['name']}</em>", f"Nuestra oficina en <em>{L['name']}</em>")}>Zo ziet ons kantoor in <em>{L['name']}</em> eruit</h2></div></div>
   <div class="cards-grid">
     <div style="border-radius:var(--r);overflow:hidden;aspect-ratio:4/3"><img src="images/photo-1.jpg" alt="Kantoor {L['name']}" style="width:100%;height:100%;object-fit:cover"></div>
     <div style="border-radius:var(--r);overflow:hidden;aspect-ratio:4/3"><img src="images/photo-2.jpg" alt="Kantoor {L['name']}" style="width:100%;height:100%;object-fit:cover"></div>
@@ -977,12 +1261,12 @@ def render_locatie(key):
 </div></section>
 
 <section class="section dark-sec"><div class="container">
-  <div class="sec-head"><div class="t"><span class="eyebrow" style="color:var(--green-soft)">Het team in {L['name']}</span><h2 class="disp" style="color:#fff">Uw <em>aanspreekpunt</em></h2></div><a href="agents.html" class="btn btn--secondary">Heel het team</a></div>
+  <div class="sec-head"><div class="t"><span class="eyebrow" style="color:var(--green-soft)"{trh(f"The team in {L['name']}", f"El equipo en {L['name']}")}>Het team in {L['name']}</span><h2 class="disp" style="color:#fff">Uw <em>aanspreekpunt</em></h2></div><a href="agents.html" class="btn btn--secondary">Heel het team</a></div>
   <div class="team-grid">{team3}</div>
 </div></section>
 
 <section class="section--tight"><div class="container">
-  <div class="sec-head"><div class="t"><span class="eyebrow">Aanbod</span><h2 class="disp">Beschikbaar in <em>{L['name']}</em></h2></div><a href="listings.html" class="btn btn--ghost">Bekijk alles</a></div>
+  <div class="sec-head"><div class="t"><span class="eyebrow">Aanbod</span><h2 class="disp"{trh(f"Available in <em>{L['name']}</em>", f"Disponible en <em>{L['name']}</em>")}>Beschikbaar in <em>{L['name']}</em></h2></div><a href="listings.html" class="btn btn--ghost">Bekijk alles</a></div>
   <div class="cards-grid">
     <a class="prop-card" href="listing-detail.html"><div class="ph"><span class="tag">Te huur</span><img src="images/photo-1.jpg" alt=""></div><div class="body"><span class="ptype">Kantoorruimte</span><h3>{L['name']} · centraal</h3><span class="addr">{L['name']}</span><div class="meta"><span class="price">€595 <small>/m²/jaar</small></span></div></div></a>
     <a class="prop-card" href="listing-detail.html"><div class="ph"><span class="tag">Te koop</span><img src="images/photo-2.jpg" alt=""></div><div class="body"><span class="ptype">Beleggingsobject</span><h3>{L['name']} · zakendistrict</h3><span class="addr">{L['name']}</span><div class="meta"><span class="price">€3,8 mln <small>k.k.</small></span></div></div></a>
@@ -1112,7 +1396,7 @@ def render_agents():
 # ----------------------------------------------------------------------
 def write(name, html):
     with open(os.path.join(ROOT, name), "w", encoding="utf-8") as f:
-        f.write(html)
+        f.write(localize(html))
     return name
 
 def main():
