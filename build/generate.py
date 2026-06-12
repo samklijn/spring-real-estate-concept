@@ -386,7 +386,7 @@ PHOTOS = ["images/photo-1.jpg","images/photo-2.jpg","images/hero.jpg"]
 def render_unit(idx, u):
     slug,name,dg,tag,exp,sec = u
     dgname = GROUP_NAMES[dg]
-    dglink = f"doelgroep-{dg}.html" if dg!="ondersteunend" else "diensten-overzicht.html"
+    dglink = f"doelgroep-{dg}.html" if dg!="ondersteunend" else "doelgroep-investeerder.html"
     ph = PHOTOS[idx % 3]; ph2 = PHOTOS[(idx+1) % 3]
     sectors = "".join(f'<div class="sector">{ic(I_CHECK,"2.4")} {s}</div>' for s in sec)
     crumb_dg = "" if dg=="ondersteunend" else f'<a href="{dglink}">{dgname}</a> / '
@@ -460,6 +460,12 @@ def render_unit(idx, u):
         team_html = (f'<div class="agent"><div class="ph"><img src="{ph}" alt=""></div><div class="body"><div class="name">Daan van der Meer</div><div class="role">Senior Adviseur</div><div class="socials"><a href="#">in</a><a href="#">@</a></div></div></div>'
                      f'<div class="agent"><div class="ph"><img src="{ph2}" alt=""></div><div class="body"><div class="name">Sofia Mart&iacute;n</div><div class="role">Adviseur</div><div class="socials"><a href="#">in</a><a href="#">@</a></div></div></div>'
                      f'<div class="agent"><div class="ph"><img src="{PHOTOS[(idx+2)%3]}" alt=""></div><div class="body"><div class="name">Lars Bakker</div><div class="role">Specialist</div><div class="socials"><a href="#">in</a><a href="#">@</a></div></div></div>')
+    # gerelateerde diensten (cross-sell binnen dezelfde doelgroep)
+    sibs = [x for x in UNITS if x[2] == dg and x[0] != slug]
+    if len(sibs) < 3:
+        sibs = [x for x in UNITS if x[0] != slug]
+    related_html = "".join(f'<a class="unit" href="unit-{s[0]}.html"><span class="u-dot"></span>{s[1]}</a>' for s in sibs[:6])
+
     html = HEAD.format(title=f"{name} — Spring Real Estate",
                        desc=f"{name}: {tag} Spring Real Estate begeleidt {dgname.lower()}s in commercieel vastgoed.")
     html += TOPBAR + HEADER
@@ -568,6 +574,11 @@ def render_unit(idx, u):
   </div>
 </div></section>
 
+<section class="section--tight"><div class="container">
+  <div class="sec-head"><div class="t"><span class="eyebrow">Gerelateerde diensten</span><h2 class="disp">Ook <em>interessant</em></h2></div><a href="{dglink}" class="btn btn--ghost">Alle diensten</a></div>
+  <div class="units-grid">{related_html}</div>
+</div></section>
+
 <section class="section--tight" id="contact"><div class="container"><div class="cta">
   <h2>Vragen over {name.lower()}?</h2>
   <p>Onze specialisten staan voor u klaar — bel, mail of plan een afspraak.</p>
@@ -617,10 +628,20 @@ def render_vacatures():
 </div></section>
 
 <section class="section--tight"><div class="container">
+  <div class="sec-head"><div class="t"><span class="eyebrow">Werken bij Spring</span><h2 class="disp">Waarom je <em>bij ons</em> wilt werken</h2></div></div>
   <div class="values-grid">
     <div class="value"><div class="ic">{ic(I_CHECK,"2.4")}</div><h3>Powered by People</h3><p>Korte lijnen, echte verantwoordelijkheid en ruimte om te groeien.</p></div>
     <div class="value"><div class="ic">{ic(I_CHECK,"2.4")}</div><h3>Backed by Tech</h3><p>Werk met de beste data en tools in de markt.</p></div>
     <div class="value"><div class="ic">{ic(I_CHECK,"2.4")}</div><h3>Internationaal</h3><p>Kansen in Nederland &eacute;n Spanje.</p></div>
+  </div>
+</div></section>
+
+<section class="section dark-sec"><div class="container">
+  <div class="sec-head"><div class="t"><span class="eyebrow" style="color:var(--green-soft)">Hear from our leaders</span><h2 class="disp" style="color:#fff">De mensen achter <em>Spring</em></h2><p class="lead">Een mix van jong en ervaren talent — luister naar wat onze mensen drijft.</p></div></div>
+  <div class="rev-grid">
+    <div class="review" style="background:var(--dark-2);border-color:rgba(255,255,255,.1)"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p style="color:#e7e9e0">"Bij Spring krijg je vanaf dag één verantwoordelijkheid en de ruimte om te ondernemen."</p><div class="who"><span class="av">SM</span><span><b style="color:#fff">Sofia Mart&iacute;n</b><br><span style="color:#a9ab9f">Investment Advisor · Valencia</span></span></div></div>
+    <div class="review" style="background:var(--dark-2);border-color:rgba(255,255,255,.1)"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p style="color:#e7e9e0">"Data en mensenwerk komen hier echt samen. Dat maakt ons advies sterker."</p><div class="who"><span class="av">LB</span><span><b style="color:#fff">Lars Bakker</b><br><span style="color:#a9ab9f">Asset Manager · Utrecht</span></span></div></div>
+    <div class="review" style="background:var(--dark-2);border-color:rgba(255,255,255,.1)"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p style="color:#e7e9e0">"We groeien snel, maar houden de korte lijnen en de teamspirit."</p><div class="who"><span class="av">DM</span><span><b style="color:#fff">Daan van der Meer</b><br><span style="color:#a9ab9f">Senior Advisor · Amsterdam</span></span></div></div>
   </div>
 </div></section>
 

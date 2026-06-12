@@ -18,6 +18,33 @@ if (tabs) {
   });
 }
 
+// Count-up animation for stat numbers ("resultaten laten oplopen")
+(function () {
+  const sel = '.hero-stats b, .stats-band b, .sf-stat b, .stat-pop b';
+  const nodes = [...document.querySelectorAll(sel)].filter(el => /^\d[\d.]*(\+|%)?$/.test(el.textContent.trim()));
+  if (!nodes.length || !('IntersectionObserver' in window)) return;
+  function run(el) {
+    const txt = el.textContent.trim();
+    const m = txt.match(/^(\d[\d.]*)(\+|%)?$/);
+    const hadDot = m[1].includes('.');
+    const target = parseInt(m[1].replace(/\./g, ''), 10);
+    const suffix = m[2] || '';
+    const dur = 1100, t0 = performance.now();
+    function fmt(n) { return hadDot && n >= 1000 ? n.toLocaleString('nl-NL') : String(n); }
+    function step(now) {
+      const p = Math.min(1, (now - t0) / dur);
+      const e = 1 - Math.pow(1 - p, 3);
+      el.textContent = fmt(Math.round(target * e)) + suffix;
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  const obs = new IntersectionObserver((entries, o) => {
+    entries.forEach(en => { if (en.isIntersecting) { run(en.target); o.unobserve(en.target); } });
+  }, { threshold: 0.5 });
+  nodes.forEach(n => obs.observe(n));
+})();
+
 // Clickable team members -> modal with their info
 (function () {
   function buildModal() {
