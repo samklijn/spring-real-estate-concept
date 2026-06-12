@@ -655,6 +655,75 @@ def render_vacatures():
     return html
 
 # ----------------------------------------------------------------------
+# PERSON PROFILE PAGES (CBRE-style)
+# ----------------------------------------------------------------------
+# (slug, name, role, location, years, specialisme, photo, sectoren[])
+ROSTER = [
+ ("daan-van-der-meer","Daan van der Meer","Senior Real Estate Advisor","Amsterdam · Zuidas","15+ jaar",
+   "Kantoorhuisvesting en verhuur op de Zuidas","photo-2.jpg",["Scale-ups","Corporates","Tech"]),
+ ("sofia-martin","Sofia Mart&iacute;n","Investment Advisor","Valencia · Espa&ntilde;a","10+ jaar",
+   "Beleggingen en internationale acquisities in Spanje","photo-1.jpg",["NL-investeerders","Family offices","Ontwikkelaars"]),
+ ("lars-bakker","Lars Bakker","Asset Manager","Utrecht","12+ jaar",
+   "Asset management en waardecreatie van portefeuilles","hero.jpg",["Beleggers","Fondsen","Institutioneel"]),
+ ("emma-de-vries","Emma de Vries","Head of Marketing &amp; Communications","Utrecht","8+ jaar",
+   "Vastgoedmarketing, campagnes en communicatie","photo-1.jpg",["Eigenaren","Ontwikkelaars"]),
+ ("thomas-jansen","Thomas Jansen","Taxateur RT","Amsterdam","14+ jaar",
+   "Taxaties van beleggings- en grootzakelijk vastgoed","photo-2.jpg",["Banken","Beleggers","Accountants"]),
+ ("nina-aydin","Nina Aydin","Strategic Advisor","Amsterdam","9+ jaar",
+   "Strategisch advies en marktinzichten","hero.jpg",["Family offices","Fondsen","Corporates"]),
+]
+def render_profile(p):
+    slug,name,role,loc,years,spec,photo,sectors = p
+    mail = slug.replace("-",".") + "@springrealestate.com"
+    sect = "".join(f'<div class="sector">{ic(I_CHECK,"2.4")} {s}</div>' for s in sectors)
+    html = HEAD.format(title=f"{name} — Spring Real Estate", desc=f"{name}, {role} bij Spring Real Estate. {spec}.")
+    html += TOPBAR + HEADER
+    html += f'''
+<section class="page-hero">
+  <div class="container">
+    <div class="crumbs"><a href="index.html">Home</a> / <a href="agents.html">Agents</a> / {name}</div>
+    <span class="eyebrow">Ons team</span>
+    <h1>{name}</h1>
+    <p class="lead">{role} · {loc}</p>
+    <div class="ph-cta">
+      <a href="mailto:{mail}" class="btn btn--primary">E-mail {name.split(' ')[0]}</a>
+      <a href="tel:+31302001020" class="btn btn--ghost">+31 30 200 10 20</a>
+      <a href="#" class="btn btn--ghost">LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<section class="section"><div class="container">
+  <div class="two-col">
+    <div class="media-tall"><img src="images/{photo}" alt="{name}"></div>
+    <div class="prose">
+      <span class="eyebrow">Professional experience</span>
+      <h2 class="disp">Over <em>{name.split(' ')[0]}</em></h2>
+      <p>{name} is {role.split('·')[0].strip().lower()} bij Spring Real Estate in {loc.split('·')[0].strip()}, met {years} ervaring. {name.split(' ')[0]} is gespecialiseerd in {spec.lower()} en werkt datagedreven samen met klanten aan de beste oplossing.</p>
+      <p>"De beste resultaten ontstaan waar marktkennis en persoonlijk contact samenkomen. Ik denk met u mee over de lange termijn — niet alleen over de transactie van vandaag."</p>
+      <a href="contact.html" class="btn btn--primary" style="margin-top:6px">Plan een afspraak</a>
+    </div>
+  </div>
+</div></section>
+
+<section class="section--tight"><div class="container">
+  <div class="sec-head"><div class="t"><span class="eyebrow">Specialisme</span><h2 class="disp">Wie {name.split(' ')[0]} <em>bedient</em></h2></div></div>
+  <div class="sector-grid">{sect}</div>
+</div></section>
+
+<section class="section--tight"><div class="container">
+  <div class="sec-head"><div class="t"><span class="eyebrow">Recent werk</span><h2 class="disp">Gerelateerd <em>aanbod</em></h2></div><a href="listings.html" class="btn btn--ghost">Heel het aanbod</a></div>
+  <div class="cards-grid">
+    <a class="prop-card" href="listing-detail.html"><div class="ph"><span class="tag">Te huur</span><img src="images/photo-1.jpg" alt=""></div><div class="body"><span class="ptype">Kantoorruimte</span><h3>Gustav Mahlerlaan 2999</h3><span class="addr">Amsterdam · Zuidas</span><div class="meta"><span class="price">€720 <small>/m²/jaar</small></span></div></div></a>
+    <a class="prop-card" href="listing-detail.html"><div class="ph"><span class="tag">Te koop</span><img src="images/photo-2.jpg" alt=""></div><div class="body"><span class="ptype">Beleggingsobject</span><h3>Stadhouderskade 12</h3><span class="addr">Utrecht · Centrum</span><div class="meta"><span class="price">€4,9 mln <small>k.k.</small></span></div></div></a>
+    <a class="prop-card" href="listing-detail.html"><div class="ph"><span class="tag">Te huur</span><img src="images/hero.jpg" alt=""></div><div class="body"><span class="ptype">Serviced office</span><h3>Paseo de la Alameda 7</h3><span class="addr">Valencia · España</span><div class="meta"><span class="price">€1.450 <small>/maand</small></span></div></div></a>
+  </div>
+</div></section>
+'''
+    html += FOOTER
+    return html
+
+# ----------------------------------------------------------------------
 # WRITE
 # ----------------------------------------------------------------------
 def write(name, html):
@@ -669,6 +738,8 @@ def main():
     for i,u in enumerate(UNITS):
         written.append(write(f"unit-{u[0]}.html", render_unit(i,u)))
     written.append(write("vacatures.html", render_vacatures()))
+    for p in ROSTER:
+        written.append(write(f"profile-{p[0]}.html", render_profile(p)))
     print(f"Generated {len(written)} pages:")
     for w in written: print("  "+w)
 

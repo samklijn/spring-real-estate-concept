@@ -85,6 +85,13 @@ if (tabs) {
       '<a href="mailto:' + mail + '">' + ICON.mail + ' ' + mail + '</a>' +
       '<a href="tel:+31302001020">' + ICON.phone + ' +31 30 200 10 20</a>' +
       '<a href="#">' + ICON.linkedin + ' LinkedIn-profiel</a>';
+    // link to a full profile page when one exists for this person
+    const ROSTER = ['daan-van-der-meer', 'sofia-martin', 'lars-bakker', 'emma-de-vries', 'thomas-jansen', 'nina-aydin'];
+    const slug = name.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    const prof = card.getAttribute('data-profile') || (ROSTER.indexOf(slug) >= 0 ? 'profile-' + slug + '.html' : '');
+    let pl = modal.querySelector('.pm-profile-link');
+    if (!pl) { pl = document.createElement('a'); pl.className = 'btn btn--primary pm-profile-link'; pl.style.marginTop = '18px'; pl.textContent = 'Bekijk volledig profiel'; modal.querySelector('.pm-body').appendChild(pl); }
+    if (prof) { pl.href = prof; pl.style.display = 'inline-flex'; } else { pl.style.display = 'none'; }
     modal.classList.add('open');
   });
 })();
