@@ -436,6 +436,7 @@ def render_doelgroep(key):
 # BUSINESS UNIT PAGE
 # ----------------------------------------------------------------------
 PHOTOS = ["images/photo-1.jpg","images/photo-2.jpg","images/hero.jpg"]
+PORTRAITS = ["images/person-1.jpg","images/person-2.jpg","images/photo-2.jpg","images/person-1.jpg"]
 
 def render_unit(idx, u):
     slug,name,dg,tag,exp,sec = u
@@ -509,7 +510,8 @@ def render_unit(idx, u):
             nm = parts[0] if parts else "Adviseur"
             role = parts[1] if len(parts) > 1 else "Spring Real Estate"
             mail = parts[2] if len(parts) > 2 else "#"
-            tc.append(f'<div class="agent"><div class="ph"><img src="{PHOTOS[i%3]}" alt=""></div><div class="body"><div class="name">{he(nm)}</div><div class="role">{he(role)}</div><div class="socials"><a href="#" aria-label="LinkedIn">in</a><a href="mailto:{mail}" aria-label="E-mail">@</a></div></div></div>')
+            por = PORTRAITS[i % len(PORTRAITS)]
+            tc.append(f'<div class="agent"><div class="ph"><img src="{por}" alt="{he(nm)}"></div><div class="body"><div class="name">{he(nm)}</div><div class="role">{he(role)}</div><div class="socials"><a href="#" aria-label="LinkedIn">in</a><a href="mailto:{mail}" aria-label="E-mail">@</a></div></div></div>')
         team_html = "".join(tc)
     else:
         team_html = (f'<div class="agent"><div class="ph"><img src="{ph}" alt=""></div><div class="body"><div class="name">Daan van der Meer</div><div class="role">Senior Adviseur</div><div class="socials"><a href="#">in</a><a href="#">@</a></div></div></div>'
@@ -561,8 +563,8 @@ def render_unit(idx, u):
           '<a href="locatie-estepona.html" class="btn btn--secondary" style="margin-top:6px">Bekijk kantoor Estepona</a>'
           '</div>'
           '<div class="team-grid" style="grid-template-columns:1fr 1fr">'
-          + _agent("Sofia Mart&iacute;n", "Investment Advisor · Valencia", "photo-1.jpg")
-          + _agent("Carlos Ferrer", "Asset Manager · Estepona", "photo-2.jpg")
+          + _agent("Sofia Mart&iacute;n", "Investment Advisor · Valencia", "person-1.jpg")
+          + _agent("Carlos Ferrer", "Asset Manager · Estepona", "person-2.jpg")
           + '</div>'
           '</div></div></section>')
 
