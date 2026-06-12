@@ -24,8 +24,9 @@ for name in EXISTING:
     html = open(p, encoding="utf-8").read()
     # 1) swap header
     html = re.sub(r'<header class="header">.*?</header>', lambda m: HEADER, html, count=1, flags=re.S)
-    # 2) swap footer element
-    html = re.sub(r'<footer class="footer">.*?</footer>', lambda m: FOOTER_BLOCK, html, count=1, flags=re.S)
+    # 2) swap footer element (and consume any existing talk-band so re-runs stay idempotent)
+    html = re.sub(r'(?:<section class="section talk-band">.*?</section>\s*)?<footer class="footer">.*?</footer>',
+                  lambda m: FOOTER_BLOCK, html, count=1, flags=re.S)
     # 3) body links to old diensten anchors -> doelgroep pages
     for old, new in DG_LINKS.items():
         html = html.replace(old, new)

@@ -15,7 +15,8 @@ window.SPRING_I18N = {
     "foot.doelgroepen":"Audiences","foot.navigatie":"Navigation","foot.locaties":"Locations",
     "foot.nieuwsbrief":"Newsletter","foot.nieuwsbrief.p":"Market insights & new listings in your inbox.",
     "foot.inschrijven":"Subscribe","foot.email":"Your email address","foot.tagline":"Powered by People. Backed by Tech. Your partner in commercial real estate in the Netherlands & Spain.",
-    "foot.rights":"© 2026 Spring Real Estate. All rights reserved."
+    "foot.rights":"© 2026 Spring Real Estate. All rights reserved.",
+    "talk.eyebrow":"Personal contact","talk.p":"Prefer to talk directly? Our specialists are happy to help — no obligation, in your language.","talk.plan":"Book a consultation"
   },
   es: {
     "nav.diensten":"Servicios","nav.listings":"Inmuebles","nav.about":"Sobre nosotros","nav.agents":"Equipo",
@@ -29,7 +30,8 @@ window.SPRING_I18N = {
     "foot.doelgroepen":"Públicos","foot.navigatie":"Navegación","foot.locaties":"Ubicaciones",
     "foot.nieuwsbrief":"Boletín","foot.nieuwsbrief.p":"Análisis de mercado y nuevos inmuebles en tu correo.",
     "foot.inschrijven":"Suscribirse","foot.email":"Tu correo electrónico","foot.tagline":"Powered by People. Backed by Tech. Tu socio en inmuebles comerciales en los Países Bajos y España.",
-    "foot.rights":"© 2026 Spring Real Estate. Todos los derechos reservados."
+    "foot.rights":"© 2026 Spring Real Estate. Todos los derechos reservados.",
+    "talk.eyebrow":"Contacto personal","talk.p":"¿Prefieres hablar directamente? Nuestros especialistas te ayudan con gusto, sin compromiso y en tu idioma.","talk.plan":"Reserva una consulta"
   }
 };
 
@@ -44,6 +46,13 @@ window.SPRING_I18N = {
     document.querySelectorAll('[data-i18n-ph]').forEach(el=>{
       if(el.dataset.nlPh === undefined) el.dataset.nlPh = el.getAttribute('placeholder')||'';
       el.setAttribute('placeholder',(lang!=='nl' && dict[lang] && dict[lang][el.dataset.i18nPh]) || el.dataset.nlPh);
+    });
+    // element-level body translations (data-tr + data-en / data-es, innerHTML)
+    document.querySelectorAll('[data-tr]').forEach(el=>{
+      if(el.dataset.nlHtml === undefined) el.dataset.nlHtml = el.innerHTML;
+      el.innerHTML = (lang==='en' && el.dataset.en) ? el.dataset.en
+                   : (lang==='es' && el.dataset.es) ? el.dataset.es
+                   : el.dataset.nlHtml;
     });
     document.querySelectorAll('.lang button, .mm-lang button').forEach(b=>{
       b.classList.toggle('active', b.dataset.lang===lang);

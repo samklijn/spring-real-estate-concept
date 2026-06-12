@@ -6,8 +6,38 @@ Run:  python build/generate.py
 Shared chrome (header/footer/mobile menu) is defined once here so every
 page stays consistent and multilingual (NL/EN/ES via js/i18n.js).
 """
-import os
+import os, json, re
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+def he(s):  # escape text for HTML
+    return (s or "").replace("&","&amp;").replace("<","&lt;").replace(">","&gt;")
+def esc(s):  # escape for attribute value
+    return he(s).replace('"',"&quot;")
+def trh(en, es):  # data-tr attributes for the i18n layer (body translations)
+    a = ""
+    if en or es:
+        a = ' data-tr="1"'
+        if en: a += f' data-en="{esc(en)}"'
+        if es: a += f' data-es="{esc(es)}"'
+    return a
+
+# real per-unit website texts (NL/EN/ES) parsed from the aanleverdocument
+_MAP = {1:"verhuur-commercieel",2:"aanhuur-kantoorruimte",3:"aanverkoop-belegging",4:"serviced-offices",
+        5:"taxaties",7:"herbouwwaarde-verzekering",8:"vastgoeddata-marktinzichten",9:"asset-management",
+        10:"commercieel-vastgoedbeheer",12:"design-build",13:"vastgoedadministratie",14:"financiele-administratie",
+        15:"hr-recruitment",17:"vastgoedmarketing",18:"strategic-advisory",19:"internationaal-espana"}
+CONTENT = {}
+try:
+    _raw = json.load(open(os.path.join(ROOT,"build","units_content.json"), encoding="utf-8"))
+    for numstr, data in _raw.items():
+        slug = _MAP.get(int(numstr))
+        if not slug: continue
+        CONTENT[slug] = {"nl":data["langs"].get("nl"), "en":data["langs"].get("en"),
+                         "es":data["langs"].get("es"), "people":data.get("people")}
+    if "aanverkoop-belegging" in CONTENT:
+        CONTENT.setdefault("aankoop-beleggingsvastgoed", CONTENT["aanverkoop-belegging"])
+except Exception as e:
+    print("WARN: no units_content.json (", e, ")")
 
 # ----------------------------------------------------------------------
 # DATA MODEL
@@ -151,7 +181,24 @@ HEADER = """<header class="header"><div class="container">
 </div></header>
 """
 
-FOOTER = """<footer class="footer"><div class="container">
+TALK_BLOCK = """
+<section class="section talk-band"><div class="container">
+  <div class="talk-card">
+    <div class="talk-photo"><img src="images/photo-2.jpg" alt="Spring adviseur"></div>
+    <div class="talk-body">
+      <span class="eyebrow" data-i18n="talk.eyebrow">Persoonlijk contact</span>
+      <h2 class="disp" data-tr="1" data-en="Talk to an &lt;em&gt;agent&lt;/em&gt;" data-es="Habla con un &lt;em&gt;asesor&lt;/em&gt;">Praat met een <em>adviseur</em></h2>
+      <p class="lead" data-i18n="talk.p">Liever direct sparren? Onze specialisten helpen u graag verder &mdash; vrijblijvend en in uw taal.</p>
+      <div class="talk-actions">
+        <a href="tel:+31302001020" class="btn btn--primary"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg> +31 30 200 10 20</a>
+        <a href="contact.html" class="btn btn--ghost" data-i18n="talk.plan">Plan een gesprek</a>
+      </div>
+    </div>
+  </div>
+</div></section>
+"""
+
+FOOTER = TALK_BLOCK + """<footer class="footer"><div class="container">
   <div class="top">
     <div>
       <div class="logo logo--light"><span class="logo-main">Spr<span class="dot"></span>ing</span><span class="logo-sub">real estate</span></div>
@@ -276,9 +323,78 @@ def render_unit(idx, u):
     dgname = GROUP_NAMES[dg]
     dglink = f"doelgroep-{dg}.html" if dg!="ondersteunend" else "diensten-overzicht.html"
     ph = PHOTOS[idx % 3]; ph2 = PHOTOS[(idx+1) % 3]
-    exp_cards = "".join(f'''<div class="svc"><div class="svc-ic">{ic(I_BLD)}</div><h3>{e}</h3><p>Concrete begeleiding en uitvoering binnen {name.lower()}.</p></div>''' for e in exp)
     sectors = "".join(f'<div class="sector">{ic(I_CHECK,"2.4")} {s}</div>' for s in sec)
     crumb_dg = "" if dg=="ondersteunend" else f'<a href="{dglink}">{dgname}</a> / '
+    title_low = name.lower()
+
+    c = CONTENT.get(slug)
+    nl = c["nl"] if c else None
+    en = (c.get("en") if c else None) or {}
+    es = (c.get("es") if c else None) or {}
+
+    # hero (real H1 + tagline when available)
+    if nl and nl.get("h1"):
+        hero_h1 = f'<h1{trh(en.get("h1"), es.get("h1"))}>{he(nl["h1"])}</h1>'
+        hero_tag = f'<p class="lead"{trh(en.get("tagline"), es.get("tagline"))}>{he(nl.get("tagline") or tag)}</p>'
+    else:
+        hero_h1 = f'<h1>{he(name)}</h1>'; hero_tag = f'<p class="lead">{he(tag)}</p>'
+
+    # expertises (real USP list as check-cards, else generic)
+    if nl and nl.get("usps"):
+        enu = en.get("usps") or []; esu = es.get("usps") or []
+        exp_cards = "".join(
+            f'<div class="svc"><div class="svc-ic">{ic(I_CHECK,"2.4")}</div><p{trh(enu[i] if i<len(enu) else "", esu[i] if i<len(esu) else "")}>{he(x)}</p></div>'
+            for i,x in enumerate(nl["usps"]))
+    else:
+        exp_cards = "".join(f'<div class="svc"><div class="svc-ic">{ic(I_BLD)}</div><h3>{e}</h3><p>Concrete begeleiding en uitvoering binnen {title_low}.</p></div>' for e in exp)
+
+    # approach section (intro + paragraphs)
+    approach_html = ""
+    if nl and (nl.get("intro") or nl.get("approach")):
+        rows = []
+        if nl.get("intro"): rows.append((nl["intro"], en.get("intro"), es.get("intro")))
+        ap = nl.get("approach") or []; ena = en.get("approach") or []; esa = es.get("approach") or []
+        for i,p in enumerate(ap):
+            rows.append((p, ena[i] if i<len(ena) else "", esa[i] if i<len(esa) else ""))
+        body = "".join(f'<p{trh(e2,s2)}>{he(p)}</p>' for p,e2,s2 in rows)
+        approach_html = f'''
+<section class="section--tight"><div class="container">
+  <div class="prose" style="max-width:780px">
+    <span class="eyebrow">Onze aanpak</span>
+    <h2 class="disp">Zo pakken we het <em>aan</em></h2>
+    {body}
+  </div>
+</div></section>'''
+
+    # FAQ (real, else generic)
+    if nl and nl.get("faq"):
+        enf = en.get("faq") or []; esf = es.get("faq") or []
+        fi = []
+        for i,qa in enumerate(nl["faq"]):
+            ef = enf[i] if i<len(enf) else {}; sf = esf[i] if i<len(esf) else {}
+            op = " open" if i==0 else ""
+            fi.append(f'<details class="faq-item"{op}><summary><span{trh(ef.get("q"),sf.get("q"))}>{he(qa["q"])}</span><span class="pl">+</span></summary><div class="ans"{trh(ef.get("a"),sf.get("a"))}>{he(qa["a"])}</div></details>')
+        faq_html = "".join(fi)
+    else:
+        faq_html = (f'<details class="faq-item" open><summary>Wat kost {title_low} bij Spring?<span class="pl">+</span></summary><div class="ans">De kosten hangen af van uw situatie en doelstelling. Na een kennismaking ontvangt u een transparant voorstel op maat.</div></details>'
+                    f'<details class="faq-item"><summary>Hoe snel kunnen jullie starten?<span class="pl">+</span></summary><div class="ans">Doorgaans plannen we binnen enkele werkdagen een kennismaking en starten we direct na akkoord.</div></details>'
+                    f'<details class="faq-item"><summary>In welke regio&#39;s zijn jullie actief?<span class="pl">+</span></summary><div class="ans">We werken vanuit Utrecht, Amsterdam en Valencia en zijn actief in heel Nederland en Spanje.</div></details>')
+
+    # team from real involved people, else generic
+    ppl = (c.get("people") if c else None) or []
+    if ppl:
+        tc = []
+        for i,pp in enumerate(ppl[:4]):
+            parts = [x.strip() for x in re.split(r'—|·', pp) if x.strip()]
+            nm = parts[0] if parts else "Adviseur"
+            role = parts[1] if len(parts) > 1 else "Spring Real Estate"
+            mail = parts[2] if len(parts) > 2 else "#"
+            tc.append(f'<div class="agent"><div class="ph"><img src="{PHOTOS[i%3]}" alt=""></div><div class="body"><div class="name">{he(nm)}</div><div class="role">{he(role)}</div><div class="socials"><a href="#" aria-label="LinkedIn">in</a><a href="mailto:{mail}" aria-label="E-mail">@</a></div></div></div>')
+        team_html = "".join(tc)
+    else:
+        team_html = (f'<div class="agent"><div class="ph"><img src="{ph}" alt=""></div><div class="body"><div class="name">Daan van der Meer</div><div class="role">Senior Adviseur</div><div class="socials"><a href="#">in</a><a href="#">@</a></div></div></div>'
+                     f'<div class="agent"><div class="ph"><img src="{ph2}" alt=""></div><div class="body"><div class="name">Sofia Mart&iacute;n</div><div class="role">Adviseur</div><div class="socials"><a href="#">in</a><a href="#">@</a></div></div></div>'
+                     f'<div class="agent"><div class="ph"><img src="{PHOTOS[(idx+2)%3]}" alt=""></div><div class="body"><div class="name">Lars Bakker</div><div class="role">Specialist</div><div class="socials"><a href="#">in</a><a href="#">@</a></div></div></div>')
     html = HEAD.format(title=f"{name} — Spring Real Estate",
                        desc=f"{name}: {tag} Spring Real Estate begeleidt {dgname.lower()}s in commercieel vastgoed.")
     html += TOPBAR + HEADER
@@ -287,8 +403,8 @@ def render_unit(idx, u):
   <div class="container">
     <div class="crumbs"><a href="index.html">Home</a> / {crumb_dg}{name}</div>
     <span class="eyebrow">Business unit</span>
-    <h1>{name}</h1>
-    <p class="lead">{tag}</p>
+    {hero_h1}
+    {hero_tag}
     <div class="ph-cta"><a href="#contact" class="btn btn--primary">Neem contact op</a><a href="#cases" class="btn btn--ghost">Bekijk cases</a></div>
   </div>
 </section>
@@ -302,10 +418,11 @@ def render_unit(idx, u):
 
 <section class="section" id="expertises">
   <div class="container">
-    <div class="sec-head"><div class="t"><span class="eyebrow">Diensten &amp; expertises</span><h2>Wat wij doen binnen <em>{name.lower()}</em></h2></div></div>
+    <div class="sec-head"><div class="t"><span class="eyebrow">Diensten &amp; expertises</span><h2 class="disp">Wat wij doen binnen <em>{title_low}</em></h2></div></div>
     <div class="usp-grid">{exp_cards}</div>
   </div>
 </section>
+{approach_html}
 
 <section class="section--tight"><div class="container">
   <div class="sec-head"><div class="t"><span class="eyebrow">Sectoren &amp; branches</span><h2>Voor wie we <em>werken</em></h2></div></div>
@@ -341,12 +458,7 @@ def render_unit(idx, u):
 
 <section class="section dark-sec" id="team"><div class="container">
   <div class="sec-head"><div class="t"><span class="eyebrow" style="color:var(--green-soft)">Het team</span><h2 style="color:#fff">Uw <em>experts</em></h2></div><a href="agents.html" class="btn btn--secondary">Heel het team</a></div>
-  <div class="team-grid">
-    <div class="agent"><div class="ph"><img src="{ph}" alt=""></div><div class="body"><div class="name">Daan van der Meer</div><div class="role">Senior Adviseur</div><div class="socials"><a href="#">in</a><a href="#">@</a></div></div></div>
-    <div class="agent"><div class="ph"><img src="{ph2}" alt=""></div><div class="body"><div class="name">Sofia Mart&iacute;n</div><div class="role">Adviseur</div><div class="socials"><a href="#">in</a><a href="#">@</a></div></div></div>
-    <div class="agent"><div class="ph"><img src="{PHOTOS[(idx+2)%3]}" alt=""></div><div class="body"><div class="name">Lars Bakker</div><div class="role">Specialist</div><div class="socials"><a href="#">in</a><a href="#">@</a></div></div></div>
-    <div class="agent"><div class="ph"><img src="{ph}" alt=""></div><div class="body"><div class="name">Emma de Vries</div><div class="role">Consultant</div><div class="socials"><a href="#">in</a><a href="#">@</a></div></div></div>
-  </div>
+  <div class="team-grid">{team_html}</div>
 </div></section>
 
 <section class="section" id="reviews"><div class="container">
@@ -367,11 +479,7 @@ def render_unit(idx, u):
 
 <section class="section" id="faq"><div class="container">
   <div class="sec-head"><div class="t"><span class="eyebrow">Veelgestelde vragen</span><h2>FAQ over <em>{name.lower()}</em></h2></div></div>
-  <div class="faq-list">
-    <details class="faq-item" open><summary>Wat kost {name.lower()} bij Spring?<span class="pl">+</span></summary><div class="ans">De kosten hangen af van uw situatie en doelstelling. Na een kennismaking ontvangt u een transparant voorstel op maat.</div></details>
-    <details class="faq-item"><summary>Hoe snel kunnen jullie starten?<span class="pl">+</span></summary><div class="ans">Doorgaans plannen we binnen enkele werkdagen een kennismaking en starten we direct na akkoord.</div></details>
-    <details class="faq-item"><summary>In welke regio's zijn jullie actief?<span class="pl">+</span></summary><div class="ans">We werken vanuit Utrecht, Amsterdam en Valencia en zijn actief in heel Nederland en Spanje.</div></details>
-  </div>
+  <div class="faq-list">{faq_html}</div>
 </div></section>
 
 <section class="section--tight" id="kennis"><div class="container">
