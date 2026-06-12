@@ -1,0 +1,10 @@
+# Bronmateriaal / huisstijl-PDF's en brandbook (groot / vertrouwelijk)
+_assets/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.log
+
+# Niet de projectserver-config van de gebruiker meenemen
+.claude/
