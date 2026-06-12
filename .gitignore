@@ -8,3 +8,7 @@ Thumbs.db
 
 # Niet de projectserver-config van de gebruiker meenemen
 .claude/
+
+# Python cache
+__pycache__/
+*.pyc
