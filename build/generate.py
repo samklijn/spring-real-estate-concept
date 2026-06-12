@@ -285,14 +285,16 @@ FOOTER = TALK_BLOCK + """<footer class="footer"><div class="container">
       <li><a href="listings.html" data-i18n="nav.listings">Listings / Aanbod</a></li>
       <li><a href="about.html" data-i18n="nav.about">About Us</a></li>
       <li><a href="agents.html" data-i18n="nav.agents">Agents / Team</a></li>
+      <li><a href="sectoren.html">Sectoren</a></li>
+      <li><a href="cases.html">Klantverhalen</a></li>
       <li><a href="resources.html" data-i18n="nav.resources">Resources &amp; Blog</a></li>
       <li><a href="vacatures.html" data-i18n="nav.vacatures">Vacatures</a></li>
       <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
     </ul></div>
     <div><h4 data-i18n="foot.locaties">Locaties</h4><ul>
-      <li><a href="locaties.html#utrecht">Utrecht</a></li>
-      <li><a href="locaties.html#amsterdam">Amsterdam</a></li>
-      <li><a href="locaties.html#valencia">Valencia (ES)</a></li>
+      <li><a href="locatie-utrecht.html">Utrecht</a></li>
+      <li><a href="locatie-amsterdam.html">Amsterdam</a></li>
+      <li><a href="locatie-valencia.html">Valencia (ES)</a></li>
     </ul></div>
     <div class="news"><h4 data-i18n="foot.nieuwsbrief">Nieuwsbrief</h4><p style="font-size:.9rem" data-i18n="foot.nieuwsbrief.p">Marktinzichten &amp; nieuw aanbod in uw inbox.</p><form onsubmit="return false"><input type="email" placeholder="Uw e-mailadres" data-i18n-ph="foot.email"><button class="btn btn--primary" style="width:100%" data-i18n="foot.inschrijven">Inschrijven</button></form></div>
   </div>
@@ -724,6 +726,126 @@ def render_profile(p):
     return html
 
 # ----------------------------------------------------------------------
+# LOCATION PAGES (eigen pagina per kantoor)
+# ----------------------------------------------------------------------
+LOCATIES = {
+ "utrecht":   {"name":"Utrecht","flag":"\U0001F1F3\U0001F1F1","tag":"Hoofdkantoor","addr":"Stadhouderskade 12 · 3531 BJ Utrecht","count":"8",
+   "intro":"Vanuit ons hoofdkantoor in Utrecht bedienen we heel Nederland. Centraal gelegen en uitstekend bereikbaar — de thuisbasis van onze taxatie-, asset management- en marketingteams."},
+ "amsterdam": {"name":"Amsterdam","flag":"\U0001F1F3\U0001F1F1","tag":"Zuidas","addr":"Gustav Mahlerlaan 2999 · 1082 MK Amsterdam","count":"12",
+   "intro":"Op de Zuidas, in het zakelijke hart van Nederland, zit ons team voor kantoorhuisvesting, serviced offices en investments — dicht bij onze opdrachtgevers."},
+ "valencia":  {"name":"Valencia","flag":"\U0001F1EA\U0001F1F8","tag":"España","addr":"Paseo de la Alameda 7 · 46023 Valencia","count":"7",
+   "intro":"Onze vaste basis in Spanje. Vanuit Valencia begeleiden we Nederlandse investeerders en gebruikers bij acquisities en huisvesting op de Spaanse markt."},
+}
+def render_locatie(key):
+    L = LOCATIES[key]
+    team3 = "".join(
+        f'<div class="agent"><div class="ph"><img src="images/{p[6]}" alt=""></div><div class="body"><div class="name">{p[1]}</div><div class="role">{p[2]}</div><div class="socials"><a href="profile-{p[0]}.html">in</a><a href="#">@</a></div></div></div>'
+        for p in ROSTER[:3])
+    html = HEAD.format(title=f"{L['name']} — Spring Real Estate", desc=f"Spring Real Estate {L['name']}: {L['addr']}. Aanbod, team en contact in {L['name']}.")
+    html += TOPBAR + HEADER
+    html += f'''
+<section class="page-hero">
+  <div class="container">
+    <div class="crumbs"><a href="index.html">Home</a> / <a href="locaties.html">Locaties</a> / {L['name']}</div>
+    <span class="eyebrow">{L['flag']} {L['tag']}</span>
+    <h1>Spring in <em style="color:var(--green);font-style:italic;font-weight:500">{L['name']}</em></h1>
+    <p class="lead">{L['addr']}</p>
+    <div class="ph-cta"><a href="listings.html" class="btn btn--primary">Aanbod in {L['name']}</a><a href="contact.html" class="btn btn--ghost">Route &amp; contact</a></div>
+  </div>
+</section>
+
+<section class="section"><div class="container"><div class="two-col">
+  <div class="prose"><span class="eyebrow">Over deze locatie</span><h2 class="disp">Lokaal sterk in <em>{L['name']}</em></h2><p>{L['intro']}</p>
+    <div class="stat-pop" style="display:flex;gap:34px;margin-top:18px"><div><b style="font-size:1.9rem;font-weight:800;display:block;color:var(--green)">{L['count']}</b><span class="muted">objecten beschikbaar</span></div><div><b style="font-size:1.9rem;font-weight:800;display:block;color:var(--green)">15+</b><span class="muted">jaar in de regio</span></div></div>
+  </div>
+  <div class="loc-map" style="aspect-ratio:4/3;border-radius:var(--r-lg);overflow:hidden;position:relative;background:linear-gradient(135deg,#e9efe0,#dfe7d2);border:1px solid var(--line)">
+    <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%"><rect width="400" height="300" fill="#e6ecdb"/><path d="M0 170 Q120 150 240 175 T400 160" stroke="#c7d3ad" stroke-width="2" fill="none"/><path d="M90 0 L110 300" stroke="#d3ddbf" stroke-width="2"/></svg>
+    <span class="pin2" style="position:absolute;left:50%;top:46%;transform:translate(-50%,-100%)"><span class="dot" style="display:block;width:30px;height:30px;border-radius:50% 50% 50% 0;background:var(--green);transform:rotate(-45deg);border:3px solid #fff;box-shadow:0 6px 14px -4px rgba(0,0,0,.4)"></span></span>
+  </div>
+</div></div></section>
+
+<section class="section dark-sec"><div class="container">
+  <div class="sec-head"><div class="t"><span class="eyebrow" style="color:var(--green-soft)">Het team in {L['name']}</span><h2 class="disp" style="color:#fff">Uw <em>aanspreekpunt</em></h2></div><a href="agents.html" class="btn btn--secondary">Heel het team</a></div>
+  <div class="team-grid">{team3}</div>
+</div></section>
+
+<section class="section--tight"><div class="container">
+  <div class="sec-head"><div class="t"><span class="eyebrow">Aanbod</span><h2 class="disp">Beschikbaar in <em>{L['name']}</em></h2></div><a href="listings.html" class="btn btn--ghost">Bekijk alles</a></div>
+  <div class="cards-grid">
+    <a class="prop-card" href="listing-detail.html"><div class="ph"><span class="tag">Te huur</span><img src="images/photo-1.jpg" alt=""></div><div class="body"><span class="ptype">Kantoorruimte</span><h3>{L['name']} · centraal</h3><span class="addr">{L['name']}</span><div class="meta"><span class="price">€595 <small>/m²/jaar</small></span></div></div></a>
+    <a class="prop-card" href="listing-detail.html"><div class="ph"><span class="tag">Te koop</span><img src="images/photo-2.jpg" alt=""></div><div class="body"><span class="ptype">Beleggingsobject</span><h3>{L['name']} · zakendistrict</h3><span class="addr">{L['name']}</span><div class="meta"><span class="price">€3,8 mln <small>k.k.</small></span></div></div></a>
+    <a class="prop-card" href="listing-detail.html"><div class="ph"><span class="tag">Te huur</span><img src="images/hero.jpg" alt=""></div><div class="body"><span class="ptype">Serviced office</span><h3>{L['name']} · flex</h3><span class="addr">{L['name']}</span><div class="meta"><span class="price">€1.250 <small>/maand</small></span></div></div></a>
+  </div>
+</div></section>
+'''
+    html += FOOTER
+    return html
+
+# ----------------------------------------------------------------------
+# SECTOREN / INDUSTRIES PAGE
+# ----------------------------------------------------------------------
+SECTOREN = [
+ ("Kantoren","Huisvesting, verhuur en belegging in kantoorvastgoed."),
+ ("Logistiek &amp; bedrijfsruimte","Distributiecentra, hallen en last-mile-locaties."),
+ ("Retail &amp; winkels","Winkel- en horecaruimte op de juiste locatie."),
+ ("Zorgvastgoed","Vastgoedoplossingen voor zorgaanbieders en investeerders."),
+ ("Residentieel","Woningen en residenti&euml;le beleggingsportefeuilles."),
+ ("Hospitality &amp; leisure","Hotels, horeca en vrijetijdsvastgoed."),
+ ("Onderwijs &amp; publiek","Vastgoed voor onderwijs en (semi)publieke sector."),
+ ("Data centers &amp; industrie","Specialistisch vastgoed voor tech en industrie."),
+]
+def render_sectoren():
+    cards = "".join(f'''<a class="dienst-card" href="listings.html"><span class="dc-ic">{ic(I_BLD)}</span><h3>{n}</h3><p>{d}</p><span class="link-arrow">Bekijk sector {arrow()}</span></a>''' for n,d in SECTOREN)
+    html = HEAD.format(title="Sectoren — Spring Real Estate", desc="De sectoren waarin Spring Real Estate actief is: kantoren, logistiek, retail, zorg, residentieel en meer.")
+    html += TOPBAR + HEADER
+    html += f'''
+<section class="page-hero"><div class="container">
+  <div class="crumbs"><a href="index.html">Home</a> / Sectoren</div>
+  <span class="eyebrow">Sectoren &amp; specialismen</span>
+  <h1>Expertise per <em style="color:var(--green);font-style:italic;font-weight:500">sector</em></h1>
+  <p class="lead">Een brede vastgoedgroep — commercieel &eacute;n residentieel. We kennen de dynamiek van elke markt waarin u actief bent.</p>
+</div></section>
+<section class="section"><div class="container">
+  <div class="sec-head"><div class="t"><span class="eyebrow">Onze sectoren</span><h2 class="disp">Waar we het <em>verschil</em> maken</h2></div></div>
+  <div class="dienst-grid">{cards}</div>
+</div></section>
+'''
+    html += FOOTER
+    return html
+
+# ----------------------------------------------------------------------
+# CASES / KLANTVERHALEN PAGE
+# ----------------------------------------------------------------------
+CASES = [
+ ("+18% rendement","Herpositionering kantoorobject","Asset management","Amsterdam","photo-1.jpg"),
+ ("3 weken","Snelle invulling van leegstand","Verhuur","Utrecht","photo-2.jpg"),
+ ("€4,9 mln","Aankoop beleggingsobject","Investments","Valencia","hero.jpg"),
+ ("12.000 m²","Build-to-suit logistiek","Design &amp; Build","Tilburg","photo-2.jpg"),
+ ("98% bezetting","Portefeuille-optimalisatie","Asset management","Randstad","photo-1.jpg"),
+ ("€720/m²","Verhuur turn-key kantoor","Verhuur","Amsterdam","hero.jpg"),
+]
+def render_cases():
+    cards = "".join(f'''<a class="case" href="#"><div class="ph"><img src="images/{img}" alt=""></div><div class="body"><div class="res">{res}</div><h3>{title}</h3><p class="muted" style="font-size:.9rem">{sector} · {loc}</p></div></a>''' for res,title,sector,loc,img in CASES)
+    html = HEAD.format(title="Klantverhalen &amp; cases — Spring Real Estate", desc="Klantverhalen en business cases van Spring Real Estate — bewezen resultaat in commercieel en residentieel vastgoed.")
+    html += TOPBAR + HEADER
+    html += f'''
+<section class="page-hero"><div class="container">
+  <div class="crumbs"><a href="index.html">Home</a> / Klantverhalen</div>
+  <span class="eyebrow">Klantverhalen &amp; cases</span>
+  <h1>Bewezen <em style="color:var(--green);font-style:italic;font-weight:500">resultaat</em></h1>
+  <p class="lead">Echte projecten, echte resultaten. Filter op sector of doelgroep en ontdek hoe we waarde cre&euml;ren.</p>
+</div></section>
+<section class="section"><div class="container">
+  <div class="team-filter">
+    <a href="#" class="active">Alle</a><a href="#">Verhuur</a><a href="#">Investments</a><a href="#">Asset management</a><a href="#">Design &amp; Build</a>
+  </div>
+  <div class="case-grid">{cards}</div>
+</div></section>
+'''
+    html += FOOTER
+    return html
+
+# ----------------------------------------------------------------------
 # WRITE
 # ----------------------------------------------------------------------
 def write(name, html):
@@ -740,6 +862,10 @@ def main():
     written.append(write("vacatures.html", render_vacatures()))
     for p in ROSTER:
         written.append(write(f"profile-{p[0]}.html", render_profile(p)))
+    for key in LOCATIES:
+        written.append(write(f"locatie-{key}.html", render_locatie(key)))
+    written.append(write("sectoren.html", render_sectoren()))
+    written.append(write("cases.html", render_cases()))
     print(f"Generated {len(written)} pages:")
     for w in written: print("  "+w)
 
