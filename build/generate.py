@@ -295,6 +295,7 @@ FOOTER = TALK_BLOCK + """<footer class="footer"><div class="container">
       <li><a href="locatie-utrecht.html">Utrecht</a></li>
       <li><a href="locatie-amsterdam.html">Amsterdam</a></li>
       <li><a href="locatie-valencia.html">Valencia (ES)</a></li>
+      <li><a href="locatie-estepona.html">Estepona (ES)</a></li>
     </ul></div>
     <div class="news"><h4 data-i18n="foot.nieuwsbrief">Nieuwsbrief</h4><p style="font-size:.9rem" data-i18n="foot.nieuwsbrief.p">Marktinzichten &amp; nieuw aanbod in uw inbox.</p><form onsubmit="return false"><input type="email" placeholder="Uw e-mailadres" data-i18n-ph="foot.email"><button class="btn btn--primary" style="width:100%" data-i18n="foot.inschrijven">Inschrijven</button></form></div>
   </div>
@@ -329,6 +330,26 @@ def li_checks(items):
 # ----------------------------------------------------------------------
 # DOELGROEP HUB PAGE
 # ----------------------------------------------------------------------
+DG_WHY = {
+ "gebruiker":[("Snel de juiste ruimte","We kennen de markt op straatniveau en koppelen uw eisen aan het beste beschikbare aanbod."),
+              ("Onderhandeld op uw voorwaarden","Scherpe huurprijs, incentives en flexibele voorwaarden — wij behartigen uw belang."),
+              ("Instapklaar opgeleverd","Van zoektocht tot inrichting: één partner regelt het hele traject.")],
+ "eigenaar":[("Maximaal rendement","Datagedreven waardebepaling en een scherpe positionering van uw object."),
+             ("Actieve salesaanpak","Wij benaderen kopers en huurders direct en creëren beweging in de markt."),
+             ("Betrouwbare taxaties","Onafhankelijke, gevalideerde taxaties volgens de hoogste normen.")],
+ "investeerder":[("De hele levenscyclus","Van acquisitie en beheer tot exit — strategisch advies in elke fase."),
+                 ("Onderbouwd met data","Actuele markt- en transactiedata als fundament onder elke beslissing."),
+                 ("Volledig ontzorgd","Asset management, beheer en administratie onder één dak.")],
+ "ontwikkelaar":[("Van acquisitie tot oplevering","Begeleiding over de volledige ontwikkeling, met data en taxaties als kompas."),
+                 ("Haalbaarheid vooraf","We toetsen locatie, bestemming en markt voordat u zich vastlegt."),
+                 ("Marktinzicht als kompas","Research en advies die uw plan onderbouwen en versterken.")],
+}
+DG_QUOTE = {
+ "gebruiker":"De grootste fout bij het zoeken naar ruimte is alleen naar de huurprijs kijken. Wij kijken naar groei, flexibiliteit en uw totale huisvestingsstrategie.",
+ "eigenaar":"Een succesvol verhuur- of verkooptraject draait om de juiste prijs én een actieve benadering van de markt. Daar sturen we op.",
+ "investeerder":"Rendement begint bij de juiste data en een scherpe strategie — en wordt geborgd door goed beheer.",
+ "ontwikkelaar":"Een goede ontwikkeling begint bij de juiste acquisitie en een onderbouwd plan. Wij denken vanaf dag één mee.",
+}
 def render_doelgroep(key):
     d = DOELGROEPEN[key]
     units = units_for(key)
@@ -336,13 +357,13 @@ def render_doelgroep(key):
     for j,(slug,name,_dg,tag,exp,sec) in enumerate(units):
         img = PHOTOS[j % 3]
         cards += f'''<a class="kat-card" href="unit-{slug}.html"><img src="{img}" alt=""><span class="ktag">{d['name']}</span><span class="kbody"><h3>{name}</h3><p>{tag}</p></span><span class="karr"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">{I_ARR}</svg></span></a>'''
-    # ondersteunend strip
+    why_cards = "".join(f'<div class="value"><div class="ic">{ic(I_CHECK,"2.4")}</div><h3>{t}</h3><p>{x}</p></div>' for t,x in DG_WHY[key])
     onder = units_for("ondersteunend")
     onder_html = ""
     if key in ("investeerder","ontwikkelaar"):
         chips = "".join(f'<a class="unit" href="unit-{s}.html"><span class="u-dot"></span>{n}</a>' for s,n,_,_,_,_ in onder)
-        onder_html = f'''<section class="section--tight"><div class="container">
-          <div class="sec-head"><div class="t"><span class="eyebrow">Ondersteunend</span><h2>Overkoepelende <em>expertise</em></h2></div></div>
+        onder_html = f'''<section class="section--tight section--soft"><div class="container">
+          <div class="sec-head"><div class="t"><span class="eyebrow">Ondersteunend</span><h2 class="disp">Overkoepelende <em>expertise</em></h2></div></div>
           <div class="units-grid">{chips}</div>
         </div></section>'''
     html = HEAD.format(title=f"{d['name']} — Spring Real Estate",
@@ -364,6 +385,22 @@ def render_doelgroep(key):
   </div>
 </section>
 
+<section class="section"><div class="container"><div class="two-col">
+  <div class="prose">
+    <span class="eyebrow">Voor de {d['name'].lower()}</span>
+    <h2 class="disp">{d['q']}? <em>Wij helpen u verder</em></h2>
+    <p>{d['intro']}</p>
+    <p>Of het nu om één vraag gaat of om een complex traject: u krijgt één aanspreekpunt met het hele Spring-ecosysteem erachter — commercieel én residentieel, in Nederland en Spanje.</p>
+    <a href="#diensten" class="btn btn--primary" style="margin-top:6px">Bekijk de diensten</a>
+  </div>
+  <div class="media-tall"><img src="images/photo-1.jpg" alt="{d['name']}"></div>
+</div></div></section>
+
+<section class="section--tight section--soft"><div class="container">
+  <div class="sec-head"><div class="t"><span class="eyebrow">Waarom Spring</span><h2 class="disp">Waarom de {d['name'].lower()} voor <em>Spring</em> kiest</h2></div></div>
+  <div class="values-grid">{why_cards}</div>
+</div></section>
+
 <section class="section" id="diensten">
   <div class="container">
     <div class="sec-head"><div class="t"><span class="eyebrow">Onze diensten</span><h2 class="disp">Kies een <em>business unit</em></h2><p class="lead">Klik op een dienst voor de volledige business-unit-pagina met experts, cases en antwoorden.</p></div></div>
@@ -371,10 +408,30 @@ def render_doelgroep(key):
   </div>
 </section>
 {onder_html}
+<section class="section dark-sec"><div class="container">
+  <div class="center" style="max-width:62ch;margin:0 auto">
+    <span class="eyebrow" style="color:var(--green-soft)">Onze visie</span>
+    <p class="disp disp--light" style="font-size:clamp(1.5rem,3vw,2.3rem);line-height:1.3"><em>"{DG_QUOTE[key]}"</em></p>
+    <p class="muted" style="margin-top:16px">— Spring Real Estate</p>
+  </div>
+</div></section>
+
+<section class="section--tight"><div class="container">
+  <div class="sec-head"><div class="t"><span class="eyebrow">Sectoren</span><h2 class="disp">Expertise in <em>elke sector</em></h2><p class="lead">Van kantoren en logistiek tot retail, zorg en residentieel vastgoed.</p></div><a href="sectoren.html" class="btn btn--ghost">Alle sectoren</a></div>
+  <div class="units-grid">
+    <a class="unit" href="sectoren.html"><span class="u-dot"></span>Kantoren</a>
+    <a class="unit" href="sectoren.html"><span class="u-dot"></span>Logistiek &amp; bedrijfsruimte</a>
+    <a class="unit" href="sectoren.html"><span class="u-dot"></span>Retail &amp; winkels</a>
+    <a class="unit" href="sectoren.html"><span class="u-dot"></span>Zorgvastgoed</a>
+    <a class="unit" href="sectoren.html"><span class="u-dot"></span>Residentieel</a>
+    <a class="unit" href="sectoren.html"><span class="u-dot"></span>Hospitality</a>
+  </div>
+</div></section>
+
 <section class="section--tight"><div class="container"><div class="cta">
   <h2>Niet zeker welke dienst u nodig heeft?</h2>
   <p>Onze adviseurs denken graag met u mee — vrijblijvend en vanuit uw vraag.</p>
-  <div class="btns"><a href="contact.html" class="btn btn--light btn--lg">Plan een gesprek</a></div>
+  <div class="btns"><a href="contact.html" class="btn btn--light btn--lg">Plan een gesprek</a><a href="listings.html" class="btn btn--lg" style="background:rgba(255,255,255,.16);color:#fff;border-color:rgba(255,255,255,.4)">Bekijk het aanbod</a></div>
 </div></div></section>
 '''
     html += FOOTER
@@ -792,6 +849,8 @@ LOCATIES = {
    "intro":"Op de Zuidas, in het zakelijke hart van Nederland, zit ons team voor kantoorhuisvesting, serviced offices en investments — dicht bij onze opdrachtgevers."},
  "valencia":  {"name":"Valencia","flag":"\U0001F1EA\U0001F1F8","tag":"España","addr":"Paseo de la Alameda 7 · 46023 Valencia","count":"7",
    "intro":"Onze vaste basis in Spanje. Vanuit Valencia begeleiden we Nederlandse investeerders en gebruikers bij acquisities en huisvesting op de Spaanse markt."},
+ "estepona":  {"name":"Estepona","flag":"\U0001F1EA\U0001F1F8","tag":"España · Costa del Sol","addr":"Avenida Litoral 12 · 29680 Estepona","count":"6",
+   "intro":"Aan de Costa del Sol begeleiden we vanuit Estepona investeringen en huisvesting in Zuid-Spanje — van residentieel tot commercieel vastgoed, met lokale kennis en een Nederlands aanspreekpunt."},
 }
 def render_locatie(key):
     L = LOCATIES[key]
