@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aanbod — Spring Real Estate</title>
+<meta name="description" content="Het volledige aanbod van Spring Real Estate: kantoorruimte, bedrijfsruimte en beleggingsobjecten in Utrecht, Amsterdam en Valencia.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- ============ TOP BAR ============ -->
+<div class="topbar">
+  <div class="container">
+    <div class="badges">
+      <span class="badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 6.9H22l-6 4.3 2.3 7-6.3-4.4L5.7 20 8 13.2 2 8.9h7.6z"/></svg> 4,8 / 5 op Google</span>
+      <span class="badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg> NVM &amp; VBO aangesloten</span>
+      <span class="badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/></svg> 15+ jaar ervaring</span>
+    </div>
+    <div class="top-right">
+      <a href="mailto:info@springrealestate.com">info@springrealestate.com</a>
+      <div class="lang" id="lang">
+        <button class="active" data-lang="nl">NL</button>
+        <button data-lang="en">EN</button>
+        <button data-lang="es">ES</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ HEADER ============ -->
+<header class="header">
+  <div class="container">
+    <a href="index.html" class="logo" aria-label="Spring Real Estate">
+      <span class="logo-main">Spr<span class="dot"></span>ing</span>
+      <span class="logo-sub">real estate</span>
+    </a>
+    <nav class="nav">
+      <div class="has-drop">
+        <button>Diensten <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="drop">
+          <a href="diensten.html#gebruiker"><span class="d-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg></span><span><span class="d-t">Gebruiker</span><span class="d-d">Ik zoek een kantoor of werkplek</span></span></a>
+          <a href="diensten.html#eigenaar"><span class="d-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></svg></span><span><span class="d-t">Eigenaar</span><span class="d-d">Ik wil verkopen of verhuren</span></span></a>
+          <a href="diensten.html#investeerder"><span class="d-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l6-6 4 4 8-8M21 7v6M21 7h-6"/></svg></span><span><span class="d-t">Investeerder</span><span class="d-d">Ik wil investeren in vastgoed</span></span></a>
+          <a href="diensten.html#ontwikkelaar"><span class="d-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 20h20M4 20V8l5-3v15M14 20V4l6 4v12"/></svg></span><span><span class="d-t">Ontwikkelaar</span><span class="d-d">Ik wil ontwikkelen of optimaliseren</span></span></a>
+        </div>
+      </div>
+      <a href="listings.html">Listings</a>
+      <a href="about.html">About Us</a>
+      <a href="agents.html">Agents</a>
+      <a href="resources.html">Resources</a>
+    </nav>
+    <div class="header-cta">
+      <a href="contact.html" class="link-arrow" style="font-size:.95rem">Aanmelden aanbod</a>
+      <a href="contact.html" class="btn btn--primary">Contact</a>
+      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ PAGE HERO + recurring search ============ -->
+<section class="page-hero">
+  <div class="container">
+    <div class="crumbs"><a href="index.html">Home</a> / Aanbod</div>
+    <span class="eyebrow">Aanbod</span>
+    <h1>Vind uw <em style="color:var(--green);font-style:italic;font-weight:500">volgende</em> ruimte</h1>
+    <p class="lead">Kantoorruimte, bedrijfsruimte en beleggingsobjecten in Utrecht, Amsterdam en Valencia.</p>
+    <form class="search search--light" onsubmit="return false">
+      <label class="seg">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>
+        <span class="field"><span class="lbl">Locatie of trefwoord</span><input type="text" placeholder="Bijv. Amsterdam Zuidas, kantoor…"></span>
+      </label>
+      <label class="seg">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13"/></svg>
+        <span class="field"><span class="lbl">Type</span>
+          <select><option>Alle typen</option><option>Kantoorruimte</option><option>Bedrijfsruimte</option><option>Winkelruimte</option><option>Beleggingsobject</option></select>
+        </span>
+      </label>
+      <label class="seg">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
+        <span class="field"><span class="lbl">Oppervlakte</span>
+          <select><option>Alle m²</option><option>0 – 250 m²</option><option>250 – 1.000 m²</option><option>1.000 – 5.000 m²</option><option>5.000+ m²</option></select>
+        </span>
+      </label>
+      <button class="search-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg> Zoeken</button>
+    </form>
+  </div>
+</section>
+
+<!-- ============ LISTINGS LAYOUT ============ -->
+<div class="container">
+  <div class="listings-layout">
+
+    <!-- filter rail -->
+    <aside class="filters" id="filters">
+      <div style="display:flex;align-items:center;justify-content:space-between">
+        <h3>Filters</h3>
+        <a href="#" class="f-clear">Wissen</a>
+      </div>
+      <div class="fgroup">
+        <div class="fg-t">Aanbodvorm</div>
+        <label class="fopt"><input type="checkbox" checked> Te huur <span class="cnt">18</span></label>
+        <label class="fopt"><input type="checkbox"> Te koop <span class="cnt">9</span></label>
+      </div>
+      <div class="fgroup">
+        <div class="fg-t">Type</div>
+        <label class="fopt"><input type="checkbox" checked> Kantoorruimte <span class="cnt">14</span></label>
+        <label class="fopt"><input type="checkbox"> Bedrijfsruimte <span class="cnt">6</span></label>
+        <label class="fopt"><input type="checkbox"> Winkelruimte <span class="cnt">3</span></label>
+        <label class="fopt"><input type="checkbox"> Beleggingsobject <span class="cnt">4</span></label>
+      </div>
+      <div class="fgroup">
+        <div class="fg-t">Locatie</div>
+        <label class="fopt"><input type="checkbox"> Utrecht <span class="cnt">8</span></label>
+        <label class="fopt"><input type="checkbox" checked> Amsterdam <span class="cnt">12</span></label>
+        <label class="fopt"><input type="checkbox"> Valencia (ES) <span class="cnt">7</span></label>
+      </div>
+      <div class="fgroup">
+        <div class="fg-t">Oppervlakte (m²)</div>
+        <div class="frange"><input type="number" placeholder="min"><input type="number" placeholder="max"></div>
+      </div>
+      <div class="fgroup">
+        <div class="fg-t">Beschikbaarheid</div>
+        <select class="fselect"><option>Alle</option><option>Direct beschikbaar</option><option>In overleg</option></select>
+      </div>
+    </aside>
+
+    <!-- results -->
+    <div class="results">
+      <div class="results-head">
+        <div class="rc">27 objecten <span>· Amsterdam, kantoorruimte, te huur</span></div>
+        <div class="results-tools">
+          <button class="btn btn--ghost filter-toggle" id="filterToggle" style="padding:9px 16px">Filters</button>
+          <select class="fselect"><option>Sorteer: Relevantie</option><option>Prijs (laag → hoog)</option><option>Prijs (hoog → laag)</option><option>Oppervlakte</option><option>Nieuwste eerst</option></select>
+        </div>
+      </div>
+
+      <div class="chipbar">
+        <span class="fchip">Amsterdam <button aria-label="Verwijder">&times;</button></span>
+        <span class="fchip">Kantoorruimte <button aria-label="Verwijder">&times;</button></span>
+        <span class="fchip">Te huur <button aria-label="Verwijder">&times;</button></span>
+      </div>
+
+      <div class="results-grid">
+        <!-- repeated property cards -->
+        <a class="prop-card" href="listing-detail.html"><div class="ph"><span class="tag">Te huur</span><span class="fav"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.5-9.5-9C1 9 2.5 5.5 6 5.5c2 0 3.2 1.2 4 2.3.8-1.1 2-2.3 4-2.3 3.5 0 5 3.5 3.5 6.5C19 16.5 12 21 12 21z"/></svg></span><img src="images/photo-1.jpg" alt=""></div><div class="body"><span class="ptype">Kantoorruimte</span><h3>Gustav Mahlerlaan 2999</h3><span class="addr">1082 MK Amsterdam · Zuidas</span><div class="meta"><span class="price">€720 <small>/m²/jaar</small></span><span style="margin-left:auto">vanaf 1.250 m²</span></div></div></a>
+        <a class="prop-card" href="listing-detail.html"><div class="ph"><span class="tag">Te huur</span><span class="fav"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.5-9.5-9C1 9 2.5 5.5 6 5.5c2 0 3.2 1.2 4 2.3.8-1.1 2-2.3 4-2.3 3.5 0 5 3.5 3.5 6.5C19 16.5 12 21 12 21z"/></svg></span><img src="images/photo-2.jpg" alt=""></div><div class="body"><span class="ptype">Kantoorruimte</span><h3>Claude Debussylaan 24</h3><span class="addr">1082 MD Amsterdam · Zuidas</span><div class="meta"><span class="price">€395 <small>/m²/jaar</small></span><span style="margin-left:auto">vanaf 480 m²</span></div></div></a>
+        <a class="prop-card" href="listing-detail.html"><div class="ph"><span class="tag">Te huur</span><span class="fav"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.5-9.5-9C1 9 2.5 5.5 6 5.5c2 0 3.2 1.2 4 2.3.8-1.1 2-2.3 4-2.3 3.5 0 5 3.5 3.5 6.5C19 16.5 12 21 12 21z"/></svg></span><img src="images/hero.jpg" alt=""></div><div class="body"><span class="ptype">Kantoorruimte</span><h3>Mahler Tower, 14e etage</h3><span class="addr">1082 MA Amsterdam · Zuidas</span><div class="meta"><span class="price">€510 <small>/m²/jaar</small></span><span style="margin-left:auto">vanaf 720 m²</span></div></div></a>
+        <a class="prop-card" href="listing-detail.html"><div class="ph"><span class="tag">Te huur</span><span class="fav"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.5-9.5-9C1 9 2.5 5.5 6 5.5c2 0 3.2 1.2 4 2.3.8-1.1 2-2.3 4-2.3 3.5 0 5 3.5 3.5 6.5C19 16.5 12 21 12 21z"/></svg></span><img src="images/photo-2.jpg" alt=""></div><div class="body"><span class="ptype">Serviced office</span><h3>WTC Amsterdam · Tower C</h3><span class="addr">1077 XX Amsterdam · Zuidas</span><div class="meta"><span class="price">€1.250 <small>/maand</small></span><span style="margin-left:auto">8 werkplekken</span></div></div></a>
+        <a class="prop-card" href="listing-detail.html"><div class="ph"><span class="tag">Te huur</span><span class="fav"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.5-9.5-9C1 9 2.5 5.5 6 5.5c2 0 3.2 1.2 4 2.3.8-1.1 2-2.3 4-2.3 3.5 0 5 3.5 3.5 6.5C19 16.5 12 21 12 21z"/></svg></span><img src="images/photo-1.jpg" alt=""></div><div class="body"><span class="ptype">Kantoorruimte</span><h3>Gustav Mahlerplein 109</h3><span class="addr">1082 MS Amsterdam · Zuidas</span><div class="meta"><span class="price">€465 <small>/m²/jaar</small></span><span style="margin-left:auto">vanaf 350 m²</span></div></div></a>
+        <a class="prop-card" href="listing-detail.html"><div class="ph"><span class="tag">Te huur</span><span class="fav"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.5-9.5-9C1 9 2.5 5.5 6 5.5c2 0 3.2 1.2 4 2.3.8-1.1 2-2.3 4-2.3 3.5 0 5 3.5 3.5 6.5C19 16.5 12 21 12 21z"/></svg></span><img src="images/hero.jpg" alt=""></div><div class="body"><span class="ptype">Kantoorruimte</span><h3>Strawinskylaan 3051</h3><span class="addr">1077 ZX Amsterdam · Zuidas</span><div class="meta"><span class="price">€540 <small>/m²/jaar</small></span><span style="margin-left:auto">vanaf 900 m²</span></div></div></a>
+      </div>
+
+      <div class="pager">
+        <a href="#" class="dis">‹</a>
+        <a href="#" class="active">1</a>
+        <a href="#">2</a>
+        <a href="#">3</a>
+        <a href="#">›</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container">
+    <div class="top">
+      <div>
+        <div class="logo logo--light"><span class="logo-main">Spr<span class="dot"></span>ing</span><span class="logo-sub">real estate</span></div>
+        <p style="margin-top:16px; max-width:30ch">Powered by People. Backed by Tech. Dé partner in commercieel vastgoed in Nederland &amp; Spanje.</p>
+        <div class="badges">
+          <span class="badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 6.9H22l-6 4.3 2.3 7-6.3-4.4L5.7 20 8 13.2 2 8.9h7.6z"/></svg> 4,8/5 Google</span>
+          <span class="badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/></svg> NVM / VBO</span>
+        </div>
+      </div>
+      <div>
+        <h4>Doelgroepen</h4>
+        <ul>
+          <li><a href="diensten.html#gebruiker">Gebruiker</a></li>
+          <li><a href="diensten.html#eigenaar">Eigenaar</a></li>
+          <li><a href="diensten.html#investeerder">Investeerder</a></li>
+          <li><a href="diensten.html#ontwikkelaar">Ontwikkelaar</a></li>
+          <li><a href="diensten.html">Alle diensten</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Navigatie</h4>
+        <ul>
+          <li><a href="listings.html">Listings / Aanbod</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="agents.html">Agents / Team</a></li>
+          <li><a href="resources.html">Resources &amp; Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Locaties</h4>
+        <ul>
+          <li><a href="locaties.html#utrecht">Utrecht</a></li>
+          <li><a href="locaties.html#amsterdam">Amsterdam</a></li>
+          <li><a href="locaties.html#valencia">Valencia (ES)</a></li>
+        </ul>
+      </div>
+      <div class="news">
+        <h4>Nieuwsbrief</h4>
+        <p style="font-size:.9rem">Marktinzichten &amp; nieuw aanbod in uw inbox.</p>
+        <form onsubmit="return false"><input type="email" placeholder="Uw e-mailadres"><button class="btn btn--primary" style="width:100%">Inschrijven</button></form>
+      </div>
+    </div>
+    <div class="bottom">
+      <span>© 2026 Spring Real Estate. Alle rechten voorbehouden.</span>
+      <div class="links">
+        <a href="#">Privacyverklaring</a><a href="#">Cookies</a><a href="#">Algemene voorwaarden</a>
+        <span style="color:#6f7166">Concept o.b.v. Katana-template</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ MOBILE MENU ============ -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mm-head">
+    <div class="logo logo--light"><span class="logo-main">Spr<span class="dot"></span>ing</span><span class="logo-sub">real estate</span></div>
+    <button class="mm-close" id="mmClose">&times;</button>
+  </div>
+  <nav>
+    <a href="diensten.html">Diensten</a>
+    <a href="listings.html">Listings</a>
+    <a href="about.html">About Us</a>
+    <a href="agents.html">Agents</a>
+    <a href="resources.html">Resources</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="contact.html" class="btn btn--primary">Contact</a>
+    <div class="lang" style="justify-content:center"><button class="active">NL</button><button>EN</button><button>ES</button></div>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+<script>
+  const ft = document.getElementById('filterToggle');
+  if (ft) ft.addEventListener('click', () => document.getElementById('filters').classList.toggle('open'));
+</script>
+</body>
+</html>
