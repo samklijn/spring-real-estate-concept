@@ -58,7 +58,17 @@
 
 <!-- ============ HERO ============ -->
 <section class="hero">
-  <div class="hero-bg"><img src="images/hero.jpg" alt="Commercieel vastgoed"></div>
+  <div class="hero-bg" id="heroBg">
+    <img src="images/hero.jpg" alt="Commercieel vastgoed" class="is-active">
+    <img src="images/photo-1.jpg" alt="" loading="lazy">
+    <img src="images/photo-2.jpg" alt="" loading="lazy">
+  </div>
+  <div class="hero-dots" id="heroDots"></div>
+  <button class="hero-toggle" id="heroToggle" aria-label="Pauzeer of speel de beelden af">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" class="ht-pause"><rect x="6" y="5" width="4" height="14"/><rect x="14" y="5" width="4" height="14"/></svg>
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" class="ht-play" style="display:none"><path d="M7 5l12 7-12 7z"/></svg>
+    <span class="ht-label">Pauze</span>
+  </button>
   <div class="container">
     <span class="eyebrow">Spring Real Estate</span>
     <h1>Powered by <span class="accent">People.</span><br>Backed by <span class="accent">Tech.</span></h1>

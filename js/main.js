@@ -18,6 +18,48 @@ if (tabs) {
   });
 }
 
+// Moving hero banner (auto crossfade, with pause/play) — Colliers best practice
+(function () {
+  const bg = document.getElementById('heroBg');
+  const toggle = document.getElementById('heroToggle');
+  const dotsWrap = document.getElementById('heroDots');
+  if (!bg) return;
+  const slides = [...bg.querySelectorAll('img')];
+  if (slides.length < 2) return;
+  let i = 0, timer = null;
+  const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let playing = !reduce;
+  // dots
+  const dots = slides.map((_, idx) => {
+    const b = document.createElement('button');
+    b.setAttribute('aria-label', 'Toon beeld ' + (idx + 1));
+    if (idx === 0) b.classList.add('is-active');
+    b.addEventListener('click', () => { show(idx); restart(); });
+    dotsWrap && dotsWrap.appendChild(b);
+    return b;
+  });
+  function show(n) {
+    i = (n + slides.length) % slides.length;
+    slides.forEach((s, idx) => s.classList.toggle('is-active', idx === i));
+    dots.forEach((d, idx) => d.classList.toggle('is-active', idx === i));
+  }
+  function next() { show(i + 1); }
+  function start() { stop(); timer = setInterval(next, 6000); }
+  function stop() { if (timer) { clearInterval(timer); timer = null; } }
+  function restart() { if (playing) start(); }
+  function setPlaying(p) {
+    playing = p;
+    if (toggle) {
+      toggle.querySelector('.ht-pause').style.display = p ? '' : 'none';
+      toggle.querySelector('.ht-play').style.display = p ? 'none' : '';
+      toggle.querySelector('.ht-label').textContent = p ? 'Pauze' : 'Afspelen';
+    }
+    p ? start() : stop();
+  }
+  if (toggle) toggle.addEventListener('click', () => setPlaying(!playing));
+  setPlaying(playing);
+})();
+
 // Count-up animation for stat numbers ("resultaten laten oplopen")
 (function () {
   const sel = '.hero-stats b, .stats-band b, .sf-stat b, .stat-pop b';
