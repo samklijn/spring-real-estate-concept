@@ -107,7 +107,7 @@ HEAD = """<!DOCTYPE html>
 <meta name="description" content="{desc}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,500&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -217,13 +217,9 @@ def render_doelgroep(key):
     d = DOELGROEPEN[key]
     units = units_for(key)
     cards = ""
-    for slug,name,_dg,tag,exp,sec in units:
-        cards += f'''<a class="dienst-card" href="unit-{slug}.html">
-          <span class="dc-ic">{ic(I_BLD)}</span>
-          <h3>{name}</h3>
-          <p>{tag}</p>
-          <span class="link-arrow">Bekijk business unit {arrow()}</span>
-        </a>'''
+    for j,(slug,name,_dg,tag,exp,sec) in enumerate(units):
+        img = PHOTOS[j % 3]
+        cards += f'''<a class="kat-card" href="unit-{slug}.html"><img src="{img}" alt=""><span class="ktag">{d['name']}</span><span class="kbody"><h3>{name}</h3><p>{tag}</p></span><span class="karr"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">{I_ARR}</svg></span></a>'''
     # ondersteunend strip
     onder = units_for("ondersteunend")
     onder_html = ""
@@ -256,8 +252,8 @@ def render_doelgroep(key):
 
 <section class="section" id="diensten">
   <div class="container">
-    <div class="sec-head"><div class="t"><span class="eyebrow">Onze diensten</span><h2>Kies een <em>business unit</em></h2><p class="lead">Klik op een dienst voor de volledige business-unit-pagina met experts, cases en antwoorden.</p></div></div>
-    <div class="dienst-grid">{cards}</div>
+    <div class="sec-head"><div class="t"><span class="eyebrow">Onze diensten</span><h2 class="disp">Kies een <em>business unit</em></h2><p class="lead">Klik op een dienst voor de volledige business-unit-pagina met experts, cases en antwoorden.</p></div></div>
+    <div class="kat-grid">{cards}</div>
   </div>
 </section>
 {onder_html}

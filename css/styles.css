@@ -248,7 +248,7 @@ p{ margin:0 0 1rem; }
    ===================================================================== */
 .sec-head{ display:flex; align-items:flex-end; justify-content:space-between; gap:24px; margin-bottom:40px; }
 .sec-head .t{ max-width:60ch; }
-.sec-head h2 em{ font-style:italic; font-weight:500; color:var(--green); }
+.sec-head h2 em, .page-hero h1 em{ font-family:"Fraunces",Georgia,serif; font-style:italic; font-weight:500; color:var(--green); }
 
 /* =====================================================================
    AUDIENCE BLOCKS (doelgroepen)
