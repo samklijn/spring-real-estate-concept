@@ -46,15 +46,22 @@ python -m http.server 4321
 # open http://localhost:4321
 ```
 
-## Status / volgende pagina's
-- [x] **Homepage** — hero + zoekbalk, doelgroepen, USP's, locatiekaart
-      (Utrecht/Amsterdam/Valencia), team, reviews, 23 units, resources, footer
-- [ ] **Listing-detailpagina** (volgens gedeeld voorbeeld: licht, groen, specs,
-      adviseur, contactformulier)
-- [ ] **Listings / Aanbod** (overzicht met filters — CBRE-stijl)
-- [ ] **Diensten** (4 doelgroepen, CTA boven de vouw)
-- [ ] **About Us · Agents/Team · Resources/Blog · Contact · Locaties**
-- [ ] Vertalingen NL/EN/ES koppelen aan de taalschakelaar
+## Status / pagina's
+- [x] **Homepage** (`index.html`) — hero + zoekbalk, doelgroepen, USP's,
+      locatiekaart, team, reviews, 23 units, resources, footer
+- [x] **Diensten** (`diensten.html`) — 4 doelgroepen, CTA boven de vouw,
+      terugkerende zoekbalk, sticky categorie-navigatie
+- [x] **Listings / Aanbod** (`listings.html`) — filter-rail, zoekbalk, grid,
+      filter-chips, sortering, paginering
+- [x] **Listing-detail** (`listing-detail.html`) — galerij, specs, locatie,
+      sticky sidebar met contactformulier + adviseur
+- [x] **About Us** (`about.html`) — verhaal, kernwaarden, stats, tijdlijn
+- [x] **Agents / Team** (`agents.html`) — persoonskaarten + filter
+- [x] **Resources / Blog** (`resources.html`) — uitgelicht + grid + categorieën
+- [x] **Contact** (`contact.html`) — formulier, kantoren, kaart
+- [x] **Locaties** (`locaties.html`) — Utrecht / Amsterdam / Valencia (anchors)
+- [ ] Vertalingen NL/EN/ES koppelen aan de taalschakelaar (nu front-end concept)
+- [ ] Echte content, foto's en formulier-afhandeling
 
 ## Bron-input
 - `Aanpassingen Katana Template.pdf` — aanpassingen per pagina
