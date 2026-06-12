@@ -425,7 +425,7 @@ def render_unit(idx, u):
             rows.append((p, ena[i] if i<len(ena) else "", esa[i] if i<len(esa) else ""))
         body = "".join(f'<p{trh(e2,s2)}>{he(p)}</p>' for p,e2,s2 in rows)
         approach_html = f'''
-<section class="section--tight"><div class="container">
+<section class="section--tight" id="aanpak"><div class="container">
   <div class="prose" style="max-width:780px">
     <span class="eyebrow">Onze aanpak</span>
     <h2 class="disp">Zo pakken we het <em>aan</em></h2>
@@ -478,18 +478,18 @@ def render_unit(idx, u):
 
 <nav class="bu-toc">
   <div class="container">
-    <a href="#expertises">Expertises</a><a href="#werkwijze">Zo werken wij</a><a href="#cijfers">Cijfers</a>
+    <a href="#aanpak">Aanpak</a><a href="#expertises">Expertises</a><a href="#werkwijze">Zo werken wij</a><a href="#cijfers">Cijfers</a>
     <a href="#cases">Cases</a><a href="#team">Team</a><a href="#reviews">Reviews</a><a href="#faq">FAQ</a><a href="#kennis">Kennis</a>
   </div>
 </nav>
 
+{approach_html}
 <section class="section" id="expertises">
   <div class="container">
     <div class="sec-head"><div class="t"><span class="eyebrow">Diensten &amp; expertises</span><h2 class="disp">Wat wij doen binnen <em>{title_low}</em></h2></div></div>
     <div class="usp-grid">{exp_cards}</div>
   </div>
 </section>
-{approach_html}
 
 <section class="section--tight"><div class="container">
   <div class="sec-head"><div class="t"><span class="eyebrow">Sectoren &amp; branches</span><h2>Voor wie we <em>werken</em></h2></div></div>
