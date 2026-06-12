@@ -107,6 +107,33 @@ EXTRA = {
 for _slug, _nl in EXTRA.items():
     CONTENT.setdefault(_slug, {"nl":_nl, "en":None, "es":None, "people":None})
 
+# pitch-portretten (e-mail -> fotopad) + parse van betrokken personen
+try:
+    FACES = json.load(open(os.path.join(ROOT, "build", "faces.json"), encoding="utf-8"))
+except Exception:
+    FACES = {}
+_EMAIL_RE = re.compile(r'[a-z]+\.[a-z]+@springrealestate\.com')
+def parse_person(pp):
+    """ 'Naam — Rol — email' -> (naam, rol, email, fotopad|None) """
+    m = _EMAIL_RE.search(pp)
+    email = m.group(0) if m else ""
+    rest = pp.replace(email, "") if email else pp
+    parts = [x.strip(" -–—·|") for x in re.split(r'[—–·|]', rest) if x.strip(" -–—·|")]
+    name = parts[0] if parts else "Spring-adviseur"
+    role = parts[1] if len(parts) > 1 else "Spring Real Estate"
+    return name, role, email, FACES.get(email)
+# unieke teamleden over alle units (voor de teampagina)
+PEOPLE = []
+_seen = set()
+for _num in sorted(_raw):
+    for _pp in (_raw[_num].get("people") or []):
+        nm, role, email, photo = parse_person(_pp)
+        key = email or nm
+        if key in _seen:
+            continue
+        _seen.add(key)
+        PEOPLE.append({"name": nm, "role": role, "email": email, "photo": photo})
+
 # ----------------------------------------------------------------------
 # DATA MODEL
 # ----------------------------------------------------------------------
@@ -506,12 +533,10 @@ def render_unit(idx, u):
     if ppl:
         tc = []
         for i,pp in enumerate(ppl[:4]):
-            parts = [x.strip() for x in re.split(r'—|·', pp) if x.strip()]
-            nm = parts[0] if parts else "Adviseur"
-            role = parts[1] if len(parts) > 1 else "Spring Real Estate"
-            mail = parts[2] if len(parts) > 2 else "#"
-            por = PORTRAITS[i % len(PORTRAITS)]
-            tc.append(f'<div class="agent"><div class="ph"><img src="{por}" alt="{he(nm)}"></div><div class="body"><div class="name">{he(nm)}</div><div class="role">{he(role)}</div><div class="socials"><a href="#" aria-label="LinkedIn">in</a><a href="mailto:{mail}" aria-label="E-mail">@</a></div></div></div>')
+            nm, role, mail, photo = parse_person(pp)
+            por = photo or PORTRAITS[i % len(PORTRAITS)]
+            mlink = f"mailto:{mail}" if mail else "#"
+            tc.append(f'<div class="agent"><div class="ph"><img src="{por}" alt="{he(nm)}"></div><div class="body"><div class="name">{he(nm)}</div><div class="role">{he(role)}</div><div class="socials"><a href="#" aria-label="LinkedIn">in</a><a href="{mlink}" aria-label="E-mail">@</a></div></div></div>')
         team_html = "".join(tc)
     else:
         team_html = (f'<div class="agent"><div class="ph"><img src="{ph}" alt=""></div><div class="body"><div class="name">Daan van der Meer</div><div class="role">Senior Adviseur</div><div class="socials"><a href="#">in</a><a href="#">@</a></div></div></div>'
@@ -1027,6 +1052,46 @@ def render_cases():
     return html
 
 # ----------------------------------------------------------------------
+# AGENTS / TEAM PAGE (echte mensen + foto's uit de pitch)
+# ----------------------------------------------------------------------
+def render_agents():
+    cards = ""
+    for i, p in enumerate(PEOPLE):
+        photo = p["photo"] or PORTRAITS[i % len(PORTRAITS)]
+        first = p["name"].split(" ")[0]
+        mlink = f'mailto:{p["email"]}' if p["email"] else "#"
+        cards += (f'<div class="person"><div class="ph"><img src="{photo}" alt="{he(p["name"])}"></div>'
+                  f'<div class="body"><div class="name">{he(p["name"])}</div><div class="role">{he(p["role"])}</div>'
+                  f'<p class="bio">{he(first)} is specialist bij Spring Real Estate. Neem gerust contact op voor een kennismaking en persoonlijk advies.</p>'
+                  f'<div class="socials"><a href="#" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1-.02-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.8-2 3.7-2 4 0 4.75 2.6 4.75 6V21H21v-5.3c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9V21H13z"/></svg></a>'
+                  f'<a href="{mlink}" aria-label="E-mail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></a></div></div></div>')
+    html = HEAD.format(title="Ons team — Spring Real Estate", desc="Maak kennis met het team van Spring Real Estate in Amsterdam, Utrecht, Valencia en Estepona.")
+    html += TOPBAR + HEADER
+    html += f'''
+<section class="page-hero"><div class="container">
+  <div class="crumbs"><a href="index.html">Home</a> / Agents</div>
+  <span class="eyebrow">Ons team</span>
+  <h1>De mensen achter <em style="color:var(--green);font-style:italic;font-weight:500">Spring</em></h1>
+  <p class="lead">{len(PEOPLE)} specialisten die uw markt kennen — klik op een collega voor meer over diens expertise en contact.</p>
+</div></section>
+
+<section class="section"><div class="container">
+  <div class="team-filter">
+    <a href="#" class="active">Alle</a><a href="#">Agency</a><a href="#">Valuations</a><a href="#">Management</a><a href="#">Research</a><a href="#">Business Services</a>
+  </div>
+  <div class="people-grid">{cards}</div>
+</div></section>
+
+<section class="section--tight"><div class="container"><div class="cta">
+  <h2>Werken bij Spring?</h2>
+  <p>We groeien — en zoeken mensen die vastgoed met hoofd &eacute;n hart benaderen.</p>
+  <div class="btns"><a href="vacatures.html" class="btn btn--light btn--lg">Bekijk vacatures</a></div>
+</div></div></section>
+'''
+    html += FOOTER
+    return html
+
+# ----------------------------------------------------------------------
 # WRITE
 # ----------------------------------------------------------------------
 def write(name, html):
@@ -1041,6 +1106,7 @@ def main():
     for i,u in enumerate(UNITS):
         written.append(write(f"unit-{u[0]}.html", render_unit(i,u)))
     written.append(write("vacatures.html", render_vacatures()))
+    written.append(write("agents.html", render_agents()))
     for p in ROSTER:
         written.append(write(f"profile-{p[0]}.html", render_profile(p)))
     for key in LOCATIES:

@@ -8,7 +8,7 @@ HEADER = generate.HEADER.strip()
 FOOTER_BLOCK = generate.FOOTER.split('</footer>')[0] + '</footer>'
 
 EXISTING = ["index.html","listings.html","listing-detail.html","about.html",
-            "agents.html","resources.html","contact.html","locaties.html","diensten.html"]
+            "resources.html","contact.html","locaties.html","diensten.html"]
 
 DG_LINKS = {
     "diensten.html#gebruiker":"doelgroep-gebruiker.html",
