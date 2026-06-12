@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 Spring Real Estate — static page generator.
-Generates: 4 doelgroep-hubs, 23 business-unit pages, vacatures page.
+Generates: 4 doelgroep-hubs, 21 business-unit pages, vacatures page.
 Run:  python build/generate.py
 Shared chrome (header/footer/mobile menu) is defined once here so every
 page stays consistent and multilingual (NL/EN/ES via js/i18n.js).
@@ -22,10 +22,12 @@ def trh(en, es):  # data-tr attributes for the i18n layer (body translations)
     return a
 
 # real per-unit website texts (NL/EN/ES) parsed from the aanleverdocument
-_MAP = {1:"verhuur-commercieel",2:"aanhuur-kantoorruimte",3:"aanverkoop-belegging",4:"serviced-offices",
-        5:"taxaties",7:"herbouwwaarde-verzekering",8:"vastgoeddata-marktinzichten",9:"asset-management",
-        10:"commercieel-vastgoedbeheer",12:"design-build",13:"vastgoedadministratie",14:"financiele-administratie",
-        15:"hr-recruitment",17:"vastgoedmarketing",18:"strategic-advisory",19:"internationaal-espana"}
+_MAP = {1:"verhuur-commercieel",2:"aanhuur-kantoorruimte",3:"aanverkoop-beleggingsvastgoed",4:"serviced-offices",
+        5:"taxaties-beleggingsvastgoed",6:"grootzakelijke-taxaties",7:"herbouwwaarde-verzekering",8:"vastgoeddata-marktinzichten",
+        9:"asset-management",10:"commercieel-vastgoedbeheer",11:"residentieel-vastgoedbeheer",12:"design-build",
+        13:"vastgoedadministratie",14:"financiele-administratie",15:"hr-advies",16:"recruitment-talent",
+        17:"vastgoedmarketing",18:"strategic-advisory",19:"acquisition-disposal-spain",20:"asset-management-spain",
+        21:"asset-services-spain"}
 CONTENT = {}
 try:
     _raw = json.load(open(os.path.join(ROOT,"build","units_content.json"), encoding="utf-8"))
@@ -120,59 +122,56 @@ DOELGROEPEN = {
         "intro":"Van acquisitie en concept tot oplevering en verhuur — met data en taxaties als kompas."},
 }
 
-# 23 business units. dg = doelgroep key (ondersteunend = overkoepelend)
+# 21 officiële business units (18 NL pitch + 3 Spanje), verdeeld over de 4 doelgroepen.
+# dg = doelgroep key (ondersteunend = overkoepelend). Echte teksten via _MAP/units_content.json.
 UNITS = [
- # GEBRUIKER
+ # GEBRUIKER (3)
  ("aanhuur-kantoorruimte","Aanhuur kantoorruimte","gebruiker","Strategische zoektocht naar de juiste kantoorlocatie en de beste huurvoorwaarden.",
    ["Locatieanalyse & shortlist","Onderhandeling huurvoorwaarden","Begeleiding tot sleuteloverdracht"],["Scale-ups","Corporates","Zorg","Tech"]),
- ("serviced-offices","Serviced offices & flexwerkplekken","gebruiker","Instapklare werkplekken en flexibele contracten die met u meegroeien.",
+ ("serviced-offices","Serviced Offices & flexibele werkplekken","gebruiker","Instapklare werkplekken en flexibele contracten die met u meegroeien.",
    ["Flexibele contractvormen","Volledig gefaciliteerde kantoren","Snel schakelen bij groei"],["Startups","Projectteams","Internationale kantoren"]),
  ("design-build","Design & Build","gebruiker","Inrichting en optimalisatie van de werkplek, van concept tot oplevering.",
    ["Werkplekconcept & ontwerp","Projectmanagement realisatie","Duurzame inrichting"],["Corporates","Zorg","Onderwijs"]),
- ("bedrijfs-logistiek","Bedrijfs- & logistiek vastgoed","gebruiker","Huur van bedrijfsruimte, hallen en logistiek vastgoed op strategische locaties.",
-   ["Logistieke hubs","Bedrijfshallen","Last-mile locaties"],["Logistiek","Productie","E-commerce"]),
- ("retail-winkelruimte","Retail & winkelruimte","gebruiker","Winkel- en horecaruimte op de juiste plek voor uw doelgroep.",
-   ["A1- en aanloopstraten","Horeca & leisure","Pop-up & flagship"],["Retail","Horeca","Franchise"]),
- # EIGENAAR
- ("verkoop-commercieel","Verkoop commercieel vastgoed","eigenaar","Doelgerichte verkoop tegen de beste marktprijs met een sterk koperssnetwerk.",
-   ["Waardebepaling & strategie","Doelgerichte marketing","Onderhandeling & closing"],["Beleggers","Eigenaar-gebruikers","Fondsen"]),
- ("verhuur-commercieel","Verhuur commercieel vastgoed","eigenaar","De juiste huurder, een gezonde bezetting en optimale huurvoorwaarden.",
-   ["Huurdersacquisitie","Leegstandsreductie","Contractmanagement"],["Kantoren","Bedrijfsruimte","Retail"]),
+ # EIGENAAR (5)
+ ("verhuur-commercieel","Verhuur van commercieel vastgoed","eigenaar","Verhuur die beweging creëert in de markt.",
+   ["Positionering & strategie","Actieve salesbenadering","Contractmanagement"],["Kantoren","Bedrijfsruimte","Retail"]),
  ("vastgoedmarketing","Vastgoedmarketing","eigenaar","Professionele presentatie en bereik bij precies de juiste doelgroep.",
    ["Fotografie & video","Online campagnes","Brochures & datarooms"],["Beleggers","Ontwikkelaars","Eigenaren"]),
- ("taxaties","Taxaties","eigenaar","Onafhankelijke, gevalideerde taxaties van beleggings- en grootzakelijk vastgoed.",
-   ["Beleggingstaxaties","Grootzakelijke taxaties","Gevalideerd & RICS-conform"],["Banken","Beleggers","Accountants"]),
+ ("taxaties-beleggingsvastgoed","Taxaties van beleggingsvastgoed","eigenaar","Onafhankelijke, gevalideerde taxaties van beleggingsvastgoed.",
+   ["Marktwaarde-taxaties","Gevalideerd & RICS-conform","Datagedreven onderbouwing"],["Banken","Beleggers","Accountants"]),
+ ("grootzakelijke-taxaties","Grootzakelijke taxaties","eigenaar","Taxaties van technisch complexe en grootzakelijke objecten.",
+   ["Complexe & unieke assets","Internationale expertise","Erkende rekenmodellen"],["Corporates","Industrie","Zorg"]),
  ("herbouwwaarde-verzekering","Herbouwwaarde- & verzekeringstaxaties","eigenaar","De juiste verzekerde waarde en onderbouwde herbouwwaarde.",
    ["Herbouwwaardebepaling","Verzekeringstaxatie","Periodieke herijking"],["Eigenaren","VvE's","Verzekeraars"]),
- # INVESTEERDER
- ("aankoop-beleggingsvastgoed","Aankoop beleggingsvastgoed","investeerder","Identificatie van kansen en begeleiding van de volledige aankoop.",
-   ["Acquisitiestrategie","Due diligence","Onderhandeling"],["Particuliere beleggers","Family offices","Fondsen"]),
- ("aanverkoop-belegging","Aan- & verkoop beleggingsvastgoed","investeerder","Begeleiding bij zowel aan- als verkoop van beleggingsobjecten.",
-   ["Markttiming","Portefeuilleoptimalisatie","Transactiebegeleiding"],["Beleggers","Fondsen","Institutioneel"]),
- ("vastgoeddata-marktinzichten","Vastgoeddata & marktinzichten","investeerder","Actuele data en analyses als fundament onder elke beslissing.",
-   ["Marktrapportages","Benchmarking","Datadashboards"],["Beleggers","Ontwikkelaars","Adviseurs"]),
- ("strategic-advisory","Strategic Advisory","investeerder","Strategisch advies over portefeuille, rendement en risicospreiding.",
-   ["Portefeuillestrategie","Rendementsanalyse","Risicospreiding"],["Family offices","Fondsen","Corporates"]),
+ # INVESTEERDER (7)
+ ("aanverkoop-beleggingsvastgoed","Aan- en verkoop van beleggingsvastgoed","investeerder","Begeleiding bij zowel aan- als verkoop van beleggingsobjecten.",
+   ["Acquisitie & due diligence","Markttiming","Transactiebegeleiding"],["Beleggers","Family offices","Fondsen"]),
+ ("vastgoeddata-marktinzichten","Vastgoeddata en marktinzichten","investeerder","Heldere marktinzichten als basis voor betere vastgoedbeslissingen.",
+   ["Marktrapportages","Real-time dashboards","Acquisitietools"],["Beleggers","Ontwikkelaars","Adviseurs"]),
  ("asset-management","Asset management","investeerder","Actief beheer gericht op waardegroei en optimale exploitatie.",
    ["Waardecreatie-plannen","Huurdersbeleid","Reporting"],["Beleggers","Fondsen","Institutioneel"]),
  ("commercieel-vastgoedbeheer","Commercieel vastgoedbeheer","investeerder","Technisch en commercieel beheer dat zorgen uit handen neemt.",
    ["Technisch beheer","Commercieel beheer","24/7 storingsdienst"],["Eigenaren","Beleggers","VvE's"]),
+ ("residentieel-vastgoedbeheer","Residentieel vastgoedbeheer","investeerder","Beheer van woningen en residentiële portefeuilles.",
+   ["Verhuur & mutaties","Onderhoud & service","Financiële rapportage"],["Beleggers","Particulieren","Corporaties"]),
  ("vastgoedadministratie","Vastgoedadministratie","investeerder","Sluitende administratie en rapportage, volledig ontzorgd.",
-   ["Huuradministratie","Servicekostenafrekening","Financiële rapportage"],["Beleggers","Eigenaren","Fondsen"]),
- # ONTWIKKELAAR
- ("aankoop-vastgoed","Aankoop van vastgoed","ontwikkelaar","Acquisitie van ontwikkellocaties en te herpositioneren objecten.",
-   ["Locatieacquisitie","Haalbaarheid","Onderhandeling"],["Ontwikkelaars","Beleggers","Gemeenten"]),
- ("gebiedsontwikkeling","Gebiedsontwikkeling","ontwikkelaar","Van visie tot realisatie van toekomstbestendige gebieden.",
-   ["Gebiedsvisie","Stakeholdermanagement","Fasering & realisatie"],["Ontwikkelaars","Gemeenten","Corporaties"]),
- ("internationaal-espana","Internationaal vastgoed — España","ontwikkelaar","Toegang tot de Spaanse markt vanuit onze basis in Valencia.",
-   ["Marktentree España","Lokale partners","Aankoop & ontwikkeling"],["NL-investeerders","Ontwikkelaars","Gebruikers"]),
- ("vastgoedfinanciering","Vastgoedfinancieringsadvies","ontwikkelaar","Onafhankelijk advies over de optimale financieringsstructuur.",
-   ["Financieringsstrategie","Bankrelaties","Structurering"],["Ontwikkelaars","Beleggers","Ondernemers"]),
- # ONDERSTEUNEND (overkoepelend)
+   ["Huuradministratie","Servicekostenafrekening","Maatwerkdashboards"],["Beleggers","Eigenaren","Fondsen"]),
+ ("strategic-advisory","Strategic Advisory","investeerder","Strategisch advies over portefeuille, rendement en risicospreiding.",
+   ["Portefeuillestrategie","Rendementsanalyse","Boardroom-advies"],["Family offices","Fondsen","Corporates"]),
+ # ONTWIKKELAAR / INTERNATIONAAL — Spanje (3)
+ ("acquisition-disposal-spain","Aan- en verkoop beleggingsvastgoed — España","ontwikkelaar","Aan- en verkoop van beleggingsvastgoed op de Spaanse markt.",
+   ["Acquisitie & verkoop","Due diligence","Lokale partners"],["NL-investeerders","Family offices","Fondsen"]),
+ ("asset-management-spain","Asset Management — España","ontwikkelaar","Actief assetbeheer voor vastgoed in Spanje.",
+   ["Waardecreatie","Exploitatie","Reporting"],["Beleggers","Family offices","Fondsen"]),
+ ("asset-services-spain","Asset Services — España","ontwikkelaar","Aanvullende vastgoeddiensten en beheer in Spanje.",
+   ["Property management","Technisch beheer","Lokale ondersteuning"],["Eigenaren","Beleggers","Gebruikers"]),
+ # ONDERSTEUNEND (3)
  ("financiele-administratie","Financiële administratie","ondersteunend","Financiële administratie en rapportage voor vastgoedorganisaties.",
    ["Boekhouding","Rapportage","Jaarafsluiting"],["Beleggers","Ontwikkelaars","Eigenaren"]),
- ("hr-recruitment","HR-advies & Recruitment","ondersteunend","HR-advies en werving van vastgoedtalent.",
-   ["HR-advies","Recruitment & search","Talent acquisition"],["Vastgoedbedrijven","Ontwikkelaars","Beleggers"]),
+ ("hr-advies","HR-Advies","ondersteunend","HR-advies voor groeiende vastgoedorganisaties.",
+   ["HR-strategie","Arbeidsvoorwaarden","Organisatieontwikkeling"],["Vastgoedbedrijven","Ontwikkelaars","Beleggers"]),
+ ("recruitment-talent","Recruitment & Talent acquisition","ondersteunend","Werving en selectie van vastgoedtalent.",
+   ["Search & selectie","Talent acquisition","Employer branding"],["Vastgoedbedrijven","Ontwikkelaars","Beleggers"]),
 ]
 
 GROUP_NAMES = {"gebruiker":"Gebruiker","eigenaar":"Eigenaar","investeerder":"Investeerder",
@@ -700,7 +699,7 @@ def render_vacatures():
   <div class="hero-stats" style="display:flex;gap:clamp(28px,5vw,56px);flex-wrap:wrap;justify-content:center;text-align:center">
     <div class="stat-pop"><b style="font-size:2rem;font-weight:800;display:block;color:var(--green)">40+</b><span class="muted">collega&#39;s</span></div>
     <div class="stat-pop"><b style="font-size:2rem;font-weight:800;display:block;color:var(--green)">3</b><span class="muted">vestigingen · NL &amp; ES</span></div>
-    <div class="stat-pop"><b style="font-size:2rem;font-weight:800;display:block;color:var(--green)">23</b><span class="muted">business units</span></div>
+    <div class="stat-pop"><b style="font-size:2rem;font-weight:800;display:block;color:var(--green)">21</b><span class="muted">business units</span></div>
     <div class="stat-pop"><b style="font-size:2rem;font-weight:800;display:block;color:var(--green)">15+</b><span class="muted">jaar groei</span></div>
   </div>
 </div></section>
