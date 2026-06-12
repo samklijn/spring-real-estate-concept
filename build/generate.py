@@ -39,6 +39,73 @@ try:
 except Exception as e:
     print("WARN: no units_content.json (", e, ")")
 
+# Concept-teksten voor de units die niet in het aanleverdocument stonden,
+# zodat ELKE business unit echte lopende tekst (intro + aanpak) krijgt.
+EXTRA = {
+ "bedrijfs-logistiek": {
+   "h1":"Bedrijfsruimte & logistiek vastgoed huren",
+   "tagline":"De juiste hal, loods of distributielocatie — strategisch gelegen.",
+   "intro":"Op zoek naar bedrijfsruimte of een logistieke locatie? Spring vindt de juiste hal, loods of last-mile-locatie en onderhandelt scherpe huurvoorwaarden, met diepgaande kennis van de Nederlandse logistieke markt.",
+   "approach":["We brengen uw logistieke eisen — vloerbelasting, vrije hoogte, laaddocks en bereikbaarheid — in kaart en koppelen die aan beschikbaar aanbod op de juiste knooppunten.",
+               "Van shortlist en bezichtiging tot onderhandeling en oplevering begeleiden we het volledige traject, zodat u snel operationeel bent."],
+   "usps":["Toegang tot logistiek aanbod op A-locaties en knooppunten","Onderhandeling over huurprijs, incentives en opleverniveau","Advies over vloerbelasting, vrije hoogte en docks","Korte lijnen met eigenaren en ontwikkelaars","Landelijke dekking met sterke regionale marktkennis"],
+   "faq":[{"q":"Welke typen bedrijfsruimte begeleidt Spring?","a":"Van kleinschalige bedrijfsunits tot grote distributiecentra en last-mile-locaties door heel Nederland."},
+          {"q":"Helpen jullie ook bij build-to-suit?","a":"Ja. We adviseren over nieuwbouw- en build-to-suit-trajecten in samenwerking met ontwikkelaars."},
+          {"q":"In welke regio's zijn jullie actief?","a":"Landelijk, met sterke kennis van de logistieke hotspots en korte lijnen met lokale partijen."}]},
+ "retail-winkelruimte": {
+   "h1":"Winkelruimte & retaillocatie huren",
+   "tagline":"Op de juiste plek voor uw doelgroep.",
+   "intro":"Een succesvolle winkel begint bij de locatie. Spring vindt winkel- en horecaruimte op A1-, aanloop- of wijklocaties die passen bij uw formule, doelgroep en bezoekersstromen.",
+   "approach":["We analyseren passantenstromen, branchering en demografie en selecteren locaties die aansluiten bij uw retailformule.",
+               "We onderhandelen over huurprijs en voorwaarden en begeleiden u tot en met de opening van uw winkel."],
+   "usps":["Inzicht in passantenstromen en branchering","Toegang tot A1-, aanloop- en wijklocaties","Onderhandeling over huur, incentives en bijdragen","Begeleiding voor pop-up, flagship én vaste vestiging","Sterke kennis van de lokale retailmarkt"],
+   "faq":[{"q":"Begeleiden jullie ook horeca?","a":"Ja, naast retail begeleiden we ook de huur van horeca- en leisureruimte."},
+          {"q":"Kan Spring helpen bij een pop-upstore?","a":"Zeker. We regelen ook kortlopende en flexibele huurovereenkomsten voor pop-up en flagship."},
+          {"q":"Hoe vinden jullie de juiste locatie?","a":"Op basis van data over passanten, doelgroep en branchering, gecombineerd met lokale marktkennis."}]},
+ "verkoop-commercieel": {
+   "h1":"Bedrijfspand verkopen: verkoop van commercieel vastgoed",
+   "tagline":"Verkoop tegen de beste marktprijs.",
+   "intro":"Uw bedrijfspand verkopen vraagt om de juiste prijsstrategie en een sterk koperssnetwerk. Spring positioneert uw object scherp, benadert kopers actief en begeleidt de volledige verkoop tot aan de overdracht.",
+   "approach":["We bepalen samen de optimale verkoopstrategie en vraagprijs op basis van actuele transactie- en marktdata.",
+               "We presenteren uw object professioneel, benaderen gekwalificeerde kopers direct en onderhandelen tot een succesvolle transactie."],
+   "usps":["Datagedreven waardebepaling en prijsstrategie","Actieve benadering van een sterk koperssnetwerk","Professionele presentatie met fotografie en dataroom","Begeleiding van bod tot notariële overdracht","Landelijke dekking met sterke regionale marktkennis"],
+   "faq":[{"q":"Wat kost de verkoop van een bedrijfspand via Spring?","a":"We werken met heldere, vooraf afgesproken courtage en lichten dit toe in een vrijblijvend gesprek."},
+          {"q":"Hoe bepalen jullie de vraagprijs?","a":"Op basis van een uitgebreide transactie- en marktdatabase, vergelijkbare objecten en het verwachte rendement."},
+          {"q":"Verkopen jullie ook beleggingsobjecten?","a":"Ja, we begeleiden de verkoop van zowel eigenaar-gebruikerspanden als beleggingsvastgoed."}]},
+ "aankoop-vastgoed": {
+   "h1":"Aankoop van vastgoed & ontwikkellocaties",
+   "tagline":"De juiste acquisitie als basis voor uw ontwikkeling.",
+   "intro":"Een goede ontwikkeling begint bij de juiste aankoop. Spring identificeert ontwikkellocaties en te herpositioneren objecten, toetst de haalbaarheid en begeleidt de volledige acquisitie.",
+   "approach":["We brengen uw ontwikkelambitie in kaart en zoeken gericht naar locaties en objecten met potentie.",
+               "We toetsen haalbaarheid, voeren due diligence uit en onderhandelen tot een passende aankoop."],
+   "usps":["Gerichte acquisitie van ontwikkellocaties en objecten","Haalbaarheids- en risicoanalyse vooraf","Due diligence en onderhandeling","Inzicht in bestemmings- en marktpotentie","Korte lijnen met gemeenten, eigenaren en beleggers"],
+   "faq":[{"q":"Zoeken jullie ook off-market objecten?","a":"Ja. Via ons netwerk krijgen we regelmatig toegang tot objecten die niet openbaar worden aangeboden."},
+          {"q":"Helpen jullie bij de haalbaarheidsanalyse?","a":"Zeker. We toetsen locatie, bestemming, kosten en marktpotentie voordat u zich vastlegt."},
+          {"q":"Werken jullie samen met beleggers?","a":"Ja, we begeleiden zowel ontwikkelaars als beleggers bij acquisities."}]},
+ "gebiedsontwikkeling": {
+   "h1":"Gebiedsontwikkeling: van visie tot realisatie",
+   "tagline":"Toekomstbestendige gebieden, samen ontwikkeld.",
+   "intro":"Gebiedsontwikkeling vraagt om visie, draagvlak en regie. Spring begeleidt ontwikkelaars, gemeenten en corporaties van eerste gebiedsvisie tot gefaseerde realisatie van toekomstbestendige gebieden.",
+   "approach":["We vertalen ambities naar een haalbare gebiedsvisie en betrekken de juiste stakeholders vroegtijdig.",
+               "We bewaken samenhang, fasering en programma tot en met de realisatie en invulling van het gebied."],
+   "usps":["Heldere gebiedsvisie met draagvlak","Stakeholder- en procesmanagement","Programmering, fasering en realisatieregie","Inzicht in markt, doelgroep en haalbaarheid","Ervaring met publiek-private samenwerking"],
+   "faq":[{"q":"Voor wie werkt Spring bij gebiedsontwikkeling?","a":"Voor ontwikkelaars, gemeenten, corporaties en beleggers die samen een gebied willen ontwikkelen."},
+          {"q":"Begeleiden jullie het hele traject?","a":"Ja, van visievorming en haalbaarheid tot fasering, programmering en realisatie."},
+          {"q":"Hoe borgen jullie draagvlak?","a":"Door stakeholders vroeg te betrekken en het proces transparant en gestructureerd te voeren."}]},
+ "vastgoedfinanciering": {
+   "h1":"Vastgoedfinanciering: onafhankelijk financieringsadvies",
+   "tagline":"De optimale financieringsstructuur voor uw vastgoed.",
+   "intro":"De juiste financiering bepaalt mede uw rendement. Spring adviseert onafhankelijk over de optimale financieringsstructuur en onderhandelt namens u met financiers.",
+   "approach":["We brengen uw financieringsbehoefte en risicoprofiel in kaart en bepalen de optimale structuur.",
+               "We benaderen geschikte financiers, vergelijken voorstellen en onderhandelen scherpe voorwaarden."],
+   "usps":["Onafhankelijk advies, geen binding aan één financier","Optimale financieringsstructuur en looptijd","Toegang tot een breed netwerk van banken en alternatieve financiers","Onderhandeling over rente en voorwaarden","Begeleiding tot en met closing"],
+   "faq":[{"q":"Zijn jullie onafhankelijk?","a":"Ja. We adviseren onafhankelijk en behartigen uitsluitend uw belang richting financiers."},
+          {"q":"Voor welke financieringen kan ik terecht?","a":"Voor acquisitie-, herfinancierings- en ontwikkelingsfinanciering van commercieel vastgoed."},
+          {"q":"Werken jullie ook met alternatieve financiers?","a":"Ja, naast banken hebben we toegang tot een netwerk van alternatieve en private financiers."}]},
+}
+for _slug, _nl in EXTRA.items():
+    CONTENT.setdefault(_slug, {"nl":_nl, "en":None, "es":None, "people":None})
+
 # ----------------------------------------------------------------------
 # DATA MODEL
 # ----------------------------------------------------------------------
