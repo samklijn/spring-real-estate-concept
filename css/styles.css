@@ -921,6 +921,23 @@ p{ margin:0 0 1rem; }
 .vac-cols .checks svg{ color:var(--green); flex:0 0 auto; margin-top:3px; }
 .vac-actions{ display:flex; gap:12px; margin-top:24px; flex-wrap:wrap; }
 @media (max-width:760px){ .vac-cols{ grid-template-columns:1fr; gap:20px; } }
+/* glossary */
+.glossary{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+.gloss{ background:#fff; border:1px solid var(--line); border-radius:var(--r); padding:18px 20px; }
+.gloss b{ display:block; color:var(--green); margin-bottom:6px; font-size:1.02rem; }
+.gloss p{ font-size:.92rem; color:var(--ink-soft); line-height:1.5; margin:0; }
+@media (max-width:860px){ .glossary{ grid-template-columns:repeat(2,1fr); } }
+@media (max-width:520px){ .glossary{ grid-template-columns:1fr; } }
+/* profile facts */
+.pf-facts{ list-style:none; padding:0; margin:18px 0 24px; display:grid; gap:0; border-top:1px solid var(--line); }
+.pf-facts li{ display:flex; justify-content:space-between; gap:18px; padding:11px 0; border-bottom:1px solid var(--line); font-size:.95rem; }
+.pf-facts li span{ color:var(--ink-soft); }
+.pf-facts li b{ text-align:right; }
+/* review cards */
+.rev-card{ background:#fff; border:1px solid var(--line); border-radius:var(--r); padding:24px; display:flex; flex-direction:column; gap:12px; }
+.rev-card .stars{ color:#e3b341; letter-spacing:2px; }
+.rev-card p{ margin:0; line-height:1.55; }
+.rev-card b{ font-size:.9rem; color:var(--ink-soft); font-weight:600; }
 
 /* =====================================================================
    KATANA-STYLE COMPONENTS (homepage)

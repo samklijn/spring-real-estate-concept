@@ -1003,6 +1003,25 @@ def render_unit(idx, u):
   </div>
 </div></section>
 
+<section class="section--tight"><div class="container">
+  <div class="logos-cap"{trh("Trusted by clients &amp; partners","La confianza de clientes y socios")}>Vertrouwd door opdrachtgevers &amp; partners</div>
+  <div class="logos-row">
+    <span class="clogo">MERIN</span><span class="clogo">a.s.r.&nbsp;<small>real estate</small></span><span class="clogo">BPD</span><span class="clogo">Vesteda</span><span class="clogo">Heimstaden</span><span class="clogo">Bouwinvest</span>
+  </div>
+</div></section>
+
+<section class="section--tight section--soft"><div class="container">
+  <div class="sec-head"><div class="t"><span class="eyebrow"{trh("Glossary","Glosario")}>Begrippenlijst</span><h2 class="disp"{trh("Jargon <em>explained</em>","Jerga <em>explicada</em>")}>Vakjargon <em>uitgelegd</em></h2><p class="lead"{trh(f"The key terms around {title_low}, in plain language.", f"Los términos clave sobre {title_low}, en lenguaje claro.")}>De belangrijkste begrippen rondom {title_low}, in begrijpelijke taal.</p></div></div>
+  <div class="glossary">
+    <div class="gloss"><b>k.k. — kosten koper</b><p>De koper betaalt de kosten voor de overdracht, zoals overdrachtsbelasting en notaris.</p></div>
+    <div class="gloss"><b>BVO / VVO</b><p>Bruto vloeroppervlak versus verhuurbaar vloeroppervlak — bepalend voor huurprijs en vergelijkbaarheid.</p></div>
+    <div class="gloss"><b>Aanvangsrendement</b><p>De verhouding tussen de jaarlijkse huurinkomsten en de aankoopprijs van een beleggingsobject.</p></div>
+    <div class="gloss"><b>BREEAM</b><p>Internationaal keurmerk dat de duurzaamheidsprestatie van een gebouw beoordeelt.</p></div>
+    <div class="gloss"><b>Triple net (NNN)</b><p>Huurvorm waarbij de huurder naast de huur ook belastingen, verzekering en onderhoud betaalt.</p></div>
+    <div class="gloss"><b>Due diligence</b><p>Het grondige onderzoek naar een object vóór aankoop: juridisch, technisch en financieel.</p></div>
+  </div>
+</div></section>
+
 {office_html}
 {spain_html}
 <section class="section--tight"><div class="container">
@@ -1223,15 +1242,43 @@ def render_profile(p):
       <span class="eyebrow">Professional experience</span>
       <h2 class="disp"{trh(f"About <em>{name.split(' ')[0]}</em>", f"Sobre <em>{name.split(' ')[0]}</em>")}>Over <em>{name.split(' ')[0]}</em></h2>
       <p>{name} is {role.split('·')[0].strip().lower()} bij Spring Real Estate in {loc.split('·')[0].strip()}, met {years} ervaring. {name.split(' ')[0]} is gespecialiseerd in {spec.lower()} en werkt datagedreven samen met klanten aan de beste oplossing.</p>
-      <p>"De beste resultaten ontstaan waar marktkennis en persoonlijk contact samenkomen. Ik denk met u mee over de lange termijn — niet alleen over de transactie van vandaag."</p>
+      <ul class="pf-facts">
+        <li><span{trh("Years of experience","Años de experiencia")}>Jaren ervaring</span><b>{years}</b></li>
+        <li><span{trh("Specialism","Especialidad")}>Specialisme</span><b>{spec}</b></li>
+        <li><span{trh("Office","Oficina")}>Kantoor</span><b>{loc.split('·')[0].strip()}</b></li>
+        <li><span{trh("Education","Formación")}>Opleiding</span><b>MSc Real Estate</b></li>
+        <li><span{trh("Accreditations","Acreditaciones")}>Lidmaatschappen / accreditaties</span><b>RICS · NRVT</b></li>
+        <li><span{trh("Languages","Idiomas")}>Talen</span><b>NL · EN · ES</b></li>
+      </ul>
       <a href="contact.html" class="btn btn--primary" style="margin-top:6px">Plan een afspraak</a>
     </div>
   </div>
 </div></section>
 
+<section class="section--tight section--soft"><div class="container">
+  <div class="sec-head"><div class="t"><span class="eyebrow"{trh("Personal market vision","Visión de mercado")}>Persoonlijke marktvisie</span><h2 class="disp"{trh(f"The vision of <em>{name.split(' ')[0]}</em>", f"La visión de <em>{name.split(' ')[0]}</em>")}>De visie van <em>{name.split(' ')[0]}</em></h2></div></div>
+  <p class="disp" style="font-size:clamp(1.3rem,2.4vw,1.9rem);line-height:1.4;max-width:60ch"><em>"De beste resultaten ontstaan waar marktkennis en persoonlijk contact samenkomen. Ik denk met u mee over de lange termijn — niet alleen over de transactie van vandaag."</em></p>
+</div></section>
+
 <section class="section--tight"><div class="container">
   <div class="sec-head"><div class="t"><span class="eyebrow">Specialisme</span><h2 class="disp"{trh(f"Who {name.split(' ')[0]} <em>serves</em>", f"A quién atiende <em>{name.split(' ')[0]}</em>")}>Wie {name.split(' ')[0]} <em>bedient</em></h2></div></div>
   <div class="sector-grid">{sect}</div>
+</div></section>
+
+<section class="section--tight"><div class="container">
+  <div class="sec-head"><div class="t"><span class="eyebrow"{trh("Reviews","Reseñas")}>Reviews</span><h2 class="disp"{trh(f"What clients say about <em>{name.split(' ')[0]}</em>", f"Lo que dicen los clientes de <em>{name.split(' ')[0]}</em>")}>Wat klanten over <em>{name.split(' ')[0]}</em> zeggen</h2></div></div>
+  <div class="cards-grid">
+    <div class="rev-card"><div class="stars">★★★★★</div><p>"{name.split(' ')[0]} kent de markt door en door en regelde meer dan we vroegen. Snelle, transparante begeleiding van begin tot eind."</p><b>Klantnaam, Organisatie</b></div>
+    <div class="rev-card"><div class="stars">★★★★★</div><p>"Datagedreven advies en een scherpe onderhandeling. We zaten binnen de afgesproken termijn in het juiste pand."</p><b>Klantnaam, Organisatie</b></div>
+    <div class="rev-card"><div class="stars">★★★★★</div><p>"Een vertrouwde adviseur die met ons meedenkt over de lange termijn, niet alleen de transactie van vandaag."</p><b>Klantnaam, Organisatie</b></div>
+  </div>
+</div></section>
+
+<section class="section--tight section--soft"><div class="container">
+  <div class="sec-head"><div class="t"><span class="eyebrow"{trh("References","Referencias")}>Referenties</span><h2 class="disp"{trh("Recent <em>clients</em>","<em>Clientes</em> recientes")}>Recente <em>opdrachtgevers</em></h2></div></div>
+  <div class="logos-row">
+    <span class="clogo">MERIN</span><span class="clogo">a.s.r.&nbsp;<small>real estate</small></span><span class="clogo">BPD</span><span class="clogo">Vesteda</span><span class="clogo">Bouwinvest</span>
+  </div>
 </div></section>
 
 <section class="section--tight"><div class="container">
