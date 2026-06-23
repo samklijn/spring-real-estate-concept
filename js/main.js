@@ -154,6 +154,9 @@ if (tabs) {
     if (!card) return;
     if (e.target.closest('a[href]')) return; // let real links work
     e.preventDefault();
+    // each team member has their own page — navigate there when available
+    const prof = card.getAttribute('data-profile');
+    if (prof) { window.location.href = prof; return; }
     if (!modal) modal = buildModal();
     const img = card.querySelector('img');
     const name = (card.querySelector('.name') || {}).textContent || '';

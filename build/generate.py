@@ -370,7 +370,12 @@ for _num in sorted(_raw):
         if key in _seen:
             continue
         _seen.add(key)
-        PEOPLE.append({"name": nm, "role": role, "email": email, "photo": photo})
+        if email:
+            pslug = email.split("@")[0].lower()
+        else:
+            pslug = re.sub(r'&[a-z]+;', '', nm).lower()
+            pslug = re.sub(r'[^a-z0-9]+', '-', pslug).strip('-') or "medewerker"
+        PEOPLE.append({"name": nm, "role": role, "email": email, "photo": photo, "slug": pslug})
 
 # ----------------------------------------------------------------------
 # DATA MODEL
@@ -1078,32 +1083,71 @@ VACS = [
   ["HBO/WO-student vastgoed, economie of data","Handig met Excel; affiniteit met data","Leergierig, nauwkeurig en zelfstandig","Beschikbaar voor een meewerkstage"],
   ["Een leerzame stage met echte verantwoordelijkheid","Stagevergoeding en begeleiding","Kans op een vaste baan na je studie","Een jong en gedreven team"]),
 ]
+def vac_slug(title):
+    s = re.sub(r'[^a-z0-9]+', '-', title.lower()).strip('-')
+    return s or "vacature"
+
+def _vmeta(loc, typ, team):
+    return (f'<div class="vmeta">'
+            f'<span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="10" r="3"/><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/></svg> {loc}</span>'
+            f'<span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg> {typ}</span>'
+            f'<span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">{I_BLD}</svg> {team}</span></div>')
+
+def render_vacature_detail(v):
+    t,loc,typ,team,intro,taken,eisen,bieden = v
+    slug = vac_slug(t)
+    taken_li = "".join(f"<li>{ic(I_CHECK,'2.4')} {x}</li>" for x in taken)
+    eisen_li = "".join(f"<li>{ic(I_CHECK,'2.4')} {x}</li>" for x in eisen)
+    bieden_li = "".join(f"<li>{ic(I_CHECK,'2.4')} {x}</li>" for x in bieden)
+    subj = t.replace(' ', '%20')
+    html = HEAD.format(title=f"{he(t)} — Vacature — Spring Real Estate", desc=f"Vacature {he(t)} bij Spring Real Estate — {loc}, {typ}. Solliciteer direct.")
+    html += TOPBAR + HEADER
+    html += f'''
+<section class="page-hero"><div class="container">
+  <div class="crumbs"><a href="index.html">Home</a> / <a href="vacatures.html" data-i18n="nav.vacatures">Vacatures</a> / {he(t)}</div>
+  <span class="eyebrow" data-i18n="nav.vacatures">Vacatures</span>
+  <h1>{he(t)}</h1>
+  {_vmeta(loc, typ, team)}
+  <div class="ph-cta" style="margin-top:22px"><a href="contact.html" class="btn btn--primary">Solliciteer op deze functie</a><a href="mailto:jobs@springrealestate.com?subject=Sollicitatie%20{subj}" class="btn btn--ghost">Mail je cv</a></div>
+</div></section>
+
+<section class="section"><div class="container"><div class="split">
+  <div>
+    <p class="lead">{intro}</p>
+    <h3 style="margin-top:26px">Wat ga je doen?</h3><ul class="checks">{taken_li}</ul>
+    <h3 style="margin-top:22px">Wat vragen we?</h3><ul class="checks">{eisen_li}</ul>
+    <h3 style="margin-top:22px">Wat bieden we?</h3><ul class="checks">{bieden_li}</ul>
+  </div>
+  <div class="aside-card aside-dark">
+    <h3>Interesse in deze functie?</h3>
+    <p style="color:#bcbeb2;font-size:.94rem">Solliciteer direct of stuur je cv — we reageren doorgaans binnen 5 werkdagen.</p>
+    <a href="contact.html" class="btn btn--primary" style="width:100%;margin-top:8px">Solliciteer</a>
+    <a href="mailto:jobs@springrealestate.com?subject=Sollicitatie%20{subj}" class="btn btn--ghost" style="width:100%;margin-top:10px;color:#fff;border-color:rgba(255,255,255,.3)">Mail je cv</a>
+    <div class="dlist" style="margin-top:18px">
+      <div class="di"><span class="di-k">Locatie</span><span class="di-v">{loc}</span></div>
+      <div class="di"><span class="di-k">Dienstverband</span><span class="di-v">{typ}</span></div>
+      <div class="di"><span class="di-k">Team</span><span class="di-v">{team}</span></div>
+    </div>
+  </div>
+</div></div></section>
+
+<section class="section--tight"><div class="container"><div class="cta">
+  <h2>Niet helemaal jouw functie?</h2>
+  <p>Bekijk alle vacatures of stuur ons een open sollicitatie — we maken graag kennis.</p>
+  <div class="btns"><a href="vacatures.html" class="btn btn--light btn--lg">Alle vacatures</a><a href="contact.html" class="btn btn--lg" style="background:rgba(255,255,255,.16);color:#fff;border-color:rgba(255,255,255,.4)">Open sollicitatie</a></div>
+</div></div></section>
+'''
+    html += FOOTER
+    return html
+
 def render_vacatures():
     rows = ""
     for v in VACS:
         t,loc,typ,team,intro,taken,eisen,bieden = v
-        taken_li = "".join(f"<li>{ic(I_CHECK,'2.4')} {x}</li>" for x in taken)
-        eisen_li = "".join(f"<li>{ic(I_CHECK,'2.4')} {x}</li>" for x in eisen)
-        bieden_li = "".join(f"<li>{ic(I_CHECK,'2.4')} {x}</li>" for x in bieden)
-        rows += f'''<details class="vac-item">
-          <summary class="vac">
-            <div><h3>{t}</h3><div class="vmeta">
-              <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="10" r="3"/><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/></svg> {loc}</span>
-              <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg> {typ}</span>
-              <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">{I_BLD}</svg> {team}</span>
-            </div></div>
-            <span class="vac-cta"><span data-tr="1" data-en="View vacancy" data-es="Ver vacante">Bekijk vacature</span> <svg class="vac-chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg></span>
-          </summary>
-          <div class="vac-body">
-            <p class="lead">{intro}</p>
-            <div class="vac-cols">
-              <div><h4>Wat ga je doen?</h4><ul class="checks">{taken_li}</ul></div>
-              <div><h4>Wat vragen we?</h4><ul class="checks">{eisen_li}</ul></div>
-              <div><h4>Wat bieden we?</h4><ul class="checks">{bieden_li}</ul></div>
-            </div>
-            <div class="vac-actions"><a href="contact.html" class="btn btn--primary">Solliciteer op deze functie</a><a href="mailto:jobs@springrealestate.com?subject=Sollicitatie%20{t.replace(' ','%20')}" class="btn btn--ghost">Mail je cv</a></div>
-          </div>
-        </details>'''
+        rows += f'''<a class="vac" href="vacature-{vac_slug(t)}.html">
+          <div><h3>{t}</h3>{_vmeta(loc, typ, team)}</div>
+          <span class="vac-cta"><span data-tr="1" data-en="View vacancy" data-es="Ver vacante">Bekijk vacature</span> <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>'''
     html = HEAD.format(title="Vacatures — Spring Real Estate", desc="Werken bij Spring Real Estate. Bekijk onze vacatures in Utrecht, Amsterdam en Valencia.")
     html += TOPBAR + HEADER
     html += f'''
@@ -1294,6 +1338,87 @@ def render_profile(p):
     return html
 
 # ----------------------------------------------------------------------
+# TEAMLID-PROFIEL (eigen pagina per medewerker uit PEOPLE)
+# ----------------------------------------------------------------------
+def render_person_profile(p):
+    name, role, email, photo, slug = p["name"], p["role"], p["email"], p.get("photo"), p["slug"]
+    first = name.split(" ")[0] if name.split(" ")[0][:1].isupper() else (name.split(" ")[1] if len(name.split(" "))>1 else name)
+    mail = email or "info@springrealestate.com"
+    media = f'<img src="{photo}" alt="{esc(name)}">' if photo else f'<div class="ph" style="aspect-ratio:4/5">{phinner(name, None)}</div>'
+    sectors = ["Kantoren","Logistiek &amp; bedrijfsruimte","Retail","Zorgvastgoed"]
+    sect = "".join(f'<div class="sector">{ic(I_CHECK,"2.4")} {tlabel(s)}</div>' for s in sectors)
+    html = HEAD.format(title=f"{he(name)} — Spring Real Estate", desc=f"{he(name)}, {he(role)} bij Spring Real Estate.")
+    html += TOPBAR + HEADER
+    html += f'''
+<section class="page-hero"><div class="container">
+  <div class="crumbs"><a href="index.html">Home</a> / <a href="agents.html">Agents</a> / {he(name)}</div>
+  <span class="eyebrow" data-tr="1" data-en="Our team" data-es="Nuestro equipo">Ons team</span>
+  <h1>{he(name)}</h1>
+  <p class="lead">{he(role)}</p>
+  <div class="ph-cta">
+    <a href="mailto:{mail}" class="btn btn--primary">E-mail {he(first)}</a>
+    <a href="tel:+31302001020" class="btn btn--ghost">+31 30 200 10 20</a>
+    <a href="#" class="btn btn--ghost">LinkedIn</a>
+  </div>
+</div></section>
+
+<section class="section"><div class="container"><div class="two-col">
+  <div class="media-tall">{media}</div>
+  <div class="prose">
+    <span class="eyebrow" data-tr="1" data-en="Professional experience" data-es="Experiencia profesional">Professional experience</span>
+    <h2 class="disp"{trh(f"About <em>{he(first)}</em>", f"Sobre <em>{he(first)}</em>")}>Over <em>{he(first)}</em></h2>
+    <p>{he(name)} is {he(role.lower())} bij Spring Real Estate en werkt datagedreven samen met klanten aan de beste vastgoedoplossing. [Bio in te vullen — 2&ndash;4 zinnen met jaartal, regio en specialisme.]</p>
+    <ul class="pf-facts">
+      <li><span{trh("Role","Función")}>Functie</span><b>{he(role)}</b></li>
+      <li><span{trh("Years of experience","Años de experiencia")}>Jaren ervaring</span><b>10+ jaar</b></li>
+      <li><span{trh("Office","Oficina")}>Kantoor</span><b>Amsterdam · Utrecht</b></li>
+      <li><span{trh("Education","Formación")}>Opleiding</span><b>MSc Real Estate</b></li>
+      <li><span{trh("Accreditations","Acreditaciones")}>Lidmaatschappen / accreditaties</span><b>RICS · NRVT</b></li>
+      <li><span{trh("Languages","Idiomas")}>Talen</span><b>NL · EN · ES</b></li>
+    </ul>
+    <a href="mailto:{mail}" class="btn btn--primary" style="margin-top:6px">Plan een afspraak</a>
+  </div>
+</div></div></section>
+
+<section class="section--tight section--soft"><div class="container">
+  <div class="sec-head"><div class="t"><span class="eyebrow"{trh("Personal market vision","Visión de mercado")}>Persoonlijke marktvisie</span><h2 class="disp"{trh(f"The vision of <em>{he(first)}</em>", f"La visión de <em>{he(first)}</em>")}>De visie van <em>{he(first)}</em></h2></div></div>
+  <p class="disp" style="font-size:clamp(1.3rem,2.4vw,1.9rem);line-height:1.4;max-width:60ch"><em>"[Persoonlijke marktvisie in te vullen — 2&ndash;3 zinnen die de expertise van {he(first)} tonen.]"</em></p>
+</div></section>
+
+<section class="section--tight"><div class="container">
+  <div class="sec-head"><div class="t"><span class="eyebrow">Specialisme</span><h2 class="disp"{trh(f"Who {he(first)} <em>serves</em>", f"A quién atiende <em>{he(first)}</em>")}>Wie {he(first)} <em>bedient</em></h2></div></div>
+  <div class="sector-grid">{sect}</div>
+</div></section>
+
+<section class="section--tight section--soft"><div class="container">
+  <div class="sec-head"><div class="t"><span class="eyebrow"{trh("Reviews","Reseñas")}>Reviews</span><h2 class="disp"{trh(f"What clients say about <em>{he(first)}</em>", f"Lo que dicen los clientes de <em>{he(first)}</em>")}>Wat klanten over <em>{he(first)}</em> zeggen</h2></div></div>
+  <div class="cards-grid">
+    <div class="rev-card"><div class="stars">★★★★★</div><p>"[Review in te vullen — benoem de dienst, regio en een concreet resultaat.]"</p><b>Klantnaam, Organisatie</b></div>
+    <div class="rev-card"><div class="stars">★★★★★</div><p>"[Review in te vullen — met toestemming van de klant.]"</p><b>Klantnaam, Organisatie</b></div>
+    <div class="rev-card"><div class="stars">★★★★★</div><p>"[Review in te vullen.]"</p><b>Klantnaam, Organisatie</b></div>
+  </div>
+</div></section>
+
+<section class="section--tight"><div class="container">
+  <div class="sec-head"><div class="t"><span class="eyebrow"{trh("References","Referencias")}>Referenties</span><h2 class="disp"{trh("Recent <em>clients</em>","<em>Clientes</em> recientes")}>Recente <em>opdrachtgevers</em></h2></div></div>
+  <div class="logos-row">
+    <span class="clogo">MERIN</span><span class="clogo">a.s.r.&nbsp;<small>real estate</small></span><span class="clogo">BPD</span><span class="clogo">Vesteda</span><span class="clogo">Bouwinvest</span>
+  </div>
+</div></section>
+
+<section class="section--tight section--soft"><div class="container">
+  <div class="sec-head"><div class="t"><span class="eyebrow">Recent werk</span><h2 class="disp">Gerelateerd <em>aanbod</em></h2></div><a href="listings.html" class="btn btn--ghost">Heel het aanbod</a></div>
+  <div class="cards-grid">
+    <a class="prop-card" href="listing-detail.html"><div class="ph"><span class="tag">Te huur</span><img src="images/photo-1.jpg" alt=""></div><div class="body"><span class="ptype">Kantoorruimte</span><h3>Gustav Mahlerlaan 2999</h3><span class="addr">Amsterdam · Zuidas</span><div class="meta"><span class="price">€720 <small>/m²/jaar</small></span></div></div></a>
+    <a class="prop-card" href="listing-detail.html"><div class="ph"><span class="tag">Te koop</span><img src="images/photo-2.jpg" alt=""></div><div class="body"><span class="ptype">Beleggingsobject</span><h3>Stadhouderskade 12</h3><span class="addr">Utrecht · Centrum</span><div class="meta"><span class="price">€4,9 mln <small>k.k.</small></span></div></div></a>
+    <a class="prop-card" href="listing-detail.html"><div class="ph"><span class="tag">Te huur</span><img src="images/hero.jpg" alt=""></div><div class="body"><span class="ptype">Serviced office</span><h3>Paseo de la Alameda 7</h3><span class="addr">Valencia · España</span><div class="meta"><span class="price">€1.450 <small>/maand</small></span></div></div></a>
+  </div>
+</div></section>
+'''
+    html += FOOTER
+    return html
+
+# ----------------------------------------------------------------------
 # LOCATION PAGES (eigen pagina per kantoor)
 # ----------------------------------------------------------------------
 LOCATIES = {
@@ -1317,8 +1442,8 @@ LOCATIES = {
 def render_locatie(key):
     L = LOCATIES[key]
     team3 = "".join(
-        f'<div class="agent"><div class="ph"><img src="images/{p[6]}" alt=""></div><div class="body"><div class="name">{p[1]}</div><div class="role">{p[2]}</div><div class="socials"><a href="profile-{p[0]}.html">in</a><a href="#">@</a></div></div></div>'
-        for p in ROSTER[:3])
+        f'<div class="agent" data-profile="profile-{pp["slug"]}.html"><div class="ph">{phinner(pp["name"], pp["photo"])}</div><div class="body"><a class="name" href="profile-{pp["slug"]}.html">{he(pp["name"])}</a><div class="role">{he(pp["role"])}</div><div class="socials"><a href="profile-{pp["slug"]}.html">in</a><a href="mailto:{pp["email"] or "info@springrealestate.com"}">@</a></div></div></div>'
+        for pp in PEOPLE[:3])
     html = HEAD.format(title=f"{L['name']} — Spring Real Estate", desc=f"Spring Real Estate {L['name']}: {L['addr']}. Aanbod, team en contact in {L['name']}.")
     html += TOPBAR + HEADER
     html += f'''
@@ -1449,8 +1574,8 @@ def render_agents():
     for i, p in enumerate(PEOPLE):
         first = p["name"].split(" ")[0]
         mlink = f'mailto:{p["email"]}' if p["email"] else "#"
-        cards += (f'<div class="person" data-cat="{agent_cat(p["role"])}"><div class="ph">{phinner(p["name"], p["photo"])}</div>'
-                  f'<div class="body"><div class="name">{he(p["name"])}</div><div class="role">{he(p["role"])}</div>'
+        cards += (f'<div class="person" data-cat="{agent_cat(p["role"])}" data-profile="profile-{p["slug"]}.html"><div class="ph">{phinner(p["name"], p["photo"])}</div>'
+                  f'<div class="body"><a class="name" href="profile-{p["slug"]}.html">{he(p["name"])}</a><div class="role">{he(p["role"])}</div>'
                   f'<p class="bio" data-tr="1" data-en="{he(first)} is a specialist at Spring Real Estate. Feel free to get in touch for an introduction and personal advice." data-es="{he(first)} es especialista en Spring Real Estate. No dudes en ponerte en contacto para una presentaci&oacute;n y asesoramiento personal.">{he(first)} is specialist bij Spring Real Estate. Neem gerust contact op voor een kennismaking en persoonlijk advies.</p>'
                   f'<div class="socials"><a href="#" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1-.02-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.8-2 3.7-2 4 0 4.75 2.6 4.75 6V21H21v-5.3c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9V21H13z"/></svg></a>'
                   f'<a href="{mlink}" aria-label="E-mail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></a></div></div></div>')
@@ -1498,8 +1623,10 @@ def main():
         written.append(write(f"unit-{u[0]}.html", render_unit(i,u)))
     written.append(write("vacatures.html", render_vacatures()))
     written.append(write("agents.html", render_agents()))
-    for p in ROSTER:
-        written.append(write(f"profile-{p[0]}.html", render_profile(p)))
+    for p in PEOPLE:
+        written.append(write(f"profile-{p['slug']}.html", render_person_profile(p)))
+    for v in VACS:
+        written.append(write(f"vacature-{vac_slug(v[0])}.html", render_vacature_detail(v)))
     for key in LOCATIES:
         written.append(write(f"locatie-{key}.html", render_locatie(key)))
     written.append(write("sectoren.html", render_sectoren()))

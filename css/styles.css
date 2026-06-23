@@ -938,6 +938,10 @@ p{ margin:0 0 1rem; }
 .rev-card .stars{ color:#e3b341; letter-spacing:2px; }
 .rev-card p{ margin:0; line-height:1.55; }
 .rev-card b{ font-size:.9rem; color:var(--ink-soft); font-weight:600; }
+/* team name as link */
+a.name{ color:inherit; text-decoration:none; display:block; }
+.person:hover a.name, .agent:hover a.name{ color:var(--green); }
+.person[data-profile], .agent[data-profile]{ cursor:pointer; }
 
 /* =====================================================================
    KATANA-STYLE COMPONENTS (homepage)
