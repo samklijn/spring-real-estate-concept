@@ -155,8 +155,8 @@ if (tabs) {
     if (e.target.closest('a[href]')) return; // let real links work
     e.preventDefault();
     // each team member has their own page — navigate there when available
-    const prof = card.getAttribute('data-profile');
-    if (prof) { window.location.href = prof; return; }
+    const directProfile = card.getAttribute('data-profile');
+    if (directProfile) { window.location.href = directProfile; return; }
     if (!modal) modal = buildModal();
     const img = card.querySelector('img');
     const name = (card.querySelector('.name') || {}).textContent || '';
@@ -246,3 +246,183 @@ if (lang) {
     try { localStorage.setItem('spring-lang', btn.dataset.lang); } catch (_) {}
   });
 }
+
+/* ============================================================
+   NEXT-LEVEL ENHANCEMENTS (additive — appended)
+   ============================================================ */
+
+// 1. Scroll-reveal animations
+(function () {
+  if (!('IntersectionObserver' in window)) return;
+  if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const sel = '.sec-head,.cards-grid,.kat-grid,.values-grid,.units-grid,.units-acc,.two-col,.statfeature,.txn-list,.news-wrap,.glossary,.vac-list,.people-grid,.dark-cards,.logos-row,.results-grid,.team-grid,.svc-grid,.sector-grid,.timeline,.pf-facts,.split,.panel';
+  const els = [...document.querySelectorAll(sel)];
+  els.forEach(e => e.classList.add('reveal'));
+  const io = new IntersectionObserver((ents) => {
+    ents.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  els.forEach(e => io.observe(e));
+  // failsafe: never leave content hidden
+  setTimeout(() => els.forEach(e => e.classList.add('in')), 1800);
+})();
+
+// 2. Sticky shrinking header
+(function () {
+  const h = document.querySelector('.header'); if (!h) return;
+  const on = () => h.classList.toggle('scrolled', window.scrollY > 24);
+  on(); addEventListener('scroll', on, { passive: true });
+})();
+
+// 3. Active nav highlight
+(function () {
+  const page = (location.pathname.split('/').pop() || 'index.html');
+  document.querySelectorAll('.nav a[href]').forEach(a => {
+    const href = a.getAttribute('href');
+    if (href === page) a.classList.add('active-nav');
+  });
+})();
+
+// 4. Back-to-top button
+(function () {
+  const b = document.createElement('button');
+  b.className = 'to-top'; b.setAttribute('aria-label', 'Terug naar boven');
+  b.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 19V5M5 12l7-7 7 7"/></svg>';
+  document.body.appendChild(b);
+  const on = () => b.classList.toggle('show', window.scrollY > 600);
+  on(); addEventListener('scroll', on, { passive: true });
+  b.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+})();
+
+// 5. Cookie consent banner
+(function () {
+  try { if (localStorage.getItem('spring-cookie')) return; } catch (_) {}
+  const lang = (document.documentElement.lang || 'nl');
+  const txt = lang === 'en' ? 'We use cookies to improve your experience and analyse traffic.'
+    : lang === 'es' ? 'Usamos cookies para mejorar tu experiencia y analizar el tráfico.'
+      : 'We gebruiken cookies om je ervaring te verbeteren en het gebruik te analyseren.';
+  const ok = lang === 'en' ? 'Accept' : lang === 'es' ? 'Aceptar' : 'Akkoord';
+  const c = document.createElement('div');
+  c.className = 'cookie';
+  c.innerHTML = '<p>' + txt + ' <a href="#">Privacy</a></p><button class="btn btn--primary">' + ok + '</button>';
+  document.body.appendChild(c);
+  c.querySelector('button').addEventListener('click', () => { try { localStorage.setItem('spring-cookie', '1'); } catch (_) {} c.remove(); });
+})();
+
+// 6. Favorites (hearts persist in localStorage)
+(function () {
+  const KEY = 'spring-favs';
+  let favs; try { favs = JSON.parse(localStorage.getItem(KEY) || '[]'); } catch (_) { favs = []; }
+  document.querySelectorAll('.prop-card .fav').forEach(fav => {
+    const card = fav.closest('.prop-card');
+    const id = ((card.querySelector('h3') || {}).textContent || card.getAttribute('href') || '').trim();
+    if (favs.indexOf(id) >= 0) fav.classList.add('is-fav');
+    fav.addEventListener('click', e => {
+      e.preventDefault(); e.stopPropagation();
+      const i = favs.indexOf(id);
+      if (i >= 0) { favs.splice(i, 1); fav.classList.remove('is-fav'); }
+      else { favs.push(id); fav.classList.add('is-fav'); }
+      try { localStorage.setItem(KEY, JSON.stringify(favs)); } catch (_) {}
+    });
+  });
+})();
+
+// 7. Working search → listings.html?q=… (and prefill/apply on listings)
+(function () {
+  const onListings = !!document.querySelector('.results-grid');
+  document.querySelectorAll('form.search').forEach(f => {
+    f.addEventListener('submit', e => {
+      e.preventDefault();
+      const inp = f.querySelector('input[type=text]') || f.querySelector('input');
+      const q = inp ? inp.value.trim() : '';
+      if (onListings) return; // listings filters live via its own module
+      location.href = 'listings.html' + (q ? ('?q=' + encodeURIComponent(q)) : '');
+    });
+  });
+  if (onListings) {
+    const q = new URLSearchParams(location.search).get('q');
+    if (q) { const inp = document.querySelector('.page-hero .search input'); if (inp) { inp.value = q; inp.dispatchEvent(new Event('input')); } }
+  }
+})();
+
+// 8. Listing-detail gallery: thumbnail swap + lightbox
+(function () {
+  const main = document.querySelector('.g-main img');
+  const thumbs = [...document.querySelectorAll('.g-side .g-thumb img')];
+  if (!main && !thumbs.length) return;
+  thumbs.forEach(th => th.addEventListener('click', () => { if (main) { const s = main.getAttribute('src'); main.setAttribute('src', th.getAttribute('src')); th.setAttribute('src', s); } }));
+  const lb = document.createElement('div');
+  lb.className = 'lightbox';
+  lb.innerHTML = '<button class="lb-close" aria-label="Sluiten">&times;</button><img alt="">';
+  document.body.appendChild(lb);
+  const lbImg = lb.querySelector('img');
+  if (main) main.addEventListener('click', () => { lbImg.src = main.src; lb.classList.add('open'); });
+  lb.addEventListener('click', e => { if (e.target !== lbImg) lb.classList.remove('open'); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') lb.classList.remove('open'); });
+})();
+
+// 11. Skip-to-content link + main landmark
+(function () {
+  const target = document.querySelector('.hero, .page-hero, .detail-top, main, section');
+  if (target && !target.id) target.id = 'main';
+  const a = document.createElement('a');
+  a.className = 'skip-link'; a.href = '#' + (target ? target.id : 'main');
+  a.textContent = 'Naar inhoud';
+  document.body.insertBefore(a, document.body.firstChild);
+})();
+
+// 12. Lazy-load images (skip above-the-fold hero/gallery)
+(function () {
+  document.querySelectorAll('img:not([loading])').forEach(img => {
+    if (img.closest('.hero, .page-hero, .g-main, .logo')) return;
+    img.loading = 'lazy'; img.decoding = 'async';
+  });
+})();
+
+// 13. Form submit feedback (non-search forms)
+(function () {
+  function toast(msg) {
+    let t = document.querySelector('.toast');
+    if (!t) { t = document.createElement('div'); t.className = 'toast'; document.body.appendChild(t); }
+    t.textContent = msg; t.classList.add('show');
+    clearTimeout(t._h); t._h = setTimeout(() => t.classList.remove('show'), 3400);
+  }
+  document.querySelectorAll('form').forEach(f => {
+    if (f.classList.contains('search')) return;
+    f.addEventListener('submit', e => {
+      e.preventDefault();
+      const lang = document.documentElement.lang || 'nl';
+      toast(lang === 'en' ? 'Thank you! We will be in touch shortly.' : lang === 'es' ? '¡Gracias! Te contactaremos en breve.' : 'Bedankt! We nemen snel contact met u op.');
+      try { f.reset(); } catch (_) {}
+    });
+  });
+})();
+
+// 9 + 10. Structured data (JSON-LD) + Open Graph / Twitter meta
+(function () {
+  const head = document.head, origin = location.origin;
+  function ld(obj) { const s = document.createElement('script'); s.type = 'application/ld+json'; s.textContent = JSON.stringify(obj); head.appendChild(s); }
+  function meta(key, val, attr) { if (!val) return; const m = document.createElement('meta'); m.setAttribute(attr || 'property', key); m.setAttribute('content', val); head.appendChild(m); }
+  // Organization / RealEstateAgent — every page
+  ld({ "@context": "https://schema.org", "@type": "RealEstateAgent", "name": "Spring Real Estate", "url": origin + "/", "logo": origin + "/images/logo-ink.png", "image": origin + "/images/hero.jpg", "email": "info@springrealestate.com", "telephone": "+31302001020", "priceRange": "€€", "areaServed": ["Nederland", "España"], "address": { "@type": "PostalAddress", "streetAddress": "Stadhouderskade 12", "addressLocality": "Utrecht", "postalCode": "3531 BJ", "addressCountry": "NL" } });
+  // WebSite + search action
+  ld({ "@context": "https://schema.org", "@type": "WebSite", "name": "Spring Real Estate", "url": origin + "/", "potentialAction": { "@type": "SearchAction", "target": origin + "/listings.html?q={query}", "query-input": "required name=query" } });
+  // Breadcrumbs from .crumbs
+  const cr = document.querySelector('.crumbs');
+  if (cr) {
+    const parts = [...cr.childNodes].map(n => n.textContent).join('/').split('/').map(s => s.trim()).filter(s => s && s !== '·');
+    const links = [...cr.querySelectorAll('a')];
+    const items = parts.map((name, i) => { const o = { "@type": "ListItem", "position": i + 1, "name": name }; if (links[i]) o.item = new URL(links[i].getAttribute('href'), location.href).href; return o; });
+    if (items.length) ld({ "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": items });
+  }
+  // FAQPage from FAQ items
+  const faqEls = [...document.querySelectorAll('.faq-list details, details.faq-item')];
+  const faqs = faqEls.map(d => { const sum = d.querySelector('summary'); const ans = d.querySelector('.ans, .faq-a, p, div:not(:first-child)'); if (!sum) return null; const q = sum.textContent.replace(/\s*\+\s*$/, '').trim(); const a = (ans ? ans.textContent : '').trim(); return q && a ? { "@type": "Question", "name": q, "acceptedAnswer": { "@type": "Answer", "text": a } } : null; }).filter(Boolean);
+  if (faqs.length) ld({ "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": faqs });
+  // Open Graph / Twitter
+  const desc = (document.querySelector('meta[name=description]') || {}).content || '';
+  const img = document.querySelector('.hero img, .page-hero img, .media-tall img, .g-main img, .darkcard img');
+  meta('og:title', document.title); meta('og:description', desc); meta('og:type', 'website');
+  meta('og:site_name', 'Spring Real Estate'); meta('og:url', location.href);
+  meta('og:image', img ? img.src : origin + '/images/hero.jpg');
+  meta('twitter:card', 'summary_large_image', 'name'); meta('twitter:title', document.title, 'name'); meta('twitter:description', desc, 'name');
+})();
