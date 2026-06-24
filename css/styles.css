@@ -1410,6 +1410,11 @@ body.has-cookie .lead-launch{ bottom:172px; }
 .sc-avatar{
   width:52px; height:52px; border-radius:50%; object-fit:cover; flex:0 0 auto;
 }
+.sc-avatar--ph{
+  background:#e0e0e0; display:flex; align-items:center; justify-content:center;
+  color:#aaa; font-size:.95rem; letter-spacing:3px; font-weight:700; flex-shrink:0;
+}
+.sc-dots{ user-select:none; }
 .sc-info{ line-height:1.35; }
 .sc-info strong{ display:block; font-size:.9rem; }
 .sc-info span{ font-size:.78rem; color:var(--ink-soft); }
@@ -1534,6 +1539,34 @@ a.agent:hover{ border-color:var(--green); }
   .float-cta span{ display:none; }
   .float-cta{ padding:16px; border-radius:50%; bottom:20px; right:20px; }
 }
+
+/* --- Listings hero zoekbalk (groene balk bovenaan) --- */
+.listings-hero-search{
+  background:var(--green); padding:22px 0 18px;
+}
+.lhs-form{
+  display:flex; align-items:center; background:#fff; border-radius:var(--r-pill);
+  padding:6px 6px 6px 18px; gap:8px; box-shadow:0 2px 12px rgba(0,0,0,.12);
+}
+.lhs-icon{ color:var(--green); flex-shrink:0; }
+.lhs-input{
+  flex:1; border:none; outline:none; font-family:inherit; font-size:.97rem;
+  color:var(--ink); background:transparent; min-width:0;
+}
+.lhs-input::placeholder{ color:#aaa; }
+.lhs-btn{
+  background:var(--green); color:#fff; border:none; border-radius:var(--r-pill);
+  padding:10px 22px; font-family:inherit; font-size:.9rem; font-weight:700;
+  cursor:pointer; white-space:nowrap;
+}
+.lhs-btn:hover{ background:var(--green-dark,#5e8a2e); }
+.lhs-tags{ display:flex; gap:8px; margin-top:12px; }
+.lhs-tag{
+  background:rgba(255,255,255,.18); color:#fff; border:1px solid rgba(255,255,255,.4);
+  border-radius:var(--r-pill); padding:5px 16px; font-size:.84rem; font-weight:600;
+  cursor:pointer; font-family:inherit;
+}
+.lhs-tag.active, .lhs-tag:hover{ background:#fff; color:var(--green); border-color:#fff; }
 
 /* --- Talk strip (compact) --- */
 .talk-strip{ background:var(--green-tint); border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:20px 0; }
