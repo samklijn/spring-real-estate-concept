@@ -1069,6 +1069,27 @@ body.has-cookie .lead-launch{ bottom:172px; }
 .hbw-disc{ color:#8d8f85; font-size:.77rem; margin-top:14px; }
 @media (max-width:760px){ .hbw{ grid-template-columns:1fr; } .hbw-form{ grid-template-columns:1fr 1fr; } }
 @media (max-width:420px){ .hbw-form{ grid-template-columns:1fr; } }
+/* ============ AI SEARCH dropdown ============ */
+.ais-form{ position:relative; }
+.ais-panel{ position:absolute; top:calc(100% + 10px); left:0; right:0; background:#fff; border:1px solid var(--line); border-radius:16px; box-shadow:0 26px 60px -22px rgba(0,0,0,.45); padding:10px; z-index:75; display:none; max-height:min(70vh,460px); overflow-y:auto; text-align:left; }
+.ais-panel.open{ display:block; }
+.ais-h{ font-size:.78rem; text-transform:uppercase; letter-spacing:.1em; color:var(--ink-soft); font-weight:700; padding:8px 10px 6px; }
+.ais-cats{ display:flex; flex-wrap:wrap; gap:8px; padding:4px 8px 8px; }
+.ais-cat{ display:inline-flex; align-items:center; gap:7px; background:var(--green-tint,#EEF3E2); border:1px solid var(--line); color:var(--ink); border-radius:999px; padding:8px 14px; font-family:inherit; font-size:.86rem; font-weight:600; cursor:pointer; transition:.15s; }
+.ais-cat:hover{ background:var(--green); color:#fff; border-color:var(--green); }
+.ais-cat:hover .ais-ic{ color:#fff; }
+.ais-action, .ais-row{ display:flex; align-items:center; gap:12px; padding:11px 12px; border-radius:11px; text-decoration:none; color:var(--ink); }
+.ais-action{ background:var(--green); color:#fff; margin-bottom:6px; }
+.ais-action .ais-sub{ color:rgba(255,255,255,.85); }
+.ais-action .ais-arr{ margin-left:auto; font-size:1.2rem; }
+.ais-row:hover{ background:var(--green-tint,#EEF3E2); }
+.ais-ic{ width:34px; height:34px; flex:0 0 auto; border-radius:9px; display:grid; place-items:center; background:rgba(124,167,63,.14); color:var(--green); }
+.ais-action .ais-ic{ background:rgba(255,255,255,.2); color:#fff; }
+.ais-tx{ display:flex; flex-direction:column; line-height:1.25; min-width:0; }
+.ais-tx b{ font-weight:700; font-size:.95rem; }
+.ais-sub{ font-size:.8rem; color:var(--ink-soft); }
+.ais-list{ display:flex; flex-direction:column; gap:2px; border-top:1px solid var(--line); padding-top:6px; }
+/* dark hero search dropdown stays readable (panel is white regardless) */
 
 /* =====================================================================
    KATANA-STYLE COMPONENTS (homepage)

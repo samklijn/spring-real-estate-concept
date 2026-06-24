@@ -328,22 +328,11 @@ if (lang) {
   });
 })();
 
-// 7. Working search → listings.html?q=… (and prefill/apply on listings)
+// 7. Listings ?q= prefill (the AI-search module #19 handles routing/submit)
 (function () {
-  const onListings = !!document.querySelector('.results-grid');
-  document.querySelectorAll('form.search').forEach(f => {
-    f.addEventListener('submit', e => {
-      e.preventDefault();
-      const inp = f.querySelector('input[type=text]') || f.querySelector('input');
-      const q = inp ? inp.value.trim() : '';
-      if (onListings) return; // listings filters live via its own module
-      location.href = 'listings.html' + (q ? ('?q=' + encodeURIComponent(q)) : '');
-    });
-  });
-  if (onListings) {
-    const q = new URLSearchParams(location.search).get('q');
-    if (q) { const inp = document.querySelector('.page-hero .search input'); if (inp) { inp.value = q; inp.dispatchEvent(new Event('input')); } }
-  }
+  if (!document.querySelector('.results-grid')) return;
+  const q = new URLSearchParams(location.search).get('q');
+  if (q) { const inp = document.querySelector('.page-hero .search input'); if (inp) { inp.value = q; inp.dispatchEvent(new Event('input')); } }
 })();
 
 // 8. Listing-detail gallery: thumbnail swap + lightbox

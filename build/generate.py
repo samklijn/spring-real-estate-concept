@@ -483,9 +483,9 @@ HEAD = """<!DOCTYPE html>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,500&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css?v=11">
-<link rel="icon" type="image/png" href="images/favicon.png?v=11">
-<link rel="apple-touch-icon" href="images/apple-touch-icon.png?v=11">
+<link rel="stylesheet" href="css/styles.css?v=12">
+<link rel="icon" type="image/png" href="images/favicon.png?v=12">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png?v=12">
 <meta name="theme-color" content="#7CA73F">
 </head>
 <body>
@@ -601,8 +601,10 @@ FOOTER = TALK_BLOCK + """<footer class="footer"><div class="container">
   <div class="mm-cta"><a href="contact.html" class="btn btn--primary" data-i18n="nav.contact">Contact</a><div class="lang mm-lang" style="justify-content:center"><button class="active" data-lang="nl">NL</button><button data-lang="en">EN</button><button data-lang="es">ES</button></div></div>
 </div>
 
-<script src="js/main.js?v=11"></script>
-<script src="js/i18n.js?v=11"></script>
+<script src="js/search-index.js?v=12"></script>
+<script src="js/main.js?v=12"></script>
+<script src="js/ai-search.js?v=12"></script>
+<script src="js/i18n.js?v=12"></script>
 </body>
 </html>
 """
@@ -1783,6 +1785,21 @@ def write(name, html):
         f.write(localize(html))
     return name
 
+def write_search_index():
+    """JS-index voor de AI-search: units, mensen en objecten — geladen op elke pagina."""
+    def js(s): return json.dumps(s, ensure_ascii=False)
+    units = []
+    for u in UNITS:
+        slug, name, dg, tag, exp, sec = u
+        kw = " ".join([name] + list(exp) + list(sec) + [tag]).lower()
+        units.append({"n": name, "u": f"unit-{slug}.html", "kw": kw, "dg": dg.split()[0]})
+    people = [{"n": re.sub(r'&[a-z]+;', '', p["name"]), "r": p["role"], "u": f"profile-{p['slug']}.html"} for p in PEOPLE]
+    listings = [{"n": d["title"], "u": f"aanbod-{d['slug']}.html", "loc": d["loc"], "offer": d["offer"], "t": d["type"], "city": d["addr"].split("·")[-1].strip()} for d in LISTINGS]
+    data = "window.SPRING_INDEX=" + js({"units": units, "people": people, "listings": listings}) + ";\n"
+    with open(os.path.join(ROOT, "js", "search-index.js"), "w", encoding="utf-8") as f:
+        f.write(data)
+    return "js/search-index.js"
+
 def main():
     written = []
     for key in DOELGROEPEN:
@@ -1802,6 +1819,7 @@ def main():
     written.append(write("sectoren.html", render_sectoren()))
     written.append(write("cases.html", render_cases()))
     written.append(write("begrippen.html", render_begrippen()))
+    written.append(write_search_index())
     print(f"Generated {len(written)} pages:")
     for w in written: print("  "+w)
 
