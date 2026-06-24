@@ -1401,68 +1401,6 @@ body.has-cookie .lead-launch{ bottom:172px; }
 .sc-mail:hover{ color:var(--green); }
 
 /* =====================================================================
-   CRO upgrade — index.html nieuwe stijlen
-   ===================================================================== */
-a.agent{ display:block; color:inherit; text-decoration:none; }
-.agent .ph{ aspect-ratio:3/4; }
-.soc-ic{
-  width:32px; height:32px; border-radius:8px; background:rgba(255,255,255,.08);
-  display:inline-grid; place-items:center; color:#cfd1c6; transition:.15s;
-}
-a.agent:hover .soc-ic{ background:var(--green); color:#fff; }
-a.agent:hover{ border-color:var(--green); }
-
-.loc-tabs{ display:flex; gap:8px; flex-wrap:wrap; margin-bottom:20px; }
-.loc-tab{
-  background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.18); color:#c8cabe;
-  padding:10px 20px; border-radius:var(--r-pill); font-weight:600; font-size:.92rem;
-  cursor:pointer; transition:.18s; font-family:inherit;
-}
-.loc-tab:hover{ background:rgba(255,255,255,.14); color:#fff; }
-.loc-tab.active{ background:var(--green); border-color:var(--green); color:#fff; }
-
-.loc-map-wrap{ border-radius:var(--r-lg); overflow:hidden; }
-.loc-map-panel{ display:none; position:relative; }
-.loc-map-panel.active{ display:block; }
-.loc-map-panel iframe{ width:100%; height:420px; border:0; border-radius:var(--r-lg); filter:saturate(.9) contrast(1.05); }
-.loc-map-cta{
-  position:absolute; bottom:18px; right:18px; background:#fff; color:var(--ink);
-  font-weight:700; font-size:.9rem; padding:11px 20px; border-radius:var(--r-pill);
-  box-shadow:var(--shadow); display:inline-flex; align-items:center; gap:8px; transition:.18s;
-}
-.loc-map-cta:hover{ background:var(--green); color:#fff; }
-@media(max-width:640px){ .loc-map-panel iframe{ height:260px; } }
-
-.fp-opts--wrap{ display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
-.fp-opts--wrap .fp-opt{ flex-direction:column; gap:8px; padding:16px 12px; text-align:center; font-size:.9rem; min-height:84px; justify-content:center; }
-.fp-opts--wrap .fp-opt svg{ color:var(--green); }
-.fp-opt.selected{ background:var(--green); color:#fff; border-color:var(--green); }
-.fp-opt.selected svg{ color:#fff; }
-.finder-result{ text-align:center; }
-.finder-or{ font-size:.86rem; color:var(--ink-soft); margin:14px 0 10px; }
-.finder-ext{ display:flex; gap:8px; justify-content:center; flex-wrap:wrap; }
-.finder-platforms{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-top:20px; }
-.fp-label{ font-size:.78rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:rgba(255,255,255,.5); }
-.fp-plat{ padding:6px 14px; border:1px solid rgba(255,255,255,.25); border-radius:var(--r-pill); font-size:.82rem; font-weight:600; color:rgba(255,255,255,.8); transition:.15s; background:rgba(255,255,255,.08); }
-.fp-plat:hover{ background:rgba(255,255,255,.18); color:#fff; border-color:rgba(255,255,255,.5); }
-.finder-ext .fp-plat{ border-color:var(--line); color:var(--ink-soft); background:#fff; }
-.finder-ext .fp-plat:hover{ border-color:var(--green); color:var(--green); background:var(--green-tint); }
-.ft.done{ color:var(--green-soft); }
-.ft.done::after{ content:" ✓"; }
-@media(max-width:640px){ .fp-opts--wrap{ grid-template-columns:1fr 1fr; } }
-
-.talk-photo{ position:relative; }
-.talk-badge{ position:absolute; bottom:14px; left:50%; transform:translateX(-50%); background:#fff; color:var(--ink); font-size:.78rem; font-weight:700; padding:6px 14px; border-radius:var(--r-pill); box-shadow:var(--shadow-soft); display:inline-flex; align-items:center; gap:6px; white-space:nowrap; }
-.talk-badge svg{ color:#f5a623; }
-.talk-meta{ display:flex; flex-direction:column; gap:7px; margin-bottom:22px; }
-.talk-meta span{ display:inline-flex; align-items:center; gap:8px; font-size:.9rem; color:var(--ink-soft); }
-.talk-meta svg{ color:var(--green); flex:0 0 auto; }
-
-.float-cta{ position:fixed; bottom:28px; right:28px; z-index:80; background:var(--green); color:#fff; padding:14px 22px; border-radius:var(--r-pill); display:inline-flex; align-items:center; gap:10px; font-weight:700; font-size:.95rem; box-shadow:0 8px 24px -6px rgba(124,167,63,.55); transition:.2s; text-decoration:none; }
-.float-cta:hover{ background:#6c9636; transform:translateY(-2px); }
-@media(max-width:640px){ .float-cta span{ display:none; } .float-cta{ padding:16px; border-radius:50%; bottom:20px; right:20px; } }
-
-/* =====================================================================
    NIEUWE STIJLEN — CRO upgrade
    ===================================================================== */
 
@@ -1568,3 +1506,24 @@ a.agent:hover{ border-color:var(--green); }
   .float-cta span{ display:none; }
   .float-cta{ padding:16px; border-radius:50%; bottom:20px; right:20px; }
 }
+
+/* --- Talk strip (compact) --- */
+.talk-strip{ background:var(--green-tint); border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:20px 0; }
+.talk-strip-inner{ display:flex; align-items:center; gap:18px; flex-wrap:wrap; }
+.ts-avatar{ width:52px; height:52px; border-radius:50%; object-fit:cover; flex:0 0 auto; border:2px solid #fff; box-shadow:var(--shadow-soft); }
+.ts-info{ flex:1; min-width:140px; }
+.ts-info strong{ display:block; font-size:.96rem; font-weight:700; }
+.ts-info span{ font-size:.82rem; color:var(--ink-soft); }
+.ts-actions{ display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-left:auto; }
+.ts-btn{ display:inline-flex; align-items:center; gap:7px; padding:10px 18px; border-radius:var(--r-pill); font-size:.88rem; font-weight:700; border:1.5px solid transparent; transition:.15s; text-decoration:none; font-family:inherit; }
+.ts-btn--call{ background:var(--green); color:#fff; border-color:var(--green); }
+.ts-btn--call:hover{ background:#6c9636; }
+.ts-btn--wa{ background:#25D366; color:#fff; border-color:#25D366; }
+.ts-btn--wa:hover{ background:#1fb859; }
+.ts-btn--ghost{ background:transparent; color:var(--ink); border-color:var(--line); }
+.ts-btn--ghost:hover{ border-color:var(--green); color:var(--green); }
+@media(max-width:640px){ .ts-actions{ margin-left:0; width:100%; } .ts-btn{ flex:1; justify-content:center; } }
+
+/* --- Person card als link --- */
+a.person{ display:block; color:inherit; text-decoration:none; }
+a.person:hover{ border-color:var(--green); box-shadow:var(--shadow-soft); }
