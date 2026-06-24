@@ -1729,3 +1729,111 @@ a.person:hover{ border-color:var(--green); box-shadow:var(--shadow-soft); }
 .rv-link{ font-size:.84rem; color:var(--ink); text-decoration:none; display:flex; gap:8px; align-items:center; }
 .rv-link:hover{ color:var(--green); }
 .rv-link::before{ content:"→"; color:var(--green); }
+
+/* =====================================================================
+   FINDER BAR — collapsible zoeker (alle pagina's, groen)
+   ===================================================================== */
+.finder-bar{
+  background:var(--green); position:relative; z-index:50;
+  border-bottom:1px solid rgba(0,0,0,.08);
+}
+.finder-bar-inner{ display:flex; flex-direction:column; padding:0; }
+.fb-toggle{
+  display:flex; align-items:center; gap:10px;
+  width:100%; background:none; border:none; cursor:pointer;
+  color:#fff; font-family:inherit; font-size:.95rem; font-weight:700;
+  padding:14px 0; text-align:left; letter-spacing:.01em;
+}
+.fb-toggle svg{ flex-shrink:0; opacity:.85; }
+.fb-label{ flex:1; }
+.fb-chevron{ transition:transform .25s ease; opacity:.75; }
+.finder-bar.fb--open .fb-chevron{ transform:rotate(180deg); }
+.fb-panel{
+  overflow:hidden; border-top:1px solid rgba(255,255,255,.2);
+  padding:20px 0 18px;
+}
+.fb-panel[hidden]{ display:none; }
+.fb-steps{ display:flex; flex-direction:column; gap:0; }
+.fb-step{
+  display:none; align-items:flex-start; gap:14px;
+  padding:12px 0;
+}
+.fb-step--active{ display:flex; }
+.fb-step-num{
+  width:28px; height:28px; border-radius:50%;
+  background:rgba(255,255,255,.2); color:#fff;
+  font-size:.82rem; font-weight:800; display:flex; align-items:center; justify-content:center;
+  flex-shrink:0; margin-top:2px;
+}
+.fb-step-body{ flex:1; }
+.fb-step-q{
+  color:#fff; font-weight:700; font-size:.88rem;
+  margin:0 0 10px; opacity:.9; letter-spacing:.01em;
+}
+.fb-chips{ display:flex; gap:6px; flex-wrap:wrap; }
+.fb-chip{
+  background:rgba(255,255,255,.15); color:#fff;
+  border:1px solid rgba(255,255,255,.35); border-radius:var(--r-pill);
+  padding:7px 16px; font-size:.84rem; font-weight:600;
+  cursor:pointer; font-family:inherit; transition:all .15s;
+}
+.fb-chip:hover{ background:rgba(255,255,255,.28); }
+.fb-chip.active{ background:#fff; color:var(--green); border-color:#fff; }
+.fb-input{
+  background:rgba(255,255,255,.15); border:1px solid rgba(255,255,255,.35);
+  border-radius:var(--r-sm); padding:8px 14px; color:#fff;
+  font-family:inherit; font-size:.9rem; outline:none;
+  min-width:200px; transition:border-color .15s; margin-top:8px;
+}
+.fb-input::placeholder{ color:rgba(255,255,255,.55); }
+.fb-input:focus{ border-color:#fff; background:rgba(255,255,255,.22); }
+.fb-input--sm{ min-width:80px; margin-top:0; }
+.fb-range{ display:flex; align-items:center; gap:8px; }
+.fb-range-sep{ color:rgba(255,255,255,.6); font-weight:600; }
+.fb-actions{ margin-top:16px; display:flex; gap:10px; flex-wrap:wrap; }
+.fb-next,.fb-submit{
+  display:inline-flex; align-items:center; gap:7px;
+  padding:10px 22px; border-radius:var(--r-pill); font-family:inherit;
+  font-size:.9rem; font-weight:700; cursor:pointer; border:none; transition:opacity .15s;
+}
+.fb-next{ background:rgba(255,255,255,.18); color:#fff; border:1px solid rgba(255,255,255,.4); }
+.fb-next:hover{ background:rgba(255,255,255,.28); }
+.fb-submit{ background:#fff; color:var(--green); }
+.fb-submit:hover{ opacity:.9; }
+@media(max-width:640px){
+  .fb-input{ min-width:0; width:100%; }
+  .fb-actions{ width:100%; }
+  .fb-next,.fb-submit{ flex:1; justify-content:center; }
+}
+
+/* =====================================================================
+   SITE SEARCH BAR — simpele groene zoekbalk (alle pagina's behalve listings)
+   ===================================================================== */
+.site-search-bar{
+  background:var(--green); padding:14px 0;
+  border-bottom:1px solid rgba(0,0,0,.08);
+}
+.ssb-form{
+  display:flex; align-items:center; gap:0;
+  background:rgba(255,255,255,.15); border:1px solid rgba(255,255,255,.35);
+  border-radius:var(--r-pill); padding:0 6px 0 18px;
+  max-width:640px;
+}
+.ssb-form svg{ color:#fff; flex-shrink:0; opacity:.8; }
+.ssb-input{
+  flex:1; background:none; border:none; outline:none;
+  color:#fff; font-family:inherit; font-size:.96rem;
+  padding:11px 12px; min-width:0;
+}
+.ssb-input::placeholder{ color:rgba(255,255,255,.65); }
+.ssb-btn{
+  background:#fff; color:var(--green); border:none;
+  border-radius:var(--r-pill); padding:9px 22px;
+  font-family:inherit; font-size:.9rem; font-weight:700;
+  cursor:pointer; transition:opacity .15s; white-space:nowrap;
+}
+.ssb-btn:hover{ opacity:.9; }
+@media(max-width:560px){
+  .ssb-form{ max-width:100%; }
+  .ssb-btn{ padding:9px 14px; }
+}
