@@ -280,6 +280,23 @@ try:
 except Exception as e:
     print("WARN: no units_content.json (", e, ")")
 
+# Rijke website-teksten uit het 21-units document — overschrijft de tekstvelden,
+# behoudt 'people'. Geeft de unit-pagina's volledige lopende tekst (intro + aanpak).
+try:
+    _v2 = json.load(open(os.path.join(ROOT, "build", "units_content_v2.json"), encoding="utf-8"))
+    for _slug2, _langs in _v2.items():
+        _cur = CONTENT.setdefault(_slug2, {"nl": {}, "en": {}, "es": {}, "people": None})
+        for _lang in ("nl", "en", "es"):
+            _d = _langs.get(_lang)
+            if not _d: continue
+            _base = dict(_cur.get(_lang) or {})
+            for _k in ("h1", "tagline", "intro", "approach", "usps", "faq", "meta_title", "meta_desc", "cta"):
+                if _d.get(_k): _base[_k] = _d[_k]
+            _cur[_lang] = _base
+    print("OK: merged rich texts for", len(_v2), "units")
+except Exception as e:
+    print("WARN: no units_content_v2.json (", e, ")")
+
 # Concept-teksten voor de units die niet in het aanleverdocument stonden,
 # zodat ELKE business unit echte lopende tekst (intro + aanpak) krijgt.
 EXTRA = {
@@ -915,8 +932,9 @@ def render_unit(idx, u):
           + '</div>'
           '</div></div></section>')
 
-    html = HEAD.format(title=f"{name} — Spring Real Estate",
-                       desc=f"{name}: {tag} Spring Real Estate begeleidt {dgname.lower()}s in commercieel vastgoed.")
+    _mt = (nl.get("meta_title") if nl else "") or f"{name} — Spring Real Estate"
+    _md = (nl.get("meta_desc") if nl else "") or f"{name}: {tag} Spring Real Estate begeleidt {dgname.lower()}s in commercieel vastgoed."
+    html = HEAD.format(title=he(_mt), desc=he(_md))
     html += TOPBAR + HEADER
     html += f'''
 <section class="page-hero">
