@@ -1049,6 +1049,26 @@ body.has-cookie .lead-launch{ bottom:172px; }
 .spec-extra{ min-height:260px; }
 .g-badge.tag--koop{ background:var(--ink,#2B2B29); color:#fff; }
 .g-badge.tag--huur{ background:var(--green); color:#fff; }
+/* ============ HERBOUWWAARDE-CHECK (HBW calculator) ============ */
+.hbw{ display:grid; grid-template-columns:1.1fr 1fr; gap:24px; align-items:stretch; }
+.hbw-form{ background:#fff; border:1px solid var(--line); border-radius:var(--r-lg,18px); padding:24px; display:grid; grid-template-columns:1fr 1fr; gap:14px; align-content:start; }
+.hbw-field{ display:flex; flex-direction:column; gap:6px; font-size:.84rem; font-weight:600; color:var(--ink-soft); }
+.hbw-field input, .hbw-field select{ border:1px solid var(--line); border-radius:10px; padding:11px 12px; font-family:inherit; font-size:.95rem; color:var(--ink); background:#fff; }
+.hbw-field input:focus, .hbw-field select:focus{ outline:2px solid var(--green); outline-offset:1px; }
+.hbw-form .btn{ grid-column:1/-1; margin-top:4px; }
+.hbw-result{ background:var(--dark,#2B2B29); color:#fff; border-radius:var(--r-lg,18px); padding:28px; display:flex; flex-direction:column; justify-content:center; }
+.hbw-placeholder{ color:#bcbeb2; font-size:.95rem; }
+.hbw-big{ display:flex; flex-direction:column; gap:4px; }
+.hbw-label{ color:#bcbeb2; font-size:.85rem; }
+.hbw-big b{ font-size:clamp(1.9rem,4vw,2.6rem); font-weight:800; color:#fff; line-height:1; }
+.hbw-risk{ align-self:flex-start; display:inline-flex; align-items:center; gap:9px; margin-top:18px; padding:9px 16px; border-radius:999px; font-weight:700; font-size:.9rem; background:rgba(255,255,255,.1); }
+.hbw-dot{ width:11px; height:11px; border-radius:50%; background:#7ed957; flex:0 0 auto; }
+.hbw-risk.mid .hbw-dot{ background:#e3b341; }
+.hbw-risk.high .hbw-dot{ background:#e3534b; }
+.hbw-detail{ color:#d3d5cb; font-size:.92rem; margin:16px 0 0; line-height:1.5; }
+.hbw-disc{ color:#8d8f85; font-size:.77rem; margin-top:14px; }
+@media (max-width:760px){ .hbw{ grid-template-columns:1fr; } .hbw-form{ grid-template-columns:1fr 1fr; } }
+@media (max-width:420px){ .hbw-form{ grid-template-columns:1fr; } }
 
 /* =====================================================================
    KATANA-STYLE COMPONENTS (homepage)

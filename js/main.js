@@ -590,3 +590,40 @@ if (lang) {
     setTimeout(() => map.invalidateSize(), 250);
   }
 })();
+
+// 18. Herbouwwaarde-check (HBW) — indicatieve herbouwwaarde + onderverzekeringsrisico
+(function () {
+  const go = document.getElementById('hbw-go'); if (!go) return;
+  const RATE = { residentieel: 2100, kantoor: 1700, bedrijf: 1050, winkel: 1550 }; // €/m² indicatieve herbouwkosten
+  const euro = n => '€ ' + Math.round(n).toLocaleString('nl-NL');
+  const $ = id => document.getElementById(id);
+  function calc() {
+    const ins = parseFloat($('hbw-waarde').value) || 0;
+    const cat = $('hbw-cat').value;
+    const m2 = parseFloat($('hbw-m2').value) || 0;
+    const lagen = Math.max(1, parseFloat($('hbw-lagen').value) || 1);
+    const regio = $('hbw-regio').value;
+    const btw = $('hbw-btw').value;
+    if (!m2) { return; }
+    let v = m2 * (RATE[cat] || 2000);
+    v *= (1 + Math.min(lagen - 1, 10) * 0.015);
+    if (regio === 'randstad') v *= 1.10;
+    if (btw === 'incl') v *= 1.21;
+    $('hbw-placeholder').style.display = 'none';
+    $('hbw-out').style.display = '';
+    $('hbw-value').textContent = euro(v);
+    const risk = $('hbw-risk'), rt = $('hbw-risk-text'), det = $('hbw-detail');
+    risk.classList.remove('mid', 'high');
+    if (!ins) { rt.textContent = 'Vul de verzekerde waarde in voor uw risico'; det.textContent = 'Indicatieve herbouwwaarde o.b.v. ' + m2.toLocaleString('nl-NL') + ' m² ' + cat + '.'; return; }
+    const ratio = v / ins;
+    if (ratio <= 1.05) { rt.textContent = 'Lage kans op onderverzekering'; }
+    else if (ratio <= 1.25) { risk.classList.add('mid'); rt.textContent = 'Middelgrote kans op onderverzekering'; }
+    else { risk.classList.add('high'); rt.textContent = 'Hoge kans op onderverzekering'; }
+    const pct = Math.round((ratio - 1) * 100);
+    det.textContent = ratio > 1.05
+      ? 'De indicatieve herbouwwaarde ligt circa ' + pct + '% boven uw verzekerde waarde van ' + euro(ins) + '. Een actuele taxatie voorkomt onderverzekering.'
+      : 'Uw verzekerde waarde sluit goed aan op de indicatieve herbouwwaarde. Een periodieke taxatie houdt dit actueel.';
+  }
+  go.addEventListener('click', calc);
+  ['hbw-waarde', 'hbw-cat', 'hbw-m2', 'hbw-lagen', 'hbw-regio', 'hbw-btw'].forEach(id => { const el = $(id); if (el) { el.addEventListener('input', calc); el.addEventListener('change', calc); } });
+})();
