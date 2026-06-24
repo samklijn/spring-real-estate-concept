@@ -7,6 +7,20 @@ const mmClose = document.getElementById('mmClose');
 if (burger) burger.addEventListener('click', () => mobileMenu.classList.add('open'));
 if (mmClose) mmClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
 
+// Desktop dropdown nav — click to open/close
+document.querySelectorAll('.has-drop > button').forEach(btn => {
+  btn.addEventListener('click', e => {
+    e.stopPropagation();
+    const parent = btn.closest('.has-drop');
+    const isOpen = parent.classList.contains('click-open');
+    document.querySelectorAll('.has-drop').forEach(d => d.classList.remove('click-open'));
+    if (!isOpen) parent.classList.add('click-open');
+  });
+});
+document.addEventListener('click', () => {
+  document.querySelectorAll('.has-drop').forEach(d => d.classList.remove('click-open'));
+});
+
 // Search tabs
 const tabs = document.getElementById('searchTabs');
 if (tabs) {

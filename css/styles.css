@@ -167,7 +167,7 @@ p{ margin:0 0 1rem; }
   padding:14px; width:560px; opacity:0; visibility:hidden; transition:.18s ease;
   display:grid; grid-template-columns:1fr 1fr; gap:8px;
 }
-.has-drop:hover .drop, .has-drop:focus-within .drop{ opacity:1; visibility:visible; transform:translateX(-50%) translateY(0); }
+.has-drop:hover .drop, .has-drop:focus-within .drop, .has-drop.click-open .drop{ opacity:1; visibility:visible; transform:translateX(-50%) translateY(0); }
 .drop a{ display:flex; gap:12px; padding:12px; border-radius:var(--r-sm); transition:.15s; align-items:flex-start; }
 .drop a:hover{ background:var(--green-tint); }
 .drop .d-ic{
