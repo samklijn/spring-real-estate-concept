@@ -426,3 +426,98 @@ if (lang) {
   meta('og:image', img ? img.src : origin + '/images/hero.jpg');
   meta('twitter:card', 'summary_large_image', 'name'); meta('twitter:title', document.title, 'name'); meta('twitter:description', desc, 'name');
 })();
+
+// 15. Leadbot — chat / lead-capture widget (bottom-right)
+(function () {
+  const lang = (function () { try { return localStorage.getItem('spring-lang') || document.documentElement.lang || 'nl'; } catch (_) { return 'nl'; } })();
+  const T = {
+    nl: { label: 'Hulp nodig?', title: 'Spring Real Estate', status: 'Online · reactie < 1 werkdag', greet: '👋 Welkom bij Spring! Waarmee kunnen we je helpen?', quick: ['Ik zoek ruimte', 'Verkopen of verhuren', 'Investeren in vastgoed', 'Plan een gesprek'], ask: 'Top! Laat je gegevens achter, dan neemt de juiste specialist snel contact met je op.', name: 'Naam', email: 'E-mailadres', phone: 'Telefoon (optioneel)', msg: 'Je bericht', send: 'Versturen', thanks: n => `Bedankt ${n}! We nemen binnen één werkdag contact met je op. 🌱`, err: 'Vul je naam en een geldig e-mailadres in.', call: 'Bellen', mail: 'E-mail', wa: 'WhatsApp' },
+    en: { label: 'Need help?', title: 'Spring Real Estate', status: 'Online · reply < 1 business day', greet: '👋 Welcome to Spring! How can we help you?', quick: ['I\'m looking for space', 'Sell or lease', 'Invest in real estate', 'Book a consultation'], ask: 'Great! Leave your details and the right specialist will get back to you soon.', name: 'Name', email: 'Email address', phone: 'Phone (optional)', msg: 'Your message', send: 'Send', thanks: n => `Thanks ${n}! We\'ll be in touch within one business day. 🌱`, err: 'Please enter your name and a valid email.', call: 'Call', mail: 'Email', wa: 'WhatsApp' },
+    es: { label: '¿Ayuda?', title: 'Spring Real Estate', status: 'En línea · respuesta < 1 día', greet: '👋 ¡Bienvenido a Spring! ¿Cómo podemos ayudarte?', quick: ['Busco espacio', 'Vender o alquilar', 'Invertir en inmuebles', 'Reservar una cita'], ask: '¡Genial! Déjanos tus datos y el especialista adecuado te contactará pronto.', name: 'Nombre', email: 'Correo electrónico', phone: 'Teléfono (opcional)', msg: 'Tu mensaje', send: 'Enviar', thanks: n => `¡Gracias ${n}! Te contactaremos en un día laborable. 🌱`, err: 'Introduce tu nombre y un correo válido.', call: 'Llamar', mail: 'Correo', wa: 'WhatsApp' }
+  }[lang] || null;
+  const t = T || { label: 'Hulp nodig?', title: 'Spring Real Estate', status: 'Online', greet: 'Welkom!', quick: ['Ik zoek ruimte', 'Verkopen of verhuren', 'Investeren', 'Plan een gesprek'], ask: 'Laat je gegevens achter:', name: 'Naam', email: 'E-mail', phone: 'Telefoon', msg: 'Bericht', send: 'Versturen', thanks: n => `Bedankt ${n}!`, err: 'Vul naam en e-mail in.', call: 'Bellen', mail: 'E-mail', wa: 'WhatsApp' };
+
+  const launch = document.createElement('button');
+  launch.className = 'lead-launch'; launch.setAttribute('aria-label', t.label);
+  launch.innerHTML = '<span class="ll-dot"></span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span class="ll-label">' + t.label + '</span>';
+  document.body.appendChild(launch);
+
+  const panel = document.createElement('div');
+  panel.className = 'lead-panel'; panel.setAttribute('role', 'dialog'); panel.setAttribute('aria-label', t.title);
+  panel.innerHTML =
+    '<div class="lp-head"><div class="lp-ava">S</div><div><h4>' + t.title + '</h4><div class="lp-status">' + t.status + '</div></div><button class="lp-close" aria-label="Sluiten">&times;</button></div>' +
+    '<div class="lp-body" id="lpBody"></div>' +
+    '<div class="lp-actions"><a href="tel:+31302001020"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>' + t.call + '</a>' +
+    '<a href="https://wa.me/31302001020" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2zm0 2a8 8 0 1 1-4.2 14.8l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 0 1 12 4z"/></svg>' + t.wa + '</a>' +
+    '<a href="mailto:info@springrealestate.com"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>' + t.mail + '</a></div>';
+  document.body.appendChild(panel);
+
+  const body = panel.querySelector('#lpBody');
+  function add(cls, html) { const m = document.createElement('div'); m.className = 'lp-msg ' + cls; m.innerHTML = html; body.appendChild(m); body.scrollTop = body.scrollHeight; return m; }
+  function esc(s) { return (s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+  let started = false;
+  function start() {
+    if (started) return; started = true;
+    add('bot', t.greet);
+    const q = document.createElement('div'); q.className = 'lp-quick';
+    t.quick.forEach(opt => { const b = document.createElement('button'); b.textContent = opt; b.addEventListener('click', () => choose(opt)); q.appendChild(b); });
+    body.appendChild(q); body.scrollTop = body.scrollHeight;
+  }
+  function choose(topic) {
+    const q = body.querySelector('.lp-quick'); if (q) q.remove();
+    add('user', esc(topic));
+    setTimeout(() => { add('bot', t.ask); showForm(topic); }, 350);
+  }
+  function showForm(topic) {
+    if (panel.querySelector('.lp-form')) return;
+    const f = document.createElement('form'); f.className = 'lp-form';
+    f.innerHTML = '<input name="name" placeholder="' + t.name + ' *" autocomplete="name"><input name="email" type="email" placeholder="' + t.email + ' *" autocomplete="email"><input name="phone" placeholder="' + t.phone + '" autocomplete="tel"><textarea name="msg" placeholder="' + t.msg + '">' + esc(topic) + '</textarea><button class="btn btn--primary" type="submit">' + t.send + '</button>';
+    panel.querySelector('.lp-actions').before(f);
+    f.addEventListener('submit', e => {
+      e.preventDefault();
+      const d = { name: f.name.value.trim(), email: f.email.value.trim(), phone: f.phone.value.trim(), topic: topic, msg: f.msg.value.trim() };
+      if (!d.name || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(d.email)) { add('bot', t.err); return; }
+      try { const a = JSON.parse(localStorage.getItem('spring-leads') || '[]'); a.push(Object.assign(d, { ts: Date.now() })); localStorage.setItem('spring-leads', JSON.stringify(a)); } catch (_) {}
+      add('user', esc(d.name + ' · ' + d.email));
+      f.remove();
+      setTimeout(() => add('bot', t.thanks(esc(d.name.split(' ')[0]))), 350);
+    });
+    body.scrollTop = body.scrollHeight;
+  }
+  function open() { panel.classList.add('open'); launch.classList.add('hide'); start(); }
+  function close() { panel.classList.remove('open'); launch.classList.remove('hide'); }
+  launch.addEventListener('click', open);
+  panel.querySelector('.lp-close').addEventListener('click', close);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+})();
+
+// 16. Listings — segment toggle (Verhuur / Verkoop) + working sort
+(function () {
+  const grid = document.querySelector('.results-grid'); if (!grid) return;
+  const offerChecks = [...document.querySelectorAll('input[data-fgroup="offer"]')];
+  const seg = document.getElementById('segToggle');
+  if (seg) {
+    seg.addEventListener('click', e => {
+      const b = e.target.closest('button'); if (!b) return;
+      seg.querySelectorAll('button').forEach(x => x.classList.remove('active'));
+      b.classList.add('active');
+      const v = b.dataset.seg;
+      offerChecks.forEach(c => { c.checked = (v !== 'all' && c.dataset.val === v); });
+      (offerChecks[0] || {}).dispatchEvent && offerChecks[0].dispatchEvent(new Event('change'));
+    });
+  }
+  const sortSel = document.querySelector('.results-tools .fselect');
+  if (sortSel) {
+    sortSel.addEventListener('change', () => {
+      const v = sortSel.selectedIndex;
+      const num = c => parseFloat(c.dataset.price) || 0;
+      const area = c => parseFloat(c.dataset.area) || 0;
+      let cmp = null;
+      if (v === 1) cmp = (a, b) => num(a) - num(b);
+      else if (v === 2) cmp = (a, b) => num(b) - num(a);
+      else if (v === 3) cmp = (a, b) => area(b) - area(a);
+      if (!cmp) return;
+      [...grid.children].sort(cmp).forEach(c => grid.appendChild(c));
+    });
+  }
+})();
