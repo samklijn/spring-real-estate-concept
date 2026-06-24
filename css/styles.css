@@ -1540,33 +1540,47 @@ a.agent:hover{ border-color:var(--green); }
   .float-cta{ padding:16px; border-radius:50%; bottom:20px; right:20px; }
 }
 
-/* --- Listings hero zoekbalk (groene balk bovenaan) --- */
-.listings-hero-search{
-  background:var(--green); padding:22px 0 18px;
+/* --- Vastgoed Finder balk (listings pagina) --- */
+.vf-bar{ background:var(--green); padding:26px 0 22px; }
+.vf-title{ color:#fff; font-weight:700; font-size:1.05rem; margin:0 0 16px; opacity:.92; letter-spacing:.01em; }
+.vf-row{ display:flex; align-items:flex-end; gap:20px; flex-wrap:wrap; }
+.vf-group{ display:flex; flex-direction:column; gap:8px; }
+.vf-label{ color:rgba(255,255,255,.75); font-size:.78rem; font-weight:700; text-transform:uppercase; letter-spacing:.07em; }
+.vf-chips{ display:flex; gap:6px; flex-wrap:wrap; }
+.vf-chip{
+  background:rgba(255,255,255,.15); color:#fff;
+  border:1px solid rgba(255,255,255,.35); border-radius:var(--r-pill);
+  padding:7px 16px; font-size:.86rem; font-weight:600;
+  cursor:pointer; font-family:inherit; transition:all .15s;
 }
-.lhs-form{
-  display:flex; align-items:center; background:#fff; border-radius:var(--r-pill);
-  padding:6px 6px 6px 18px; gap:8px; box-shadow:0 2px 12px rgba(0,0,0,.12);
+.vf-chip:hover{ background:rgba(255,255,255,.28); }
+.vf-chip.active{ background:#fff; color:var(--green); border-color:#fff; }
+.vf-input{
+  background:rgba(255,255,255,.15); border:1px solid rgba(255,255,255,.35);
+  border-radius:var(--r-sm); padding:8px 14px; color:#fff;
+  font-family:inherit; font-size:.9rem; outline:none; min-width:180px;
+  transition:border-color .15s;
 }
-.lhs-icon{ color:var(--green); flex-shrink:0; }
-.lhs-input{
-  flex:1; border:none; outline:none; font-family:inherit; font-size:.97rem;
-  color:var(--ink); background:transparent; min-width:0;
+.vf-input::placeholder{ color:rgba(255,255,255,.55); }
+.vf-input:focus{ border-color:#fff; background:rgba(255,255,255,.22); }
+.vf-input--sm{ min-width:72px; }
+.vf-range{ display:flex; align-items:center; gap:8px; }
+.vf-range-sep{ color:rgba(255,255,255,.6); font-weight:600; }
+.vf-group--btn{ margin-left:auto; align-self:flex-end; }
+.vf-submit{
+  background:#fff; color:var(--green); border:none;
+  border-radius:var(--r-pill); padding:11px 26px;
+  font-family:inherit; font-size:.95rem; font-weight:700;
+  cursor:pointer; display:flex; align-items:center; gap:8px;
+  white-space:nowrap; transition:opacity .15s;
 }
-.lhs-input::placeholder{ color:#aaa; }
-.lhs-btn{
-  background:var(--green); color:#fff; border:none; border-radius:var(--r-pill);
-  padding:10px 22px; font-family:inherit; font-size:.9rem; font-weight:700;
-  cursor:pointer; white-space:nowrap;
+.vf-submit:hover{ opacity:.88; }
+@media(max-width:768px){
+  .vf-row{ flex-direction:column; align-items:stretch; }
+  .vf-group--btn{ margin-left:0; }
+  .vf-submit{ justify-content:center; }
+  .vf-input{ min-width:0; width:100%; }
 }
-.lhs-btn:hover{ background:var(--green-dark,#5e8a2e); }
-.lhs-tags{ display:flex; gap:8px; margin-top:12px; }
-.lhs-tag{
-  background:rgba(255,255,255,.18); color:#fff; border:1px solid rgba(255,255,255,.4);
-  border-radius:var(--r-pill); padding:5px 16px; font-size:.84rem; font-weight:600;
-  cursor:pointer; font-family:inherit;
-}
-.lhs-tag.active, .lhs-tag:hover{ background:#fff; color:var(--green); border-color:#fff; }
 
 /* --- Talk strip (compact) --- */
 .talk-strip{ background:var(--green-tint); border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:20px 0; }
