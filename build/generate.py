@@ -500,9 +500,9 @@ HEAD = """<!DOCTYPE html>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,500&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css?v=12">
-<link rel="icon" type="image/png" href="images/favicon.png?v=12">
-<link rel="apple-touch-icon" href="images/apple-touch-icon.png?v=12">
+<link rel="stylesheet" href="css/styles.css?v=13">
+<link rel="icon" type="image/png" href="images/favicon.png?v=13">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png?v=13">
 <meta name="theme-color" content="#7CA73F">
 </head>
 <body>
@@ -618,10 +618,10 @@ FOOTER = TALK_BLOCK + """<footer class="footer"><div class="container">
   <div class="mm-cta"><a href="contact.html" class="btn btn--primary" data-i18n="nav.contact">Contact</a><div class="lang mm-lang" style="justify-content:center"><button class="active" data-lang="nl">NL</button><button data-lang="en">EN</button><button data-lang="es">ES</button></div></div>
 </div>
 
-<script src="js/search-index.js?v=12"></script>
-<script src="js/main.js?v=12"></script>
-<script src="js/ai-search.js?v=12"></script>
-<script src="js/i18n.js?v=12"></script>
+<script src="js/search-index.js?v=13"></script>
+<script src="js/main.js?v=13"></script>
+<script src="js/ai-search.js?v=13"></script>
+<script src="js/i18n.js?v=13"></script>
 </body>
 </html>
 """
@@ -778,6 +778,18 @@ def render_doelgroep(key):
 # ----------------------------------------------------------------------
 PHOTOS = ["images/photo-1.jpg","images/photo-2.jpg","images/hero.jpg"]
 
+# Echte Spaanse teams per Spanje-unit (uit Spring Spain / pitchdeck)
+SPAIN_TEAM = {
+ "aanverkoop-beleggingsvastgoed": ("Acquisition & disposal of investment real estate", "Adquisición y venta de inmuebles de inversión",
+   [("Stef Stiegelis", "Advisor Dutch Investors", "stef.stiegelis@springrealestate.com"),
+    ("Esther Bendicho", "Advisor International Investors", "esther.bendicho@springrealestate.com")]),
+ "asset-management": ("Asset Management Spain", "Asset Management España",
+   [("Sjors van Iersel MSc", "Partner Asset Management", "sjors.vaniersel@springrealestate.com"),
+    ("Mounir Riffi MSc", "Partner Asset Management", "mounir.riffi@springrealestate.com")]),
+ "commercieel-vastgoedbeheer": ("Asset Services Spain", "Asset Services España",
+   [("Victoria Hordijk", "Property Manager · Operations & Asset Services", "victoria.hordijk@springrealestate.com")]),
+}
+
 HBW_CALC = '''
 <section class="section--soft" id="hbw"><div class="container">
   <div class="sec-head"><div class="t"><span class="eyebrow"''' + trh("Tool","Herramienta") + '''>Herbouwwaarde-check</span><h2 class="disp"''' + trh("Check your <em>underinsurance risk</em>", "Comprueba tu <em>riesgo de infraseguro</em>") + '''>Bereken uw <em>herbouwwaarde</em></h2><p class="lead"''' + trh("A free, indicative estimate of the rebuild value and your underinsurance risk. Based on Spring's HBW-model.", "Una estimación indicativa y gratuita del valor de reconstrucción y tu riesgo de infraseguro. Basada en el modelo HBW de Spring.") + '''>Een gratis, indicatieve inschatting van de herbouwwaarde en uw risico op onderverzekering — op basis van het HBW-model van Spring.</p></div></div>
@@ -914,21 +926,22 @@ def render_unit(idx, u):
           + _propcard("Kantoorruimte", "Stadhouderskade 12", "Utrecht · Centrum", "€295 <small>/m²/jaar</small>", "vanaf 480 m²", "photo-2.jpg")
           + _propcard("Kantoorruimte", "Strawinskylaan 3051", "Amsterdam · Zuidas", "€540 <small>/m²/jaar</small>", "vanaf 900 m²", "hero.jpg")
           + '</div></div></section>')
-    # Spaans team + aparte tekst bij de Spanje-units
+    # Spaans team + aparte tekst bij de Spanje-units (echte Spring Spain-teams)
     spain_html = ""
-    if slug in ("aanverkoop-beleggingsvastgoed", "asset-management"):
+    if slug in SPAIN_TEAM:
+        es_unit_en, es_unit_es, es_people = SPAIN_TEAM[slug]
+        cols = "1fr 1fr" if len(es_people) > 1 else "1fr"
+        team = "".join(_agent(nm, role, FACES.get(email)) for nm, role, email in es_people)
         spain_html = ('<section class="section dark-sec" id="espana"><div class="container">'
           '<div class="two-col" style="align-items:center">'
           '<div class="prose">'
-          '<span class="eyebrow" style="color:var(--green-soft)">Ook in Spanje</span>'
-          '<h2 class="disp disp--light">Deze dienst ook aan de <em>Costa del Sol</em></h2>'
-          f'<p class="lead">Onze dienstverlening is internationaal — en voor {title_low} hebben we ook een eigen team in Spanje. Vanuit Valencia en Estepona begeleiden onze specialisten Nederlandse investeerders op de Spaanse markt: met lokale marktkennis, een Nederlands aanspreekpunt en dezelfde Spring-aanpak.'
-          ' <span data-tr="1" data-en="Our service is international — and for this discipline we have a dedicated team in Spain, in Valencia and Estepona, guiding Dutch investors in the Spanish market." data-es="Nuestro servicio es internacional — y para esta disciplina contamos con un equipo propio en España, en Valencia y Estepona, que acompaña a inversores neerlandeses en el mercado español."></span></p>'
-          '<a href="locatie-estepona.html" class="btn btn--secondary" style="margin-top:6px">Bekijk kantoor Estepona</a>'
+          '<span class="eyebrow" style="color:var(--green-soft)"' + trh("Also in Spain", "También en España") + '>Ook in Spanje</span>'
+          '<h2 class="disp disp--light"' + trh("A dedicated <em>team in Spain</em>", "Un <em>equipo propio en España</em>") + '>Ook een eigen <em>team in Spanje</em></h2>'
+          f'<p class="lead"{trh("Our service is international. For " + title_low + " (" + es_unit_en + ") Spring has a dedicated team in Spain — based in Valencia and Estepona — guiding Dutch and international investors in the Spanish market with local knowledge, a Dutch point of contact and the same Spring approach.", "Nuestro servicio es internacional. Para " + title_low + " (" + es_unit_es + ") Spring cuenta con un equipo propio en España — en Valencia y Estepona — que acompaña a inversores neerlandeses e internacionales en el mercado español, con conocimiento local, un punto de contacto neerlandés y el mismo enfoque Spring.")}>Onze dienstverlening is internationaal — en voor {title_low} heeft Spring een eigen team in Spanje. Vanuit Valencia en Estepona begeleiden onze specialisten Nederlandse en internationale investeerders op de Spaanse markt: met lokale marktkennis, een Nederlands aanspreekpunt en dezelfde Spring-aanpak.</p>'
+          '<a href="locatie-valencia.html" class="btn btn--secondary" style="margin-top:6px"' + trh("Spring in Valencia", "Spring en Valencia") + '>Bekijk kantoor Valencia</a> <a href="locatie-estepona.html" class="btn btn--ghost" style="margin-top:6px;color:#fff;border-color:rgba(255,255,255,.3)">Estepona</a>'
           '</div>'
-          '<div class="team-grid" style="grid-template-columns:1fr 1fr">'
-          + _agent("Sofia Mart&iacute;n", "Investment Advisor · Valencia")
-          + _agent("Carlos Ferrer", "Asset Manager · Estepona")
+          '<div class="team-grid" style="grid-template-columns:' + cols + '">'
+          + team
           + '</div>'
           '</div></div></section>')
 

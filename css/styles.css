@@ -8,19 +8,20 @@
   /* Brand colours (from brandbook) */
   --green:        #7CA73F;   /* Hoofdgroen — primary */
   --green-bright: #89B647;   /* Lijnengroen — accents/lines */
-  --green-soft:   #C3D88A;   /* Stipgroen — secondary */
+  --green-soft:   #CDEA86;   /* Stipgroen — secondary (brandbook) */
   --green-tint:   #EEF3E2;   /* very light green surface */
   --green-pill:   #D6EA5B;   /* bright lime (Katana-style highlight) */
 
-  --ink:        #2B2B29;     /* Hoofdgrijs — body text */
+  --ink:        #2B2B29;     /* near-black body text */
   --ink-soft:   #5C5D58;
-  --grey:       #AFAEB2;     /* Lichtgrijs */
+  --grey:       #AFAEB2;     /* Lichtgrijs (brandbook) */
+  --grey-dark:  #3C3C3B;     /* Hoofdgrijs (brandbook) */
   --line:       #E7E8E1;
 
   --bg:         #FFFFFF;
   --bg-soft:    #F5F6F1;
-  --dark:       #25261F;     /* dark sections */
-  --dark-2:     #1B1C16;
+  --dark:       #1C1C1B;     /* dark sections — neutral near-black (brandbook) */
+  --dark-2:     #121211;
 
   --white:      #FFFFFF;
 
