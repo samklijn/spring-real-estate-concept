@@ -1309,3 +1309,110 @@ body.has-cookie .lead-launch{ bottom:172px; }
   .hero h1{ font-size:1.9rem; }
   .logo .logo-main{ font-size:1.45rem; }
 }
+
+/* =====================================================================
+   NIEUWE STIJLEN — CRO upgrade
+   ===================================================================== */
+
+/* --- Team grid: kleinere foto's, clickbaar als <a> --- */
+a.agent{ display:block; color:inherit; text-decoration:none; }
+.team-grid{ grid-template-columns:repeat(4,1fr); gap:var(--gap); }
+.agent .ph{ aspect-ratio:3/4; }          /* was 1/1 — iets smaller, minder bulk */
+.soc-ic{
+  width:32px; height:32px; border-radius:8px; background:rgba(255,255,255,.08);
+  display:inline-grid; place-items:center; color:#cfd1c6; transition:.15s;
+}
+a.agent:hover .soc-ic{ background:var(--green); color:#fff; }
+a.agent:hover{ border-color:var(--green); }
+
+/* --- Locatie kaarttabs --- */
+.loc-tabs{
+  display:flex; gap:8px; flex-wrap:wrap; margin-bottom:20px;
+}
+.loc-tab{
+  background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.18); color:#c8cabe;
+  padding:10px 20px; border-radius:var(--r-pill); font-weight:600; font-size:.92rem;
+  cursor:pointer; transition:.18s; font-family:inherit;
+}
+.loc-tab:hover{ background:rgba(255,255,255,.14); color:#fff; }
+.loc-tab.active{ background:var(--green); border-color:var(--green); color:#fff; }
+
+.loc-map-wrap{ border-radius:var(--r-lg); overflow:hidden; position:relative; }
+.loc-map-panel{ display:none; position:relative; }
+.loc-map-panel.active{ display:block; }
+.loc-map-panel iframe{
+  width:100%; height:420px; border:0; border-radius:var(--r-lg);
+  filter:saturate(.9) contrast(1.05);
+}
+.loc-map-cta{
+  position:absolute; bottom:18px; right:18px;
+  background:#fff; color:var(--ink); font-weight:700; font-size:.9rem;
+  padding:11px 20px; border-radius:var(--r-pill); box-shadow:var(--shadow);
+  display:inline-flex; align-items:center; gap:8px; transition:.18s;
+}
+.loc-map-cta:hover{ background:var(--green); color:#fff; }
+@media(max-width:640px){ .loc-map-panel iframe{ height:280px; } }
+
+/* --- Vastgoedzoeker verbeterd --- */
+.fp-opts--wrap{
+  display:grid; grid-template-columns:repeat(3,1fr); gap:10px;
+}
+.fp-opts--wrap .fp-opt{
+  flex-direction:column; gap:8px; padding:16px 12px; text-align:center;
+  font-size:.9rem; min-height:84px; justify-content:center;
+}
+.fp-opts--wrap .fp-opt svg{ color:var(--green); }
+.fp-opt.selected{
+  background:var(--green); color:#fff; border-color:var(--green);
+}
+.fp-opt.selected svg{ color:#fff; }
+.finder-result{ text-align:center; }
+.finder-or{ font-size:.86rem; color:var(--ink-soft); margin:14px 0 10px; }
+.finder-ext{ display:flex; gap:8px; justify-content:center; flex-wrap:wrap; }
+.finder-platforms{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-top:20px; }
+.fp-label{ font-size:.78rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:rgba(255,255,255,.5); }
+.fp-plat{
+  padding:6px 14px; border:1px solid rgba(255,255,255,.25); border-radius:var(--r-pill);
+  font-size:.82rem; font-weight:600; color:rgba(255,255,255,.8); transition:.15s;
+  background:rgba(255,255,255,.08);
+}
+.fp-plat:hover{ background:rgba(255,255,255,.18); color:#fff; border-color:rgba(255,255,255,.5); }
+.finder-ext .fp-plat{ border-color:var(--line); color:var(--ink-soft); background:#fff; }
+.finder-ext .fp-plat:hover{ border-color:var(--green); color:var(--green); background:var(--green-tint); }
+.ft.done{ color:var(--green-soft); }
+.ft.done::after{ content:" ✓"; }
+@media(max-width:640px){ .fp-opts--wrap{ grid-template-columns:1fr 1fr; } }
+
+/* --- Talk band: persoonlijker --- */
+.talk-photo{ position:relative; }
+.talk-badge{
+  position:absolute; bottom:14px; left:50%; transform:translateX(-50%);
+  background:#fff; color:var(--ink); font-size:.78rem; font-weight:700;
+  padding:6px 14px; border-radius:var(--r-pill); box-shadow:var(--shadow-soft);
+  display:inline-flex; align-items:center; gap:6px; white-space:nowrap;
+}
+.talk-badge svg{ color:#f5a623; }
+.talk-meta{
+  display:flex; flex-direction:column; gap:7px; margin-bottom:22px;
+}
+.talk-meta span{
+  display:inline-flex; align-items:center; gap:8px;
+  font-size:.9rem; color:var(--ink-soft);
+}
+.talk-meta svg{ color:var(--green); flex:0 0 auto; }
+
+/* --- Floating bel-knop --- */
+.float-cta{
+  position:fixed; bottom:28px; right:28px; z-index:80;
+  background:var(--green); color:#fff;
+  padding:14px 22px; border-radius:var(--r-pill);
+  display:inline-flex; align-items:center; gap:10px;
+  font-weight:700; font-size:.95rem;
+  box-shadow:0 8px 24px -6px rgba(124,167,63,.55);
+  transition:.2s; text-decoration:none;
+}
+.float-cta:hover{ background:#6c9636; transform:translateY(-2px); box-shadow:0 12px 28px -6px rgba(124,167,63,.6); }
+@media(max-width:640px){
+  .float-cta span{ display:none; }
+  .float-cta{ padding:16px; border-radius:50%; bottom:20px; right:20px; }
+}
