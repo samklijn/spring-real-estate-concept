@@ -546,6 +546,7 @@ p{ margin:0 0 1rem; }
    PAGE HERO (light, compact) + recurring search — sub pages
    ===================================================================== */
 .page-hero{ background:var(--green-tint); border-bottom:1px solid var(--line); padding:54px 0 40px; }
+.listings-page .page-hero{ padding-bottom:28px; border-bottom:none; }
 .page-hero .crumbs{ font-size:.86rem; color:var(--ink-soft); margin-bottom:14px; }
 .page-hero .crumbs a:hover{ color:var(--green); }
 .page-hero h1{ font-size:clamp(2rem,4vw,3.2rem); max-width:18ch; }
@@ -1954,5 +1955,6 @@ a.person:hover{ border-color:var(--green); box-shadow:var(--shadow-soft); }
 }
 
 /* listings first section tighter */
-.listings-layout{ padding-top:24px; padding-bottom:48px; }
-.scarcity-notice{ margin-bottom:12px; }
+.listings-page .listings-layout{ padding-top:16px; padding-bottom:48px; }
+.listings-page .scarcity-notice{ margin-bottom:10px; }
+.listings-page .container[style]{ padding-top:12px !important; }

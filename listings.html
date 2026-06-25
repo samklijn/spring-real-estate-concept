@@ -13,7 +13,7 @@
 <link rel="apple-touch-icon" href="images/apple-touch-icon.png?v=26">
 <meta name="theme-color" content="#7CA73F">
 </head>
-<body>
+<body class="listings-page">
 
 <!-- ============ TOP BAR ============ -->
 <div class="topbar">
@@ -77,99 +77,6 @@
   </div>
 </section>
 
-<!-- ============ VASTGOED FINDER ============ -->
-      </div>
-
-      <!-- Locatie: chips + vrij typen -->
-      <div class="vf-group">
-        <span class="vf-label">Locatie</span>
-        <div class="vf-chips" id="vfLoc">
-          <button class="vf-chip" data-val="amsterdam">Amsterdam</button>
-          <button class="vf-chip" data-val="utrecht">Utrecht</button>
-          <button class="vf-chip" data-val="valencia">Valencia</button>
-        </div>
-        <input type="text" class="vf-input" id="vfLocInput" placeholder="Of typ een wijk, stad&hellip;">
-      </div>
-
-      <!-- Oppervlakte (alleen bij kantoor/bedrijf) -->
-      <div class="vf-group vf-group--opp" id="vfOppGroup">
-        <span class="vf-label">Oppervlakte (m&sup2;)</span>
-        <div class="vf-range">
-          <input type="number" class="vf-input vf-input--sm" placeholder="min" min="0">
-          <span class="vf-range-sep">&mdash;</span>
-          <input type="number" class="vf-input vf-input--sm" placeholder="max" min="0">
-        </div>
-      </div>
-
-      <!-- Zoek-knop -->
-      <div class="vf-group vf-group--btn">
-        <button class="vf-submit" onclick="document.querySelector('.listings-layout')?.scrollIntoView({behavior:'smooth'})">
-          Zoek objecten
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </button>
-      </div>
-
-    </div>
-  </div>
-</div>
-
-<script>
-(function(){
-  // Type chips toggle
-  document.querySelectorAll('#vfType .vf-chip').forEach(function(btn){
-    btn.addEventListener('click', function(){
-      document.querySelectorAll('#vfType .vf-chip').forEach(function(b){ b.classList.remove('active'); });
-      btn.classList.add('active');
-      // Oppervlakte alleen bij kantoor en bedrijf
-      var val = btn.dataset.val;
-      var oppGroup = document.getElementById('vfOppGroup');
-      if(oppGroup) oppGroup.style.display = (val === 'belegging') ? 'none' : '';
-    });
-  });
-  // Locatie chips toggle (meervoudig)
-  document.querySelectorAll('#vfLoc .vf-chip').forEach(function(btn){
-    btn.addEventListener('click', function(){
-      btn.classList.toggle('active');
-    });
-  });
-  // Locatie typen wist de chips-selectie niet, allebei mag
-})();
-</script>
-
-<!-- ============ LOCATIEKAART ============ -->
-<div class="container" style="margin-top:32px;margin-bottom:0">
-  <div class="loc-mockup-card">
-  <svg class="lmc-svg" viewBox="0 0 860 360" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <line x1="0" y1="90" x2="860" y2="90" stroke="rgba(100,100,100,.09)" stroke-width="1"/>
-    <line x1="0" y1="180" x2="860" y2="180" stroke="rgba(100,100,100,.09)" stroke-width="1"/>
-    <line x1="0" y1="270" x2="860" y2="270" stroke="rgba(100,100,100,.09)" stroke-width="1"/>
-    <line x1="215" y1="0" x2="215" y2="360" stroke="rgba(100,100,100,.09)" stroke-width="1"/>
-    <line x1="430" y1="0" x2="430" y2="360" stroke="rgba(100,100,100,.09)" stroke-width="1"/>
-    <line x1="645" y1="0" x2="645" y2="360" stroke="rgba(100,100,100,.09)" stroke-width="1"/>
-    <ellipse cx="620" cy="105" rx="55" ry="42" fill="rgba(100,100,100,.06)" stroke="rgba(100,100,100,.18)" stroke-width="1.2"/>
-    <ellipse cx="390" cy="268" rx="110" ry="62" fill="rgba(100,100,100,.06)" stroke="rgba(100,100,100,.18)" stroke-width="1.2"/>
-    <path d="M 600 140 C 560 180 480 210 420 240" stroke="rgba(100,100,100,.28)" stroke-width="1.5" stroke-dasharray="5,8"/>
-    <circle cx="628" cy="88" r="22" fill="rgba(100,100,100,.09)" stroke="rgba(100,100,100,.22)" stroke-width="1"/>
-    <circle cx="605" cy="118" r="18" fill="rgba(100,100,100,.09)" stroke="rgba(100,100,100,.18)" stroke-width="1"/>
-    <circle cx="420" cy="252" r="20" fill="rgba(100,100,100,.09)" stroke="rgba(100,100,100,.22)" stroke-width="1"/>
-    <circle cx="365" cy="288" r="16" fill="rgba(100,100,100,.09)" stroke="rgba(100,100,100,.18)" stroke-width="1"/>
-    <circle cx="628" cy="88" r="7" fill="#888"/>
-    <circle cx="605" cy="118" r="7" fill="#888"/>
-    <circle cx="420" cy="252" r="7" fill="#aaa"/>
-    <circle cx="365" cy="288" r="7" fill="#aaa"/>
-  </svg>
-  <div class="lmc-pin" style="top:18%;left:70%"><span class="lmp-dot"></span><span class="lmp-label">Amsterdam</span></div>
-  <div class="lmc-pin" style="top:30%;left:66%"><span class="lmp-dot"></span><span class="lmp-label">Utrecht</span></div>
-  <div class="lmc-pin" style="top:63%;left:44%"><span class="lmp-dot"></span><span class="lmp-label">Valencia</span></div>
-  <div class="lmc-pin" style="top:75%;left:38%"><span class="lmp-dot"></span><span class="lmp-label">Estepona</span></div>
-  <div class="lmc-locs">
-    <a href="locatie-amsterdam.html" class="lmc-loc"><span class="lmc-dot nl"></span><span class="lmc-city">Amsterdam</span><span class="lmc-count">7 objecten</span></a>
-    <a href="locatie-utrecht.html" class="lmc-loc"><span class="lmc-dot nl"></span><span class="lmc-city">Utrecht</span><span class="lmc-count">5 objecten</span></a>
-    <a href="locatie-valencia.html" class="lmc-loc"><span class="lmc-dot es"></span><span class="lmc-city">Valencia (ES)</span><span class="lmc-count">3 objecten</span></a>
-    <a href="locatie-estepona.html" class="lmc-loc"><span class="lmc-dot es"></span><span class="lmc-city">Estepona (ES)</span><span class="lmc-count">1 object</span></a>
-  </div>
-  </div>
-</div>
 <!-- ============ KANTOORZOEKER ============ -->
 <div class="kz-bar" id="kzBar">
   <div class="container">
