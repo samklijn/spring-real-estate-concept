@@ -827,8 +827,12 @@ p{ margin:0 0 1rem; }
 .person .socials a{ width:36px; height:36px; border-radius:9px; background:var(--green-tint); display:grid; place-items:center; color:var(--green); transition:.15s; }
 .person .socials a:hover{ background:var(--green); color:#fff; }
 .team-filter{ display:flex; gap:8px; flex-wrap:wrap; margin-bottom:30px; }
-.team-filter a{ padding:8px 16px; border-radius:var(--r-pill); border:1px solid var(--line); font-weight:600; font-size:.9rem; }
+.team-filter a{ padding:8px 16px; border-radius:var(--r-pill); border:1px solid var(--line); font-weight:600; font-size:.9rem; color:var(--ink); text-decoration:none; transition:all .15s; }
 .team-filter a.active, .team-filter a:hover{ background:var(--green); color:#fff; border-color:var(--green); }
+/* team-filter inside page-hero: chips style on light bg */
+.page-hero .team-filter{ margin-bottom:0; margin-top:20px; }
+.page-hero .team-filter a{ border-color:rgba(0,0,0,.15); background:rgba(255,255,255,.7); color:var(--ink); }
+.page-hero .team-filter a.active, .page-hero .team-filter a:hover{ background:var(--green); color:#fff; border-color:var(--green); }
 
 /* =====================================================================
    CONTACT
@@ -1952,6 +1956,27 @@ a.person:hover{ border-color:var(--green); box-shadow:var(--shadow-soft); }
   .kz-input{ min-width:0; width:100%; }
   .kz-actions{ width:100%; }
   .kz-next,.kz-submit{ flex:1; justify-content:center; }
+}
+
+/* compact location cards on listings page */
+.loc-cards{
+  display:grid; grid-template-columns:repeat(4,1fr); gap:10px;
+  margin-bottom:4px;
+}
+.loc-card{
+  display:flex; flex-direction:column; gap:3px;
+  padding:14px 16px; border-radius:var(--r-md);
+  border:1px solid var(--line); background:#fff;
+  text-decoration:none; transition:border-color .15s, box-shadow .15s;
+}
+.loc-card:hover{ border-color:var(--green); box-shadow:0 2px 10px rgba(124,167,63,.12); }
+.loc-card__badge{ align-self:flex-start; font-size:.7rem; font-weight:800; letter-spacing:.06em; padding:2px 7px; border-radius:4px; line-height:1.6; }
+.loc-card__badge--nl{ background:#AE0001; color:#fff; }
+.loc-card__badge--es{ background:#c60b1e; color:#fff; }
+.loc-card__city{ font-weight:700; font-size:.95rem; color:var(--ink); margin-top:6px; }
+.loc-card__count{ font-size:.8rem; color:var(--ink-soft); }
+@media(max-width:680px){
+  .loc-cards{ grid-template-columns:repeat(2,1fr); }
 }
 
 /* listings first section tighter */
