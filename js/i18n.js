@@ -4,8 +4,17 @@
    Placeholders via data-i18n-ph. */
 window.SPRING_I18N = {
   en: {
-    "nav.diensten":"Services","nav.listings":"Listings","nav.about":"About Us","nav.agents":"Agents",
+    "nav.diensten":"Services","nav.listings":"Listings","nav.about":"About","nav.agents":"Agents",
     "nav.resources":"Resources","nav.vacatures":"Careers","nav.contact":"Contact","cta.aanbod":"View listings",
+    "nav.aanbod":"Listings","nav.koop":"For Sale","nav.koop.d":"Office and commercial space for sale",
+    "nav.huur":"To Let","nav.huur.d":"Office and commercial space to let",
+    "nav.cases":"Cases","nav.cases.d":"Results for our clients",
+    "nav.transacties":"Transactions","nav.transacties.d":"Real estate deals and market data",
+    "nav.algemeen":"General","nav.algemeen.d":"Analyses, trends and insights",
+    "nav.team":"Team","nav.huidig.team":"Our team","nav.huidig.team.d":"100+ real estate specialists",
+    "nav.join":"Join our team?","nav.join.d":"View vacancies",
+    "nav.over.spring":"About Spring","nav.over.spring.d":"Who we are and what we do",
+    "nav.locaties":"Our locations","nav.locaties.d":"Amsterdam, Utrecht &amp; Spain",
     "dd.gebruiker":"User","dd.gebruiker.d":"I'm looking for office space","dd.eigenaar":"Owner",
     "dd.eigenaar.d":"I want to sell or lease","dd.investeerder":"Investor","dd.investeerder.d":"I want to invest in real estate",
     "dd.ontwikkelaar":"Developer","dd.ontwikkelaar.d":"I want to develop or optimise",
@@ -22,8 +31,17 @@ window.SPRING_I18N = {
     "talk.eyebrow":"Personal contact","talk.p":"Prefer to talk directly? Our specialists are happy to help — no obligation, in your language.","talk.plan":"Book a consultation"
   },
   es: {
-    "nav.diensten":"Servicios","nav.listings":"Inmuebles","nav.about":"Sobre nosotros","nav.agents":"Equipo",
+    "nav.diensten":"Servicios","nav.listings":"Inmuebles","nav.about":"About","nav.agents":"Equipo",
     "nav.resources":"Recursos","nav.vacatures":"Empleo","nav.contact":"Contacto","cta.aanbod":"Ver inmuebles",
+    "nav.aanbod":"Inmuebles","nav.koop":"En venta","nav.koop.d":"Oficina y local comercial en venta",
+    "nav.huur":"En alquiler","nav.huur.d":"Oficina y local comercial en alquiler",
+    "nav.cases":"Casos","nav.cases.d":"Resultados para nuestros clientes",
+    "nav.transacties":"Transacciones","nav.transacties.d":"Operaciones inmobiliarias y datos de mercado",
+    "nav.algemeen":"General","nav.algemeen.d":"Análisis, tendencias e insights",
+    "nav.team":"Equipo","nav.huidig.team":"Nuestro equipo","nav.huidig.team.d":"100+ especialistas en inmuebles",
+    "nav.join":"¿Te unes a nosotros?","nav.join.d":"Ver vacantes",
+    "nav.over.spring":"Sobre Spring","nav.over.spring.d":"Quiénes somos y qué hacemos",
+    "nav.locaties":"Nuestras ubicaciones","nav.locaties.d":"Ámsterdam, Utrecht y España",
     "dd.gebruiker":"Usuario","dd.gebruiker.d":"Busco espacio de oficina","dd.eigenaar":"Propietario",
     "dd.eigenaar.d":"Quiero vender o alquilar","dd.investeerder":"Inversor","dd.investeerder.d":"Quiero invertir en inmuebles",
     "dd.ontwikkelaar":"Promotor","dd.ontwikkelaar.d":"Quiero desarrollar u optimizar",
