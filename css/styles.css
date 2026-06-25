@@ -1983,3 +1983,10 @@ a.person:hover{ border-color:var(--green); box-shadow:var(--shadow-soft); }
 .listings-page .listings-layout{ padding-top:16px; padding-bottom:48px; }
 .listings-page .scarcity-notice{ margin-bottom:10px; }
 .listings-page .container[style]{ padding-top:12px !important; }
+
+/* Diensten dropdown: align left edge to button instead of center to avoid overflow */
+.nav .has-drop:first-child .drop{ left: 0; transform: translateY(8px); }
+.nav .has-drop:first-child:hover .drop,
+.nav .has-drop:first-child:focus-within .drop,
+.nav .has-drop:first-child.click-open .drop{ transform: translateY(0); opacity:1; visibility:visible; }
+
