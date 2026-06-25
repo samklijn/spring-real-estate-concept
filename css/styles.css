@@ -234,7 +234,19 @@ p{ margin:0 0 1rem; }
 .hero-stats{ display:flex; gap:34px; margin-top:32px; flex-wrap:wrap; }
 
 /* Hero search form override — wit op donkere hero */
-.hero .search{ margin-top:28px; max-width:560px; }
+.hero .search{
+  margin-top:32px; max-width:620px;
+  padding:12px 12px 12px 20px;
+  background:rgba(255,255,255,.97);
+  box-shadow:0 8px 32px rgba(0,0,0,.22);
+  border:none;
+}
+.hero .search .seg input{
+  font-size:1.05rem;
+}
+.hero .search .search-btn{
+  padding:0 28px; font-size:1rem;
+}
 
 .hero-stats .s b{ font-size:1.9rem; font-weight:800; display:block; }
 .hero-stats .s span{ font-size:.86rem; color:#d4d7cc; }
