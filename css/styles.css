@@ -231,7 +231,11 @@ p{ margin:0 0 1rem; }
 }
 .search-tabs button.active{ background:#fff; color:var(--ink); border-color:#fff; }
 
-.hero-stats{ display:flex; gap:34px; margin-top:40px; flex-wrap:wrap; }
+.hero-stats{ display:flex; gap:34px; margin-top:32px; flex-wrap:wrap; }
+
+/* Hero search form override — wit op donkere hero */
+.hero .search{ margin-top:28px; max-width:560px; }
+
 .hero-stats .s b{ font-size:1.9rem; font-weight:800; display:block; }
 .hero-stats .s span{ font-size:.86rem; color:#d4d7cc; }
 
