@@ -372,8 +372,7 @@
     <div class="crumbs"><a href="index.html">Home</a> <span style="opacity:.4;margin:0 4px">/</span> Cases</div>
     <h1 style="margin:6px 0 4px">Bewezen <em>resultaat</em> voor elke opgave</h1>
     <p style="color:rgba(255,255,255,.65);font-size:.92rem;margin:0 0 12px">Van Zuidas tot Rotterdam Centraal &mdash; ontdek hoe Spring waarde cre&euml;ert voor gebruikers, eigenaren en investeerders.</p>
-    <div style="display:flex;gap:32px;flex-wrap:wrap;padding-top:2px">
-      <div style="text-align:center"><strong style="display:block;font-size:1.4rem;font-weight:900;color:var(--green-soft);line-height:1">120+</strong><span style="font-size:.75rem;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.08em">Cases</span></div>
+    <a href="contact.html" class="cta-pill" style="margin-top:14px;display:inline-flex">Neem contact op <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       <div style="text-align:center"><strong style="display:block;font-size:1.4rem;font-weight:900;color:var(--green-soft);line-height:1">&euro;1,2 mrd</strong><span style="font-size:.75rem;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.08em">Transactiewaarde</span></div>
       <div style="text-align:center"><strong style="display:block;font-size:1.4rem;font-weight:900;color:var(--green-soft);line-height:1">6</strong><span style="font-size:.75rem;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.08em">Sectoren</span></div>
       <div style="text-align:center"><strong style="display:block;font-size:1.4rem;font-weight:900;color:var(--green-soft);line-height:1">12 jr</strong><span style="font-size:.75rem;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.08em">Ervaring</span></div>
@@ -395,12 +394,16 @@
         <button onclick="filterCases()">Zoeken</button>
       </div>
       <select id="caseCat" onchange="filterCases()">
-        <option value="">Alle sectoren</option>
-        <option value="verhuur">Verhuur</option>
+        <option value="">Alle diensten</option>
+        <option value="agency">Verhuur kantoorruimte</option>
+        <option value="aanhuur">Aanhuur kantoorruimte</option>
         <option value="asset">Asset management</option>
         <option value="investments">Investments</option>
-        <option value="design">Design &amp; Build</option>
-        <option value="overheid">Overheid</option>
+        <option value="taxaties">Taxaties</option>
+        <option value="design">Design & Build</option>
+        <option value="advisory">Strategic advisory</option>
+        <option value="vastgoedbeheer">Vastgoedbeheer</option>
+        <option value="overheid">Overheid & publiek</option>
       </select>
       <select id="caseSort" onchange="filterCases()">
         <option value="">Sortering: Standaard</option>
@@ -470,6 +473,42 @@
         </div>
       </a>
 
+      <a class="ov-card" href="case-zuidas.html" data-title="kantoor zwolle centraal &mdash; 920 m² agency">
+        <img src="images/photo-1.jpg" alt="Kantoor Zwolle" loading="lazy">
+        <div class="ov-card__overlay"></div>
+        <div class="ov-card__body">
+          <span class="ov-card__cat">Verhuur</span>
+          <h2 class="ov-card__title">Kantoor Zwolle Centraal &mdash; 920 m²</h2>
+          <div class="ov-card__meta">Zwolle · Verhuurd binnen 3 weken</div>
+        </div>
+      </a>
+      <a class="ov-card" href="case-utrecht.html" data-title="hoofdkantoor amsterdam 2.100 m² aanhuur">
+        <img src="images/photo-2.jpg" alt="Aanhuur Amsterdam" loading="lazy">
+        <div class="ov-card__overlay"></div>
+        <div class="ov-card__body">
+          <span class="ov-card__cat">Aanhuur</span>
+          <h2 class="ov-card__title">Hoofdkantoor Amsterdam 2.100 m²</h2>
+          <div class="ov-card__meta">Amsterdam · Strategische aanhuur voor scale-up</div>
+        </div>
+      </a>
+      <a class="ov-card" href="case-investments.html" data-title="portefeuilletaxatie 18 objecten taxaties">
+        <img src="images/hero.jpg" alt="Taxatie portfolio" loading="lazy">
+        <div class="ov-card__overlay"></div>
+        <div class="ov-card__body">
+          <span class="ov-card__cat">Taxaties</span>
+          <h2 class="ov-card__title">Portefeuilletaxatie 18 objecten</h2>
+          <div class="ov-card__meta">Utrecht / Amsterdam · RICS-gecertificeerd</div>
+        </div>
+      </a>
+      <a class="ov-card" href="case-design-build.html" data-title="herpositionering kantoorstrategie gemeente advisory">
+        <img src="images/photo-1.jpg" alt="Strategic advisory" loading="lazy">
+        <div class="ov-card__overlay"></div>
+        <div class="ov-card__body">
+          <span class="ov-card__cat">Strategic advisory</span>
+          <h2 class="ov-card__title">Herpositionering kantoorstrategie gemeente</h2>
+          <div class="ov-card__meta">Den Haag · 3-jarig adviestraject</div>
+        </div>
+      </a>
     </div>
   </div>
 </section>
@@ -587,7 +626,7 @@ function filterCases(){
   cards.forEach(function(c){
     var t=(c.dataset.title||"");
     var matchQ=!q||t.includes(q);
-    var matchC=!cat||t.includes(cat);
+    var matchC=!cat||t.includes(cat)||c.dataset.title.includes(cat);
     c.style.display=(matchQ&&matchC)?"":"none";
   });
   if(sort==="az"||sort==="za"){
