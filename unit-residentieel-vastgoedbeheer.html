@@ -75,6 +75,15 @@
     </div>
   </div>
 </section>
+<!-- LOGO STRIP -->
+<section style="padding:16px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#fff">
+  <div class="container">
+    <p style="text-align:center;margin:0;font-size:.78rem;color:var(--ink-soft);line-height:2">
+      <span style="font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-right:18px;padding-right:18px;border-right:1px solid var(--line)">Vertrouwd door</span>ABN AMRO&nbsp;&nbsp;·&nbsp;&nbsp;ING Real Estate Finance&nbsp;&nbsp;·&nbsp;&nbsp;Bouwinvest&nbsp;&nbsp;·&nbsp;&nbsp;a.s.r. real estate&nbsp;&nbsp;·&nbsp;&nbsp;BPD&nbsp;&nbsp;·&nbsp;&nbsp;Syntrus Achmea&nbsp;&nbsp;·&nbsp;&nbsp;CBRE Investment&nbsp;&nbsp;·&nbsp;&nbsp;Bouwfonds IM
+    </p>
+  </div>
+</section>
+
 
 <div class="stat-row"><div class="container"><div class="stat-row__inner">
   <div class="stat"><span class="stat__n">2.500<sup>+</sup></span><span class="stat__l">Beheerde eenheden</span></div>
@@ -173,70 +182,52 @@
 </section>
 
 
-<!-- FAQ -->
-<section style="padding:64px 0 72px;background:#fff">
-  <div class="container">
-    <div style="display:grid;grid-template-columns:3fr 2fr;gap:56px;align-items:stretch">
 
-      <!-- FAQ tab-stijl -->
-      <div>
-        <span class="eyebrow">Veelgestelde vragen</span>
-        <h2 class="disp" style="margin:8px 0 28px">Veelgestelde <em>vragen</em></h2>
-        <div style="border:1px solid var(--line);border-radius:16px;overflow:hidden">
-          <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 24px;background:var(--dark);flex-wrap:wrap">
-            <div>
-              <div style="font-size:.95rem;font-weight:700;color:#fff">Vragen &amp; antwoorden</div>
-              <div style="font-size:.78rem;color:rgba(255,255,255,.45);margin-top:2px">Spring Real Estate · direct antwoord</div>
-            </div>
-            <a href="contact.html" class="btn btn--primary" style="flex-shrink:0;font-size:.82rem;padding:8px 18px">Stel uw vraag &#x2192;</a>
+<!-- FAQ + ADVISEUR -->
+
+<!-- FAQ + ADVISEUR -->
+<section style="padding:64px 0 72px;background:#fff" id="team">
+  <div class="container">
+    <div style="border:1px solid var(--line);border-radius:16px;overflow:hidden">
+
+      <!-- header: Dave -->
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:24px;padding:20px 28px;background:var(--dark);flex-wrap:wrap">
+        <div style="display:flex;align-items:center;gap:16px">
+          <img src="images/team/dave.hendriks.jpg" style="width:56px;height:56px;border-radius:50%;object-fit:cover;object-position:top;flex-shrink:0;border:2px solid var(--green)" alt="Dave Hendriks">
+          <div>
+            <div style="font-size:1rem;font-weight:700;color:#fff;line-height:1.2">Dave Hendriks beantwoordt uw vragen</div>
+            <div style="font-size:.78rem;color:rgba(255,255,255,.55);margin-top:2px">Partner Valuations · MSc MBA FRICS · 28 jaar ervaring</div>
           </div>
-          <div style="display:grid;grid-template-columns:220px 1fr;gap:0">
-            <div style="border-right:1px solid var(--line);background:var(--bg-soft)">
-            <button onclick="setFaq(0)" class="faq-tab faq-tab--active" style="display:block;width:100%;text-align:left;padding:16px 20px;font-size:.85rem;color:var(--ink);background:#fff;border-right:3px solid var(--green);font-weight:700;border-bottom:1px solid var(--line);cursor:pointer;font-family:inherit;line-height:1.4;transition:background .15s">Wat doet Spring bij VvE-beheer?</button>
-            <button onclick="setFaq(1)" class="faq-tab" style="display:block;width:100%;text-align:left;padding:16px 20px;font-size:.85rem;color:var(--ink-soft);background:none;border:none;font-weight:600;border-bottom:1px solid var(--line);cursor:pointer;font-family:inherit;line-height:1.4;transition:background .15s">Neemt Spring ook het verhuurproces op zich?</button>
-            <button onclick="setFaq(2)" class="faq-tab" style="display:block;width:100%;text-align:left;padding:16px 20px;font-size:.85rem;color:var(--ink-soft);background:none;border:none;font-weight:600;border-bottom:1px solid var(--line);cursor:pointer;font-family:inherit;line-height:1.4;transition:background .15s">Wat zijn de kosten van residentieel beheer?</button>
-            <button onclick="setFaq(3)" class="faq-tab" style="display:block;width:100%;text-align:left;padding:16px 20px;font-size:.85rem;color:var(--ink-soft);background:none;border:none;font-weight:600;cursor:pointer;font-family:inherit;line-height:1.4;transition:background .15s">Hoe snel kan Spring een huurachterstand aanpakken?</button>
-            </div>
-            <div style="padding:28px 32px;background:#fff;min-height:180px">
-            <div class="faq-panel" style="display:block">
+        </div>
+        <a href="contact.html" class="btn btn--primary" style="flex-shrink:0">Stel uw eigen vraag &#x2192;</a>
+      </div>
+
+      <!-- FAQ: tabs links, antwoord rechts -->
+      <div style="display:grid;grid-template-columns:220px 1fr;gap:0">
+        <div style="border-right:1px solid var(--line);background:var(--bg-soft)" id="faqTabs">
+          <button onclick="setFaq(0)" class="faq-tab faq-tab--active" style="display:block;width:100%;text-align:left;padding:16px 20px;font-size:.85rem;font-weight:600;color:var(--ink);background:#fff;border:none;border-bottom:1px solid var(--line);border-right:3px solid var(--green);cursor:pointer;font-family:inherit;line-height:1.4;transition:background .15s">Wat doet Spring bij VvE-beheer?</button>
+          <button onclick="setFaq(1)" class="faq-tab" style="display:block;width:100%;text-align:left;padding:16px 20px;font-size:.85rem;font-weight:600;color:var(--ink-soft);background:none;border:none;border-bottom:1px solid var(--line);cursor:pointer;font-family:inherit;line-height:1.4;transition:background .15s">Neemt Spring ook het verhuurproces op zich?</button>
+          <button onclick="setFaq(2)" class="faq-tab" style="display:block;width:100%;text-align:left;padding:16px 20px;font-size:.85rem;font-weight:600;color:var(--ink-soft);background:none;border:none;border-bottom:1px solid var(--line);cursor:pointer;font-family:inherit;line-height:1.4;transition:background .15s">Wat zijn de kosten van residentieel beheer?</button>
+          <button onclick="setFaq(3)" class="faq-tab" style="display:block;width:100%;text-align:left;padding:16px 20px;font-size:.85rem;font-weight:600;color:var(--ink-soft);background:none;border:none;cursor:pointer;font-family:inherit;line-height:1.4;transition:background .15s">Hoe snel kan Spring een huurachterstand aanpakken?</button>
+        </div>
+        <div style="padding:28px 32px;background:#fff;min-height:180px" id="faqPanel">
+          <div class="faq-panel" style="display:block">
               <p style="font-weight:700;font-size:.95rem;color:var(--ink);margin:0 0 10px">Wat doet Spring bij VvE-beheer?</p>
               <p style="font-size:.88rem;color:var(--ink-soft);line-height:1.7;margin:0">We organiseren de jaarvergadering, beheren de financiën, coördineren onderhoud en bewaken de naleving van het huishoudelijk reglement. U hoeft nergens aan te denken.</p>
             </div>
-            <div class="faq-panel" style="display:none">
+          <div class="faq-panel" style="display:none">
               <p style="font-weight:700;font-size:.95rem;color:var(--ink);margin:0 0 10px">Neemt Spring ook het verhuurproces op zich?</p>
               <p style="font-size:.88rem;color:var(--ink-soft);line-height:1.7;margin:0">Ja — via onze residentieel verhuurservice zoeken en screenen we huurders, stellen huurcontracten op en begeleiden de sleuteloverdracht.</p>
             </div>
-            <div class="faq-panel" style="display:none">
+          <div class="faq-panel" style="display:none">
               <p style="font-weight:700;font-size:.95rem;color:var(--ink);margin:0 0 10px">Wat zijn de kosten van residentieel beheer?</p>
               <p style="font-size:.88rem;color:var(--ink-soft);line-height:1.7;margin:0">De beheervergoeding is doorgaans een percentage van de jaarhuur, afhankelijk van het serviceniveau en de portfoliogrootte. We bespreken dit transparant bij de start.</p>
             </div>
-            <div class="faq-panel" style="display:none">
+          <div class="faq-panel" style="display:none">
               <p style="font-weight:700;font-size:.95rem;color:var(--ink);margin:0 0 10px">Hoe snel kan Spring een huurachterstand aanpakken?</p>
               <p style="font-size:.88rem;color:var(--ink-soft);line-height:1.7;margin:0">Bij betalingsachterstand handelen we direct: herinnering, aanmaning en zo nodig inschakeling van een incassobureau of juridisch advies — alles binnen uw opdracht.</p>
             </div>
-              <p style="margin-top:24px;padding-top:16px;border-top:1px solid var(--line);font-size:.82rem;color:var(--ink-soft)">Meer vragen? <a href="faq.html" style="color:var(--green);font-weight:600">Bekijk de volledige FAQ &#x2192;</a></p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ADVISEUR -->
-      <div style="display:flex;flex-direction:column;justify-content:center">
-        <div style="border-radius:16px;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;background:var(--dark)">
-          <div style="background:var(--green);padding:14px 20px;display:flex;align-items:center;gap:12px">
-            <img src="images/team/dave.hendriks.jpg" style="width:52px;height:52px;border-radius:50%;object-fit:cover;object-position:top;flex-shrink:0;border:2px solid rgba(255,255,255,.4)" alt="Spring expert">
-            <div>
-              <div style="font-size:.92rem;font-weight:700;color:#fff;line-height:1.2">Stel uw vraag</div>
-              <div style="font-size:.74rem;color:rgba(255,255,255,.75)">Spring Real Estate &middot; direct antwoord</div>
-            </div>
-          </div>
-          <div style="padding:22px 22px 24px;display:flex;flex-direction:column;flex:1">
-            <p style="font-size:.88rem;color:rgba(255,255,255,.7);line-height:1.7;margin:0 0 20px;font-style:italic">"Staat uw vraag er niet bij? Onze specialisten helpen u direct verder."</p>
-            <div style="margin-top:auto">
-              <a href="contact.html" class="btn btn--primary" style="width:100%;justify-content:center;display:flex;margin-bottom:10px">Stel uw vraag &#x2192;</a>
-              <a href="faq.html" style="display:block;text-align:center;font-size:.74rem;color:rgba(255,255,255,.35);text-decoration:none">Bekijk alle veelgestelde vragen</a>
-            </div>
-          </div>
+          <p style="margin-top:24px;padding-top:16px;border-top:1px solid var(--line);font-size:.82rem;color:var(--ink-soft)">Meer vragen? <a href="faq.html" style="color:var(--green);font-weight:600">Bekijk de volledige FAQ &#x2192;</a></p>
         </div>
       </div>
 
@@ -244,37 +235,99 @@
   </div>
 </section>
 
-<section class="section--tight dark-sec" id="team"><div class="container">
-  <div class="sec-head"><div class="t"><span class="eyebrow" style="color:var(--green-soft)" data-tr="1" data-en="The team" data-es="El equipo">Het team</span><h2 style="color:#fff" data-tr="1" data-en="Your &lt;em&gt;experts&lt;/em&gt;" data-es="Tus &lt;em&gt;expertos&lt;/em&gt;">Uw <em>experts</em></h2></div><a href="agents.html" class="btn btn--secondary" data-tr="1" data-en="Meet the team" data-es="Todo el equipo">Heel het team</a></div>
-  <div class="team-grid bu-team-grid"><div class="agent"><div class="ph"><img src="images/team/beau.carels.jpg" alt="Beau Carels MSc"></div><div class="body"><div class="name">Beau Carels MSc</div><div class="role">Partner Property Management</div><div class="socials"><a href="https://www.linkedin.com/company/spring-real-estate-nl" target="_blank" rel="noopener" aria-label="LinkedIn">in</a><a href="mailto:beau.carels@springrealestate.com" aria-label="E-mail">@</a></div></div></div></div>
-</div></section>
-<section class="section--tight"><div class="container">
-  <div class="sec-head"><div class="t"><span class="eyebrow" data-tr="1" data-en="Related services" data-es="Servicios relacionados">Gerelateerde diensten</span><h2 class="disp" data-tr="1" data-en="Also &lt;em&gt;relevant&lt;/em&gt;" data-es="También &lt;em&gt;relevante&lt;/em&gt;">Ook <em>interessant</em></h2></div><a href="doelgroep-investeerder.html" class="btn btn--ghost" data-tr="1" data-en="All services" data-es="Todos los servicios">Alle diensten</a></div>
-  <div class="logo-grid"><a class="logo-pill" href="unit-taxaties-beleggingsvastgoed.html">Taxaties van beleggingsvastgoed</a><a class="logo-pill" href="unit-aanverkoop-beleggingsvastgoed.html">Aan- en verkoop van beleggingsvastgoed</a><a class="logo-pill" href="unit-vastgoeddata-marktinzichten.html">Vastgoeddata en marktinzichten</a><a class="logo-pill" href="unit-asset-management.html">Asset management</a><a class="logo-pill" href="unit-commercieel-vastgoedbeheer.html">Commercieel vastgoedbeheer</a><a class="logo-pill" href="unit-vastgoedadministratie.html">Vastgoedadministratie</a></div>
-</div></section>
-
-
-
-
-<section class="cta-band"><div class="container"><div class="cta-band__inner">
-  <div class="cta-band__text">
-    <h2>Klaar om uw <em>vastgoed te ontzorgen</em>?</h2>
-    <p>Neem contact op met onze beheerspecialisten voor een vrijblijvend kennismakingsgesprek.</p>
+<!-- TEAM -->
+<section style="padding:56px 0;background:var(--dark)">
+  <div class="container">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:32px;flex-wrap:wrap;gap:16px">
+      <div>
+        <span class="eyebrow" style="color:var(--green-soft)">Het team</span>
+        <h2 style="color:#fff;margin:6px 0 0;font-size:clamp(1.3rem,2.5vw,1.8rem)">De experts achter <em style="font-family:'Fraunces',serif;font-style:italic;color:var(--green-soft)">uw opdracht</em></h2>
+      </div>
+      <a href="agents.html" class="btn btn--secondary">Heel het team</a>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+      <a href="agents.html" style="display:flex;gap:18px;align-items:flex-start;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:22px;text-decoration:none;transition:border-color .2s" onmouseover="this.style.borderColor='rgba(124,167,63,.5)'" onmouseout="this.style.borderColor='rgba(255,255,255,.08)'">
+        <img src="images/team/dave.hendriks.jpg" style="width:64px;height:64px;border-radius:50%;object-fit:cover;object-position:top;flex-shrink:0;border:2px solid rgba(124,167,63,.4)" alt="Dave Hendriks">
+        <div>
+          <div style="font-weight:700;font-size:.95rem;color:#fff">Dave Hendriks</div>
+          <div style="font-size:.78rem;color:var(--green-soft);font-weight:600;margin:2px 0 8px">Partner Valuations · MSc MBA FRICS</div>
+          <p style="font-size:.82rem;color:rgba(255,255,255,.5);margin:0;line-height:1.5">28 jaar ervaring · RICS lid sinds 2001 · voormalig MD Savills</p>
+        </div>
+      </a>
+      <a href="agents.html" style="display:flex;gap:18px;align-items:flex-start;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:22px;text-decoration:none;transition:border-color .2s" onmouseover="this.style.borderColor='rgba(124,167,63,.5)'" onmouseout="this.style.borderColor='rgba(255,255,255,.08)'">
+        <img src="images/team/gijs.klaassen.jpg" style="width:64px;height:64px;border-radius:50%;object-fit:cover;object-position:top;flex-shrink:0;border:2px solid rgba(124,167,63,.4)" alt="Gijs Klaassen">
+        <div>
+          <div style="font-weight:700;font-size:.95rem;color:#fff">Gijs Klaassen</div>
+          <div style="font-size:.78rem;color:var(--green-soft);font-weight:600;margin:2px 0 8px">Associate Director Valuations · MSc RT</div>
+          <p style="font-size:.82rem;color:rgba(255,255,255,.5);margin:0;line-height:1.5">Specialist banken &amp; institutionele beleggers · Savills · Deloitte</p>
+        </div>
+      </a>
+    </div>
   </div>
-  <div class="cta-band__actions">
-    <a href="contact.html" class="btn btn--primary">Neem contact op <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-    <a href="agents.html" class="btn btn--ghost">Ontmoet het team</a>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band">
+  <div class="container">
+    <div class="cta-band__inner">
+      <div class="cta-band__text">
+        <h2>Klaar om uw <em>vastgoed te ontzorgen</em>?</h2>
+        <p>Neem contact op met onze beheerspecialisten voor een vrijblijvend kennismakingsgesprek.</p>
+      </div>
+      <div class="cta-band__actions">
+        <a href="contact.html" class="btn btn--primary">Neem contact op</a>
+        <a href="agents.html" class="btn btn--secondary">Bekijk ons team</a>
+      </div>
+    </div>
   </div>
-</div></div></section>
+</section>
+
+<!-- GERELATEERDE DIENSTEN -->
+<section class="section--tight">
+  <div class="container">
+    <div class="sec-head">
+      <div class="t">
+        <span class="eyebrow">Gerelateerde diensten</span>
+        <h2 class="disp">Ook <em>interessant</em></h2>
+      </div>
+      <a href="diensten.html" class="btn btn--ghost">Alle diensten</a>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px">
+      <a href="unit-taxaties-beleggingsvastgoed.html" class="unit-card">
+        <div class="uc-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+        <div class="uc-text"><strong>Taxaties beleggingsvastgoed</strong><span>Onafhankelijke waardebepaling</span></div>
+        <svg class="uc-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a href="unit-verhuur-kantoorruimte.html" class="unit-card">
+        <div class="uc-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+        <div class="uc-text"><strong>Verhuur kantoorruimte</strong><span>Uw object in de markt</span></div>
+        <svg class="uc-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a href="unit-vastgoeddata-marktinzichten.html" class="unit-card">
+        <div class="uc-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+        <div class="uc-text"><strong>Vastgoeddata &amp; marktinzichten</strong><span>Data-gedreven marktanalyse</span></div>
+        <svg class="uc-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a href="unit-strategic-advisory.html" class="unit-card">
+        <div class="uc-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+        <div class="uc-text"><strong>Strategisch vastgoedadvies</strong><span>Locatiestrategie en gebiedsontwikkeling</span></div>
+        <svg class="uc-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
 
 <footer class="footer"><div class="container">
   <div class="top">
     <div><img src="images/logo-white.png" alt="Spring Real Estate" class="logo-img" style="height:28px;opacity:.85;margin-bottom:12px;display:block"><p style="font-size:.82rem;color:#8a8d82;max-width:24ch;line-height:1.55">Powered by People.<br>Backed by Tech.</p><p style="font-size:.8rem;color:#6f7166;line-height:1.6;margin-top:12px">Croeselaan 28, 3521 CA Utrecht<br>Parnassusweg 819, 1082 LZ Amsterdam</p></div>
     <div><h4 data-i18n="foot.doelgroepen">Doelgroepen</h4><ul>
-      <li><a href="doelgroep-gebruiker.html" data-i18n="dd.gebruiker">Gebruiker</a></li>
-      <li><a href="doelgroep-eigenaar.html" data-i18n="dd.eigenaar">Eigenaar</a></li>
-      <li><a href="doelgroep-investeerder.html" data-i18n="dd.investeerder">Investeerder</a></li>
-      <li><a href="doelgroep-ontwikkelaar.html" data-i18n="dd.ontwikkelaar">Ontwikkelaar</a></li>
+      <li><a href="doelgroep-gebruiker.html">Gebruiker</a></li>
+      <li><a href="doelgroep-eigenaar.html">Eigenaar</a></li>
+      <li><a href="doelgroep-investeerder.html">Investeerder</a></li>
+      <li><a href="doelgroep-ontwikkelaar.html">Ontwikkelaar</a></li>
+      <li><a href="doelgroep-financier.html">Financier</a></li>
+      <li><a href="doelgroep-overheid.html">Overheid</a></li>
     </ul></div>
     <div><h4>Navigatie</h4><ul>
       <li><a href="listings.html">Aanbod</a></li>
@@ -284,7 +337,6 @@
       <li><a href="sectoren.html">Sectoren</a></li>
       <li><a href="about.html">Over ons</a></li>
       <li><a href="vacatures.html">Vacatures</a></li>
-      <li><a href="werken-bij.html">Werken bij Spring</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul></div>
     <div><h4>Kantoorgebieden</h4><ul>
@@ -292,7 +344,6 @@
       <li><a href="locatie-amsterdam.html">Amsterdam</a></li>
       <li><a href="locatie-valencia.html">Valencia (ES)</a></li>
       <li><a href="locatie-estepona.html">Estepona (ES)</a></li>
-      
     </ul></div>
     <div><h4>Sectoren</h4><ul>
       <li><a href="sectoren.html">Kantoren</a></li>
@@ -302,9 +353,9 @@
       <li><a href="sectoren.html">Residentieel</a></li>
       <li><a href="sectoren.html">Hospitality</a></li>
     </ul></div>
-    <div class="news"><h4 data-i18n="foot.nieuwsbrief">Nieuwsbrief</h4><p style="font-size:.9rem" data-i18n="foot.nieuwsbrief.p">Marktinzichten &amp; nieuw aanbod in uw inbox.</p><form onsubmit="return false"><input type="email" placeholder="Uw e-mailadres" data-i18n-ph="foot.email"><button class="btn btn--primary" style="width:100%" data-i18n="foot.inschrijven">Inschrijven</button></form></div>
+    <div class="news"><h4>Nieuwsbrief</h4><p style="font-size:.9rem">Marktinzichten &amp; nieuw aanbod in uw inbox.</p><form onsubmit="return false"><input type="email" placeholder="Uw e-mailadres"><button class="btn btn--primary" style="width:100%">Inschrijven</button></form></div>
   </div>
-  <div class="bottom"><span data-i18n="foot.rights">&copy; 2026 Spring Real Estate. Alle rechten voorbehouden.</span><div class="links"><a href="privacy.html">Privacyverklaring</a><a href="cookies.html">Cookies</a><a href="voorwaarden.html">Algemene voorwaarden</a><a href="https://www.linkedin.com/company/spring-real-estate-nl" target="_blank" rel="noopener" data-tr="1" data-en="LinkedIn" data-es="LinkedIn">LinkedIn</a><span style="color:#6f7166">Concept o.b.v. Katana-template</span></div></div>
+  <div class="bottom"><span>&copy; 2026 Spring Real Estate. Alle rechten voorbehouden.</span><div class="links"><a href="privacy.html">Privacyverklaring</a><a href="cookies.html">Cookies</a><a href="voorwaarden.html">Algemene voorwaarden</a><a href="https://www.linkedin.com/company/spring-real-estate-nl" target="_blank" rel="noopener">LinkedIn</a><span style="color:#6f7166">Concept o.b.v. Katana-template</span></div></div>
 </div></footer>
 
 <div class="mobile-menu" id="mobileMenu">
@@ -384,6 +435,18 @@
 })();
 </script>
 
+
+<script>
+function setFaq(n){
+  document.querySelectorAll('.faq-panel').forEach(function(p,i){p.style.display=i===n?'block':'none';});
+  document.querySelectorAll('.faq-tab').forEach(function(b,i){
+    b.classList.toggle('faq-tab--active',i===n);
+    b.style.background=i===n?'#fff':'';
+    b.style.borderRight=i===n?'3px solid var(--green)':'none';
+    b.style.color=i===n?'var(--ink)':'var(--ink-soft)';
+  });
+}
+</script>
 </body>
 </html>
 
