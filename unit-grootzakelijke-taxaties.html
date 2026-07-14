@@ -277,72 +277,52 @@
 <!-- 10 + 11. FAQ + ADVISEUR -->
 <section style="padding:64px 0 72px;background:#fff" id="team">
   <div class="container">
-    <div style="display:grid;grid-template-columns:3fr 2fr;gap:56px;align-items:stretch">
+    <!-- Dave beantwoordt uw vragen — één geheel -->
+    <div style="border:1px solid var(--line);border-radius:16px;overflow:hidden">
 
-      <!-- FAQ tab-stijl -->
-      <div>
-        <span class="eyebrow">Veelgestelde vragen</span>
-        <h2 class="disp" style="margin:8px 0 28px">Vragen over <em>taxaties</em></h2>
-        <div style="display:grid;grid-template-columns:2fr 3fr;gap:0;border:1px solid var(--line);border-radius:14px;overflow:hidden">
-          <!-- vragen tabs -->
-          <div style="border-right:1px solid var(--line);background:var(--bg-soft)" id="faqTabs">
-            <button onclick="setFaq(0)" class="faq-tab faq-tab--active" style="display:block;width:100%;text-align:left;padding:18px 20px;font-size:.88rem;font-weight:600;color:var(--ink);background:none;border:none;border-bottom:1px solid var(--line);cursor:pointer;font-family:inherit;line-height:1.4;transition:background .15s">RICS- vs. NRVT-taxatie</button>
-            <button onclick="setFaq(1)" class="faq-tab" style="display:block;width:100%;text-align:left;padding:18px 20px;font-size:.88rem;font-weight:600;color:var(--ink-soft);background:none;border:none;border-bottom:1px solid var(--line);cursor:pointer;font-family:inherit;line-height:1.4;transition:background .15s">Doorlooptijd</button>
-            <button onclick="setFaq(2)" class="faq-tab" style="display:block;width:100%;text-align:left;padding:18px 20px;font-size:.88rem;font-weight:600;color:var(--ink-soft);background:none;border:none;border-bottom:1px solid var(--line);cursor:pointer;font-family:inherit;line-height:1.4;transition:background .15s">Benodigde documenten</button>
-            <button onclick="setFaq(3)" class="faq-tab" style="display:block;width:100%;text-align:left;padding:18px 20px;font-size:.88rem;font-weight:600;color:var(--ink-soft);background:none;border:none;border-bottom:1px solid var(--line);cursor:pointer;font-family:inherit;line-height:1.4;transition:background .15s">Gebruik van het rapport</button>
-            <button onclick="setFaq(4)" class="faq-tab" style="display:block;width:100%;text-align:left;padding:18px 20px;font-size:.88rem;font-weight:600;color:var(--ink-soft);background:none;border:none;cursor:pointer;font-family:inherit;line-height:1.4;transition:background .15s">Grote portefeuilles</button>
-          </div>
-          <!-- antwoord panel -->
-          <div style="padding:28px 28px;background:#fff;min-height:180px" id="faqPanel">
-            <div class="faq-panel" style="display:block">
-              <p style="font-weight:700;font-size:.95rem;color:var(--ink);margin:0 0 10px">Wat is het verschil tussen een RICS- en NRVT-taxatie?</p>
-              <p style="font-size:.88rem;color:var(--ink-soft);line-height:1.7;margin:0">RICS is de internationale standaard; NRVT de Nederlandse pendant. Spring-taxateurs zijn bij beide geregistreerd. Banken eisen NRVT, internationale investeerders verwachten RICS — wij leveren rapporten die aan beide normen voldoen.</p>
-            </div>
-            <div class="faq-panel" style="display:none">
-              <p style="font-weight:700;font-size:.95rem;color:var(--ink);margin:0 0 10px">Hoe lang duurt een grootzakelijke taxatie?</p>
-              <p style="font-size:.88rem;color:var(--ink-soft);line-height:1.7;margin:0">Een single asset is gereed binnen 5–10 werkdagen na volledige documentaanlevering. Voor portefeuilles stemmen wij een planning af die aansluit op uw auditcyclus. Spoedtaxaties zijn in overleg mogelijk.</p>
-            </div>
-            <div class="faq-panel" style="display:none">
-              <p style="font-weight:700;font-size:.95rem;color:var(--ink);margin:0 0 10px">Welke documenten heb ik aan te leveren?</p>
-              <p style="font-size:.88rem;color:var(--ink-soft);line-height:1.7;margin:0">Eigendomsdocumentatie, huurcontracten, plattegronden en een actuele exploitatieopgave. Na opdrachtverstrekking ontvangt u direct een volledige documentchecklist.</p>
-            </div>
-            <div class="faq-panel" style="display:none">
-              <p style="font-weight:700;font-size:.95rem;color:var(--ink);margin:0 0 10px">Voor welke doeleinden kunt u het taxatierapport gebruiken?</p>
-              <p style="font-size:.88rem;color:var(--ink-soft);line-height:1.7;margin:0">Jaarrekening- en IFRS-verslaggeving, financieringsaanvragen bij banken, aan- en verkooptransacties, interne besluitvorming en juridische procedures.</p>
-            </div>
-            <div class="faq-panel" style="display:none">
-              <p style="font-weight:700;font-size:.95rem;color:var(--ink);margin:0 0 10px">Werkt Spring ook met grote portefeuilles?</p>
-              <p style="font-size:.88rem;color:var(--ink-soft);line-height:1.7;margin:0">Ja — portefeuilletaxaties zijn onze specialiteit. We hanteren een consistente methodiek zodat objecten onderling vergelijkbaar zijn en uw rapport aansluit bij auditors en financiers.</p>
-            </div>
-            <p style="margin-top:24px;padding-top:20px;border-top:1px solid var(--line);font-size:.82rem;color:var(--ink-soft)">Meer vragen? <a href="faq.html" style="color:var(--green);font-weight:600">Bekijk de volledige FAQ →</a></p>
+      <!-- header: Dave -->
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:24px;padding:20px 28px;background:var(--dark);flex-wrap:wrap">
+        <div style="display:flex;align-items:center;gap:16px">
+          <img src="images/team/dave.hendriks.jpg" style="width:56px;height:56px;border-radius:50%;object-fit:cover;object-position:top;flex-shrink:0;border:2px solid var(--green)" alt="Dave Hendriks">
+          <div>
+            <div style="font-size:1rem;font-weight:700;color:#fff;line-height:1.2">Dave Hendriks beantwoordt uw vragen</div>
+            <div style="font-size:.78rem;color:rgba(255,255,255,.55);margin-top:2px">Partner Valuations · MSc MBA FRICS · 28 jaar ervaring</div>
           </div>
         </div>
+        <a href="contact.html" class="btn btn--primary" style="flex-shrink:0">Stel uw eigen vraag →</a>
       </div>
 
-      <!-- ADVISEUR -->
-      <div>
-        <div style="border-radius:16px;overflow:hidden;height:100%;box-sizing:border-box;display:flex;flex-direction:column;background:var(--dark)">
-          <!-- groene topbalk -->
-          <div style="background:var(--green);padding:14px 20px;display:flex;align-items:center;gap:12px">
-            <img src="images/team/dave.hendriks.jpg" style="width:52px;height:52px;border-radius:50%;object-fit:cover;object-position:top;flex-shrink:0;border:2px solid rgba(255,255,255,.4)" alt="Dave Hendriks">
-            <div>
-              <div style="font-size:.92rem;font-weight:700;color:#fff;line-height:1.2">Dave Hendriks</div>
-              <div style="font-size:.74rem;color:rgba(255,255,255,.75)">Partner Valuations · MSc MBA FRICS</div>
-            </div>
+      <!-- FAQ: tabs links, antwoord rechts -->
+      <div style="display:grid;grid-template-columns:220px 1fr;gap:0">
+        <div style="border-right:1px solid var(--line);background:var(--bg-soft)" id="faqTabs">
+          <button onclick="setFaq(0)" class="faq-tab faq-tab--active" style="display:block;width:100%;text-align:left;padding:16px 20px;font-size:.85rem;font-weight:600;color:var(--ink);background:#fff;border:none;border-bottom:1px solid var(--line);border-right:3px solid var(--green);cursor:pointer;font-family:inherit;line-height:1.4;transition:background .15s">RICS- vs. NRVT-taxatie</button>
+          <button onclick="setFaq(1)" class="faq-tab" style="display:block;width:100%;text-align:left;padding:16px 20px;font-size:.85rem;font-weight:600;color:var(--ink-soft);background:none;border:none;border-bottom:1px solid var(--line);cursor:pointer;font-family:inherit;line-height:1.4;transition:background .15s">Doorlooptijd</button>
+          <button onclick="setFaq(2)" class="faq-tab" style="display:block;width:100%;text-align:left;padding:16px 20px;font-size:.85rem;font-weight:600;color:var(--ink-soft);background:none;border:none;border-bottom:1px solid var(--line);cursor:pointer;font-family:inherit;line-height:1.4;transition:background .15s">Benodigde documenten</button>
+          <button onclick="setFaq(3)" class="faq-tab" style="display:block;width:100%;text-align:left;padding:16px 20px;font-size:.85rem;font-weight:600;color:var(--ink-soft);background:none;border:none;border-bottom:1px solid var(--line);cursor:pointer;font-family:inherit;line-height:1.4;transition:background .15s">Gebruik van het rapport</button>
+          <button onclick="setFaq(4)" class="faq-tab" style="display:block;width:100%;text-align:left;padding:16px 20px;font-size:.85rem;font-weight:600;color:var(--ink-soft);background:none;border:none;cursor:pointer;font-family:inherit;line-height:1.4;transition:background .15s">Grote portefeuilles</button>
+        </div>
+        <div style="padding:28px 32px;background:#fff;min-height:180px" id="faqPanel">
+          <div class="faq-panel" style="display:block">
+            <p style="font-weight:700;font-size:.95rem;color:var(--ink);margin:0 0 10px">Wat is het verschil tussen een RICS- en NRVT-taxatie?</p>
+            <p style="font-size:.88rem;color:var(--ink-soft);line-height:1.7;margin:0">RICS is de internationale standaard; NRVT de Nederlandse pendant. Spring-taxateurs zijn bij beide geregistreerd. Banken eisen NRVT, internationale investeerders verwachten RICS — wij leveren rapporten die aan beide normen voldoen.</p>
           </div>
-          <!-- body -->
-          <div style="padding:22px 22px 24px;display:flex;flex-direction:column;flex:1">
-            <p style="font-size:.88rem;color:rgba(255,255,255,.7);line-height:1.7;margin:0 0 20px;font-style:italic">"Grootzakelijke taxatie vraagt om een taxateur die uw markt kent. Ik lever niet alleen een rapport — ik lever zekerheid."</p>
-            <ul style="list-style:none;padding:0;margin:0 0 24px;display:flex;flex-direction:column;gap:8px">
-              <li style="display:flex;align-items:center;gap:8px;font-size:.82rem;color:rgba(255,255,255,.6)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--green-soft)" stroke-width="2.5"><path d="M5 12l5 5L20 6"/></svg>28 jaar marktervaring</li>
-              <li style="display:flex;align-items:center;gap:8px;font-size:.82rem;color:rgba(255,255,255,.6)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--green-soft)" stroke-width="2.5"><path d="M5 12l5 5L20 6"/></svg>RICS- &amp; NRVT-gecertificeerd</li>
-              <li style="display:flex;align-items:center;gap:8px;font-size:.82rem;color:rgba(255,255,255,.6)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--green-soft)" stroke-width="2.5"><path d="M5 12l5 5L20 6"/></svg>Voormalig MD Savills</li>
-            </ul>
-            <div style="margin-top:auto">
-              <a href="contact.html" class="btn btn--primary" style="width:100%;justify-content:center;display:flex;margin-bottom:10px">Stel uw vraag →</a>
-              <a href="mailto:dave.hendriks@springrealestate.com" style="display:block;text-align:center;font-size:.74rem;color:rgba(255,255,255,.35);text-decoration:none">dave.hendriks@springrealestate.com</a>
-            </div>
+          <div class="faq-panel" style="display:none">
+            <p style="font-weight:700;font-size:.95rem;color:var(--ink);margin:0 0 10px">Hoe lang duurt een grootzakelijke taxatie?</p>
+            <p style="font-size:.88rem;color:var(--ink-soft);line-height:1.7;margin:0">Een single asset is gereed binnen 5–10 werkdagen na volledige documentaanlevering. Voor portefeuilles stemmen wij een planning af die aansluit op uw auditcyclus. Spoedtaxaties zijn in overleg mogelijk.</p>
           </div>
+          <div class="faq-panel" style="display:none">
+            <p style="font-weight:700;font-size:.95rem;color:var(--ink);margin:0 0 10px">Welke documenten heb ik aan te leveren?</p>
+            <p style="font-size:.88rem;color:var(--ink-soft);line-height:1.7;margin:0">Eigendomsdocumentatie, huurcontracten, plattegronden en een actuele exploitatieopgave. Na opdrachtverstrekking ontvangt u direct een volledige documentchecklist.</p>
+          </div>
+          <div class="faq-panel" style="display:none">
+            <p style="font-weight:700;font-size:.95rem;color:var(--ink);margin:0 0 10px">Voor welke doeleinden kunt u het taxatierapport gebruiken?</p>
+            <p style="font-size:.88rem;color:var(--ink-soft);line-height:1.7;margin:0">Jaarrekening- en IFRS-verslaggeving, financieringsaanvragen bij banken, aan- en verkooptransacties, interne besluitvorming en juridische procedures.</p>
+          </div>
+          <div class="faq-panel" style="display:none">
+            <p style="font-weight:700;font-size:.95rem;color:var(--ink);margin:0 0 10px">Werkt Spring ook met grote portefeuilles?</p>
+            <p style="font-size:.88rem;color:var(--ink-soft);line-height:1.7;margin:0">Ja — portefeuilletaxaties zijn onze specialiteit. We hanteren een consistente methodiek zodat objecten onderling vergelijkbaar zijn en uw rapport aansluit bij auditors en financiers.</p>
+          </div>
+          <p style="margin-top:24px;padding-top:16px;border-top:1px solid var(--line);font-size:.82rem;color:var(--ink-soft)">Meer vragen? <a href="faq.html" style="color:var(--green);font-weight:600">Bekijk de volledige FAQ →</a></p>
         </div>
       </div>
 
