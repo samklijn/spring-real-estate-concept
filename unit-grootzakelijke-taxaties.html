@@ -61,16 +61,18 @@
 </div></header>
 
 <!-- 1. HERO -->
-<section class="page-hero">
-  <div class="container">
+<section class="page-hero" style="padding:14px 0 16px !important;position:relative;overflow:hidden">
+  <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;z-index:0">
+    <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;opacity:.18"><defs><pattern id="dots" x="0" y="0" width="28" height="28" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#7CA73F"/></pattern></defs><rect width="100%" height="100%" fill="url(#dots)"/></svg>
+    <div style="position:absolute;right:-80px;top:-60px;width:420px;height:320px;background:radial-gradient(ellipse at center,rgba(124,167,63,.18) 0%,transparent 70%);border-radius:50%"></div>
+    <div style="position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(180deg,transparent,rgba(124,167,63,.6),transparent)"></div>
+  </div>
+  <div class="container" style="position:relative;z-index:1">
     <div class="crumbs"><a href="index.html">Home</a> <span style="opacity:.4;margin:0 4px">/</span> <a href="doelgroep-financier.html">Financier</a> <span style="opacity:.4;margin:0 4px">/</span> Grootzakelijke taxaties</div>
     <span class="eyebrow">Spring Large Cap Valuations</span>
     <h1>Grootzakelijke taxatie van <em>commercieel vastgoed</em></h1>
     <p class="lead">Onafhankelijke RICS- en NRVT-taxaties voor beleggers, financiers en ontwikkelaars — van enkelvoudig object tot complete portefeuille.</p>
-    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:28px">
-      <a href="contact.html" class="cta-pill">Taxatie aanvragen <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      <a href="#aanpak" class="cta-pill" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.25)">Bekijk de aanpak <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12l7 7 7-7"/></svg></a>
-    </div>
+    <a href="cases.html" class="cta-pill" style="margin-top:24px;display:inline-flex">Bekijk cases →</a>
   </div>
 </section>
 
@@ -257,22 +259,22 @@
 </section>
 
 <!-- 9. LEAD MAGNET -->
-<section style="padding:64px 0;background:var(--dark)">
+<section style="padding:64px 0;background:var(--green-tint)">
   <div class="container">
     <div style="display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center">
       <div>
-        <span class="eyebrow" style="color:var(--green-soft)">Gratis download</span>
-        <h2 style="color:#fff;margin:10px 0 14px;font-size:clamp(1.4rem,3vw,2rem)">De RICS Taxatiegids voor <em style="font-family:'Fraunces',serif;font-style:italic;color:var(--green-soft)">beleggers &amp; financiers</em></h2>
-        <p style="color:rgba(255,255,255,.65);max-width:52ch;margin:0 0 24px;line-height:1.7">Wat mag u verwachten van een grootzakelijke taxatie? Deze gids legt uit hoe RICS Red Book-taxaties werken, welke informatie u aanlevert en hoe u het rapport leest.</p>
+        <span class="eyebrow">Gratis download</span>
+        <h2 style="margin:10px 0 14px;font-size:clamp(1.4rem,3vw,2rem)">De RICS Taxatiegids voor <em>beleggers &amp; financiers</em></h2>
+        <p style="color:var(--ink-soft);max-width:52ch;margin:0 0 24px;line-height:1.7">Wat mag u verwachten van een grootzakelijke taxatie? Deze gids legt uit hoe RICS Red Book-taxaties werken, welke informatie u aanlevert en hoe u het rapport leest.</p>
         <ul style="list-style:none;margin:0 0 28px;padding:0;display:flex;flex-direction:column;gap:10px">
-          <li style="color:rgba(255,255,255,.8);font-size:.9rem;display:flex;align-items:center;gap:10px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--green-soft)" stroke-width="2.5"><path d="M5 12l5 5L20 6"/></svg>Uitleg RICS Red Book &amp; NRVT-normen</li>
-          <li style="color:rgba(255,255,255,.8);font-size:.9rem;display:flex;align-items:center;gap:10px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--green-soft)" stroke-width="2.5"><path d="M5 12l5 5L20 6"/></svg>Documentchecklist voor een vlekkeloze aanlevering</li>
-          <li style="color:rgba(255,255,255,.8);font-size:.9rem;display:flex;align-items:center;gap:10px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--green-soft)" stroke-width="2.5"><path d="M5 12l5 5L20 6"/></svg>Veelgemaakte fouten en hoe u ze voorkomt</li>
+          <li style="color:var(--ink);font-size:.9rem;display:flex;align-items:center;gap:10px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5"><path d="M5 12l5 5L20 6"/></svg>Uitleg RICS Red Book &amp; NRVT-normen</li>
+          <li style="color:var(--ink);font-size:.9rem;display:flex;align-items:center;gap:10px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5"><path d="M5 12l5 5L20 6"/></svg>Documentchecklist voor een vlekkeloze aanlevering</li>
+          <li style="color:var(--ink);font-size:.9rem;display:flex;align-items:center;gap:10px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5"><path d="M5 12l5 5L20 6"/></svg>Veelgemaakte fouten en hoe u ze voorkomt</li>
         </ul>
         <a href="contact.html" class="btn btn--primary">Download de gids <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="vertical-align:middle;margin-left:6px"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg></a>
       </div>
-      <div style="display:flex;align-items:center;justify-content:center;width:180px;height:180px;background:rgba(124,167,63,.1);border-radius:20px;border:1px solid rgba(124,167,63,.18);flex-shrink:0">
-        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="var(--green-soft)" stroke-width="1.4"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+      <div style="display:flex;align-items:center;justify-content:center;width:180px;height:180px;background:#fff;border-radius:20px;border:1px solid var(--line);flex-shrink:0">
+        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.4"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
       </div>
     </div>
   </div>
