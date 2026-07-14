@@ -79,6 +79,76 @@
 @media(max-width:640px){.ov-grid{grid-template-columns:1fr 1fr}.ov-card{aspect-ratio:3/4}}
 @media(max-width:420px){.ov-grid{grid-template-columns:1fr}}
 
+
+/* === Filter bar (cases / nieuws) === */
+.filter-bar{
+  display:flex;gap:10px;flex-wrap:wrap;align-items:center;
+  padding:16px 0 20px;
+}
+.filter-bar__search{
+  display:flex;align-items:center;gap:0;flex:1;min-width:220px;max-width:400px;
+  background:#fff;border:1.5px solid var(--line);border-radius:999px;
+  padding:6px 6px 6px 14px;
+}
+.filter-bar__search svg{color:var(--ink-soft);flex-shrink:0}
+.filter-bar__search input{
+  flex:1;border:none;outline:none;background:none;
+  font-size:.88rem;color:var(--ink);padding:4px 8px;font-family:inherit;
+}
+.filter-bar__search input::placeholder{color:var(--ink-soft)}
+.filter-bar__search button{
+  background:var(--green);color:#fff;border:none;cursor:pointer;
+  font-size:.8rem;font-weight:700;letter-spacing:.04em;
+  padding:7px 16px;border-radius:999px;font-family:inherit;
+  transition:background .2s;white-space:nowrap;
+}
+.filter-bar__search button:hover{background:#5e8a2b}
+.filter-bar select{
+  appearance:none;-webkit-appearance:none;
+  background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23666' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat right 12px center;
+  border:1.5px solid var(--line);border-radius:999px;
+  padding:8px 36px 8px 16px;
+  font-size:.85rem;color:var(--ink);font-family:inherit;cursor:pointer;
+  transition:border-color .2s;white-space:nowrap;
+}
+.filter-bar select:focus{outline:none;border-color:var(--green)}
+/* listings search above results-head */
+.listings-search-bar{
+  display:flex;align-items:center;gap:0;
+  background:#fff;border:1.5px solid var(--line);border-radius:999px;
+  padding:6px 6px 6px 16px;margin-bottom:12px;
+}
+.listings-search-bar svg{color:var(--ink-soft);flex-shrink:0}
+.listings-search-bar input{
+  flex:1;border:none;outline:none;background:none;
+  font-size:.88rem;color:var(--ink);padding:4px 10px;font-family:inherit;
+}
+.listings-search-bar input::placeholder{color:var(--ink-soft)}
+.listings-search-bar button{
+  background:var(--green);color:#fff;border:none;cursor:pointer;
+  font-size:.82rem;font-weight:700;padding:8px 18px;border-radius:999px;font-family:inherit;
+  transition:background .2s;white-space:nowrap;
+}
+.listings-search-bar button:hover{background:#5e8a2b}
+/* team search bar above grid */
+.team-search-bar{
+  display:flex;align-items:center;gap:0;
+  background:#fff;border:1.5px solid var(--line);border-radius:999px;
+  padding:6px 6px 6px 16px;max-width:460px;margin:0 0 24px;
+}
+.team-search-bar svg{color:var(--ink-soft);flex-shrink:0}
+.team-search-bar input{
+  flex:1;border:none;outline:none;background:none;
+  font-size:.88rem;color:var(--ink);padding:4px 10px;font-family:inherit;
+}
+.team-search-bar input::placeholder{color:var(--ink-soft)}
+.team-search-bar button{
+  background:var(--green);color:#fff;border:none;cursor:pointer;
+  font-size:.82rem;font-weight:700;padding:8px 18px;border-radius:999px;font-family:inherit;
+  transition:background .2s;white-space:nowrap;
+}
+.team-search-bar button:hover{background:#5e8a2b}
+
 </style>
 
 </head>
@@ -135,11 +205,7 @@
     <div class="crumbs"><a href="index.html">Home</a> <span style="opacity:.4;margin:0 4px">/</span> Nieuws</div>
     <h1 style="margin:6px 0 4px">Altijd op de hoogte van de <em>markt</em></h1>
     <p style="color:rgba(255,255,255,.65);font-size:.92rem;margin:0 0 0">Analyses, trends en praktische kennis over commercieel vastgoed &mdash; door de specialisten van Spring.</p>
-    <div class="hero-search">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>
-      <input id="artSearch" type="text" placeholder="Zoek nieuws, analyses of inzichten…">
-      <button onclick="filterArticles()">Zoeken</button>
-    </div>
+    <a href="contact.html" class="cta-pill" style="margin-top:14px;display:inline-flex">Schrijf in voor de nieuwsbrief <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
   </div>
 </section>
 
@@ -147,6 +213,28 @@
 <!-- ── Artikel grid ── -->
 <section class="section section--tight">
   <div class="container">
+    <!-- filter bar -->
+    <div class="filter-bar">
+      <div class="filter-bar__search">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>
+        <input id="artSearch" type="text" placeholder="Zoek nieuws, analyses of inzichten…">
+        <button onclick="filterArticles()">Zoeken</button>
+      </div>
+      <select id="artCat" onchange="filterArticles()">
+        <option value="">Alle categorieën</option>
+        <option value="marktinzicht">Marktinzicht</option>
+        <option value="assetmgmt">Asset management</option>
+        <option value="investeren">Investeren</option>
+        <option value="taxaties">Taxaties</option>
+        <option value="huisvesting">Huisvesting</option>
+        <option value="internationaal">Internationaal</option>
+      </select>
+      <select id="artSort" onchange="filterArticles()">
+        <option value="">Sortering: Nieuwste eerst</option>
+        <option value="az">A &rarr; Z</option>
+        <option value="za">Z &rarr; A</option>
+      </select>
+    </div>
     <div class="ov-grid" id="articleGrid">
 
       <a class="ov-card" href="artikel-kantorenmarkt-2026.html" data-cat="marktinzicht">
@@ -346,11 +434,26 @@
 <script>
 function filterArticles(){
   var q=(document.getElementById("artSearch").value||"").toLowerCase();
-  document.querySelectorAll("#articleGrid .ov-card").forEach(function(c){
+  var cat=(document.getElementById("artCat").value||"").toLowerCase();
+  var sort=document.getElementById("artSort").value;
+  var grid=document.getElementById("articleGrid");
+  var cards=Array.from(grid.querySelectorAll(".ov-card"));
+  cards.forEach(function(c){
     var t=(c.querySelector(".ov-card__title")||{}).textContent||"";
-    var cat=c.dataset.cat||"";
-    c.style.display=(!q||t.toLowerCase().includes(q)||cat.includes(q))?"":"none";
+    var dc=c.dataset.cat||"";
+    var matchQ=!q||t.toLowerCase().includes(q)||dc.includes(q);
+    var matchC=!cat||dc===cat;
+    c.style.display=(matchQ&&matchC)?"":"none";
   });
+  if(sort==="az"||sort==="za"){
+    var vis=cards.filter(function(c){return c.style.display!=="none";});
+    vis.sort(function(a,b){
+      var ta=(a.querySelector(".ov-card__title")||{}).textContent||"";
+      var tb=(b.querySelector(".ov-card__title")||{}).textContent||"";
+      return sort==="az"?ta.localeCompare(tb):tb.localeCompare(ta);
+    });
+    vis.forEach(function(c){grid.appendChild(c);});
+  }
 }
 document.getElementById("artSearch").addEventListener("keydown",function(e){if(e.key==="Enter")filterArticles();});
 </script>

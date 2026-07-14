@@ -13,6 +13,78 @@
 <link rel="icon" type="image/png" href="images/favicon.png?v=26">
 <link rel="apple-touch-icon" href="images/apple-touch-icon.png?v=26">
 <meta name="theme-color" content="#7CA73F">
+<style>
+
+/* === Filter bar (cases / nieuws) === */
+.filter-bar{
+  display:flex;gap:10px;flex-wrap:wrap;align-items:center;
+  padding:16px 0 20px;
+}
+.filter-bar__search{
+  display:flex;align-items:center;gap:0;flex:1;min-width:220px;max-width:400px;
+  background:#fff;border:1.5px solid var(--line);border-radius:999px;
+  padding:6px 6px 6px 14px;
+}
+.filter-bar__search svg{color:var(--ink-soft);flex-shrink:0}
+.filter-bar__search input{
+  flex:1;border:none;outline:none;background:none;
+  font-size:.88rem;color:var(--ink);padding:4px 8px;font-family:inherit;
+}
+.filter-bar__search input::placeholder{color:var(--ink-soft)}
+.filter-bar__search button{
+  background:var(--green);color:#fff;border:none;cursor:pointer;
+  font-size:.8rem;font-weight:700;letter-spacing:.04em;
+  padding:7px 16px;border-radius:999px;font-family:inherit;
+  transition:background .2s;white-space:nowrap;
+}
+.filter-bar__search button:hover{background:#5e8a2b}
+.filter-bar select{
+  appearance:none;-webkit-appearance:none;
+  background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23666' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat right 12px center;
+  border:1.5px solid var(--line);border-radius:999px;
+  padding:8px 36px 8px 16px;
+  font-size:.85rem;color:var(--ink);font-family:inherit;cursor:pointer;
+  transition:border-color .2s;white-space:nowrap;
+}
+.filter-bar select:focus{outline:none;border-color:var(--green)}
+/* listings search above results-head */
+.listings-search-bar{
+  display:flex;align-items:center;gap:0;
+  background:#fff;border:1.5px solid var(--line);border-radius:999px;
+  padding:6px 6px 6px 16px;margin-bottom:12px;
+}
+.listings-search-bar svg{color:var(--ink-soft);flex-shrink:0}
+.listings-search-bar input{
+  flex:1;border:none;outline:none;background:none;
+  font-size:.88rem;color:var(--ink);padding:4px 10px;font-family:inherit;
+}
+.listings-search-bar input::placeholder{color:var(--ink-soft)}
+.listings-search-bar button{
+  background:var(--green);color:#fff;border:none;cursor:pointer;
+  font-size:.82rem;font-weight:700;padding:8px 18px;border-radius:999px;font-family:inherit;
+  transition:background .2s;white-space:nowrap;
+}
+.listings-search-bar button:hover{background:#5e8a2b}
+/* team search bar above grid */
+.team-search-bar{
+  display:flex;align-items:center;gap:0;
+  background:#fff;border:1.5px solid var(--line);border-radius:999px;
+  padding:6px 6px 6px 16px;max-width:460px;margin:0 0 24px;
+}
+.team-search-bar svg{color:var(--ink-soft);flex-shrink:0}
+.team-search-bar input{
+  flex:1;border:none;outline:none;background:none;
+  font-size:.88rem;color:var(--ink);padding:4px 10px;font-family:inherit;
+}
+.team-search-bar input::placeholder{color:var(--ink-soft)}
+.team-search-bar button{
+  background:var(--green);color:#fff;border:none;cursor:pointer;
+  font-size:.82rem;font-weight:700;padding:8px 18px;border-radius:999px;font-family:inherit;
+  transition:background .2s;white-space:nowrap;
+}
+.team-search-bar button:hover{background:#5e8a2b}
+
+</style>
 </head>
 <body class="listings-page">
 
@@ -341,6 +413,11 @@
         <button data-seg="huur" data-tr="1" data-en="For rent" data-es="Alquiler">Verhuur</button>
         <button data-seg="koop" data-tr="1" data-en="Sale &amp; investment" data-es="Venta e inversión">Verkoop &amp; belegging</button>
       </div>
+      <div class="listings-search-bar">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>
+        <input id="listSearch" type="text" placeholder="Zoek op adres, locatie of type object…">
+        <button onclick="doListSearch()">Zoeken</button>
+      </div>
       <div class="results-head">
         <div class="rc"><b id="rcCount">16</b> <span data-tr="1" data-en="properties" data-es="propiedades">objecten</span></div>
         <div class="results-tools">
@@ -559,6 +636,21 @@
   btn.addEventListener('click',run);
   inp.addEventListener('keydown',function(e){if(e.key==='Enter')run();});
 })();
+</script>
+
+<script>
+function doListSearch(){
+  var q=(document.getElementById("listSearch").value||"").toLowerCase();
+  document.querySelectorAll(".flisting").forEach(function(c){
+    var t=(c.querySelector("h3")||{}).textContent||"";
+    var addr=(c.querySelector(".addr")||{}).textContent||"";
+    c.style.display=(!q||(t+addr).toLowerCase().includes(q))?"":"none";
+  });
+}
+document.addEventListener("DOMContentLoaded",function(){
+  var inp=document.getElementById("listSearch");
+  if(inp)inp.addEventListener("keydown",function(e){if(e.key==="Enter")doListSearch();});
+});
 </script>
 </body>
 </html>

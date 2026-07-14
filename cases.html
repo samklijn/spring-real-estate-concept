@@ -248,6 +248,76 @@
 @media(max-width:640px){.ov-grid{grid-template-columns:1fr 1fr}.ov-card{aspect-ratio:3/4}}
 @media(max-width:420px){.ov-grid{grid-template-columns:1fr}}
 
+
+/* === Filter bar (cases / nieuws) === */
+.filter-bar{
+  display:flex;gap:10px;flex-wrap:wrap;align-items:center;
+  padding:16px 0 20px;
+}
+.filter-bar__search{
+  display:flex;align-items:center;gap:0;flex:1;min-width:220px;max-width:400px;
+  background:#fff;border:1.5px solid var(--line);border-radius:999px;
+  padding:6px 6px 6px 14px;
+}
+.filter-bar__search svg{color:var(--ink-soft);flex-shrink:0}
+.filter-bar__search input{
+  flex:1;border:none;outline:none;background:none;
+  font-size:.88rem;color:var(--ink);padding:4px 8px;font-family:inherit;
+}
+.filter-bar__search input::placeholder{color:var(--ink-soft)}
+.filter-bar__search button{
+  background:var(--green);color:#fff;border:none;cursor:pointer;
+  font-size:.8rem;font-weight:700;letter-spacing:.04em;
+  padding:7px 16px;border-radius:999px;font-family:inherit;
+  transition:background .2s;white-space:nowrap;
+}
+.filter-bar__search button:hover{background:#5e8a2b}
+.filter-bar select{
+  appearance:none;-webkit-appearance:none;
+  background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23666' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat right 12px center;
+  border:1.5px solid var(--line);border-radius:999px;
+  padding:8px 36px 8px 16px;
+  font-size:.85rem;color:var(--ink);font-family:inherit;cursor:pointer;
+  transition:border-color .2s;white-space:nowrap;
+}
+.filter-bar select:focus{outline:none;border-color:var(--green)}
+/* listings search above results-head */
+.listings-search-bar{
+  display:flex;align-items:center;gap:0;
+  background:#fff;border:1.5px solid var(--line);border-radius:999px;
+  padding:6px 6px 6px 16px;margin-bottom:12px;
+}
+.listings-search-bar svg{color:var(--ink-soft);flex-shrink:0}
+.listings-search-bar input{
+  flex:1;border:none;outline:none;background:none;
+  font-size:.88rem;color:var(--ink);padding:4px 10px;font-family:inherit;
+}
+.listings-search-bar input::placeholder{color:var(--ink-soft)}
+.listings-search-bar button{
+  background:var(--green);color:#fff;border:none;cursor:pointer;
+  font-size:.82rem;font-weight:700;padding:8px 18px;border-radius:999px;font-family:inherit;
+  transition:background .2s;white-space:nowrap;
+}
+.listings-search-bar button:hover{background:#5e8a2b}
+/* team search bar above grid */
+.team-search-bar{
+  display:flex;align-items:center;gap:0;
+  background:#fff;border:1.5px solid var(--line);border-radius:999px;
+  padding:6px 6px 6px 16px;max-width:460px;margin:0 0 24px;
+}
+.team-search-bar svg{color:var(--ink-soft);flex-shrink:0}
+.team-search-bar input{
+  flex:1;border:none;outline:none;background:none;
+  font-size:.88rem;color:var(--ink);padding:4px 10px;font-family:inherit;
+}
+.team-search-bar input::placeholder{color:var(--ink-soft)}
+.team-search-bar button{
+  background:var(--green);color:#fff;border:none;cursor:pointer;
+  font-size:.82rem;font-weight:700;padding:8px 18px;border-radius:999px;font-family:inherit;
+  transition:background .2s;white-space:nowrap;
+}
+.team-search-bar button:hover{background:#5e8a2b}
+
 </style>
 </head>
 <body>
@@ -301,7 +371,7 @@
   <div class="container" style="position:relative;z-index:1">
     <div class="crumbs"><a href="index.html">Home</a> <span style="opacity:.4;margin:0 4px">/</span> Cases</div>
     <h1 style="margin:6px 0 4px">Bewezen <em>resultaat</em> voor elke opgave</h1>
-    <p style="color:rgba(255,255,255,.65);font-size:.92rem;margin:0 0 14px">Van Zuidas tot Rotterdam Centraal &mdash; ontdek hoe Spring waarde cre&euml;ert voor gebruikers, eigenaren en investeerders.</p>
+    <p style="color:rgba(255,255,255,.65);font-size:.92rem;margin:0 0 12px">Van Zuidas tot Rotterdam Centraal &mdash; ontdek hoe Spring waarde cre&euml;ert voor gebruikers, eigenaren en investeerders.</p>
     <div style="display:flex;gap:32px;flex-wrap:wrap;padding-top:2px">
       <div style="text-align:center"><strong style="display:block;font-size:1.4rem;font-weight:900;color:var(--green-soft);line-height:1">120+</strong><span style="font-size:.75rem;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.08em">Cases</span></div>
       <div style="text-align:center"><strong style="display:block;font-size:1.4rem;font-weight:900;color:var(--green-soft);line-height:1">&euro;1,2 mrd</strong><span style="font-size:.75rem;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.08em">Transactiewaarde</span></div>
@@ -317,6 +387,27 @@
 <!-- ── CASES GRID ── -->
 <section class="section section--tight">
   <div class="container">
+    <!-- filter bar -->
+    <div class="filter-bar">
+      <div class="filter-bar__search">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>
+        <input id="caseSearch" type="text" placeholder="Zoek op project, locatie of sector…">
+        <button onclick="filterCases()">Zoeken</button>
+      </div>
+      <select id="caseCat" onchange="filterCases()">
+        <option value="">Alle sectoren</option>
+        <option value="verhuur">Verhuur</option>
+        <option value="asset">Asset management</option>
+        <option value="investments">Investments</option>
+        <option value="design">Design &amp; Build</option>
+        <option value="overheid">Overheid</option>
+      </select>
+      <select id="caseSort" onchange="filterCases()">
+        <option value="">Sortering: Standaard</option>
+        <option value="az">A &rarr; Z</option>
+        <option value="za">Z &rarr; A</option>
+      </select>
+    </div>
     <div class="ov-grid" id="casesGrid">
 
       <a class="ov-card" href="case-zuidas.html" data-title="zuidas verhuur amsterdam">
@@ -489,10 +580,25 @@
 <script>
 function filterCases(){
   var q=(document.getElementById("caseSearch").value||"").toLowerCase();
-  document.querySelectorAll("#casesGrid .ov-card").forEach(function(c){
-    var t=c.dataset.title||"";
-    c.style.display=(!q||t.includes(q))?"":"none";
+  var cat=(document.getElementById("caseCat").value||"").toLowerCase();
+  var sort=document.getElementById("caseSort").value;
+  var grid=document.getElementById("casesGrid");
+  var cards=Array.from(grid.querySelectorAll(".ov-card"));
+  cards.forEach(function(c){
+    var t=(c.dataset.title||"");
+    var matchQ=!q||t.includes(q);
+    var matchC=!cat||t.includes(cat);
+    c.style.display=(matchQ&&matchC)?"":"none";
   });
+  if(sort==="az"||sort==="za"){
+    var vis=cards.filter(function(c){return c.style.display!=="none";});
+    vis.sort(function(a,b){
+      var ta=(a.querySelector(".ov-card__title")||{}).textContent||"";
+      var tb=(b.querySelector(".ov-card__title")||{}).textContent||"";
+      return sort==="az"?ta.localeCompare(tb):tb.localeCompare(ta);
+    });
+    vis.forEach(function(c){grid.appendChild(c);});
+  }
 }
 document.getElementById("caseSearch").addEventListener("keydown",function(e){if(e.key==="Enter")filterCases();});
 </script>
