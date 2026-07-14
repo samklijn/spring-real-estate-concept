@@ -8,16 +8,22 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,500&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css?v=62">
+<link rel="stylesheet" href="css/styles.css?v=63">
 <link rel="icon" type="image/png" href="images/favicon.png?v=26">
 <link rel="apple-touch-icon" href="images/apple-touch-icon.png?v=26">
 <meta name="theme-color" content="#7CA73F">
+<style>
+/* PAGE-LOCAL — unit-grootzakelijke-taxaties */
+.client-logos{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:0}
+.client-logo{padding:14px 28px;font-size:.82rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);border-right:1px solid var(--line);white-space:nowrap;transition:color .15s}
+.client-logo:last-child{border-right:none}
+.client-logos-wrap{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
+@media(max-width:640px){.client-logo{padding:10px 16px;font-size:.75rem;border-right:none;border-bottom:1px solid var(--line)}.client-logos-wrap{border-radius:10px}}
+</style>
 </head>
 <body>
   <header class="header header--dark"><div class="container">
   <a href="index.html" class="logo" aria-label="Spring Real Estate"><img src="images/logo-white.png" alt="Spring Real Estate" class="logo-img"></a>
-    
-  
   <nav class="nav">
     <div class="has-drop"><a href="diensten.html" class="nav-btn-link"><span data-i18n="nav.diensten">Oplossingen</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></a>
       <div class="drop">
@@ -42,40 +48,90 @@
     <div class="has-drop"><a href="about.html" class="nav-btn-link"><span data-i18n="nav.over">Over ons</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></a>
       <div class="drop" style="width:340px;grid-template-columns:1fr">
         <a href="about.html"><span class="d-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span><span><span class="d-t">Over ons</span><span class="d-d">Wie wij zijn en wat we doen</span></span></a>
-        <a href="locaties.html"><span class="d-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg></span><span><span class="d-t">Onze locaties</span><span class="d-d">Amsterdam, Utrecht &amp; Spanje</span></span></a>
+        <a href="locaties.html"><span class="d-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/></svg></span><span><span class="d-t">Onze locaties</span><span class="d-d">Amsterdam, Utrecht &amp; Spanje</span></span></a>
       </div>
     </div>
   </nav>
   <div class="header-cta">
     <div class="lang hd-lang"><button class="active" data-lang="nl">NL</button><button data-lang="en">EN</button><button data-lang="es">ES</button></div>
     <button class="h-search" id="searchToggle" aria-label="Zoeken"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg></button>
-    
     <a href="contact.html" class="btn btn--primary" data-i18n="nav.contact">Contact</a>
     <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </div></header>
 
-
-
+<!-- 1. HERO — twee kolommen: kop links, stats rechts -->
 <section class="page-hero" style="padding:32px 0 36px !important;position:relative;overflow:hidden">
   <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;z-index:0">
-    <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:.35" xmlns="http://www.w3.org/2000/svg">
-      <defs><pattern id="dot-hero" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="rgba(124,167,63,.45)"/></pattern></defs>
-      <rect width="100%" height="100%" fill="url(#dot-hero)"/>
-    </svg>
+    <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;opacity:.18"><defs><pattern id="dots" x="0" y="0" width="28" height="28" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#7CA73F"/></pattern></defs><rect width="100%" height="100%" fill="url(#dots)"/></svg>
     <div style="position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(180deg,transparent,rgba(124,167,63,.6),transparent)"></div>
   </div>
   <div class="container" style="position:relative;z-index:1">
-    <div class="crumbs"><a href="index.html">Home</a> <span style="opacity:.4;margin:0 4px">/</span> <a href="doelgroep-investeerder.html">Investeerder</a> <span style="opacity:.4;margin:0 4px">/</span> Strategic Advisory</div>
-    <div style="margin-top:10px">
-      <span class="eyebrow" data-tr="1" data-en="Business unit" data-es="Unidad de negocio">Business unit</span>
-        <h1 data-tr="1" data-en="Strategic real estate <em>advisory</em>" data-es="Asesoramiento inmobiliario <em>estratégico</em>">Strategisch <em>vastgoedadvies</em></h1>
-        <p class="lead" data-tr="1" data-en="Direction, sharpness and substantiation for complex real estate challenges." data-es="Dirección, criterio y fundamento en retos inmobiliarios complejos.">Richting, scherpte en onderbouwing bij complexe vastgoedvraagstukken.</p>
-        <a href="contact.html" class="cta-pill" style="margin-top:24px;display:inline-flex">Neem contact op <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <div class="crumbs"><a href="index.html">Home</a> <span style="opacity:.4;margin:0 4px">/</span> <a href="doelgroep-financier.html">Financier</a> <span style="opacity:.4;margin:0 4px">/</span> Grootzakelijke taxaties</div>
+    <div style="display:grid;grid-template-columns:3fr 2fr;gap:48px;align-items:center;margin-top:10px">
+      <div>
+        <span class="eyebrow">Spring Large Cap Valuations</span>
+        <h1>Grootzakelijke taxatie van <em>commercieel vastgoed</em></h1>
+        <p class="lead">Onafhankelijke RICS- en NRVT-taxaties voor beleggers, financiers en ontwikkelaars — van enkelvoudig object tot complete portefeuille.</p>
+        <a href="cases.html" class="cta-pill" style="margin-top:24px;display:inline-flex">Bekijk cases →</a>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:0;border:1px solid rgba(255,255,255,.12);border-radius:12px;overflow:hidden;backdrop-filter:blur(4px)">
+        <div style="padding:18px 22px;border-bottom:1px solid rgba(255,255,255,.1);display:flex;align-items:center;gap:16px">
+          <strong style="font-size:1.7rem;font-weight:900;color:var(--green-soft);min-width:72px;line-height:1">500+</strong>
+          <span style="font-size:.82rem;color:rgba(255,255,255,.6);line-height:1.4">taxaties uitgevoerd per jaar</span>
+        </div>
+        <div style="padding:18px 22px;border-bottom:1px solid rgba(255,255,255,.1);display:flex;align-items:center;gap:16px">
+          <strong style="font-size:1.7rem;font-weight:900;color:var(--green-soft);min-width:72px;line-height:1">€2,5B</strong>
+          <span style="font-size:.82rem;color:rgba(255,255,255,.6);line-height:1.4">aan vastgoed gewaardeerd</span>
+        </div>
+        <div style="padding:18px 22px;border-bottom:1px solid rgba(255,255,255,.1);display:flex;align-items:center;gap:16px">
+          <strong style="font-size:1.7rem;font-weight:900;color:var(--green-soft);min-width:72px;line-height:1">28 jr</strong>
+          <span style="font-size:.82rem;color:rgba(255,255,255,.6);line-height:1.4">marktervaring Dave Hendriks</span>
+        </div>
+        <div style="padding:18px 22px;display:flex;align-items:center;gap:16px">
+          <strong style="font-size:1.1rem;font-weight:900;color:var(--green-soft);min-width:72px;line-height:1.2">RICS<br>NRVT</strong>
+          <span style="font-size:.82rem;color:rgba(255,255,255,.6);line-height:1.4">gecertificeerde taxateurs, geaccepteerd door alle banken</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
-<!-- LOGO STRIP -->
+
+<!-- 3. DIENSTEN — wat wij doen -->
+<section class="section" id="diensten">
+  <div class="container">
+    <div class="sec-head">
+      <div class="t">
+        <span class="eyebrow">Onze diensten</span>
+        <h2 class="disp">Wat wij voor u <em>doen</em></h2>
+      </div>
+    </div>
+    <div class="services-grid">
+      <div class="svc-card">
+        <div class="svc-card__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 13h6M9 17h4"/></svg></div>
+        <h3>Jaarrekening­taxaties</h3>
+        <p>IFRS- en RJ-conforme waarderingen afgestemd op uw auditcyclus. We leveren tijdig aan bij uw accountant.</p>
+      </div>
+      <div class="svc-card">
+        <div class="svc-card__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12h18M3 6h18M3 18h12"/><circle cx="19" cy="18" r="3"/></svg></div>
+        <h3>Financierings­taxaties</h3>
+        <p>Onafhankelijke waarderingen voor banken en hypotheekverstrekkers, volledig conform toezichteisen en Basel-vereisten.</p>
+      </div>
+      <div class="svc-card">
+        <div class="svc-card__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20h16M4 20V8l8-4 8 4v12M10 20v-5h4v5"/></svg></div>
+        <h3>Portefeuille­taxaties</h3>
+        <p>Consistente methodiek over grote portefeuilles: vergelijkbaar per object, efficiënt gepland rond uw verslaggevingskalender.</p>
+      </div>
+      <div class="svc-card">
+        <div class="svc-card__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 17l6-6 4 4 8-8M21 7v6M21 7h-6"/></svg></div>
+        <h3>Transactie­ondersteuning</h3>
+        <p>Fairness opinions en onafhankelijke taxaties bij aankopen, verkopen en fusies — betrouwbare onderbouwing voor elke dealroom.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. CLIENT LOGOS -->
 <section style="padding:16px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#fff">
   <div class="container">
     <p style="text-align:center;margin:0;font-size:.78rem;color:var(--ink-soft);line-height:2">
@@ -84,132 +140,144 @@
   </div>
 </section>
 
-
-<section class="section--tight">
+<!-- 5. AANPAK — two-col -->
+<section class="section--tight" id="aanpak">
   <div class="container">
-    <div class="stat-row">
-      <div class="stat"><strong>25+</strong><span>jaar marktervaring</span></div>
-      <div class="stat"><strong>€2,5 mrd</strong><span>geadviseerd transactievolume</span></div>
-      <div class="stat"><strong>300+</strong><span>strategische opdrachten</span></div>
-      <div class="stat"><strong>98%</strong><span>klanttevredenheid</span></div>
-    </div>
-  </div>
-</section>
-
-<section class="section--tight" id="aanpak"><div class="container"><div class="two-col">
-  <div class="prose">
-    <span class="eyebrow" data-tr="1" data-en="Our approach" data-es="Nuestro enfoque">Onze aanpak</span>
-    <h2 class="disp" data-tr="1" data-en="How we &lt;em&gt;approach it&lt;/em&gt;" data-es="Cómo lo &lt;em&gt;abordamos&lt;/em&gt;">Zo pakken we het <em>aan</em></h2>
-    <p data-tr="1" data-en="Strategic real estate advisory helps you make the right choices on high-impact questions. Spring Strategic Advisory provides tailored support for investment strategies, corporate real estate challenges, underwriting on major transactions and partner selection." data-es="El asesoramiento inmobiliario estratégico te ayuda a tomar las decisiones adecuadas en cuestiones de gran impacto. Spring Strategic Advisory ofrece soluciones a medida para estrategias de inversión, retos de corporate real estate, underwriting y selección de socios.">Strategisch vastgoedadvies helpt u de juiste keuzes te maken bij vraagstukken met grote impact. Spring Strategic Advisory biedt maatwerk voor beleggingsstrategieën, corporate vastgoeduitdagingen, underwriting bij omvangrijke transacties en partnerselectie.</p><p data-tr="1" data-en="We combine strategy, data and deep market knowledge, assembling a multidisciplinary team of senior professionals per assignment. This supports decisions that matter: from portfolio strategy and redevelopment to scenario analysis and positioning." data-es="Combinamos estrategia, datos y un profundo conocimiento del mercado, formando para cada encargo un equipo multidisciplinar de profesionales senior. Así apoyamos decisiones que importan: de la estrategia de cartera al análisis de escenarios.">We combineren strategie, data en diepgaande marktkennis en stellen per opdracht een multidisciplinair team van senior professionals samen. Zo ondersteunen we bij besluiten die ertoe doen: van portefeuillestrategie en herontwikkeling tot scenarioanalyses en positionering.</p><p data-tr="1" data-en="Per assignment we assemble a multidisciplinary team of senior professionals and combine strategy, data and market knowledge. This supports decisions that matter, at pace and without compromising quality." data-es="Para cada encargo formamos un equipo multidisciplinar de profesionales senior y combinamos estrategia, datos y conocimiento del mercado. Así apoyamos decisiones que importan, con ritmo y sin renunciar a la calidad.">Per opdracht stellen we een multidisciplinair team van senior professionals samen en combineren we strategie, data en marktkennis. Zo ondersteunen we besluiten die ertoe doen, met tempo en zonder concessies aan kwaliteit.</p>
-  
-    <p style="border-left:3px solid var(--green);padding-left:1rem;color:var(--ink);font-style:italic;margin-top:1.2rem">"Binnen strategic advisory draait alles om de juiste match tussen vraag en aanbod — onderbouwd met data en geleverd door mensen die uw markt kennen."</p></div>
-  <div class="media-tall media-sticky"><img src="images/photo-1.jpg" alt="Strategic Advisory"></div>
-</div></div></section>
-
-<section class="section section--soft" id="expertises">
-  <div class="container">
-    <div class="usp-grid"><div class="svc"><div class="svc-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l5 5L20 6"/></svg></div><p data-tr="1" data-en="Senior boardroom expertise with strategic advice at the highest level" data-es="Experiencia senior con asesoramiento estratégico al más alto nivel">Senior boardroom-expertise met strategisch advies op het hoogste niveau</p></div><div class="svc"><div class="svc-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l5 5L20 6"/></svg></div><p data-tr="1" data-en="Clear scenarios and sharp choices, with insight into risk, opportunity and impact" data-es="Escenarios claros y decisiones firmes, con visión de riesgo e impacto">Heldere scenario's en scherpe keuzes met inzicht in risico's, kansen en impact</p></div><div class="svc"><div class="svc-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l5 5L20 6"/></svg></div><p data-tr="1" data-en="Real estate as a value driver: from cost centre to strategic instrument" data-es="El inmueble como motor de valor, no como coste">Vastgoed als waardeversneller: van kostenpost naar strategisch instrument</p></div><div class="svc"><div class="svc-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l5 5L20 6"/></svg></div><p data-tr="1" data-en="Multidisciplinary and independent, with financial, legal and market insight" data-es="Equipo multidisciplinar e independiente">Multidisciplinair en onafhankelijk, met financieel, juridisch en marktinzicht</p></div><div class="svc"><div class="svc-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l5 5L20 6"/></svg></div><p data-tr="1" data-en="Fast and thorough, with pace in decision-making without compromising quality" data-es="Rapidez y rigor, sin concesiones en la calidad">Snel en grondig, met tempo in besluitvorming zonder concessies aan kwaliteit</p></div></div>
-  </div>
-</section>
-
-
-<section class="section--tight" id="diensten">
-  <div class="container">
-    <div class="sec-head"><div class="t"><span class="eyebrow">Wat wij bieden</span><h2 class="disp">Onze <em>diensten</em></h2></div></div>
-    <div class="services-grid">
-      <div class="svc-card">
-        <div class="svc-card__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 17l6-6 4 4 8-8"/><path d="M17 3h4v4"/></svg></div>
-        <h3>Portefeuillestrategie</h3>
-        <p>Strategische advisering over samenstelling, optimalisatie en doorontwikkeling van vastgoedportefeuilles.</p>
+    <div class="two-col">
+      <div class="prose">
+        <span class="eyebrow">Onze aanpak</span>
+        <h2 class="disp">Specialistische kennis, <em>onafhankelijk advies</em></h2>
+        <p>Spring Large Cap Valuations taxeert grootschalig en complex commercieel vastgoed voor de meest veeleisende opdrachtgevers. We opereren in het segment van grote portefeuilles en enkelvoudige assets — zowel courant als incourant.</p>
+        <p>Van kantoren en retail tot logistiek, ontwikkellocaties en hotels: onze taxateurs combineren diepgaande marktkennis met actuele transactiedata en geavanceerde databronnen.</p>
+        <p>Voor portefeuilles werken we met een consistente methodiek zodat objecten onderling vergelijkbaar zijn en uw rapport aansluit op de eisen van financiers en accountants.</p>
+        <ul style="list-style:none;padding:0;margin:20px 0 0;display:flex;flex-direction:column;gap:10px">
+          <li style="display:flex;align-items:flex-start;gap:10px;font-size:.92rem;color:var(--ink)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5" style="flex-shrink:0;margin-top:2px"><path d="M5 12l5 5L20 6"/></svg>Onafhankelijk — geen commercieel belang bij de uitkomst</li>
+          <li style="display:flex;align-items:flex-start;gap:10px;font-size:.92rem;color:var(--ink)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5" style="flex-shrink:0;margin-top:2px"><path d="M5 12l5 5L20 6"/></svg>RICS- en NRVT-gecertificeerd, geaccepteerd door alle Nederlandse banken</li>
+          <li style="display:flex;align-items:flex-start;gap:10px;font-size:.92rem;color:var(--ink)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5" style="flex-shrink:0;margin-top:2px"><path d="M5 12l5 5L20 6"/></svg>Rapportage op maat — enkelvoudig object of volledige portefeuille</li>
+          <li style="display:flex;align-items:flex-start;gap:10px;font-size:.92rem;color:var(--ink)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5" style="flex-shrink:0;margin-top:2px"><path d="M5 12l5 5L20 6"/></svg>Doorlooptijd 5–10 werkdagen na volledige documentaanlevering</li>
+        </ul>
+        <blockquote style="border-left:3px solid var(--green);padding-left:1rem;margin:24px 0 0;font-style:italic;color:var(--ink)">"Grootzakelijke taxatie vraagt om een taxateur die uw markt door en door kent. Wij leveren niet alleen een rapport — wij leveren zekerheid."<cite style="display:block;font-style:normal;font-size:.82rem;color:var(--ink-soft);margin-top:6px">— Dave Hendriks, Partner Valuations</cite></blockquote>
       </div>
-      <div class="svc-card">
-        <div class="svc-card__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
-        <h3>Corporate Real Estate</h3>
-        <p>Advies voor organisaties bij vastgoedvraagstukken die direct raken aan bedrijfsstrategie en huisvestingsopgaven.</p>
-      </div>
-      <div class="svc-card">
-        <div class="svc-card__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 3"/></svg></div>
-        <h3>Underwriting &amp; Due Diligence</h3>
-        <p>Onafhankelijke onderbouwing van omvangrijke transacties, met financieel, juridisch en technisch inzicht.</p>
-      </div>
-      <div class="svc-card">
-        <div class="svc-card__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-        <h3>Partnerselectie</h3>
-        <p>Begeleiding bij het selecteren en beoordelen van partners, financiers en co-investeerders op basis van heldere criteria.</p>
+      <div class="media-tall media-sticky">
+        <img src="images/photo-2.jpg" alt="Spring Large Cap Valuations">
       </div>
     </div>
   </div>
 </section>
 
+<!-- 6. ZO WERKEN WIJ — stappenplan -->
+<section class="section--tight steps" id="werkwijze" style="background:var(--bg-soft)">
+  <div class="container">
+    <div class="sec-head">
+      <div class="t">
+        <span class="eyebrow">Zo werken wij</span>
+        <h2 class="disp">Van opdracht tot <em>oplevering</em></h2>
+      </div>
+    </div>
+    <div class="bu-steps">
+      <div class="bu-step">
+        <div class="n"></div>
+        <h3>Intake &amp; opdracht</h3>
+        <p>We bespreken het taxatiedoel, de gewenste standaard (RICS / NRVT / IFRS) en sturen u direct een documentchecklist.</p>
+      </div>
+      <div class="bu-step">
+        <div class="n"></div>
+        <h3>Documentanalyse</h3>
+        <p>We analyseren huurcontracten, eigendomsdocumentatie, plattegronden en exploitatiegegevens — en vragen gericht na waar nodig.</p>
+      </div>
+      <div class="bu-step">
+        <div class="n"></div>
+        <h3>Opname &amp; markttoets</h3>
+        <p>Onze taxateur bezoekt het object, toetst aan actuele markt­transacties en bouwt het waarderingsmodel op.</p>
+      </div>
+      <div class="bu-step">
+        <div class="n"></div>
+        <h3>Rapport &amp; nazorg</h3>
+        <p>U ontvangt een helder, volledig rapport. We lopen het door met u en zijn bereikbaar voor vragen van uw accountant of bank.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-<!-- SECTOREN -->
+<!-- 7. SECTOREN -->
 <section style="padding:56px 0 64px;background:#fff">
   <div class="container">
-    <span class="eyebrow">Voor wie</span>
-    <h2 class="disp" style="margin-bottom:8px">Sectoren die wij <em>bedienen</em></h2>
-    <p style="color:var(--ink-soft);max-width:56ch;margin-bottom:0">Spring strategisch advies ondersteunt eigenaren, gemeenten, ontwikkelaars en institutionele partijen bij complexe vastgoedvraagstukken.</p>
+    <span class="eyebrow">Sectoren</span>
+    <h2 class="disp" style="margin-bottom:8px">Vastgoed dat wij <em>taxeren</em></h2>
+    <p style="color:var(--ink-soft);max-width:56ch;margin-bottom:0">Spring Large Cap Valuations is actief in alle commerciële vastgoedsegmenten — van courant kantoorvastgoed tot complexe herontwikkelingslocaties.</p>
     <div class="sector-grid">
-      <span class="sector-pill"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M3 10h18M12 3L2 10h20z"/></svg>Gemeenten &amp; overheid</span>
-      <span class="sector-pill"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 20h20M4 20V8l5-3v15M14 20V4l6 4v12"/></svg>Projectontwikkelaars</span>
-      <span class="sector-pill"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M8 9h5a3 3 0 0 1 0 6H8"/></svg>Institutionele beleggers</span>
-      <span class="sector-pill"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>Gebiedsontwikkeling</span>
-      <span class="sector-pill"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12H2M12 2l10 10-10 10-10-10z"/></svg>Zorgvastgoed</span>
-      <span class="sector-pill"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>Corporate vastgoedeigenaren</span>
+      <span class="sector-pill"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>Kantoren</span>
+      <span class="sector-pill"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 3h22v7H1zM1 14h22v7H1z"/></svg>Retail &amp; winkels</span>
+      <span class="sector-pill"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 20h20M4 20V8l5-3v15M14 20V4l6 4v12"/></svg>Logistiek &amp; bedrijfsruimte</span>
+      <span class="sector-pill"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></svg>Residentieel (belegging)</span>
+      <span class="sector-pill"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12H2M12 2l10 10-10 10-10-10z"/></svg>Ontwikkellocaties &amp; grond</span>
+      <span class="sector-pill"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Zorgvastgoed</span>
+      <span class="sector-pill"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>Hotels &amp; hospitality</span>
+      <span class="sector-pill"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M3 10h18M12 3L2 10h20z"/></svg>Publiek vastgoed</span>
     </div>
   </div>
 </section>
 
-<section class="section--tight" id="cases"><div class="container">
-  <div class="sec-head"><div class="t"><span class="eyebrow" data-tr="1" data-en="Business cases" data-es="Casos de éxito">Business cases</span><h2 data-tr="1" data-en="Recent &lt;em&gt;results&lt;/em&gt;" data-es="&lt;em&gt;Resultados&lt;/em&gt; recientes">Recente <em>resultaten</em></h2></div><a href="resources.html" class="btn btn--ghost" data-tr="1" data-en="All cases" data-es="Todos los casos">Alle cases</a></div>
-  <div class="case-grid">
-    <a class="case" href="cases.html"><div class="ph"><img src="images/hero.jpg" alt="Foto: Herpositionering kantoorobject"></div><div class="body"><div class="res">+18% rendement</div><h3 data-tr="1" data-en="Office repositioning" data-es="Reposicionamiento de oficina">Herpositionering kantoorobject</h3><p class="muted" style="font-size:.9rem">Amsterdam Zuidas</p></div></a>
-    <a class="case" href="cases.html"><div class="ph"><img src="images/photo-1.jpg" alt="Foto: Snelle invulling leegstand"></div><div class="body"><div class="res">3 weken</div><h3 data-tr="1" data-en="Vacancy filled fast" data-es="Vacante cubierta rápido">Snelle invulling leegstand</h3><p class="muted" style="font-size:.9rem">Utrecht</p></div></a>
-    <a class="case" href="cases.html"><div class="ph"><img src="images/photo-2.jpg" alt="Foto: Aankoop beleggingsobject"></div><div class="body"><div class="res">€4,9 mln</div><h3 data-tr="1" data-en="Investment acquisition" data-es="Adquisición de inversión">Aankoop beleggingsobject</h3><p class="muted" style="font-size:.9rem">Valencia</p></div></a>
+<!-- 8. BUSINESS CASES -->
+<section class="section--tight" id="cases" style="background:var(--bg-soft)">
+  <div class="container">
+    <div class="sec-head">
+      <div class="t">
+        <span class="eyebrow">Business cases</span>
+        <h2 class="disp">Recente <em>resultaten</em></h2>
+      </div>
+      <a href="cases.html" class="btn btn--ghost">Alle cases</a>
+    </div>
+    <div class="case-grid">
+      <a class="case" href="cases.html">
+        <div class="ph"><img src="images/photo-1.jpg" alt="Portefeuille-taxatie institutionele belegger"></div>
+        <div class="body">
+          <div class="res">12 objecten</div>
+          <h3>Portefeuille­taxatie voor institutionele belegger</h3>
+          <p class="muted" style="font-size:.9rem">IFRS-conform · Amsterdam &amp; Utrecht</p>
+        </div>
+      </a>
+      <a class="case" href="cases.html">
+        <div class="ph"><img src="images/photo-2.jpg" alt="Financieringstaxatie herontwikkeling"></div>
+        <div class="body">
+          <div class="res">€38 mln</div>
+          <h3>Financierings­taxatie herontwikkeling kantoor</h3>
+          <p class="muted" style="font-size:.9rem">Basel III · Rotterdam Centrum</p>
+        </div>
+      </a>
+      <a class="case" href="cases.html">
+        <div class="ph"><img src="images/hero.jpg" alt="Taxatie logistiek vastgoed"></div>
+        <div class="body">
+          <div class="res">8 werkdagen</div>
+          <h3>Urgent taxatierapport logistiek vastgoed</h3>
+          <p class="muted" style="font-size:.9rem">NRVT · Schiphol regio</p>
+        </div>
+      </a>
+    </div>
   </div>
-</div></section>
+</section>
 
-
-
-<section class="section--tight" id="werkwijze"><div class="container">
-  <div class="sec-head"><div class="t"><span class="eyebrow" data-tr="1" data-en="How we work" data-es="Cómo trabajamos">Zo werken wij</span><h2 class="disp" data-tr="1" data-en="Our &lt;em&gt;approach&lt;/em&gt; in 4 steps" data-es="Nuestro &lt;em&gt;enfoque&lt;/em&gt; en 4 pasos">Onze <em>aanpak</em> in 4 stappen</h2></div></div>
-  <div class="steps bu-steps">
-    <div class="bu-step"><div class="n"></div><h3 data-tr="1" data-en="Introduction" data-es="Conocernos">Kennismaken</h3><p data-tr="1" data-en="We map your question and situation precisely." data-es="Analizamos tu pregunta y situación con precisión.">We brengen uw vraag en situatie scherp in kaart.</p></div>
-    <div class="bu-step"><div class="n"></div><h3 data-tr="1" data-en="Analysis &amp;amp; advice" data-es="Análisis y asesoramiento">Analyse &amp; advies</h3><p data-tr="1" data-en="Data-driven advice and a concrete action plan." data-es="Asesoramiento basado en datos y un plan de acción concreto.">Datagedreven advies en een concreet plan van aanpak.</p></div>
-    <div class="bu-step"><div class="n"></div><h3 data-tr="1" data-en="Execution" data-es="Ejecución">Uitvoering</h3><p data-tr="1" data-en="We execute and keep you continuously informed." data-es="Ejecutamos y te mantenemos informado en todo momento.">Wij voeren uit en houden u continu op de hoogte.</p></div>
-    <div class="bu-step"><div class="n"></div><h3 data-tr="1" data-en="Delivery &amp;amp; aftercare" data-es="Entrega y seguimiento">Oplevering &amp; nazorg</h3><p data-tr="1" data-en="Result delivered, with aftercare where needed." data-es="Resultado entregado, con seguimiento cuando sea necesario.">Resultaat opgeleverd, met nazorg waar nodig.</p></div>
-  </div>
-</div></section>
-
-
-<!-- LEAD MAGNET -->
+<!-- 9. LEAD MAGNET -->
 <section style="padding:40px 0;background:var(--bg-soft)">
   <div class="container">
-    <div style="background:#fff;border:1px solid var(--line);border-left:4px solid var(--green);border-radius:12px;padding:28px 32px;display:flex;align-items:flex-start;gap:24px;flex-wrap:wrap">
+    <div style="background:#fff;border:1px solid var(--line);border-left:4px solid var(--green);border-radius:12px;padding:28px 32px;display:flex;align-items:center;gap:28px;flex-wrap:wrap">
       <div style="width:52px;height:52px;background:var(--green-tint);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
       </div>
       <div style="flex:1;min-width:180px">
-        <span class="eyebrow" style="margin-bottom:6px">Gratis download</span>
-        <h3 style="margin:8px 0 12px;font-size:clamp(1.4rem,3vw,2rem)" style="margin:0 0 8px;font-size:1.05rem">Gratis: de Locatieanalyse-tool</h3>
-        <p style="font-size:.88rem;color:var(--ink-soft);margin:0 0 12px;line-height:1.6">Wat is de potentie van uw locatie of gebied? Onze locatieanalyse combineert marktdata, bestemmingsplan en ruimtelijke trends tot een concreet advies.</p>
-        <ul style="list-style:none;padding:0;margin:0 0 12px;display:flex;flex-direction:column;gap:6px">
-              <li style="display:flex;align-items:flex-start;gap:8px;font-size:.85rem;color:var(--ink-soft)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5" style="flex-shrink:0;margin-top:2px"><path d="M5 12l5 5L20 6"/></svg>Vraag-aanbod-analyse per locatie</li>
-              <li style="display:flex;align-items:flex-start;gap:8px;font-size:.85rem;color:var(--ink-soft)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5" style="flex-shrink:0;margin-top:2px"><path d="M5 12l5 5L20 6"/></svg>Bestemmingsplan en planologische kansen</li>
-              <li style="display:flex;align-items:flex-start;gap:8px;font-size:.85rem;color:var(--ink-soft)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5" style="flex-shrink:0;margin-top:2px"><path d="M5 12l5 5L20 6"/></svg>Scenario's voor (her)ontwikkeling</li>
-            </ul>
+        <span class="eyebrow" style="margin-bottom:4px">Gratis download</span>
+        <h3 style="margin:0 0 4px;font-size:1rem;font-weight:700;color:var(--ink)">De RICS Taxatiegids voor beleggers &amp; financiers</h3>
+        <p style="margin:0;font-size:.85rem;color:var(--ink-soft)">Uitleg Red Book-standaarden, documentchecklist en veelgemaakte fouten — in één overzichtelijke gids.</p>
       </div>
-      <a href="contact.html" class="btn btn--primary">Vraag een locatieanalyse aan</a>
+      <a href="contact.html" class="btn btn--primary" style="flex-shrink:0">Download gratis →</a>
     </div>
   </div>
 </section>
 
-
-
-<!-- FAQ + ADVISEUR -->
-
-<!-- FAQ + ADVISEUR -->
+<!-- 10 + 11. FAQ + ADVISEUR -->
 <section style="padding:64px 0 72px;background:#fff" id="team">
   <div class="container">
+    <!-- Dave beantwoordt uw vragen — één geheel -->
     <div style="border:1px solid var(--line);border-radius:16px;overflow:hidden">
 
       <!-- header: Dave -->
@@ -221,35 +289,40 @@
             <div style="font-size:.78rem;color:rgba(255,255,255,.55);margin-top:2px">Partner Valuations · MSc MBA FRICS · 28 jaar ervaring</div>
           </div>
         </div>
-        <a href="contact.html" class="btn btn--primary" style="flex-shrink:0">Stel uw eigen vraag &#x2192;</a>
+        <a href="contact.html" class="btn btn--primary" style="flex-shrink:0">Stel uw eigen vraag →</a>
       </div>
 
       <!-- FAQ: tabs links, antwoord rechts -->
       <div style="display:grid;grid-template-columns:220px 1fr;gap:0">
         <div style="border-right:1px solid var(--line);background:var(--bg-soft)" id="faqTabs">
-          <button onclick="setFaq(0)" class="faq-tab faq-tab--active" style="display:block;width:100%;text-align:left;padding:16px 20px;font-size:.85rem;font-weight:600;color:var(--ink);background:#fff;border:none;border-bottom:1px solid var(--line);border-right:3px solid var(--green);cursor:pointer;font-family:inherit;line-height:1.4;transition:background .15s">Wanneer schakelt u Spring in voor strategisch advies?</button>
-          <button onclick="setFaq(1)" class="faq-tab" style="display:block;width:100%;text-align:left;padding:16px 20px;font-size:.85rem;font-weight:600;color:var(--ink-soft);background:none;border:none;border-bottom:1px solid var(--line);cursor:pointer;font-family:inherit;line-height:1.4;transition:background .15s">Werkt Spring ook met gemeenten?</button>
-          <button onclick="setFaq(2)" class="faq-tab" style="display:block;width:100%;text-align:left;padding:16px 20px;font-size:.85rem;font-weight:600;color:var(--ink-soft);background:none;border:none;border-bottom:1px solid var(--line);cursor:pointer;font-family:inherit;line-height:1.4;transition:background .15s">Hoe onafhankelijk is het advies?</button>
-          <button onclick="setFaq(3)" class="faq-tab" style="display:block;width:100%;text-align:left;padding:16px 20px;font-size:.85rem;font-weight:600;color:var(--ink-soft);background:none;border:none;cursor:pointer;font-family:inherit;line-height:1.4;transition:background .15s">Levert Spring ook een businesscase of haalbaarheidsanalyse?</button>
+          <button onclick="setFaq(0)" class="faq-tab faq-tab--active" style="display:block;width:100%;text-align:left;padding:16px 20px;font-size:.85rem;font-weight:600;color:var(--ink);background:#fff;border:none;border-bottom:1px solid var(--line);border-right:3px solid var(--green);cursor:pointer;font-family:inherit;line-height:1.4;transition:background .15s">RICS- vs. NRVT-taxatie</button>
+          <button onclick="setFaq(1)" class="faq-tab" style="display:block;width:100%;text-align:left;padding:16px 20px;font-size:.85rem;font-weight:600;color:var(--ink-soft);background:none;border:none;border-bottom:1px solid var(--line);cursor:pointer;font-family:inherit;line-height:1.4;transition:background .15s">Doorlooptijd</button>
+          <button onclick="setFaq(2)" class="faq-tab" style="display:block;width:100%;text-align:left;padding:16px 20px;font-size:.85rem;font-weight:600;color:var(--ink-soft);background:none;border:none;border-bottom:1px solid var(--line);cursor:pointer;font-family:inherit;line-height:1.4;transition:background .15s">Benodigde documenten</button>
+          <button onclick="setFaq(3)" class="faq-tab" style="display:block;width:100%;text-align:left;padding:16px 20px;font-size:.85rem;font-weight:600;color:var(--ink-soft);background:none;border:none;border-bottom:1px solid var(--line);cursor:pointer;font-family:inherit;line-height:1.4;transition:background .15s">Gebruik van het rapport</button>
+          <button onclick="setFaq(4)" class="faq-tab" style="display:block;width:100%;text-align:left;padding:16px 20px;font-size:.85rem;font-weight:600;color:var(--ink-soft);background:none;border:none;cursor:pointer;font-family:inherit;line-height:1.4;transition:background .15s">Grote portefeuilles</button>
         </div>
         <div style="padding:28px 32px;background:#fff;min-height:180px" id="faqPanel">
           <div class="faq-panel" style="display:block">
-              <p style="font-weight:700;font-size:.95rem;color:var(--ink);margin:0 0 10px">Wanneer schakelt u Spring in voor strategisch advies?</p>
-              <p style="font-size:.88rem;color:var(--ink-soft);line-height:1.7;margin:0">Wanneer u voor een belangrijke vastgoedbeslissing staat: verwerving, desinvestering, herontwikkeling, portefeuillestrategie of een ruimtelijke opgave. We leveren onderbouwde adviezen op basis van data en marktkennis.</p>
-            </div>
+            <p style="font-weight:700;font-size:.95rem;color:var(--ink);margin:0 0 10px">Wat is het verschil tussen een RICS- en NRVT-taxatie?</p>
+            <p style="font-size:.88rem;color:var(--ink-soft);line-height:1.7;margin:0">RICS is de internationale standaard; NRVT de Nederlandse pendant. Spring-taxateurs zijn bij beide geregistreerd. Banken eisen NRVT, internationale investeerders verwachten RICS — wij leveren rapporten die aan beide normen voldoen.</p>
+          </div>
           <div class="faq-panel" style="display:none">
-              <p style="font-weight:700;font-size:.95rem;color:var(--ink);margin:0 0 10px">Werkt Spring ook met gemeenten?</p>
-              <p style="font-size:.88rem;color:var(--ink-soft);line-height:1.7;margin:0">Ja — wij adviseren gemeenten bij grondexploitaties, gebiedsvisies, verwerving van vastgoed en herontwikkelingsopgaven. We zijn vertrouwd met het publieke besluitvormingsproces.</p>
-            </div>
+            <p style="font-weight:700;font-size:.95rem;color:var(--ink);margin:0 0 10px">Hoe lang duurt een grootzakelijke taxatie?</p>
+            <p style="font-size:.88rem;color:var(--ink-soft);line-height:1.7;margin:0">Een single asset is gereed binnen 5–10 werkdagen na volledige documentaanlevering. Voor portefeuilles stemmen wij een planning af die aansluit op uw auditcyclus. Spoedtaxaties zijn in overleg mogelijk.</p>
+          </div>
           <div class="faq-panel" style="display:none">
-              <p style="font-weight:700;font-size:.95rem;color:var(--ink);margin:0 0 10px">Hoe onafhankelijk is het advies?</p>
-              <p style="font-size:.88rem;color:var(--ink-soft);line-height:1.7;margin:0">Spring treedt op als onafhankelijk adviseur. Wij hebben geen directe belangen bij de uitkomst en werken niet op commissiebasis bij strategisch advies.</p>
-            </div>
+            <p style="font-weight:700;font-size:.95rem;color:var(--ink);margin:0 0 10px">Welke documenten heb ik aan te leveren?</p>
+            <p style="font-size:.88rem;color:var(--ink-soft);line-height:1.7;margin:0">Eigendomsdocumentatie, huurcontracten, plattegronden en een actuele exploitatieopgave. Na opdrachtverstrekking ontvangt u direct een volledige documentchecklist.</p>
+          </div>
           <div class="faq-panel" style="display:none">
-              <p style="font-weight:700;font-size:.95rem;color:var(--ink);margin:0 0 10px">Levert Spring ook een businesscase of haalbaarheidsanalyse?</p>
-              <p style="font-size:.88rem;color:var(--ink-soft);line-height:1.7;margin:0">Ja — inclusief financieel model, sensitiviteitsanalyse en een heldere go/no-go aanbeveling.</p>
-            </div>
-          <p style="margin-top:24px;padding-top:16px;border-top:1px solid var(--line);font-size:.82rem;color:var(--ink-soft)">Meer vragen? <a href="faq.html" style="color:var(--green);font-weight:600">Bekijk de volledige FAQ &#x2192;</a></p>
+            <p style="font-weight:700;font-size:.95rem;color:var(--ink);margin:0 0 10px">Voor welke doeleinden kunt u het taxatierapport gebruiken?</p>
+            <p style="font-size:.88rem;color:var(--ink-soft);line-height:1.7;margin:0">Jaarrekening- en IFRS-verslaggeving, financieringsaanvragen bij banken, aan- en verkooptransacties, interne besluitvorming en juridische procedures.</p>
+          </div>
+          <div class="faq-panel" style="display:none">
+            <p style="font-weight:700;font-size:.95rem;color:var(--ink);margin:0 0 10px">Werkt Spring ook met grote portefeuilles?</p>
+            <p style="font-size:.88rem;color:var(--ink-soft);line-height:1.7;margin:0">Ja — portefeuilletaxaties zijn onze specialiteit. We hanteren een consistente methodiek zodat objecten onderling vergelijkbaar zijn en uw rapport aansluit bij auditors en financiers.</p>
+          </div>
+          <p style="margin-top:24px;padding-top:16px;border-top:1px solid var(--line);font-size:.82rem;color:var(--ink-soft)">Meer vragen? <a href="faq.html" style="color:var(--green);font-weight:600">Bekijk de volledige FAQ →</a></p>
         </div>
       </div>
 
@@ -257,13 +330,13 @@
   </div>
 </section>
 
-<!-- TEAM -->
+<!-- 11b. TEAM -->
 <section style="padding:56px 0;background:var(--dark)">
   <div class="container">
     <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:32px;flex-wrap:wrap;gap:16px">
       <div>
         <span class="eyebrow" style="color:var(--green-soft)">Het team</span>
-        <h2 style="color:#fff;margin:6px 0 0;font-size:clamp(1.3rem,2.5vw,1.8rem)">De experts achter <em style="font-family:'Fraunces',serif;font-style:italic;color:var(--green-soft)">uw opdracht</em></h2>
+        <h2 style="color:#fff;margin:6px 0 0;font-size:clamp(1.3rem,2.5vw,1.8rem)">De experts achter <em style="font-family:'Fraunces',serif;font-style:italic;color:var(--green-soft)">uw taxatie</em></h2>
       </div>
       <a href="agents.html" class="btn btn--secondary">Heel het team</a>
     </div>
@@ -288,23 +361,23 @@
   </div>
 </section>
 
-<!-- CTA BAND -->
+<!-- 12. CTA BAND -->
 <section class="cta-band">
   <div class="container">
     <div class="cta-band__inner">
       <div class="cta-band__text">
-        <h2>Klaar voor <em>strategisch advies</em>?</h2>
-        <p>Neem vrijblijvend contact op met onze senior adviseurs en ontdek wat Spring voor uw vraagstuk kan betekenen.</p>
+        <h2>Klaar voor een <em>betrouwbare</em> taxatie?</h2>
+        <p>Onze gecertificeerde taxateurs staan klaar om u te helpen met een onderbouwd, RICS-conform taxatierapport — snel en onafhankelijk.</p>
       </div>
       <div class="cta-band__actions">
-        <a href="contact.html" class="btn btn--primary">Neem contact op</a>
-        <a href="agents.html" class="btn btn--secondary">Bekijk ons team</a>
+        <a href="contact.html" class="btn btn--primary">Taxatie aanvragen</a>
+        <a href="agents.html" class="btn btn--secondary">Onze taxateurs</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- GERELATEERDE DIENSTEN -->
+<!-- 13. GERELATEERDE DIENSTEN -->
 <section class="section--tight">
   <div class="container">
     <div class="sec-head">
@@ -320,9 +393,9 @@
         <div class="uc-text"><strong>Taxaties beleggingsvastgoed</strong><span>Onafhankelijke waardebepaling</span></div>
         <svg class="uc-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
-      <a href="unit-verhuur-kantoorruimte.html" class="unit-card">
-        <div class="uc-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
-        <div class="uc-text"><strong>Verhuur kantoorruimte</strong><span>Uw object in de markt</span></div>
+      <a href="unit-herbouwwaarde-verzekering.html" class="unit-card">
+        <div class="uc-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div class="uc-text"><strong>Herbouwwaarde &amp; verzekering</strong><span>Herbouwwaarde berekenen en taxeren</span></div>
         <svg class="uc-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
       <a href="unit-vastgoeddata-marktinzichten.html" class="unit-card">
@@ -339,6 +412,8 @@
   </div>
 </section>
 
+<div style="display:none"><!-- footer follows --></div>
+</section>
 
 <footer class="footer"><div class="container">
   <div class="top">
@@ -397,38 +472,13 @@
     <a href="cases.html">Cases</a>
     <a href="resources.html">Nieuws</a>
     <a href="agents.html">Team</a>
-    <div class="has-drop"><button><span>Werken bij</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
-      <div class="drop" style="position:static;box-shadow:none;border:none;background:rgba(255,255,255,.05);border-radius:8px;margin:4px 0">
-        <a href="vacatures.html">Vacatures</a>
-        <a href="werken-bij.html">Werken bij Spring</a>
-      </div>
-    </div>
-    <div class="has-drop"><a href="about.html" class="nav-btn-link"><span data-i18n="nav.over">Over ons</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></a>
-      <div class="drop" style="width:340px;grid-template-columns:1fr">
-        <a href="about.html"><span class="d-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span><span><span class="d-t">Over ons</span><span class="d-d">Wie wij zijn en wat we doen</span></span></a>
-        <a href="locaties.html"><span class="d-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg></span><span><span class="d-t">Onze locaties</span><span class="d-d">Amsterdam, Utrecht &amp; Spanje</span></span></a>
-      </div>
-    </div>
+    <a href="vacatures.html">Werken bij</a>
+    <a href="about.html">Over ons</a>
   </nav>
-  <div class="mm-cta"><a href="contact.html" class="btn btn--primary" data-i18n="nav.contact">Contact</a><div class="lang mm-lang" style="justify-content:center"><button class="active" data-lang="nl">NL</button><button data-lang="en">EN</button><button data-lang="es">ES</button></div></div>
+  <div class="mm-cta"><a href="contact.html" class="btn btn--primary">Contact</a><div class="lang mm-lang" style="justify-content:center"><button class="active" data-lang="nl">NL</button><button data-lang="en">EN</button><button data-lang="es">ES</button></div></div>
 </div>
 
 <script src="js/search-index.js?v=30"></script>
-<script>
-(function(){
-  var el=document.getElementById('searchInput_unit_strategic');
-  if(!el)return;
-  var hints=[
-    'Ik zoek advies over deze dienst…',
-    'Vrijblijvend gesprek inplannen…',
-    'Meer informatie over aanpak en tarieven…',
-    'Casus vergelijkbaar met mijn situatie…',
-    'Specialist spreken voor mijn vastgoedvraag…'
-  ];
-  var i=0;
-  setInterval(function(){ i=(i+1)%hints.length; el.setAttribute('placeholder',hints[i]); }, 3000);
-})();
-</script>
 <script>
 (function(){
   document.querySelectorAll('.faq-q').forEach(function(btn){
@@ -441,34 +491,24 @@
   });
 })();
 </script>
+<script>
+function setFaq(i){
+  document.querySelectorAll('.faq-tab').forEach(function(t,n){
+    t.classList.toggle('faq-tab--active',n===i);
+    t.style.color=n===i?'var(--ink)':'var(--ink-soft)';
+    t.style.background=n===i?'#fff':'';
+    t.style.borderRight=n===i?'2px solid var(--green)':'none';
+    t.style.fontWeight=n===i?'700':'600';
+  });
+  document.querySelectorAll('.faq-panel').forEach(function(p,n){p.style.display=n===i?'block':'none';});
+}
+</script>
 <script src="js/main.js?v=30"></script>
 <script src="js/ai-search.js?v=30"></script>
 <script src="js/i18n.js?v=30"></script>
-<div id="searchOverlay" style="display:none;position:fixed;inset:0;background:rgba(10,10,9,.88);backdrop-filter:blur(8px);z-index:9999;align-items:flex-start;justify-content:center;padding-top:clamp(60px,12vh,140px);"><div style="width:min(680px,90vw);"><form class="search ais-form" id="overlayForm" onsubmit="window.location='listings.html?q='+encodeURIComponent(document.getElementById('overlayInput').value);return false;" style="display:flex;align-items:center;gap:0;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:6px 6px 6px 22px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="2" style="flex-shrink:0"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg><input id="overlayInput" type="text" placeholder="Zoek een object, locatie of dienst…" autocomplete="off" style="flex:1;background:none;border:none;outline:none;padding:10px 14px;font-size:1.1rem;color:#fff;font-family:inherit;" /><button class="btn btn--primary" type="submit" style="border-radius:999px;padding:10px 24px;white-space:nowrap">Zoeken</button></form><p style="text-align:center;margin-top:20px;color:rgba(255,255,255,.35);font-size:.85rem">Druk op Esc om te sluiten</p></div></div>
+<div id="searchOverlay" style="display:none;position:fixed;inset:0;background:rgba(10,10,9,.88);backdrop-filter:blur(8px);z-index:9999;align-items:flex-start;justify-content:center;padding-top:clamp(60px,12vh,140px);"><div style="width:min(680px,90vw);"><form onsubmit="window.location='listings.html?q='+encodeURIComponent(document.getElementById('overlayInput').value);return false;" style="display:flex;align-items:center;gap:0;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:6px 6px 6px 22px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="2" style="flex-shrink:0"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg><input id="overlayInput" type="text" placeholder="Zoek een object, locatie of dienst…" autocomplete="off" style="flex:1;background:none;border:none;outline:none;padding:10px 14px;font-size:1.1rem;color:#fff;font-family:inherit;" /><button class="btn btn--primary" type="submit" style="border-radius:999px;padding:10px 24px;white-space:nowrap">Zoeken</button></form><p style="text-align:center;margin-top:20px;color:rgba(255,255,255,.35);font-size:.85rem">Druk op Esc om te sluiten</p></div></div>
 <script>(function(){var btn=document.getElementById("searchToggle");var ov=document.getElementById("searchOverlay");if(!btn||!ov)return;btn.addEventListener("click",function(){ov.style.display="flex";setTimeout(function(){var i=document.getElementById("overlayInput");if(i)i.focus();},50);});ov.addEventListener("click",function(e){if(e.target===ov)ov.style.display="none";});document.addEventListener("keydown",function(e){if(e.key==="Escape")ov.style.display="none";});})();</script>
+<script>(function(){var path=location.pathname.split('/').pop()||'index.html';document.querySelectorAll('header .nav > a').forEach(function(a){var href=a.getAttribute('href');if(href&&href!=='#'&&path===href){a.classList.add('nav-active');}});})();</script>
 
-<script>
-(function(){
-  var path = location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('header .nav > a').forEach(function(a){
-    var href = a.getAttribute('href');
-    if(href && href !== '#' && path === href){ a.classList.add('nav-active'); }
-  });
-})();
-</script>
-
-
-<script>
-function setFaq(n){
-  document.querySelectorAll('.faq-panel').forEach(function(p,i){p.style.display=i===n?'block':'none';});
-  document.querySelectorAll('.faq-tab').forEach(function(b,i){
-    b.classList.toggle('faq-tab--active',i===n);
-    b.style.background=i===n?'#fff':'';
-    b.style.borderRight=i===n?'3px solid var(--green)':'none';
-    b.style.color=i===n?'var(--ink)':'var(--ink-soft)';
-  });
-}
-</script>
 </body>
 </html>
-
