@@ -2,35 +2,41 @@
 <html lang="nl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Pagina niet gevonden — Spring Real Estate</title>
 <meta name="robots" content="noindex">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,500&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css?v=30">
-<link rel="icon" type="image/png" href="images/favicon.png?v=26">
-<link rel="apple-touch-icon" href="images/apple-touch-icon.png?v=26">
-<meta name="theme-color" content="#7CA73F">
+<link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-<section class="hero" style="min-height:100vh;display:grid;place-items:center;text-align:center">
-  <div class="container" style="max-width:640px">
-    <a href="index.html" style="display:inline-block;margin-bottom:30px"><img src="images/logo-white.png" alt="Spring Real Estate" style="height:46px;width:auto"></a>
-    <div class="eyebrow" style="color:var(--green-soft);justify-content:center">Foutmelding 404</div>
-    <h1 style="font-size:clamp(2.4rem,8vw,4.4rem);margin:14px 0 10px;color:#fff">Pagina niet <em class="accent" style="color:var(--green-bright)">gevonden</em></h1>
-    <p class="hero-sub" style="margin:0 auto 30px;max-width:46ch">Deze pagina bestaat niet (meer). Misschien is de link verouderd of verkeerd getypt. Ga terug naar de homepage of bekijk ons aanbod.</p>
-    <div class="btns" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-      <a href="index.html" class="btn btn--primary btn--lg">Naar de homepage</a>
-      <a href="listings.html" class="btn btn--lg" style="background:rgba(255,255,255,.16);color:#fff;border-color:rgba(255,255,255,.4)">Bekijk het aanbod</a>
-    </div>
-    <div style="margin-top:34px;display:flex;gap:18px;justify-content:center;flex-wrap:wrap;font-size:.95rem">
-      <a href="agents.html" style="color:var(--green-soft)">Ons team</a>
-      <a href="vacatures.html" style="color:var(--green-soft)">Vacatures</a>
-      <a href="contact.html" style="color:var(--green-soft)">Contact</a>
+<header class="header"><div class="container"><a class="logo" href="index.html"><img src="images/spring-logo.svg" alt="Spring Real Estate" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span style="display:none;align-items:center;gap:6px;font-weight:800;font-size:1.1rem;color:var(--green)">Spring Real Estate</span></a><nav class="nav"><a href="listings.html">Aanbod</a><a href="diensten.html">Diensten</a><a href="cases.html">Cases</a><a href="about.html">Over ons</a><a href="contact.html">Contact</a></nav></div></header>
+<main>
+<section class="pg404">
+  <div class="pg404-inner">
+    <div class="pg404-num">404</div>
+    <h1 class="pg404-title">Pagina niet gevonden</h1>
+    <p class="pg404-desc">De pagina die je zoekt bestaat niet (meer) of is verplaatst. Gebruik de navigatie hierboven of ga terug naar de homepage.</p>
+    <div class="pg404-actions">
+      <a href="index.html" class="btn btn--primary btn--lg">Terug naar home</a>
+      <a href="listings.html" class="btn btn--ghost btn--lg">Bekijk aanbod</a>
+      <a href="contact.html" class="btn btn--ghost btn--lg">Contact</a>
     </div>
   </div>
 </section>
+</main>
+<footer class="footer"><div class="container">
+  <div class="bottom" style="padding-top:24px;padding-bottom:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
+    <span style="font-size:.85rem;color:var(--ink-soft)">&copy; 2026 Spring Real Estate</span>
+    <a href="index.html" style="font-weight:700;color:var(--green);font-size:.9rem;text-decoration:none">Spring Real Estate</a>
+  </div>
+</div></footer>
+<script>
+(function(){
+  var path = location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('header .nav > a').forEach(function(a){
+    var href = a.getAttribute('href');
+    if(href && href !== '#' && path === href){ a.classList.add('nav-active'); }
+  });
+})();
+</script>
 </body>
 </html>
-

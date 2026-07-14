@@ -70,13 +70,22 @@
   forms.forEach(form => {
     const input = form.querySelector('input[type=text]') || form.querySelector('input'); if (!input) return;
     form.classList.add('ais-form');
-    const panel = document.createElement('div'); panel.className = 'ais-panel'; form.appendChild(panel);
-    function show(html) { panel.innerHTML = html; panel.classList.add('open'); }
+    const panel = document.createElement('div'); panel.className = 'ais-panel'; document.body.appendChild(panel);
+    function posPanel() {
+      var r = form.getBoundingClientRect();
+      panel.style.position = 'fixed';
+      panel.style.top = (r.bottom + 10) + 'px';
+      panel.style.left = r.left + 'px';
+      panel.style.width = r.width + 'px';
+    }
+    function show(html) { panel.innerHTML = html; posPanel(); panel.classList.add('open'); }
     function hide() { panel.classList.remove('open'); }
+    window.addEventListener('scroll', function(){ if(panel.classList.contains('open')) posPanel(); }, {passive:true});
+    window.addEventListener('resize', function(){ if(panel.classList.contains('open')) posPanel(); }, {passive:true});
     function destFor(q) { const r = results(q); if (r.length) return r[0].u; const c = intentCat(q).cat; return c.key === 'objecten' ? 'listings.html?q=' + encodeURIComponent(q) : c.url; }
     function render() {
       const q = input.value.trim();
-      if (!q) { show('<div class="ais-h">' + L('Waar bent u naar op zoek?', 'What are you looking for?', '¿Qué buscas?') + '</div><div class="ais-cats">' + CATS.map(catChip).join('') + '</div>'); return; }
+      if (!q) { hide(); return; }
       const cat = intentCat(q).cat;
       const action = '<a class="ais-action" href="' + (cat.key === 'objecten' ? 'listings.html?q=' + encodeURIComponent(q) : cat.url) + '"><span class="ais-ic">' + catIcon(cat.key) + '</span><span class="ais-tx"><b>' + esc(q) + '</b><span class="ais-sub">' + L('Zoek in', 'Search in', 'Buscar en') + ' ' + cat.label + '</span></span><span class="ais-arr">&rarr;</span></a>';
       const rs = results(q);

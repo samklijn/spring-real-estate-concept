@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Publiek vastgoed &amp; overheid | Spring Real Estate</title>
+<meta name="description" content="Spring adviseert overheden en publieke instellingen bij vastgoedstrategie, taxaties en gebiedsontwikkeling.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,500&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css?v=61">
+<link rel="icon" type="image/png" href="images/favicon.png?v=26">
+<meta name="theme-color" content="#7CA73F">
+<style>
+.unit-card{display:flex;align-items:center;gap:12px;padding:14px 16px;border:1px solid var(--line);border-radius:12px;text-decoration:none;color:inherit;background:var(--bg-soft);transition:border-color .15s,box-shadow .15s,transform .15s}
+.unit-card:hover{border-color:var(--green);box-shadow:0 4px 16px rgba(124,167,63,.12);transform:translateY(-1px)}
+.uc-icon{width:36px;height:36px;border-radius:8px;background:var(--green-tint);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.uc-text{flex:1;min-width:0}
+.uc-text strong{display:block;font-size:.88rem;font-weight:700;margin-bottom:2px}
+.uc-text span{display:block;font-size:.77rem;color:var(--ink-soft);line-height:1.3}
+.uc-arrow{margin-left:auto;color:var(--green);opacity:0;transition:opacity .15s;flex-shrink:0}
+.unit-card:hover .uc-arrow{opacity:1}
+</style>
+<style>
+.news-card{position:relative;display:block;overflow:hidden;aspect-ratio:4/3;text-decoration:none;color:#fff;flex-shrink:0}
+.news-card img{width:100%;height:100%;object-fit:cover;transition:transform .45s ease;display:block}
+.news-card:hover img{transform:scale(1.05)}
+.news-card__overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.85) 0%,rgba(0,0,0,.28) 55%,transparent 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:20px}
+.news-card__cat{display:inline-block;padding:3px 10px;border-radius:999px;font-size:.68rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;background:rgba(124,167,63,.9);color:#fff;margin-bottom:8px;align-self:flex-start}
+.news-card__title{font-size:.97rem;font-weight:700;line-height:1.32;margin:0 0 6px;color:#fff}
+.news-card__date{font-size:.7rem;color:rgba(255,255,255,.5)}
+</style>
+</head>
+<body>
+    <header class="header header--dark"><div class="container">
+  <a href="index.html" class="logo" aria-label="Spring Real Estate"><img src="images/logo-white.png" alt="Spring Real Estate" class="logo-img"></a>
+  <nav class="nav">
+    <div class="has-drop"><a href="diensten.html" class="nav-btn-link"><span data-i18n="nav.diensten">Oplossingen</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></a>
+      <div class="drop">
+        <a href="doelgroep-gebruiker.html"><span class="d-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg></span><span><span class="d-t">Gebruiker</span><span class="d-d">Ik zoek een kantoor of werkplek</span></span></a>
+        <a href="doelgroep-eigenaar.html"><span class="d-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></svg></span><span><span class="d-t">Eigenaar</span><span class="d-d">Ik wil verkopen of verhuren</span></span></a>
+        <a href="doelgroep-investeerder.html"><span class="d-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l6-6 4 4 8-8M21 7v6M21 7h-6"/></svg></span><span><span class="d-t">Investeerder</span><span class="d-d">Ik wil investeren in vastgoed</span></span></a>
+        <a href="doelgroep-ontwikkelaar.html"><span class="d-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 20h20M4 20V8l5-3v15M14 20V4l6 4v12"/></svg></span><span><span class="d-t">Ontwikkelaar</span><span class="d-d">Ik wil ontwikkelen of optimaliseren</span></span></a>
+        <a href="doelgroep-financier.html"><span class="d-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v4H3zM3 10h18v4H3zM3 17h18v4H3z"/></svg></span><span><span class="d-t">Financier</span><span class="d-d">Ik wil vastgoed financieren of taxeren</span></span></a>
+        <a href="doelgroep-overheid.html"><span class="d-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M3 10h18M12 3L2 10h20z"/></svg></span><span><span class="d-t">Overheid</span><span class="d-d">Publiek vastgoed en gemeentelijke opgaven</span></span></a>
+      </div>
+    </div>
+    <a href="listings.html">Aanbod</a>
+    <a href="cases.html">Cases</a>
+    <a href="resources.html">Nieuws</a>
+    <a href="agents.html">Team</a>
+    <div class="has-drop"><a href="vacatures.html" class="nav-btn-link">Werken bij <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></a>
+      <div class="drop" style="width:340px;grid-template-columns:1fr">
+        <a href="vacatures.html"><span class="d-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></span><span><span class="d-t">Vacatures</span><span class="d-d">Open functies bij Spring</span></span></a>
+        <a href="werken-bij.html"><span class="d-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></span><span><span class="d-t">Werken bij Spring</span><span class="d-d">Cultuur, events en ons team</span></span></a>
+      </div>
+    </div>
+    <div class="has-drop"><a href="about.html" class="nav-btn-link">Over ons <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></a>
+      <div class="drop" style="width:340px;grid-template-columns:1fr">
+        <a href="about.html"><span class="d-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg></span><span><span class="d-t">Over ons</span><span class="d-d">Wie wij zijn en wat we doen</span></span></a>
+        <a href="locaties.html"><span class="d-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/></svg></span><span><span class="d-t">Onze locaties</span><span class="d-d">Amsterdam, Utrecht &amp; Spanje</span></span></a>
+      </div>
+    </div>
+  </nav>
+  <div class="header-cta">
+    <div class="lang hd-lang"><button class="active" data-lang="nl">NL</button><button data-lang="en">EN</button><button data-lang="es">ES</button></div>
+    <button class="h-search" id="searchToggle" aria-label="Zoeken"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg></button>
+    <a href="contact.html" class="btn btn--primary">Contact</a>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</div></header>
+<body>
+
+<section class="page-hero" style="padding:10px 0 12px !important;position:relative;overflow:hidden">
+  <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;z-index:0">
+    <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;opacity:.18"><defs><pattern id="dots" x="0" y="0" width="28" height="28" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#7CA73F"/></pattern></defs><rect width="100%" height="100%" fill="url(#dots)"/></svg>
+    <div style="position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(180deg,transparent,rgba(124,167,63,.6),transparent)"></div>
+  </div>
+  <div class="container" style="position:relative;z-index:1">
+    <div class="crumbs"><a href="index.html">Home</a> <span style="opacity:.4;margin:0 4px">/</span> <a href="diensten.html">Oplossingen</a> <span style="opacity:.4;margin:0 4px">/</span> Overheid</div>
+    <h1 style="margin:6px 0 4px">Voor de <em>Overheid</em></h1>
+    <p style="color:rgba(255,255,255,.65);font-size:.92rem;margin:0 0 12px">Onafhankelijk vastgoedadvies voor gemeenten, rijksoverheid en publieke instellingen.</p>
+    <a href="#diensten" class="cta-pill">Bekijk diensten <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div>
+</section>
+
+<!-- INTRO SPLIT -->
+<section id="diensten" style="padding:72px 0 80px;background:#fff">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px 96px;align-items:center">
+      <div>
+        <span class="eyebrow">Voor overheden</span>
+        <h2 class="disp" style="margin:10px 0 20px">Publiek vastgoed in <em>goede handen.</em></h2>
+        <p style="color:var(--ink-soft);font-size:.95rem;line-height:1.8;margin:0 0 28px">Spring adviseert overheden bij locatiestrategie, gebiedsontwikkeling, taxaties en portefeuillebeheer. Wij combineren onafhankelijkheid met diepgaande kennis van de publieke vastgoedmarkt — en denken mee over de lange termijn.</p>
+        <a href="contact.html" class="btn btn--primary">Plan een vrijblijvend gesprek</a>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;border-radius:16px;overflow:hidden;border:1px solid var(--line)">
+        <div style="padding:28px 24px;background:var(--bg-soft)">
+          <div style="font-size:2.2rem;font-weight:800;line-height:1;color:var(--dark);letter-spacing:-.03em">25+</div>
+          <div style="font-size:.78rem;color:var(--ink-soft);margin-top:6px;line-height:1.4">Gemeenten en publieke instellingen geadviseerd</div>
+        </div>
+        <div style="padding:28px 24px;background:var(--bg-soft)">
+          <div style="font-size:2.2rem;font-weight:800;line-height:1;color:var(--dark);letter-spacing:-.03em">100%</div>
+          <div style="font-size:.78rem;color:var(--ink-soft);margin-top:6px;line-height:1.4">Onafhankelijk — geen commerciële belangen</div>
+        </div>
+        <div style="padding:28px 24px;background:var(--green-tint);grid-column:1/-1">
+          <div style="font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green);margin-bottom:10px">Onze belofte</div>
+          <p style="font-size:.88rem;line-height:1.6;color:var(--ink);margin:0">"Publiek belang voorop — wij adviseren met kennis van de publieke sector."</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIENST CARDS -->
+<section style="padding:0 0 80px;background:#fff">
+  <div class="container">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:20px;border-top:1px solid var(--line);padding-top:40px">
+      <h3 style="font-size:1rem;font-weight:700;margin:0">Onze oplossingen</h3>
+      <a href="diensten.html" style="font-size:.82rem;color:var(--green);text-decoration:none;font-weight:600">Alle diensten →</a>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px">
+      <a href="unit-strategic-advisory.html" class="unit-card">
+        <div class="uc-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg></div>
+        <div class="uc-text"><strong>Strategisch vastgoedadvies</strong><span>Locatiestrategie en gebiedsontwikkeling</span></div>
+        <svg class="uc-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a href="unit-taxaties-beleggingsvastgoed.html" class="unit-card">
+        <div class="uc-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+        <div class="uc-text"><strong>Taxaties vastgoed</strong><span>Onafhankelijke waardebepaling voor overheden</span></div>
+        <svg class="uc-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a href="unit-vastgoeddata-marktinzichten.html" class="unit-card">
+        <div class="uc-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+        <div class="uc-text"><strong>Vastgoeddata &amp; marktinzichten</strong><span>Data voor gemeentelijk beleid</span></div>
+        <svg class="uc-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a href="unit-asset-management.html" class="unit-card">
+        <div class="uc-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><path d="M2 20h20M4 20V8l5-3v15M14 20V4l6 4v12"/></svg></div>
+        <div class="uc-text"><strong>Asset management</strong><span>Beheer van publiek vastgoed</span></div>
+        <svg class="uc-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a href="unit-grootzakelijke-taxaties.html" class="unit-card">
+        <div class="uc-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+        <div class="uc-text"><strong>Grootzakelijke taxaties</strong><span>Taxaties voor verwervingen en grondprijzen</span></div>
+        <svg class="uc-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- NIEUWS FULL-BLEED -->
+<section style="padding:64px 0 0;background:#fff">
+  <div class="container">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:36px">
+      <div>
+        <span class="eyebrow">Nieuws &amp; inzichten</span>
+        <h2 class="disp">Actueel van de <em>markt</em></h2>
+      </div>
+      <a href="resources.html" class="btn--ghost" style="white-space:nowrap">Alle artikelen →</a>
+    </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px">
+      <a class="news-card" href="artikel-kantorenmarkt-2026.html">
+        <img src="images/photo-2.jpg" alt="Kantorenmarkt 2026: waar liggen de kansen?" loading="lazy">
+        <div class="news-card__overlay">
+          <span class="news-card__cat">Marktinzicht</span>
+          <h3 class="news-card__title">Kantorenmarkt 2026: waar liggen de kansen?</h3>
+          <span class="news-card__date">12 juni 2026 &nbsp;&middot;&nbsp; 5 min</span>
+        </div>
+      </a>
+      <a class="news-card" href="artikel-duurzaamheid-breeam.html">
+        <img src="images/photo-1.jpg" alt="Duurzaamheid &amp; BREEAM: impact op huurprijzen" loading="lazy">
+        <div class="news-card__overlay">
+          <span class="news-card__cat">Marktinzicht</span>
+          <h3 class="news-card__title">Duurzaamheid &amp; BREEAM: impact op huurprijzen</h3>
+          <span class="news-card__date">7 mei 2026 &nbsp;&middot;&nbsp; 5 min</span>
+        </div>
+      </a>
+      <a class="news-card" href="artikel-herbouwwaarde-taxatie.html">
+        <img src="images/hero.jpg" alt="Herbouwwaarde: waarom een actuele taxatie loont" loading="lazy">
+        <div class="news-card__overlay">
+          <span class="news-card__cat">Taxaties</span>
+          <h3 class="news-card__title">Herbouwwaarde: waarom een actuele taxatie loont</h3>
+          <span class="news-card__date">14 mei 2026 &nbsp;&middot;&nbsp; 4 min</span>
+        </div>
+      </a>
+      <a class="news-card" href="artikel-asset-management-rendement.html">
+        <img src="images/photo-2.jpg" alt="Asset management: zo maximaliseert u het rendement" loading="lazy">
+        <div class="news-card__overlay">
+          <span class="news-card__cat">Asset management</span>
+          <h3 class="news-card__title">Asset management: zo maximaliseert u het rendement</h3>
+          <span class="news-card__date">18 juni 2026 &nbsp;&middot;&nbsp; 6 min</span>
+        </div>
+      </a>
+  </div>
+  </div>
+</section>
+
+<!-- LOGO STRIP -->
+<section style="padding:40px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="container">
+    <p style="text-align:center;font-size:.7rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 24px">Vertrouwd door toonaangevende partijen</p>
+    <div style="display:flex;flex-wrap:wrap;gap:16px 40px;align-items:center;justify-content:center">
+      <span style="font-size:1rem;font-weight:800;letter-spacing:-.02em;color:var(--ink);opacity:.28">a.s.r. real estate</span>
+      <span style="font-size:1rem;font-weight:800;letter-spacing:-.02em;color:var(--ink);opacity:.28">Syntrus Achmea</span>
+      <span style="font-size:1rem;font-weight:800;letter-spacing:-.02em;color:var(--ink);opacity:.28">ING Real Estate</span>
+      <span style="font-size:1rem;font-weight:800;letter-spacing:-.02em;color:var(--ink);opacity:.28">Bouwinvest</span>
+      <span style="font-size:1rem;font-weight:800;letter-spacing:-.02em;color:var(--ink);opacity:.28">Vesteda</span>
+      <span style="font-size:1rem;font-weight:800;letter-spacing:-.02em;color:var(--ink);opacity:.28">PGGM</span>
+      <span style="font-size:1rem;font-weight:800;letter-spacing:-.02em;color:var(--ink);opacity:.28">Allianz Real Estate</span>
+    </div>
+  </div>
+</section>
+
+<!-- ROBERT KAT -->
+<section style="background:var(--green-tint);padding:56px 0;border-top:1px solid rgba(124,167,63,.2)">
+  <div class="container">
+    <div style="display:flex;align-items:center;gap:40px;max-width:760px;flex-wrap:wrap">
+      <img src="images/team/robert.kat.jpg" alt="Robert Kat" style="width:96px;height:96px;border-radius:50%;object-fit:cover;flex-shrink:0;border:3px solid rgba(124,167,63,.35)">
+      <div style="flex:1;min-width:240px">
+        <span class="eyebrow">Persoonlijk advies</span>
+        <h3 style="margin:6px 0 4px;font-size:1.2rem;font-weight:700">drs. Robert Kat MSRE MRICS</h3>
+        <p style="color:var(--ink-soft);font-size:.85rem;margin:0 0 16px">Robert denkt graag met u mee over uw vastgoedvraagstuk. Neem direct contact op voor een vrijblijvend gesprek.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <a href="mailto:robert.kat@springrealestate.com" class="btn--ghost" style="font-size:.85rem">Stuur een e-mail</a>
+          <a href="contact.html" class="btn btn--primary" style="font-size:.85rem">Plan een gesprek</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer"><div class="container">
+  <div class="top">
+    <div><img src="images/logo-white.png" alt="Spring Real Estate" class="logo-img" style="height:28px;opacity:.85;margin-bottom:12px;display:block"><p style="font-size:.82rem;color:#8a8d82;max-width:24ch;line-height:1.55">Powered by People.<br>Backed by Tech.</p><p style="font-size:.8rem;color:#6f7166;line-height:1.6;margin-top:12px">Croeselaan 28, 3521 CA Utrecht<br>Parnassusweg 819, 1082 LZ Amsterdam</p></div>
+    <div><h4>Doelgroepen</h4><ul><li><a href="doelgroep-gebruiker.html">Gebruiker</a></li><li><a href="doelgroep-eigenaar.html">Eigenaar</a></li><li><a href="doelgroep-investeerder.html">Investeerder</a></li><li><a href="doelgroep-ontwikkelaar.html">Ontwikkelaar</a></li><li><a href="doelgroep-financier.html">Financier</a></li><li><a href="doelgroep-overheid.html">Overheid</a></li></ul></div>
+    <div><h4>Navigatie</h4><ul><li><a href="listings.html">Aanbod</a></li><li><a href="cases.html">Cases</a></li><li><a href="resources.html">Nieuws</a></li><li><a href="agents.html">Team</a></li><li><a href="about.html">Over ons</a></li><li><a href="vacatures.html">Vacatures</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div><h4>Kantoorgebieden</h4><ul><li><a href="locatie-utrecht.html">Utrecht</a></li><li><a href="locatie-amsterdam.html">Amsterdam</a></li><li><a href="locatie-valencia.html">Valencia (ES)</a></li><li><a href="locatie-estepona.html">Estepona (ES)</a></li></ul></div>
+    <div><h4>Sectoren</h4><ul><li><a href="sectoren.html">Kantoren</a></li><li><a href="sectoren.html">Logistiek &amp; bedrijfsruimte</a></li><li><a href="sectoren.html">Retail &amp; winkels</a></li><li><a href="sectoren.html">Zorgvastgoed</a></li><li><a href="sectoren.html">Residentieel</a></li><li><a href="sectoren.html">Hospitality</a></li></ul></div>
+    <div class="news"><h4>Nieuwsbrief</h4><p style="font-size:.9rem">Marktinzichten &amp; nieuw aanbod in uw inbox.</p><form onsubmit="return false"><input type="email" placeholder="Uw e-mailadres"><button class="btn btn--primary" style="width:100%">Inschrijven</button></form></div>
+  </div>
+  <div class="bottom"><span>&copy; 2026 Spring Real Estate. Alle rechten voorbehouden.</span><div class="links"><a href="privacy.html">Privacyverklaring</a><a href="cookies.html">Cookies</a><a href="voorwaarden.html">Algemene voorwaarden</a></div></div>
+</div></footer>
+
+<script src="js/i18n.js?v=30"></script>
+<script src="js/nav.js?v=26"></script>
+<script src="js/ai-search.js?v=26"></script>
+<div id="searchOverlay" style="display:none;position:fixed;inset:0;background:rgba(10,10,9,.88);backdrop-filter:blur(8px);z-index:9999;align-items:flex-start;justify-content:center;padding-top:clamp(60px,12vh,140px);"><div style="width:min(680px,90vw);"><form class="search ais-form" id="overlayForm" onsubmit="window.location='listings.html?q='+encodeURIComponent(document.getElementById('overlayInput').value);return false;" style="display:flex;align-items:center;gap:0;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:6px 6px 6px 22px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="2" style="flex-shrink:0"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg><input id="overlayInput" type="text" placeholder="Zoek een object, locatie of dienst&hellip;" autocomplete="off" style="flex:1;background:none;border:none;outline:none;padding:10px 14px;font-size:1.1rem;color:#fff;font-family:inherit;" /><button class="btn btn--primary" type="submit" style="border-radius:999px;padding:10px 24px;white-space:nowrap">Zoeken</button></form><p style="text-align:center;margin-top:20px;color:rgba(255,255,255,.35);font-size:.85rem">Druk op Esc om te sluiten</p></div></div>
+<script>(function(){var btn=document.getElementById("searchToggle");var ov=document.getElementById("searchOverlay");if(!btn||!ov)return;btn.addEventListener("click",function(){ov.style.display="flex";setTimeout(function(){var i=document.getElementById("overlayInput");if(i)i.focus();},50);});ov.addEventListener("click",function(e){if(e.target===ov)ov.style.display="none";});document.addEventListener("keydown",function(e){if(e.key==="Escape")ov.style.display="none";});})();</script>
+</body></html>

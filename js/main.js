@@ -744,3 +744,4 @@ if (lang) {
     + '<a class="qc-mail" href="mailto:info@springrealestate.com" aria-label="E-mail">' + MAIL + '<span data-tr="1" data-en="Email" data-es="Correo">E-mail</span></a>';
   document.body.appendChild(wrap);
 })();
+
