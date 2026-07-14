@@ -318,17 +318,6 @@
           </div>
         </div>
       </div>
-<script>
-function setFaq(i){
-  document.querySelectorAll('.faq-tab').forEach(function(t,n){
-    t.classList.toggle('faq-tab--active',n===i);
-    t.style.color=n===i?'var(--ink)':'var(--ink-soft)';
-    t.style.background=n===i?'#fff':'';
-    t.style.borderRight=n===i?'2px solid var(--green)':'';
-  });
-  document.querySelectorAll('.faq-panel').forEach(function(p,n){p.style.display=n===i?'block':'none';});
-}
-</script>
 
       <!-- ADVISEUR -->
       <div>
@@ -510,6 +499,18 @@ function setFaq(i){
     });
   });
 })();
+</script>
+<script>
+function setFaq(i){
+  document.querySelectorAll('.faq-tab').forEach(function(t,n){
+    t.classList.toggle('faq-tab--active',n===i);
+    t.style.color=n===i?'var(--ink)':'var(--ink-soft)';
+    t.style.background=n===i?'#fff':'';
+    t.style.borderRight=n===i?'2px solid var(--green)':'none';
+    t.style.fontWeight=n===i?'700':'600';
+  });
+  document.querySelectorAll('.faq-panel').forEach(function(p,n){p.style.display=n===i?'block':'none';});
+}
 </script>
 <script src="js/main.js?v=30"></script>
 <script src="js/ai-search.js?v=30"></script>
