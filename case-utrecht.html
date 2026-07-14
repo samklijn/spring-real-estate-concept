@@ -13,7 +13,7 @@
 <meta name="theme-color" content="#7CA73F">
 </head>
 <body>
-    <header class="header header--dark"><div class="container">
+    <header class="header header--dark"><div class="container" style="position:relative;z-index:1">
   <a href="index.html" class="logo" aria-label="Spring Real Estate"><img src="images/logo-white.png" alt="Spring Real Estate" class="logo-img"></a>
   <nav class="nav">
     <div class="has-drop"><a href="diensten.html" class="nav-btn-link"><span data-i18n="nav.diensten">Oplossingen</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></a>
@@ -51,7 +51,11 @@
   </div>
 </div></header>
 
-<section class="page-hero">
+<section class="page-hero" style="padding:10px 0 12px !important;position:relative;overflow:hidden">
+  <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;z-index:0">
+    <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;opacity:.18"><defs><pattern id="dots" x="0" y="0" width="28" height="28" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#7CA73F"/></pattern></defs><rect width="100%" height="100%" fill="url(#dots)"/></svg>
+    <div style="position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(180deg,transparent,rgba(124,167,63,.6),transparent)"></div>
+  </div>
   <div class="container">
     <div class="crumbs"><a href="index.html">Home</a> <span style="opacity:.4;margin:0 4px">/</span> <a href="cases.html">Cases</a> <span style="opacity:.4;margin:0 4px">/</span> Utrecht Centrum</div>
     <h1>Kantoorpand binnenstad - Utrecht</h1>
