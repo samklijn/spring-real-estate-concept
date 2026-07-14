@@ -57,15 +57,22 @@
 
 
 
-<section class="page-hero">
-  <div class="container">
+<section class="page-hero" style="padding:32px 0 36px !important;position:relative;overflow:hidden">
+  <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;z-index:0">
+    <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:.35" xmlns="http://www.w3.org/2000/svg">
+      <defs><pattern id="dot-hero" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="rgba(124,167,63,.45)"/></pattern></defs>
+      <rect width="100%" height="100%" fill="url(#dot-hero)"/>
+    </svg>
+    <div style="position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(180deg,transparent,rgba(124,167,63,.6),transparent)"></div>
+  </div>
+  <div class="container" style="position:relative;z-index:1">
     <div class="crumbs"><a href="index.html">Home</a> <span style="opacity:.4;margin:0 4px">/</span> Recruitment & Talent acquisition</div>
-    <span class="eyebrow" data-tr="1" data-en="Business unit" data-es="Unidad de negocio">Business unit</span>
-    <h1 data-tr="1" data-en="Recruitment and <em>talent acquisition</em>" data-es="Selección de personal y <em>captación de talento</em>">Werving en selectie en <em>recruitment</em></h1>
-    <p class="lead" data-tr="1" data-en="The right people for growing organisations." data-es="Las personas adecuadas para organizaciones en crecimiento.">De juiste mensen voor groeiende organisaties.</p>
-    <a href="contact.html" class="cta-pill">Neem contact op <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-    <div class="s-bar" style="margin-top:0;max-width:540px"><span class="s-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg></span><input type="text" placeholder="Zoek in ons aanbod…"><button class="s-btn">Zoeken</button></div>
-    
+    <div style="margin-top:10px">
+      <span class="eyebrow" data-tr="1" data-en="Business unit" data-es="Unidad de negocio">Business unit</span>
+        <h1 data-tr="1" data-en="Recruitment and <em>talent acquisition</em>" data-es="Selección de personal y <em>captación de talento</em>">Werving en selectie en <em>recruitment</em></h1>
+        <p class="lead" data-tr="1" data-en="The right people for growing organisations." data-es="Las personas adecuadas para organizaciones en crecimiento.">De juiste mensen voor groeiende organisaties.</p>
+        <a href="contact.html" class="cta-pill" style="margin-top:24px;display:inline-flex">Neem contact op <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
   </div>
 </section>
 
@@ -166,56 +173,95 @@
 
 
 <!-- LEAD MAGNET -->
-<section style="padding:64px 0;background:var(--dark)">
+<section style="padding:40px 0;background:var(--bg-soft)">
   <div class="container">
-    <div style="display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;flex-wrap:wrap">
-      <div>
-        <span class="eyebrow" style="color:var(--green-soft)">Gratis download</span>
-        <h2 style="color:#fff;margin:8px 0 12px;font-size:clamp(1.4rem,3vw,2rem)">Gratis: de Wervingsgids voor groeibedrijven</h2>
-        <p style="color:rgba(255,255,255,.65);max-width:52ch;margin:0 0 28px;line-height:1.65">Hoe trekt u de juiste kandidaten aan in een krappe arbeidsmarkt? Onze wervingsgids geeft praktische tips — van vacaturetekst tot onboarding.</p>
-        <ul style="list-style:none;margin:0 0 28px;padding:0;display:flex;flex-direction:column;gap:8px">
-          <li style="color:rgba(255,255,255,.75);font-size:.9rem;display:flex;align-items:center;gap:10px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--green-soft)" stroke-width="2.5"><path d="M5 12l5 5L20 6"/></svg>Effectieve vacatureteksten schrijven</li>
-          <li style="color:rgba(255,255,255,.75);font-size:.9rem;display:flex;align-items:center;gap:10px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--green-soft)" stroke-width="2.5"><path d="M5 12l5 5L20 6"/></svg>Employer branding op maat</li>
-          <li style="color:rgba(255,255,255,.75);font-size:.9rem;display:flex;align-items:center;gap:10px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--green-soft)" stroke-width="2.5"><path d="M5 12l5 5L20 6"/></svg>Onboarding die kandidaten bindt</li>
-        </ul>
-        <a href="contact.html" class="btn btn--primary">Download de wervingsgids <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="vertical-align:middle;margin-left:4px"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg></a>
+    <div style="background:#fff;border:1px solid var(--line);border-left:4px solid var(--green);border-radius:12px;padding:28px 32px;display:flex;align-items:flex-start;gap:24px;flex-wrap:wrap">
+      <div style="width:52px;height:52px;background:var(--green-tint);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
       </div>
-      <div style="display:flex;align-items:center;justify-content:center;width:200px;height:200px;background:rgba(124,167,63,.12);border-radius:20px;border:1px solid rgba(124,167,63,.2);flex-shrink:0">
-        <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="var(--green-soft)" stroke-width="1.4"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+      <div style="flex:1;min-width:180px">
+        <span class="eyebrow" style="margin-bottom:6px">Gratis download</span>
+        <h3 style="margin:8px 0 12px;font-size:clamp(1.4rem,3vw,2rem)" style="margin:0 0 8px;font-size:1.05rem">Gratis: de Wervingsgids voor groeibedrijven</h3>
+        <p style="font-size:.88rem;color:var(--ink-soft);margin:0 0 12px;line-height:1.6">Hoe trekt u de juiste kandidaten aan in een krappe arbeidsmarkt? Onze wervingsgids geeft praktische tips — van vacaturetekst tot onboarding.</p>
+        <ul style="list-style:none;padding:0;margin:0 0 12px;display:flex;flex-direction:column;gap:6px">
+              <li style="display:flex;align-items:flex-start;gap:8px;font-size:.85rem;color:var(--ink-soft)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5" style="flex-shrink:0;margin-top:2px"><path d="M5 12l5 5L20 6"/></svg>Effectieve vacatureteksten schrijven</li>
+              <li style="display:flex;align-items:flex-start;gap:8px;font-size:.85rem;color:var(--ink-soft)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5" style="flex-shrink:0;margin-top:2px"><path d="M5 12l5 5L20 6"/></svg>Employer branding op maat</li>
+              <li style="display:flex;align-items:flex-start;gap:8px;font-size:.85rem;color:var(--ink-soft)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5" style="flex-shrink:0;margin-top:2px"><path d="M5 12l5 5L20 6"/></svg>Onboarding die kandidaten bindt</li>
+            </ul>
       </div>
+      <a href="contact.html" class="btn btn--primary">Download de wervingsgids</a>
     </div>
   </div>
 </section>
 
 
 <!-- FAQ -->
-<section style="padding:64px 0 72px;background:var(--bg-soft)">
+<section style="padding:64px 0 72px;background:#fff">
   <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 2fr;gap:60px;align-items:start">
+    <div style="display:grid;grid-template-columns:3fr 2fr;gap:56px;align-items:stretch">
+
+      <!-- FAQ tab-stijl -->
       <div>
         <span class="eyebrow">Veelgestelde vragen</span>
-        <h2 class="disp" style="margin-bottom:16px">Vragen &amp; <em>antwoorden</em></h2>
-        <p style="color:var(--ink-soft);font-size:.92rem;line-height:1.65;margin-bottom:24px">Staat uw vraag er niet bij? Bekijk alle veelgestelde vragen of neem direct contact op met ons team.</p>
-        <a href="faq.html" class="btn btn--ghost" style="margin-bottom:12px">Alle FAQ's <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <h2 class="disp" style="margin:8px 0 28px">Veelgestelde <em>vragen</em></h2>
+        <div style="border:1px solid var(--line);border-radius:16px;overflow:hidden">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 24px;background:var(--dark);flex-wrap:wrap">
+            <div>
+              <div style="font-size:.95rem;font-weight:700;color:#fff">Vragen &amp; antwoorden</div>
+              <div style="font-size:.78rem;color:rgba(255,255,255,.45);margin-top:2px">Spring Real Estate · direct antwoord</div>
+            </div>
+            <a href="contact.html" class="btn btn--primary" style="flex-shrink:0;font-size:.82rem;padding:8px 18px">Stel uw vraag &#x2192;</a>
+          </div>
+          <div style="display:grid;grid-template-columns:220px 1fr;gap:0">
+            <div style="border-right:1px solid var(--line);background:var(--bg-soft)">
+            <button onclick="setFaq(0)" class="faq-tab faq-tab--active" style="display:block;width:100%;text-align:left;padding:16px 20px;font-size:.85rem;color:var(--ink);background:#fff;border-right:3px solid var(--green);font-weight:700;border-bottom:1px solid var(--line);cursor:pointer;font-family:inherit;line-height:1.4;transition:background .15s">Wat is het verschil tussen werving &amp; selectie en detachering?</button>
+            <button onclick="setFaq(1)" class="faq-tab" style="display:block;width:100%;text-align:left;padding:16px 20px;font-size:.85rem;color:var(--ink-soft);background:none;border:none;font-weight:600;border-bottom:1px solid var(--line);cursor:pointer;font-family:inherit;line-height:1.4;transition:background .15s">Hoe lang duurt een gemiddeld wervingstraject?</button>
+            <button onclick="setFaq(2)" class="faq-tab" style="display:block;width:100%;text-align:left;padding:16px 20px;font-size:.85rem;color:var(--ink-soft);background:none;border:none;font-weight:600;border-bottom:1px solid var(--line);cursor:pointer;font-family:inherit;line-height:1.4;transition:background .15s">Biedt Spring ook executive search?</button>
+            <button onclick="setFaq(3)" class="faq-tab" style="display:block;width:100%;text-align:left;padding:16px 20px;font-size:.85rem;color:var(--ink-soft);background:none;border:none;font-weight:600;cursor:pointer;font-family:inherit;line-height:1.4;transition:background .15s">Wat als de kandidaat toch niet past?</button>
+            </div>
+            <div style="padding:28px 32px;background:#fff;min-height:180px">
+            <div class="faq-panel" style="display:block">
+              <p style="font-weight:700;font-size:.95rem;color:var(--ink);margin:0 0 10px">Wat is het verschil tussen werving &amp; selectie en detachering?</p>
+              <p style="font-size:.88rem;color:var(--ink-soft);line-height:1.7;margin:0">Bij werving &amp; selectie zoekt u een vaste medewerker; wij begeleiden het zoekproces tot plaatsing. Bij detachering levert Spring tijdelijk een professional — op payroll bij Spring.</p>
+            </div>
+            <div class="faq-panel" style="display:none">
+              <p style="font-weight:700;font-size:.95rem;color:var(--ink);margin:0 0 10px">Hoe lang duurt een gemiddeld wervingstraject?</p>
+              <p style="font-size:.88rem;color:var(--ink-soft);line-height:1.7;margin:0">Gemiddeld 4 tot 8 weken van briefing tot plaatsing, afhankelijk van het functieprofiel en de schaarste op de arbeidsmarkt. We informeren u wekelijks over de voortgang.</p>
+            </div>
+            <div class="faq-panel" style="display:none">
+              <p style="font-weight:700;font-size:.95rem;color:var(--ink);margin:0 0 10px">Biedt Spring ook executive search?</p>
+              <p style="font-size:.88rem;color:var(--ink-soft);line-height:1.7;margin:0">Ja — voor directie-, partner- en C-suite posities voeren we gerichte executive search-trajecten uit, inclusief marktmapping en discrete benaderings­gesprekken.</p>
+            </div>
+            <div class="faq-panel" style="display:none">
+              <p style="font-weight:700;font-size:.95rem;color:var(--ink);margin:0 0 10px">Wat als de kandidaat toch niet past?</p>
+              <p style="font-size:.88rem;color:var(--ink-soft);line-height:1.7;margin:0">We werken met een garantietermijn. Als een kandidaat binnen de garantieperiode vertrekt, starten we een vervangende zoektocht kosteloos opnieuw.</p>
+            </div>
+              <p style="margin-top:24px;padding-top:16px;border-top:1px solid var(--line);font-size:.82rem;color:var(--ink-soft)">Meer vragen? <a href="faq.html" style="color:var(--green);font-weight:600">Bekijk de volledige FAQ &#x2192;</a></p>
+            </div>
+          </div>
+        </div>
       </div>
-      <ul class="faq-list">
-        <li class="faq-item">
-          <button class="faq-q">Wat is het verschil tussen werving &amp; selectie en detachering?<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
-          <div class="faq-a">Bij werving &amp; selectie zoekt u een vaste medewerker; wij begeleiden het zoekproces tot plaatsing. Bij detachering levert Spring tijdelijk een professional — op payroll bij Spring.</div>
-        </li>
-        <li class="faq-item">
-          <button class="faq-q">Hoe lang duurt een gemiddeld wervingstraject?<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
-          <div class="faq-a">Gemiddeld 4 tot 8 weken van briefing tot plaatsing, afhankelijk van het functieprofiel en de schaarste op de arbeidsmarkt. We informeren u wekelijks over de voortgang.</div>
-        </li>
-        <li class="faq-item">
-          <button class="faq-q">Biedt Spring ook executive search?<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
-          <div class="faq-a">Ja — voor directie-, partner- en C-suite posities voeren we gerichte executive search-trajecten uit, inclusief marktmapping en discrete benaderings­gesprekken.</div>
-        </li>
-        <li class="faq-item">
-          <button class="faq-q">Wat als de kandidaat toch niet past?<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
-          <div class="faq-a">We werken met een garantietermijn. Als een kandidaat binnen de garantieperiode vertrekt, starten we een vervangende zoektocht kosteloos opnieuw.</div>
-        </li>
-      </ul>
+
+      <!-- ADVISEUR -->
+      <div style="display:flex;flex-direction:column;justify-content:center">
+        <div style="border-radius:16px;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;background:var(--dark)">
+          <div style="background:var(--green);padding:14px 20px;display:flex;align-items:center;gap:12px">
+            <img src="images/team/dave.hendriks.jpg" style="width:52px;height:52px;border-radius:50%;object-fit:cover;object-position:top;flex-shrink:0;border:2px solid rgba(255,255,255,.4)" alt="Spring expert">
+            <div>
+              <div style="font-size:.92rem;font-weight:700;color:#fff;line-height:1.2">Stel uw vraag</div>
+              <div style="font-size:.74rem;color:rgba(255,255,255,.75)">Spring Real Estate &middot; direct antwoord</div>
+            </div>
+          </div>
+          <div style="padding:22px 22px 24px;display:flex;flex-direction:column;flex:1">
+            <p style="font-size:.88rem;color:rgba(255,255,255,.7);line-height:1.7;margin:0 0 20px;font-style:italic">"Staat uw vraag er niet bij? Onze specialisten helpen u direct verder."</p>
+            <div style="margin-top:auto">
+              <a href="contact.html" class="btn btn--primary" style="width:100%;justify-content:center;display:flex;margin-bottom:10px">Stel uw vraag &#x2192;</a>
+              <a href="faq.html" style="display:block;text-align:center;font-size:.74rem;color:rgba(255,255,255,.35);text-decoration:none">Bekijk alle veelgestelde vragen</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
