@@ -69,47 +69,127 @@
   </div>
 </section>
 
-<!-- ── INTRO SPLIT: foto links, cijfers + tekst rechts ── -->
-<section class="section section--tight">
+<!-- ── STAT BALK ── -->
+<div style="background:var(--bg-soft);border-bottom:1px solid var(--line)">
   <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center">
-      <!-- foto grid 2x2 -->
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;border-radius:16px;overflow:hidden">
-        <div style="aspect-ratio:1;overflow:hidden"><img src="images/hero.jpg" alt="Spring team" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform=''"></div>
-        <div style="aspect-ratio:1;overflow:hidden"><img src="images/photo-1.jpg" alt="Spring kantoor" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform=''"></div>
-        <div style="aspect-ratio:1;overflow:hidden"><img src="images/photo-2.jpg" alt="Spring Valencia" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform=''"></div>
-        <div style="aspect-ratio:1;overflow:hidden;background:var(--green);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px">
-          <span style="font-size:2.8rem;font-weight:800;color:#fff;line-height:1">35+</span>
-          <span style="font-size:.78rem;font-weight:600;color:rgba(255,255,255,.75);letter-spacing:.06em;text-transform:uppercase">collega&rsquo;s</span>
-        </div>
+    <div style="display:flex;flex-wrap:wrap;gap:0;padding:0">
+      <div style="flex:1 1 160px;padding:24px 28px;border-right:1px solid var(--line);text-align:center">
+        <strong style="display:block;font-size:1.8rem;font-weight:800;color:var(--green);line-height:1">35+</strong>
+        <span style="font-size:.76rem;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.07em;font-weight:600">collega&rsquo;s</span>
       </div>
-      <!-- tekst + stats -->
-      <div>
-        <span class="eyebrow">Werken bij Spring</span>
-        <h2 class="disp" style="margin:8px 0 16px">Een team dat <em>samen</em> bouwt</h2>
-        <p style="color:var(--ink-soft);line-height:1.7;margin:0 0 24px">We zijn een snel groeiend commercieel vastgoedkantoor met kantoren in Utrecht, Amsterdam en Spanje. Onze mensen zijn ondernemend, gedreven en houden van vieren &mdash; hard werken en plezier gaan hand in hand.</p>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
-          <div style="padding:18px 20px;background:var(--bg-soft);border-radius:12px;border:1px solid var(--line)">
-            <strong style="display:block;font-size:1.6rem;font-weight:800;color:var(--green)">3</strong>
-            <span style="font-size:.82rem;color:var(--ink-soft)">kantoren in NL &amp; ES</span>
-          </div>
-          <div style="padding:18px 20px;background:var(--bg-soft);border-radius:12px;border:1px solid var(--line)">
-            <strong style="display:block;font-size:1.6rem;font-weight:800;color:var(--green)">&#9733; 4,9</strong>
-            <span style="font-size:.82rem;color:var(--ink-soft)">werkgeversscore</span>
-          </div>
-          <div style="padding:18px 20px;background:var(--bg-soft);border-radius:12px;border:1px solid var(--line)">
-            <strong style="display:block;font-size:1.6rem;font-weight:800;color:var(--green)">&euro; 2.500</strong>
-            <span style="font-size:.82rem;color:var(--ink-soft)">ontwikkelbudget/jaar</span>
-          </div>
-          <div style="padding:18px 20px;background:var(--bg-soft);border-radius:12px;border:1px solid var(--line)">
-            <strong style="display:block;font-size:1.6rem;font-weight:800;color:var(--green)">12+</strong>
-            <span style="font-size:.82rem;color:var(--ink-soft)">jaar marktexpertise</span>
-          </div>
-        </div>
+      <div style="flex:1 1 160px;padding:24px 28px;border-right:1px solid var(--line);text-align:center">
+        <strong style="display:block;font-size:1.8rem;font-weight:800;color:var(--green);line-height:1">3</strong>
+        <span style="font-size:.76rem;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.07em;font-weight:600">kantoren NL &amp; ES</span>
+      </div>
+      <div style="flex:1 1 160px;padding:24px 28px;border-right:1px solid var(--line);text-align:center">
+        <strong style="display:block;font-size:1.8rem;font-weight:800;color:var(--green);line-height:1">&euro;&thinsp;2.500</strong>
+        <span style="font-size:.76rem;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.07em;font-weight:600">ontwikkelbudget/jaar</span>
+      </div>
+      <div style="flex:1 1 160px;padding:24px 28px;text-align:center">
+        <strong style="display:block;font-size:1.8rem;font-weight:800;color:var(--green);line-height:1">&#9733;&thinsp;4,9</strong>
+        <span style="font-size:.76rem;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.07em;font-weight:600">werkgeversscore</span>
       </div>
     </div>
-    <style>@media(max-width:720px){.wb-intro{grid-template-columns:1fr !important}}</style>
   </div>
+</div>
+
+<!-- ── FOTO SLIDER ── -->
+<section class="section section--tight" style="padding-bottom:8px">
+  <div class="container">
+    <div id="wbSlider" style="position:relative;overflow:hidden">
+      <div id="wbTrack" style="display:flex;gap:16px;transition:transform .4s cubic-bezier(.25,.46,.45,.94)">
+
+        <a class="ov-card" href="vacatures.html" style="flex:0 0 calc(33.333% - 11px);min-width:260px">
+          <img src="images/hero.jpg" alt="Spring team Utrecht" loading="lazy">
+          <div class="ov-card__overlay"></div>
+          <div class="ov-card__body">
+            <span class="ov-card__cat">Team</span>
+            <h3 class="ov-card__title">Samenwerken aan ambitie</h3>
+            <div class="ov-card__meta">Utrecht &middot; hoofdkantoor</div>
+          </div>
+        </a>
+
+        <a class="ov-card" href="vacatures.html" style="flex:0 0 calc(33.333% - 11px);min-width:260px">
+          <img src="images/photo-1.jpg" alt="Spring kantoor Amsterdam" loading="lazy">
+          <div class="ov-card__overlay"></div>
+          <div class="ov-card__body">
+            <span class="ov-card__cat">Kantoor</span>
+            <h3 class="ov-card__title">Moderne werkplekken in NL &amp; ES</h3>
+            <div class="ov-card__meta">Amsterdam &middot; Parnassusweg</div>
+          </div>
+        </a>
+
+        <a class="ov-card" href="vacatures.html" style="flex:0 0 calc(33.333% - 11px);min-width:260px">
+          <img src="images/photo-2.jpg" alt="Spring Valencia" loading="lazy">
+          <div class="ov-card__overlay"></div>
+          <div class="ov-card__body">
+            <span class="ov-card__cat">Internationaal</span>
+            <h3 class="ov-card__title">Groeien over de grens</h3>
+            <div class="ov-card__meta">Valencia &middot; Espa&ntilde;a</div>
+          </div>
+        </a>
+
+        <a class="ov-card" href="vacatures.html" style="flex:0 0 calc(33.333% - 11px);min-width:260px">
+          <img src="images/hero.jpg" alt="Spring events" loading="lazy">
+          <div class="ov-card__overlay"></div>
+          <div class="ov-card__body">
+            <span class="ov-card__cat">Cultuur</span>
+            <h3 class="ov-card__title">Work hard, Play hard</h3>
+            <div class="ov-card__meta">Borrels, uitjes &amp; teamdagen</div>
+          </div>
+        </a>
+
+        <a class="ov-card" href="vacatures.html" style="flex:0 0 calc(33.333% - 11px);min-width:260px">
+          <img src="images/photo-1.jpg" alt="Spring groei" loading="lazy">
+          <div class="ov-card__overlay"></div>
+          <div class="ov-card__body">
+            <span class="ov-card__cat">Groei</span>
+            <h3 class="ov-card__title">Jouw pad, jouw tempo</h3>
+            <div class="ov-card__meta">Persoonlijk ontwikkelbudget</div>
+          </div>
+        </a>
+
+      </div>
+      <button id="wbPrev" aria-label="Vorige" style="position:absolute;left:8px;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;border:none;background:rgba(255,255,255,.92);box-shadow:0 2px 12px rgba(0,0,0,.18);cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:2;opacity:0;transition:opacity .2s;pointer-events:none">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1c1c1b" stroke-width="2.2"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <button id="wbNext" aria-label="Volgende" style="position:absolute;right:8px;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;border:none;background:rgba(255,255,255,.92);box-shadow:0 2px 12px rgba(0,0,0,.18);cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:2;transition:opacity .2s">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1c1c1b" stroke-width="2.2"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+    </div>
+    <div id="wbDots" style="display:flex;gap:6px;justify-content:center;padding:14px 0 4px"></div>
+  </div>
+  <script>
+  (function(){
+    var track=document.getElementById('wbTrack'),slider=document.getElementById('wbSlider');
+    var cards=track.querySelectorAll('.ov-card'),dotsEl=document.getElementById('wbDots');
+    var prev=document.getElementById('wbPrev'),next=document.getElementById('wbNext'),idx=0;
+    function vis(){var w=slider.offsetWidth;return w<500?1:w<800?2:3;}
+    function max(){return Math.max(0,cards.length-vis());}
+    function go(n){
+      idx=Math.max(0,Math.min(n,max()));
+      track.style.transform='translateX(-'+(idx*(cards[0].offsetWidth+16))+'px)';
+      prev.style.opacity=idx===0?'0':'1'; prev.style.pointerEvents=idx===0?'none':'';
+      next.style.opacity=idx>=max()?'0':'1'; next.style.pointerEvents=idx>=max()?'none':'';
+      dotsEl.querySelectorAll('button').forEach(function(d,i){d.style.background=i===idx?'var(--green)':'var(--line)';});
+    }
+    function buildDots(){
+      dotsEl.innerHTML='';
+      for(var i=0;i<=max();i++){(function(i){var d=document.createElement('button');
+        d.style.cssText='width:8px;height:8px;border-radius:50%;border:none;cursor:pointer;padding:0;background:var(--line);transition:background .2s';
+        d.addEventListener('click',function(){go(i);});dotsEl.appendChild(d);})(i);}
+    }
+    prev.addEventListener('click',function(){go(idx-1);});
+    next.addEventListener('click',function(){go(idx+1);});
+    var tx=0;
+    track.addEventListener('touchstart',function(e){tx=e.touches[0].clientX;},{passive:true});
+    track.addEventListener('touchend',function(e){var dx=tx-e.changedTouches[0].clientX;if(Math.abs(dx)>40)go(dx>0?idx+1:idx-1);},{passive:true});
+    slider.addEventListener('mouseenter',function(){prev.style.opacity=idx===0?'0':'1';next.style.opacity=idx>=max()?'0':'1';});
+    slider.addEventListener('mouseleave',function(){prev.style.opacity='0';next.style.opacity=idx>=max()?'0':'1';});
+    window.addEventListener('resize',function(){buildDots();go(0);});
+    buildDots();go(0);
+  })();
+  </script>
 </section>
 
 <!-- ── KERNWAARDEN ── -->
