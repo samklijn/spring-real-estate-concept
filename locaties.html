@@ -12,15 +12,8 @@
 <link rel="apple-touch-icon" href="images/apple-touch-icon.png?v=26">
 <meta name="theme-color" content="#7CA73F">
 <style>
-.loc-team-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:20px}
-.loc-team-card{display:flex;flex-direction:column;align-items:center;text-align:center;background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px 14px 16px;transition:border-color .18s,box-shadow .18s;cursor:pointer}
-.loc-team-card:hover{border-color:var(--green);box-shadow:0 4px 18px rgba(124,167,63,.13)}
-.loc-team-photo{width:72px;height:72px;border-radius:50%;overflow:hidden;margin-bottom:12px;background:var(--bg-soft)}
-.loc-team-photo img{width:100%;height:100%;object-fit:cover}
-.loc-team-body strong{display:block;font-size:.82rem;font-weight:700;color:var(--dark);line-height:1.3;margin-bottom:4px}
-.loc-team-body span{font-size:.75rem;color:var(--ink-soft);line-height:1.3}
+.loc-person:hover img{transform:scale(1.04)}
 @media(max-width:700px){
-  .loc-team-grid{grid-template-columns:repeat(3,1fr)}
   section .container > div[style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr !important}
 }
 </style>
@@ -178,120 +171,148 @@
         <span class="eyebrow">Team Utrecht</span>
         <h3 style="font-size:1.25rem;font-weight:800;margin:4px 0 0;color:var(--dark)">De mensen achter de vestiging</h3>
       </div></div>
-      <div class="loc-team-grid">
-    <a href="agents.html" class="loc-team-card" style="text-decoration:none">
-      <div class="loc-team-photo"><img src="images/team/bart.mittendorff.jpg" alt="ing. Bart Mittendorff" loading="lazy"></div>
-      <div class="loc-team-body">
-        <strong>ing. Bart Mittendorff</strong>
-        <span>Managing Partner Real Estate</span>
+      <div id="UtrechtTSlider" style="position:relative;overflow:hidden">
+      <div id="UtrechtTTrack" style="display:flex;gap:16px;transition:transform .4s cubic-bezier(.25,.46,.45,.94)">
+        <a href="agents.html" class="loc-person" style="flex:0 0 160px;text-decoration:none;color:inherit">
+          <div style="width:160px;aspect-ratio:3/4;border-radius:10px;overflow:hidden;background:var(--bg-soft);margin-bottom:10px">
+            <img src="images/team/bart.mittendorff.jpg" alt="ing. Bart Mittendorff" loading="lazy" style="width:100%;height:100%;object-fit:cover;transition:transform .35s">
+          </div>
+          <strong style="display:block;font-size:.85rem;font-weight:700;color:var(--dark);line-height:1.3">ing. Bart Mittendorff</strong>
+          <span style="font-size:.75rem;color:var(--ink-soft)">Managing Partner Real Estate</span>
+        </a>
+        <a href="agents.html" class="loc-person" style="flex:0 0 160px;text-decoration:none;color:inherit">
+          <div style="width:160px;aspect-ratio:3/4;border-radius:10px;overflow:hidden;background:var(--bg-soft);margin-bottom:10px">
+            <img src="images/team/stijn.deblaaij.jpg" alt="drs. Stijn de Blaaij" loading="lazy" style="width:100%;height:100%;object-fit:cover;transition:transform .35s">
+          </div>
+          <strong style="display:block;font-size:.85rem;font-weight:700;color:var(--dark);line-height:1.3">drs. Stijn de Blaaij</strong>
+          <span style="font-size:.75rem;color:var(--ink-soft)">Managing Partner Real Estate</span>
+        </a>
+        <a href="agents.html" class="loc-person" style="flex:0 0 160px;text-decoration:none;color:inherit">
+          <div style="width:160px;aspect-ratio:3/4;border-radius:10px;overflow:hidden;background:var(--bg-soft);margin-bottom:10px">
+            <img src="images/team/bas.sijbom.jpg" alt="Bas Sijbom LLM" loading="lazy" style="width:100%;height:100%;object-fit:cover;transition:transform .35s">
+          </div>
+          <strong style="display:block;font-size:.85rem;font-weight:700;color:var(--dark);line-height:1.3">Bas Sijbom LLM</strong>
+          <span style="font-size:.75rem;color:var(--ink-soft)">Partner Agency</span>
+        </a>
+        <a href="agents.html" class="loc-person" style="flex:0 0 160px;text-decoration:none;color:inherit">
+          <div style="width:160px;aspect-ratio:3/4;border-radius:10px;overflow:hidden;background:var(--bg-soft);margin-bottom:10px">
+            <img src="images/team/rolf.vermeer.jpg" alt="ir. Rolf Vermeer" loading="lazy" style="width:100%;height:100%;object-fit:cover;transition:transform .35s">
+          </div>
+          <strong style="display:block;font-size:.85rem;font-weight:700;color:var(--dark);line-height:1.3">ir. Rolf Vermeer</strong>
+          <span style="font-size:.75rem;color:var(--ink-soft)">Partner Agency</span>
+        </a>
+        <a href="agents.html" class="loc-person" style="flex:0 0 160px;text-decoration:none;color:inherit">
+          <div style="width:160px;aspect-ratio:3/4;border-radius:10px;overflow:hidden;background:var(--bg-soft);margin-bottom:10px">
+            <img src="images/team/robert.kat.jpg" alt="drs. Robert Kat MSRE MRICS" loading="lazy" style="width:100%;height:100%;object-fit:cover;transition:transform .35s">
+          </div>
+          <strong style="display:block;font-size:.85rem;font-weight:700;color:var(--dark);line-height:1.3">drs. Robert Kat MSRE MRICS</strong>
+          <span style="font-size:.75rem;color:var(--ink-soft)">Managing Partner Valuations</span>
+        </a>
+        <a href="agents.html" class="loc-person" style="flex:0 0 160px;text-decoration:none;color:inherit">
+          <div style="width:160px;aspect-ratio:3/4;border-radius:10px;overflow:hidden;background:var(--bg-soft);margin-bottom:10px">
+            <img src="images/team/lennard.hoekstra.jpg" alt="Lennard Hoekstra MSc RT" loading="lazy" style="width:100%;height:100%;object-fit:cover;transition:transform .35s">
+          </div>
+          <strong style="display:block;font-size:.85rem;font-weight:700;color:var(--dark);line-height:1.3">Lennard Hoekstra MSc RT</strong>
+          <span style="font-size:.75rem;color:var(--ink-soft)">Managing Partner Valuations</span>
+        </a>
+        <a href="agents.html" class="loc-person" style="flex:0 0 160px;text-decoration:none;color:inherit">
+          <div style="width:160px;aspect-ratio:3/4;border-radius:10px;overflow:hidden;background:var(--bg-soft);margin-bottom:10px">
+            <img src="images/team/beau.carels.jpg" alt="Beau Carels MSc" loading="lazy" style="width:100%;height:100%;object-fit:cover;transition:transform .35s">
+          </div>
+          <strong style="display:block;font-size:.85rem;font-weight:700;color:var(--dark);line-height:1.3">Beau Carels MSc</strong>
+          <span style="font-size:.75rem;color:var(--ink-soft)">Partner Property Management</span>
+        </a>
+        <a href="agents.html" class="loc-person" style="flex:0 0 160px;text-decoration:none;color:inherit">
+          <div style="width:160px;aspect-ratio:3/4;border-radius:10px;overflow:hidden;background:var(--bg-soft);margin-bottom:10px">
+            <img src="images/team/willemjan.schouten.jpg" alt="Willem Jan Schouten" loading="lazy" style="width:100%;height:100%;object-fit:cover;transition:transform .35s">
+          </div>
+          <strong style="display:block;font-size:.85rem;font-weight:700;color:var(--dark);line-height:1.3">Willem Jan Schouten</strong>
+          <span style="font-size:.75rem;color:var(--ink-soft)">Partner Property Management</span>
+        </a>
+        <a href="agents.html" class="loc-person" style="flex:0 0 160px;text-decoration:none;color:inherit">
+          <div style="width:160px;aspect-ratio:3/4;border-radius:10px;overflow:hidden;background:var(--bg-soft);margin-bottom:10px">
+            <img src="images/team/peter.vandingen.jpg" alt="Peter van Dingen" loading="lazy" style="width:100%;height:100%;object-fit:cover;transition:transform .35s">
+          </div>
+          <strong style="display:block;font-size:.85rem;font-weight:700;color:var(--dark);line-height:1.3">Peter van Dingen</strong>
+          <span style="font-size:.75rem;color:var(--ink-soft)">Partner Design &amp; Build</span>
+        </a>
+        <a href="agents.html" class="loc-person" style="flex:0 0 160px;text-decoration:none;color:inherit">
+          <div style="width:160px;aspect-ratio:3/4;border-radius:10px;overflow:hidden;background:var(--bg-soft);margin-bottom:10px">
+            <img src="images/team/lennard.haanstra.jpg" alt="Lennard Haanstra MSc" loading="lazy" style="width:100%;height:100%;object-fit:cover;transition:transform .35s">
+          </div>
+          <strong style="display:block;font-size:.85rem;font-weight:700;color:var(--dark);line-height:1.3">Lennard Haanstra MSc</strong>
+          <span style="font-size:.75rem;color:var(--ink-soft)">Partner Property Accounting</span>
+        </a>
+        <a href="agents.html" class="loc-person" style="flex:0 0 160px;text-decoration:none;color:inherit">
+          <div style="width:160px;aspect-ratio:3/4;border-radius:10px;overflow:hidden;background:var(--bg-soft);margin-bottom:10px">
+            <img src="images/team/sam.klijn.jpg" alt="Sam Klijn" loading="lazy" style="width:100%;height:100%;object-fit:cover;transition:transform .35s">
+          </div>
+          <strong style="display:block;font-size:.85rem;font-weight:700;color:var(--dark);line-height:1.3">Sam Klijn</strong>
+          <span style="font-size:.75rem;color:var(--ink-soft)">Partner Marketing</span>
+        </a>
+        <a href="agents.html" class="loc-person" style="flex:0 0 160px;text-decoration:none;color:inherit">
+          <div style="width:160px;aspect-ratio:3/4;border-radius:10px;overflow:hidden;background:var(--bg-soft);margin-bottom:10px">
+            <img src="images/team/emily.vanduijnhoven.jpg" alt="Emily van Duijnhoven" loading="lazy" style="width:100%;height:100%;object-fit:cover;transition:transform .35s">
+          </div>
+          <strong style="display:block;font-size:.85rem;font-weight:700;color:var(--dark);line-height:1.3">Emily van Duijnhoven</strong>
+          <span style="font-size:.75rem;color:var(--ink-soft)">Partner Marketing Agency</span>
+        </a>
+        <a href="agents.html" class="loc-person" style="flex:0 0 160px;text-decoration:none;color:inherit">
+          <div style="width:160px;aspect-ratio:3/4;border-radius:10px;overflow:hidden;background:var(--bg-soft);margin-bottom:10px">
+            <img src="images/team/mark.haverkamp.jpg" alt="Mark Haverkamp" loading="lazy" style="width:100%;height:100%;object-fit:cover;transition:transform .35s">
+          </div>
+          <strong style="display:block;font-size:.85rem;font-weight:700;color:var(--dark);line-height:1.3">Mark Haverkamp</strong>
+          <span style="font-size:.75rem;color:var(--ink-soft)">Partner Operations</span>
+        </a>
+        <a href="agents.html" class="loc-person" style="flex:0 0 160px;text-decoration:none;color:inherit">
+          <div style="width:160px;aspect-ratio:3/4;border-radius:10px;overflow:hidden;background:var(--bg-soft);margin-bottom:10px">
+            <img src="images/team/sam.benninga.jpg" alt="Sam Benninga MSc" loading="lazy" style="width:100%;height:100%;object-fit:cover;transition:transform .35s">
+          </div>
+          <strong style="display:block;font-size:.85rem;font-weight:700;color:var(--dark);line-height:1.3">Sam Benninga MSc</strong>
+          <span style="font-size:.75rem;color:var(--ink-soft)">Partner Research</span>
+        </a>
+        <a href="agents.html" class="loc-person" style="flex:0 0 160px;text-decoration:none;color:inherit">
+          <div style="width:160px;aspect-ratio:3/4;border-radius:10px;overflow:hidden;background:var(--bg-soft);margin-bottom:10px">
+            <img src="images/team/ronald.nuijt.jpg" alt="Ronald Nuijt MSc MSRE" loading="lazy" style="width:100%;height:100%;object-fit:cover;transition:transform .35s">
+          </div>
+          <strong style="display:block;font-size:.85rem;font-weight:700;color:var(--dark);line-height:1.3">Ronald Nuijt MSc MSRE</strong>
+          <span style="font-size:.75rem;color:var(--ink-soft)">Partner Investments &amp; Residential</span>
+        </a>
+        <a href="agents.html" class="loc-person" style="flex:0 0 160px;text-decoration:none;color:inherit">
+          <div style="width:160px;aspect-ratio:3/4;border-radius:10px;overflow:hidden;background:var(--bg-soft);margin-bottom:10px">
+            <img src="images/team/anne.schippers.jpg" alt="Anne Schippers" loading="lazy" style="width:100%;height:100%;object-fit:cover;transition:transform .35s">
+          </div>
+          <strong style="display:block;font-size:.85rem;font-weight:700;color:var(--dark);line-height:1.3">Anne Schippers</strong>
+          <span style="font-size:.75rem;color:var(--ink-soft)">People Advisor</span>
+        </a>
       </div>
-    </a>
-    <a href="agents.html" class="loc-team-card" style="text-decoration:none">
-      <div class="loc-team-photo"><img src="images/team/stijn.deblaaij.jpg" alt="drs. Stijn de Blaaij" loading="lazy"></div>
-      <div class="loc-team-body">
-        <strong>drs. Stijn de Blaaij</strong>
-        <span>Managing Partner Real Estate</span>
-      </div>
-    </a>
-    <a href="agents.html" class="loc-team-card" style="text-decoration:none">
-      <div class="loc-team-photo"><img src="images/team/bas.sijbom.jpg" alt="Bas Sijbom LLM" loading="lazy"></div>
-      <div class="loc-team-body">
-        <strong>Bas Sijbom LLM</strong>
-        <span>Partner Agency</span>
-      </div>
-    </a>
-    <a href="agents.html" class="loc-team-card" style="text-decoration:none">
-      <div class="loc-team-photo"><img src="images/team/rolf.vermeer.jpg" alt="ir. Rolf Vermeer" loading="lazy"></div>
-      <div class="loc-team-body">
-        <strong>ir. Rolf Vermeer</strong>
-        <span>Partner Agency</span>
-      </div>
-    </a>
-    <a href="agents.html" class="loc-team-card" style="text-decoration:none">
-      <div class="loc-team-photo"><img src="images/team/robert.kat.jpg" alt="drs. Robert Kat MSRE MRICS" loading="lazy"></div>
-      <div class="loc-team-body">
-        <strong>drs. Robert Kat MSRE MRICS</strong>
-        <span>Managing Partner Valuations</span>
-      </div>
-    </a>
-    <a href="agents.html" class="loc-team-card" style="text-decoration:none">
-      <div class="loc-team-photo"><img src="images/team/lennard.hoekstra.jpg" alt="Lennard Hoekstra MSc RT" loading="lazy"></div>
-      <div class="loc-team-body">
-        <strong>Lennard Hoekstra MSc RT</strong>
-        <span>Managing Partner Valuations</span>
-      </div>
-    </a>
-    <a href="agents.html" class="loc-team-card" style="text-decoration:none">
-      <div class="loc-team-photo"><img src="images/team/beau.carels.jpg" alt="Beau Carels MSc" loading="lazy"></div>
-      <div class="loc-team-body">
-        <strong>Beau Carels MSc</strong>
-        <span>Partner Property Management</span>
-      </div>
-    </a>
-    <a href="agents.html" class="loc-team-card" style="text-decoration:none">
-      <div class="loc-team-photo"><img src="images/team/willemjan.schouten.jpg" alt="Willem Jan Schouten" loading="lazy"></div>
-      <div class="loc-team-body">
-        <strong>Willem Jan Schouten</strong>
-        <span>Partner Property Management</span>
-      </div>
-    </a>
-    <a href="agents.html" class="loc-team-card" style="text-decoration:none">
-      <div class="loc-team-photo"><img src="images/team/peter.vandingen.jpg" alt="Peter van Dingen" loading="lazy"></div>
-      <div class="loc-team-body">
-        <strong>Peter van Dingen</strong>
-        <span>Partner Design &amp; Build</span>
-      </div>
-    </a>
-    <a href="agents.html" class="loc-team-card" style="text-decoration:none">
-      <div class="loc-team-photo"><img src="images/team/lennard.haanstra.jpg" alt="Lennard Haanstra MSc" loading="lazy"></div>
-      <div class="loc-team-body">
-        <strong>Lennard Haanstra MSc</strong>
-        <span>Partner Property Accounting</span>
-      </div>
-    </a>
-    <a href="agents.html" class="loc-team-card" style="text-decoration:none">
-      <div class="loc-team-photo"><img src="images/team/sam.klijn.jpg" alt="Sam Klijn" loading="lazy"></div>
-      <div class="loc-team-body">
-        <strong>Sam Klijn</strong>
-        <span>Partner Marketing</span>
-      </div>
-    </a>
-    <a href="agents.html" class="loc-team-card" style="text-decoration:none">
-      <div class="loc-team-photo"><img src="images/team/emily.vanduijnhoven.jpg" alt="Emily van Duijnhoven" loading="lazy"></div>
-      <div class="loc-team-body">
-        <strong>Emily van Duijnhoven</strong>
-        <span>Partner Marketing Agency</span>
-      </div>
-    </a>
-    <a href="agents.html" class="loc-team-card" style="text-decoration:none">
-      <div class="loc-team-photo"><img src="images/team/mark.haverkamp.jpg" alt="Mark Haverkamp" loading="lazy"></div>
-      <div class="loc-team-body">
-        <strong>Mark Haverkamp</strong>
-        <span>Partner Operations</span>
-      </div>
-    </a>
-    <a href="agents.html" class="loc-team-card" style="text-decoration:none">
-      <div class="loc-team-photo"><img src="images/team/sam.benninga.jpg" alt="Sam Benninga MSc" loading="lazy"></div>
-      <div class="loc-team-body">
-        <strong>Sam Benninga MSc</strong>
-        <span>Partner Research</span>
-      </div>
-    </a>
-    <a href="agents.html" class="loc-team-card" style="text-decoration:none">
-      <div class="loc-team-photo"><img src="images/team/ronald.nuijt.jpg" alt="Ronald Nuijt MSc MSRE" loading="lazy"></div>
-      <div class="loc-team-body">
-        <strong>Ronald Nuijt MSc MSRE</strong>
-        <span>Partner Investments &amp; Residential</span>
-      </div>
-    </a>
-    <a href="agents.html" class="loc-team-card" style="text-decoration:none">
-      <div class="loc-team-photo"><img src="images/team/anne.schippers.jpg" alt="Anne Schippers" loading="lazy"></div>
-      <div class="loc-team-body">
-        <strong>Anne Schippers</strong>
-        <span>People Advisor</span>
-      </div>
-    </a>
-      </div>
+      <button id="UtrechtTPrev" style="position:absolute;left:-14px;top:40%;transform:translateY(-50%);width:34px;height:34px;border-radius:50%;background:#fff;border:1px solid var(--line);cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;z-index:2;box-shadow:0 2px 8px rgba(0,0,0,.1)">&#8592;</button>
+      <button id="UtrechtTNext" style="position:absolute;right:-14px;top:40%;transform:translateY(-50%);width:34px;height:34px;border-radius:50%;background:#fff;border:1px solid var(--line);cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:2;box-shadow:0 2px 8px rgba(0,0,0,.1)">&#8594;</button>
+    </div>
+    <div style="margin-top:20px">
+      <a href="agents.html" style="font-size:.85rem;font-weight:700;color:var(--green);text-decoration:none;display:inline-flex;align-items:center;gap:6px">Bekijk het volledige team <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <script>
+    (function(){
+      var track=document.getElementById('UtrechtTTrack'),slider=document.getElementById('UtrechtTSlider');
+      var cards=track.querySelectorAll('.loc-person');
+      var prev=document.getElementById('UtrechtTPrev'),next=document.getElementById('UtrechtTNext'),idx=0;
+      function vis(){var w=slider.offsetWidth;return Math.max(1,Math.floor((w+16)/176));}
+      function max(){return Math.max(0,cards.length-vis());}
+      function go(n){
+        idx=Math.max(0,Math.min(n,max()));
+        track.style.transform='translateX(-'+(idx*176)+'px)';
+        prev.style.opacity=idx===0?'0':'1';prev.style.pointerEvents=idx===0?'none':'';
+        next.style.opacity=idx>=max()?'0':'1';next.style.pointerEvents=idx>=max()?'none':'';
+      }
+      prev.onclick=function(){go(idx-1);};
+      next.onclick=function(){go(idx+1);};
+      var sx=0;slider.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;},{passive:true});
+      slider.addEventListener('touchend',function(e){var dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40)go(idx+(dx<0?1:-1));});
+      window.addEventListener('resize',function(){go(idx);});
+      go(0);
+    })();
+    </script>
     </div>
 
   </div>
@@ -391,50 +412,78 @@
         <span class="eyebrow">Team Amsterdam</span>
         <h3 style="font-size:1.25rem;font-weight:800;margin:4px 0 0;color:var(--dark)">De mensen achter de vestiging</h3>
       </div></div>
-      <div class="loc-team-grid">
-    <a href="agents.html" class="loc-team-card" style="text-decoration:none">
-      <div class="loc-team-photo"><img src="images/team/dave.hendriks.jpg" alt="Dave Hendriks MSc MBA FRICS" loading="lazy"></div>
-      <div class="loc-team-body">
-        <strong>Dave Hendriks MSc MBA FRICS</strong>
-        <span>Partner Valuations</span>
+      <div id="AmsterdamTSlider" style="position:relative;overflow:hidden">
+      <div id="AmsterdamTTrack" style="display:flex;gap:16px;transition:transform .4s cubic-bezier(.25,.46,.45,.94)">
+        <a href="agents.html" class="loc-person" style="flex:0 0 160px;text-decoration:none;color:inherit">
+          <div style="width:160px;aspect-ratio:3/4;border-radius:10px;overflow:hidden;background:var(--bg-soft);margin-bottom:10px">
+            <img src="images/team/dave.hendriks.jpg" alt="Dave Hendriks MSc MBA FRICS" loading="lazy" style="width:100%;height:100%;object-fit:cover;transition:transform .35s">
+          </div>
+          <strong style="display:block;font-size:.85rem;font-weight:700;color:var(--dark);line-height:1.3">Dave Hendriks MSc MBA FRICS</strong>
+          <span style="font-size:.75rem;color:var(--ink-soft)">Partner Valuations</span>
+        </a>
+        <a href="agents.html" class="loc-person" style="flex:0 0 160px;text-decoration:none;color:inherit">
+          <div style="width:160px;aspect-ratio:3/4;border-radius:10px;overflow:hidden;background:var(--bg-soft);margin-bottom:10px">
+            <img src="images/team/ivar.hillerstrom.jpg" alt="Ivar Hillerstr&ouml;m MSc MSRE" loading="lazy" style="width:100%;height:100%;object-fit:cover;transition:transform .35s">
+          </div>
+          <strong style="display:block;font-size:.85rem;font-weight:700;color:var(--dark);line-height:1.3">Ivar Hillerstr&ouml;m MSc MSRE</strong>
+          <span style="font-size:.75rem;color:var(--ink-soft)">Partner Agency</span>
+        </a>
+        <a href="agents.html" class="loc-person" style="flex:0 0 160px;text-decoration:none;color:inherit">
+          <div style="width:160px;aspect-ratio:3/4;border-radius:10px;overflow:hidden;background:var(--bg-soft);margin-bottom:10px">
+            <img src="images/team/edgar.willems.jpg" alt="ir. Edgar Willems" loading="lazy" style="width:100%;height:100%;object-fit:cover;transition:transform .35s">
+          </div>
+          <strong style="display:block;font-size:.85rem;font-weight:700;color:var(--dark);line-height:1.3">ir. Edgar Willems</strong>
+          <span style="font-size:.75rem;color:var(--ink-soft)">Partner Agency</span>
+        </a>
+        <a href="agents.html" class="loc-person" style="flex:0 0 160px;text-decoration:none;color:inherit">
+          <div style="width:160px;aspect-ratio:3/4;border-radius:10px;overflow:hidden;background:var(--bg-soft);margin-bottom:10px">
+            <img src="images/team/sjors.vaniersel.jpg" alt="Sjors van Iersel MSc" loading="lazy" style="width:100%;height:100%;object-fit:cover;transition:transform .35s">
+          </div>
+          <strong style="display:block;font-size:.85rem;font-weight:700;color:var(--dark);line-height:1.3">Sjors van Iersel MSc</strong>
+          <span style="font-size:.75rem;color:var(--ink-soft)">Partner Asset Management</span>
+        </a>
+        <a href="agents.html" class="loc-person" style="flex:0 0 160px;text-decoration:none;color:inherit">
+          <div style="width:160px;aspect-ratio:3/4;border-radius:10px;overflow:hidden;background:var(--bg-soft);margin-bottom:10px">
+            <img src="images/team/mounir.riffi.jpg" alt="Mounir Riffi MSc" loading="lazy" style="width:100%;height:100%;object-fit:cover;transition:transform .35s">
+          </div>
+          <strong style="display:block;font-size:.85rem;font-weight:700;color:var(--dark);line-height:1.3">Mounir Riffi MSc</strong>
+          <span style="font-size:.75rem;color:var(--ink-soft)">Partner Asset Management</span>
+        </a>
+        <a href="agents.html" class="loc-person" style="flex:0 0 160px;text-decoration:none;color:inherit">
+          <div style="width:160px;aspect-ratio:3/4;border-radius:10px;overflow:hidden;background:var(--bg-soft);margin-bottom:10px">
+            <img src="images/team/bastiaan.olfers.jpg" alt="Bastiaan Olfers" loading="lazy" style="width:100%;height:100%;object-fit:cover;transition:transform .35s">
+          </div>
+          <strong style="display:block;font-size:.85rem;font-weight:700;color:var(--dark);line-height:1.3">Bastiaan Olfers</strong>
+          <span style="font-size:.75rem;color:var(--ink-soft)">Partner Serviced Offices</span>
+        </a>
       </div>
-    </a>
-    <a href="agents.html" class="loc-team-card" style="text-decoration:none">
-      <div class="loc-team-photo"><img src="images/team/ivar.hillerstrom.jpg" alt="Ivar Hillerstr&ouml;m MSc MSRE" loading="lazy"></div>
-      <div class="loc-team-body">
-        <strong>Ivar Hillerstr&ouml;m MSc MSRE</strong>
-        <span>Partner Agency</span>
-      </div>
-    </a>
-    <a href="agents.html" class="loc-team-card" style="text-decoration:none">
-      <div class="loc-team-photo"><img src="images/team/edgar.willems.jpg" alt="ir. Edgar Willems" loading="lazy"></div>
-      <div class="loc-team-body">
-        <strong>ir. Edgar Willems</strong>
-        <span>Partner Agency</span>
-      </div>
-    </a>
-    <a href="agents.html" class="loc-team-card" style="text-decoration:none">
-      <div class="loc-team-photo"><img src="images/team/sjors.vaniersel.jpg" alt="Sjors van Iersel MSc" loading="lazy"></div>
-      <div class="loc-team-body">
-        <strong>Sjors van Iersel MSc</strong>
-        <span>Partner Asset Management</span>
-      </div>
-    </a>
-    <a href="agents.html" class="loc-team-card" style="text-decoration:none">
-      <div class="loc-team-photo"><img src="images/team/mounir.riffi.jpg" alt="Mounir Riffi MSc" loading="lazy"></div>
-      <div class="loc-team-body">
-        <strong>Mounir Riffi MSc</strong>
-        <span>Partner Asset Management</span>
-      </div>
-    </a>
-    <a href="agents.html" class="loc-team-card" style="text-decoration:none">
-      <div class="loc-team-photo"><img src="images/team/bastiaan.olfers.jpg" alt="Bastiaan Olfers" loading="lazy"></div>
-      <div class="loc-team-body">
-        <strong>Bastiaan Olfers</strong>
-        <span>Partner Serviced Offices</span>
-      </div>
-    </a>
-      </div>
+      <button id="AmsterdamTPrev" style="position:absolute;left:-14px;top:40%;transform:translateY(-50%);width:34px;height:34px;border-radius:50%;background:#fff;border:1px solid var(--line);cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;z-index:2;box-shadow:0 2px 8px rgba(0,0,0,.1)">&#8592;</button>
+      <button id="AmsterdamTNext" style="position:absolute;right:-14px;top:40%;transform:translateY(-50%);width:34px;height:34px;border-radius:50%;background:#fff;border:1px solid var(--line);cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:2;box-shadow:0 2px 8px rgba(0,0,0,.1)">&#8594;</button>
+    </div>
+    <div style="margin-top:20px">
+      <a href="agents.html" style="font-size:.85rem;font-weight:700;color:var(--green);text-decoration:none;display:inline-flex;align-items:center;gap:6px">Bekijk het volledige team <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <script>
+    (function(){
+      var track=document.getElementById('AmsterdamTTrack'),slider=document.getElementById('AmsterdamTSlider');
+      var cards=track.querySelectorAll('.loc-person');
+      var prev=document.getElementById('AmsterdamTPrev'),next=document.getElementById('AmsterdamTNext'),idx=0;
+      function vis(){var w=slider.offsetWidth;return Math.max(1,Math.floor((w+16)/176));}
+      function max(){return Math.max(0,cards.length-vis());}
+      function go(n){
+        idx=Math.max(0,Math.min(n,max()));
+        track.style.transform='translateX(-'+(idx*176)+'px)';
+        prev.style.opacity=idx===0?'0':'1';prev.style.pointerEvents=idx===0?'none':'';
+        next.style.opacity=idx>=max()?'0':'1';next.style.pointerEvents=idx>=max()?'none':'';
+      }
+      prev.onclick=function(){go(idx-1);};
+      next.onclick=function(){go(idx+1);};
+      var sx=0;slider.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;},{passive:true});
+      slider.addEventListener('touchend',function(e){var dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40)go(idx+(dx<0?1:-1));});
+      window.addEventListener('resize',function(){go(idx);});
+      go(0);
+    })();
+    </script>
     </div>
 
   </div>
@@ -534,36 +583,64 @@
         <span class="eyebrow">Team Valencia</span>
         <h3 style="font-size:1.25rem;font-weight:800;margin:4px 0 0;color:var(--dark)">De mensen achter de vestiging</h3>
       </div></div>
-      <div class="loc-team-grid">
-    <a href="agents.html" class="loc-team-card" style="text-decoration:none">
-      <div class="loc-team-photo"><img src="images/team/natalia.fieraert.jpg" alt="Natalia Manchado Fieraert" loading="lazy"></div>
-      <div class="loc-team-body">
-        <strong>Natalia Manchado Fieraert</strong>
-        <span>Financial Controller</span>
+      <div id="ValenciaTSlider" style="position:relative;overflow:hidden">
+      <div id="ValenciaTTrack" style="display:flex;gap:16px;transition:transform .4s cubic-bezier(.25,.46,.45,.94)">
+        <a href="agents.html" class="loc-person" style="flex:0 0 160px;text-decoration:none;color:inherit">
+          <div style="width:160px;aspect-ratio:3/4;border-radius:10px;overflow:hidden;background:var(--bg-soft);margin-bottom:10px">
+            <img src="images/team/natalia.fieraert.jpg" alt="Natalia Manchado Fieraert" loading="lazy" style="width:100%;height:100%;object-fit:cover;transition:transform .35s">
+          </div>
+          <strong style="display:block;font-size:.85rem;font-weight:700;color:var(--dark);line-height:1.3">Natalia Manchado Fieraert</strong>
+          <span style="font-size:.75rem;color:var(--ink-soft)">Financial Controller</span>
+        </a>
+        <a href="agents.html" class="loc-person" style="flex:0 0 160px;text-decoration:none;color:inherit">
+          <div style="width:160px;aspect-ratio:3/4;border-radius:10px;overflow:hidden;background:var(--bg-soft);margin-bottom:10px">
+            <img src="images/team/pieter.zijlmans.jpg" alt="Pieter Zijlmans MSc MRICS VRT" loading="lazy" style="width:100%;height:100%;object-fit:cover;transition:transform .35s">
+          </div>
+          <strong style="display:block;font-size:.85rem;font-weight:700;color:var(--dark);line-height:1.3">Pieter Zijlmans MSc MRICS VRT</strong>
+          <span style="font-size:.75rem;color:var(--ink-soft)">Partner Valuations</span>
+        </a>
+        <a href="agents.html" class="loc-person" style="flex:0 0 160px;text-decoration:none;color:inherit">
+          <div style="width:160px;aspect-ratio:3/4;border-radius:10px;overflow:hidden;background:var(--bg-soft);margin-bottom:10px">
+            <img src="images/team/gijs.klaassen.jpg" alt="Gijs Klaassen MSc RT" loading="lazy" style="width:100%;height:100%;object-fit:cover;transition:transform .35s">
+          </div>
+          <strong style="display:block;font-size:.85rem;font-weight:700;color:var(--dark);line-height:1.3">Gijs Klaassen MSc RT</strong>
+          <span style="font-size:.75rem;color:var(--ink-soft)">Associate Director Valuations</span>
+        </a>
+        <a href="agents.html" class="loc-person" style="flex:0 0 160px;text-decoration:none;color:inherit">
+          <div style="width:160px;aspect-ratio:3/4;border-radius:10px;overflow:hidden;background:var(--bg-soft);margin-bottom:10px">
+            <img src="images/team/norbert.vanworkum.jpg" alt="Norbert van Workum" loading="lazy" style="width:100%;height:100%;object-fit:cover;transition:transform .35s">
+          </div>
+          <strong style="display:block;font-size:.85rem;font-weight:700;color:var(--dark);line-height:1.3">Norbert van Workum</strong>
+          <span style="font-size:.75rem;color:var(--ink-soft)">Property Manager</span>
+        </a>
       </div>
-    </a>
-    <a href="agents.html" class="loc-team-card" style="text-decoration:none">
-      <div class="loc-team-photo"><img src="images/team/pieter.zijlmans.jpg" alt="Pieter Zijlmans MSc MRICS VRT" loading="lazy"></div>
-      <div class="loc-team-body">
-        <strong>Pieter Zijlmans MSc MRICS VRT</strong>
-        <span>Partner Valuations</span>
-      </div>
-    </a>
-    <a href="agents.html" class="loc-team-card" style="text-decoration:none">
-      <div class="loc-team-photo"><img src="images/team/gijs.klaassen.jpg" alt="Gijs Klaassen MSc RT" loading="lazy"></div>
-      <div class="loc-team-body">
-        <strong>Gijs Klaassen MSc RT</strong>
-        <span>Associate Director Valuations</span>
-      </div>
-    </a>
-    <a href="agents.html" class="loc-team-card" style="text-decoration:none">
-      <div class="loc-team-photo"><img src="images/team/norbert.vanworkum.jpg" alt="Norbert van Workum" loading="lazy"></div>
-      <div class="loc-team-body">
-        <strong>Norbert van Workum</strong>
-        <span>Property Manager</span>
-      </div>
-    </a>
-      </div>
+      <button id="ValenciaTPrev" style="position:absolute;left:-14px;top:40%;transform:translateY(-50%);width:34px;height:34px;border-radius:50%;background:#fff;border:1px solid var(--line);cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;z-index:2;box-shadow:0 2px 8px rgba(0,0,0,.1)">&#8592;</button>
+      <button id="ValenciaTNext" style="position:absolute;right:-14px;top:40%;transform:translateY(-50%);width:34px;height:34px;border-radius:50%;background:#fff;border:1px solid var(--line);cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:2;box-shadow:0 2px 8px rgba(0,0,0,.1)">&#8594;</button>
+    </div>
+    <div style="margin-top:20px">
+      <a href="agents.html" style="font-size:.85rem;font-weight:700;color:var(--green);text-decoration:none;display:inline-flex;align-items:center;gap:6px">Bekijk het volledige team <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <script>
+    (function(){
+      var track=document.getElementById('ValenciaTTrack'),slider=document.getElementById('ValenciaTSlider');
+      var cards=track.querySelectorAll('.loc-person');
+      var prev=document.getElementById('ValenciaTPrev'),next=document.getElementById('ValenciaTNext'),idx=0;
+      function vis(){var w=slider.offsetWidth;return Math.max(1,Math.floor((w+16)/176));}
+      function max(){return Math.max(0,cards.length-vis());}
+      function go(n){
+        idx=Math.max(0,Math.min(n,max()));
+        track.style.transform='translateX(-'+(idx*176)+'px)';
+        prev.style.opacity=idx===0?'0':'1';prev.style.pointerEvents=idx===0?'none':'';
+        next.style.opacity=idx>=max()?'0':'1';next.style.pointerEvents=idx>=max()?'none':'';
+      }
+      prev.onclick=function(){go(idx-1);};
+      next.onclick=function(){go(idx+1);};
+      var sx=0;slider.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;},{passive:true});
+      slider.addEventListener('touchend',function(e){var dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40)go(idx+(dx<0?1:-1));});
+      window.addEventListener('resize',function(){go(idx);});
+      go(0);
+    })();
+    </script>
     </div>
 
   </div>
@@ -663,36 +740,64 @@
         <span class="eyebrow">Team Estepona</span>
         <h3 style="font-size:1.25rem;font-weight:800;margin:4px 0 0;color:var(--dark)">De mensen achter de vestiging</h3>
       </div></div>
-      <div class="loc-team-grid">
-    <a href="agents.html" class="loc-team-card" style="text-decoration:none">
-      <div class="loc-team-photo"><img src="images/team/zakaria.elyoussoufi.jpg" alt="Zakaria El Youssoufi" loading="lazy"></div>
-      <div class="loc-team-body">
-        <strong>Zakaria El Youssoufi</strong>
-        <span>Partner Accounting</span>
+      <div id="EsteponaTSlider" style="position:relative;overflow:hidden">
+      <div id="EsteponaTTrack" style="display:flex;gap:16px;transition:transform .4s cubic-bezier(.25,.46,.45,.94)">
+        <a href="agents.html" class="loc-person" style="flex:0 0 160px;text-decoration:none;color:inherit">
+          <div style="width:160px;aspect-ratio:3/4;border-radius:10px;overflow:hidden;background:var(--bg-soft);margin-bottom:10px">
+            <img src="images/team/zakaria.elyoussoufi.jpg" alt="Zakaria El Youssoufi" loading="lazy" style="width:100%;height:100%;object-fit:cover;transition:transform .35s">
+          </div>
+          <strong style="display:block;font-size:.85rem;font-weight:700;color:var(--dark);line-height:1.3">Zakaria El Youssoufi</strong>
+          <span style="font-size:.75rem;color:var(--ink-soft)">Partner Accounting</span>
+        </a>
+        <a href="agents.html" class="loc-person" style="flex:0 0 160px;text-decoration:none;color:inherit">
+          <div style="width:160px;aspect-ratio:3/4;border-radius:10px;overflow:hidden;background:var(--bg-soft);margin-bottom:10px">
+            <img src="images/team/achraf.dahraoui.jpg" alt="Achraf Dahraoui" loading="lazy" style="width:100%;height:100%;object-fit:cover;transition:transform .35s">
+          </div>
+          <strong style="display:block;font-size:.85rem;font-weight:700;color:var(--dark);line-height:1.3">Achraf Dahraoui</strong>
+          <span style="font-size:.75rem;color:var(--ink-soft)">Consultant Accounting</span>
+        </a>
+        <a href="agents.html" class="loc-person" style="flex:0 0 160px;text-decoration:none;color:inherit">
+          <div style="width:160px;aspect-ratio:3/4;border-radius:10px;overflow:hidden;background:var(--bg-soft);margin-bottom:10px">
+            <img src="images/team/alec.faase.jpg" alt="Alec Faase" loading="lazy" style="width:100%;height:100%;object-fit:cover;transition:transform .35s">
+          </div>
+          <strong style="display:block;font-size:.85rem;font-weight:700;color:var(--dark);line-height:1.3">Alec Faase</strong>
+          <span style="font-size:.75rem;color:var(--ink-soft)">Valuations Analyst</span>
+        </a>
+        <a href="agents.html" class="loc-person" style="flex:0 0 160px;text-decoration:none;color:inherit">
+          <div style="width:160px;aspect-ratio:3/4;border-radius:10px;overflow:hidden;background:var(--bg-soft);margin-bottom:10px">
+            <img src="images/team/niek.vandesteeg.jpg" alt="Niek van de Steeg MSc" loading="lazy" style="width:100%;height:100%;object-fit:cover;transition:transform .35s">
+          </div>
+          <strong style="display:block;font-size:.85rem;font-weight:700;color:var(--dark);line-height:1.3">Niek van de Steeg MSc</strong>
+          <span style="font-size:.75rem;color:var(--ink-soft)">Real Estate Advisor</span>
+        </a>
       </div>
-    </a>
-    <a href="agents.html" class="loc-team-card" style="text-decoration:none">
-      <div class="loc-team-photo"><img src="images/team/achraf.dahraoui.jpg" alt="Achraf Dahraoui" loading="lazy"></div>
-      <div class="loc-team-body">
-        <strong>Achraf Dahraoui</strong>
-        <span>Consultant Accounting</span>
-      </div>
-    </a>
-    <a href="agents.html" class="loc-team-card" style="text-decoration:none">
-      <div class="loc-team-photo"><img src="images/team/alec.faase.jpg" alt="Alec Faase" loading="lazy"></div>
-      <div class="loc-team-body">
-        <strong>Alec Faase</strong>
-        <span>Valuations Analyst</span>
-      </div>
-    </a>
-    <a href="agents.html" class="loc-team-card" style="text-decoration:none">
-      <div class="loc-team-photo"><img src="images/team/niek.vandesteeg.jpg" alt="Niek van de Steeg MSc" loading="lazy"></div>
-      <div class="loc-team-body">
-        <strong>Niek van de Steeg MSc</strong>
-        <span>Real Estate Advisor</span>
-      </div>
-    </a>
-      </div>
+      <button id="EsteponaTPrev" style="position:absolute;left:-14px;top:40%;transform:translateY(-50%);width:34px;height:34px;border-radius:50%;background:#fff;border:1px solid var(--line);cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;z-index:2;box-shadow:0 2px 8px rgba(0,0,0,.1)">&#8592;</button>
+      <button id="EsteponaTNext" style="position:absolute;right:-14px;top:40%;transform:translateY(-50%);width:34px;height:34px;border-radius:50%;background:#fff;border:1px solid var(--line);cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:2;box-shadow:0 2px 8px rgba(0,0,0,.1)">&#8594;</button>
+    </div>
+    <div style="margin-top:20px">
+      <a href="agents.html" style="font-size:.85rem;font-weight:700;color:var(--green);text-decoration:none;display:inline-flex;align-items:center;gap:6px">Bekijk het volledige team <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <script>
+    (function(){
+      var track=document.getElementById('EsteponaTTrack'),slider=document.getElementById('EsteponaTSlider');
+      var cards=track.querySelectorAll('.loc-person');
+      var prev=document.getElementById('EsteponaTPrev'),next=document.getElementById('EsteponaTNext'),idx=0;
+      function vis(){var w=slider.offsetWidth;return Math.max(1,Math.floor((w+16)/176));}
+      function max(){return Math.max(0,cards.length-vis());}
+      function go(n){
+        idx=Math.max(0,Math.min(n,max()));
+        track.style.transform='translateX(-'+(idx*176)+'px)';
+        prev.style.opacity=idx===0?'0':'1';prev.style.pointerEvents=idx===0?'none':'';
+        next.style.opacity=idx>=max()?'0':'1';next.style.pointerEvents=idx>=max()?'none':'';
+      }
+      prev.onclick=function(){go(idx-1);};
+      next.onclick=function(){go(idx+1);};
+      var sx=0;slider.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;},{passive:true});
+      slider.addEventListener('touchend',function(e){var dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40)go(idx+(dx<0?1:-1));});
+      window.addEventListener('resize',function(){go(idx);});
+      go(0);
+    })();
+    </script>
     </div>
 
   </div>
