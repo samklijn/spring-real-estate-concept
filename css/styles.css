@@ -5136,3 +5136,10 @@ h2.disp { font-size: clamp(1.6rem, 3vw, 2.4rem); line-height: 1.15; font-weight:
 .team-search-bar input::placeholder{color:var(--ink-soft)}
 .team-search-bar button{background:var(--green);color:#fff;border:none;cursor:pointer;font-size:.82rem;font-weight:700;padding:8px 18px;border-radius:999px;font-family:inherit;transition:background .2s;white-space:nowrap}
 .team-search-bar button:hover{background:#5e8a2b}
+
+/* ── Vacature fact-cards ── */
+.fact-cards { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+.fact-cards .fact-card { background:var(--bg-soft); border:1px solid var(--line); border-radius:12px; padding:20px 24px; position:static; }
+.fact-label { display:block; font-size:.7rem; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--ink-soft); margin-bottom:6px; }
+.fact-value { display:block; font-size:1.05rem; font-weight:700; color:var(--dark); }
+@media(max-width:700px){ .fact-cards { grid-template-columns:1fr 1fr; } }
