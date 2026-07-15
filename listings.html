@@ -34,8 +34,8 @@
 
 /* Body: map LEFT + results RIGHT */
 .lst-body-wrap { display:flex; height:calc(100vh - 72px - 46px); overflow:hidden; }
-.lst-map-side { flex:0 0 50%; position:relative; border-right:1px solid var(--line); }
-#listingsMap { width:100%; height:100%; }
+.lst-map-side { flex:0 0 50%; position:relative; border-right:1px solid var(--line); overflow:hidden; }
+#listingsMap { position:absolute; inset:0; }
 .lst-results-side { flex:1; overflow-y:auto; background:#fff; display:flex; flex-direction:column; }
 .lst-results-head { padding:8px 14px; border-bottom:1px solid var(--line); position:sticky; top:0; background:#fff; z-index:10; flex-shrink:0; display:flex; align-items:center; gap:12px; }
 .lst-count { font-size:.85rem; font-weight:700; color:var(--dark); margin-right:auto; }
@@ -299,7 +299,9 @@
     L.marker([l[0],l[1]],{icon:mkIcon(l[2])}).addTo(map).on('click',function(){window.location.href=l[3];});
   });
   window._lstMap = map;
-  setTimeout(function(){map.invalidateSize();},200);
+  setTimeout(function(){map.invalidateSize();},100);
+  setTimeout(function(){map.invalidateSize();},600);
+  window.addEventListener('load',function(){map.invalidateSize();});
 })();
 
 // Filter state
