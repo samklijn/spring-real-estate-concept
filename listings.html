@@ -13,11 +13,13 @@
 <meta name="theme-color" content="#7CA73F">
 <style>
 /* ── CBRE-style listings layout ── */
-.lst-shell { display:flex; flex-direction:column; height:100vh; overflow:hidden; }
+.lst-outer { max-width:1400px; margin:0 auto; padding:0 clamp(16px,3vw,40px); width:100%; box-sizing:border-box; }
+.lst-shell { display:flex; flex-direction:column; height:calc(100vh - 72px); overflow:hidden; border:1px solid var(--line); border-radius:12px; }
 .lst-topbar {
   display:flex; align-items:center; gap:10px; flex-wrap:wrap;
   padding:10px 16px; border-bottom:1px solid var(--line);
   background:#fff; position:relative; z-index:200; flex-shrink:0;
+  border-radius:12px 12px 0 0;
 }
 .lst-search {
   display:flex; align-items:center; gap:8px;
@@ -78,6 +80,11 @@
 }
 .lst-seg button.active { background:var(--dark); color:#fff; }
 .lst-grid { padding:12px; display:flex; flex-direction:column; gap:10px; }
+/* 2-col grid when map is hidden */
+.lst-body.map-hidden .lst-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; padding:16px; }
+.lst-body.map-hidden .lst-grid .prop-card { flex-direction:column; }
+.lst-body.map-hidden .lst-grid .prop-card .ph { flex:none; width:100%; height:180px; }
+.lst-body.map-hidden .lst-grid .prop-card .body { padding:14px 16px; }
 .lst-grid .prop-card { display:flex; flex-direction:row; border-radius:12px; border:1px solid var(--line); overflow:hidden; text-decoration:none; color:inherit; transition:box-shadow .18s; background:#fff; }
 .lst-grid .prop-card:hover { box-shadow:0 4px 20px rgba(0,0,0,.1); }
 .lst-grid .prop-card .ph { flex:0 0 160px; height:116px; position:relative; overflow:hidden; }
@@ -85,25 +92,27 @@
 .lst-grid .prop-card .ph .prop-status,
 .lst-grid .prop-card .ph .prop-status--beschikbaar { display:none; }
 .lst-grid .prop-card .ph .tag { position:absolute; top:10px; left:10px; font-size:.7rem; font-weight:700; text-transform:uppercase; letter-spacing:.06em; padding:3px 8px; border-radius:4px; color:#fff; }
-.lst-grid .prop-card .ph .tag--huur { background:var(--green); }
+.lst-grid .prop-card .ph .tag--huur { background:#1C1C1B; }
 .lst-grid .prop-card .ph .tag--koop { background:#1C1C1B; }
 .lst-grid .prop-card .ph .fav { position:absolute; top:8px; right:8px; width:28px; height:28px; border-radius:50%; background:rgba(255,255,255,.9); display:flex; align-items:center; justify-content:center; }
 .lst-grid .prop-card .ph .ph-count { position:absolute; bottom:8px; right:8px; background:rgba(0,0,0,.55); color:#fff; font-size:.7rem; padding:2px 7px; border-radius:999px; display:flex; align-items:center; gap:4px; }
-.lst-grid .prop-card .body { flex:1; padding:12px 18px; display:flex; flex-direction:column; justify-content:center; gap:4px; }
-.lst-grid .prop-card .fl-price { font-size:.9rem; font-weight:800; color:var(--dark); }
-.lst-grid .prop-card h3 { font-size:.88rem; font-weight:700; margin:0; color:var(--dark); }
-.lst-grid .prop-card .addr { font-size:.8rem; color:var(--ink-soft); }
-.lst-grid .prop-card .fl-specs { display:flex; gap:12px; flex-wrap:wrap; margin-top:6px; }
-.lst-grid .prop-card .fl-spec { font-size:.78rem; color:var(--ink-soft); display:flex; align-items:center; gap:4px; }
+.lst-grid .prop-card .body { flex:1; padding:12px 18px; display:flex; flex-direction:column; justify-content:flex-start; gap:3px; }
+.lst-grid .prop-card .fl-price { font-size:.88rem; font-weight:800; color:var(--dark); }
+.lst-grid .prop-card h3 { font-size:.9rem; font-weight:700; margin:0; color:var(--dark); }
+.lst-grid .prop-card .addr { font-size:.78rem; color:var(--ink-soft); }
+.lst-grid .prop-card .fl-specs { display:flex; gap:10px; flex-wrap:wrap; margin-top:5px; padding-top:5px; border-top:1px solid var(--line); }
+.lst-grid .prop-card .fl-spec { font-size:.75rem; color:var(--ink-soft); display:flex; align-items:center; gap:4px; }
 .lst-no-results { padding:40px 20px; text-align:center; color:var(--ink-soft); font-size:.9rem; }
 @media(max-width:900px){
-  .lst-shell { height:auto; overflow:visible; }
+  .lst-outer { padding:0 12px; }
+  .lst-shell { height:auto; overflow:visible; border-radius:8px; }
   .lst-body { flex-direction:column; overflow:visible; }
   .lst-map-pane { flex:0 0 auto; height:50vw; min-height:260px; }
   .lst-map-pane.hidden { height:0; min-height:0; overflow:hidden; flex:0 0 0; }
   .lst-results-pane { overflow:visible; }
   .lst-grid .prop-card .ph { flex:0 0 100px; height:90px; }
   .lst-btn-map { margin-left:0; }
+  .lst-body.map-hidden .lst-grid { grid-template-columns:1fr; }
 }
 </style>
 </head>
@@ -161,6 +170,7 @@
 </section>
 
 <!-- ── CBRE-STYLE SHELL ── -->
+<div class="lst-outer">
 <div class="lst-shell">
 
   <!-- TOP BAR -->
@@ -253,6 +263,7 @@
 
   </div>
 </div>
+</div>
 
 <footer class="footer"><div class="container">
   <div class="top">
@@ -343,9 +354,11 @@
 // ── Kaart verbergen ────────────────────────────────────────────────────────
 document.getElementById('toggleMapBtn').addEventListener('click',function(){
   var pane=document.getElementById('mapPane');
+  var body=document.querySelector('.lst-body');
   var label=document.getElementById('toggleMapLabel');
   pane.classList.toggle('hidden');
   var hidden=pane.classList.contains('hidden');
+  body.classList.toggle('map-hidden', hidden);
   label.textContent=hidden?'Kaart tonen':'Kaart verbergen';
   setTimeout(function(){if(window._lstMap)window._lstMap.invalidateSize();},350);
 });
