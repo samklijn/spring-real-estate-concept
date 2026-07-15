@@ -114,27 +114,54 @@
 </section>
 
 <!-- ── KAART ── -->
-<section class="section" style="padding-bottom:0">
+<section class="section section--soft" style="padding-bottom:0">
   <div class="container">
     <div class="sec-head"><div class="t">
-      <span class="eyebrow">Onze locatie</span>
-      <h2 class="disp">Hoofdkantoor <em>Utrecht</em></h2>
+      <span class="eyebrow">Onze vestigingen</span>
+      <h2 class="disp">Twee landen, <em>vier kantoren</em></h2>
     </div></div>
   </div>
-  <div style="margin-top:32px;height:420px;overflow:hidden">
-    <iframe
-      src="https://www.openstreetmap.org/export/embed.html?bbox=5.0900%2C52.0800%2C5.1200%2C52.0960&amp;layer=mapnik&amp;marker=52.0862%2C5.1030"
-      style="width:100%;height:100%;border:0;display:block"
-      loading="lazy"
-      title="Spring Real Estate Utrecht — Croeselaan 28"
-      allowfullscreen></iframe>
+  <div style="margin-top:32px;height:460px;position:relative">
+    <div id="spring-map" style="width:100%;height:100%"></div>
   </div>
-  <div style="background:var(--bg-soft);border-top:1px solid var(--line);padding:16px 0">
-    <div class="container" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
-      <div style="font-size:.88rem;color:var(--ink)"><strong>Spring Real Estate</strong> &middot; Croeselaan 28, 3521 CA Utrecht</div>
-      <a href="https://maps.google.com/?q=Croeselaan+28+Utrecht" target="_blank" rel="noopener" style="font-size:.82rem;font-weight:700;color:var(--green);text-decoration:none;display:inline-flex;align-items:center;gap:5px">Open in Google Maps <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-    </div>
-  </div>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV/XN/WLcE=" crossorigin=""></script>
+  <script>
+  (function(){
+    var map = L.map('spring-map', {zoomControl:true, scrollWheelZoom:false});
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+      maxZoom: 18
+    }).addTo(map);
+
+    var icon = L.divIcon({
+      className:'',
+      html:'<div style="width:32px;height:32px;background:#7CA73F;border-radius:50% 50% 50% 0;transform:rotate(-45deg);border:3px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.25)"></div>',
+      iconSize:[32,32], iconAnchor:[16,32], popupAnchor:[0,-36]
+    });
+
+    var locs = [
+      [52.0862, 5.1030, 'Utrecht', 'Hoofdkantoor', 'Croeselaan 28, 3521 CA Utrecht', 'locaties.html#utrecht'],
+      [52.3402, 4.8717, 'Amsterdam', 'Vestiging Zuidas', 'Parnassusweg 819, 1082 LZ Amsterdam', 'locaties.html#amsterdam'],
+      [39.4699, -0.3763, 'Valencia', 'Internationale vestiging', 'Carrer de Colom 15, 46004 Valencia', 'locaties.html#valencia'],
+      [36.4267, -5.1468, 'Estepona', 'Costa del Sol', 'Av. de Espa&ntilde;a 10, 29680 Estepona', 'locaties.html#estepona']
+    ];
+
+    var bounds = [];
+    locs.forEach(function(l){
+      var popup = '<div style="font-family:Raleway,sans-serif;min-width:160px">'
+        + '<div style="font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#7CA73F;margin-bottom:4px">'+l[3]+'</div>'
+        + '<strong style="font-size:.95rem;color:#1C1C1B">'+l[2]+'</strong>'
+        + '<div style="font-size:.82rem;color:#666;margin:4px 0 10px;line-height:1.4">'+l[4]+'</div>'
+        + '<a href="'+l[5]+'" style="font-size:.8rem;font-weight:700;color:#7CA73F;text-decoration:none">Meer info &rarr;</a>'
+        + '</div>';
+      L.marker([l[0],l[1]], {icon:icon}).addTo(map).bindPopup(popup);
+      bounds.push([l[0],l[1]]);
+    });
+
+    map.fitBounds(bounds, {padding:[40,40]});
+  })();
+  </script>
 </section>
 
 <!-- ── FORMULIER ── -->
@@ -189,16 +216,11 @@
         </div>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- ── KLACHTENPROCEDURE ── -->
-<section class="section section--soft">
-  <div class="container">
-    <div style="max-width:720px;margin:0 auto">
+    <div style="border-top:1px solid var(--line);margin-top:48px;padding-top:40px">
       <span class="eyebrow">Klachten</span>
-      <h2 class="disp" style="margin:8px 0 20px">Klachtenprocedure</h2>
-      <p style="color:var(--ink-soft);font-size:.95rem;line-height:1.75;margin-bottom:28px">Bij Spring Real Estate streven wij naar een hoge kwaliteit van dienstverlening. Toch kan het voorkomen dat u niet tevreden bent over (een onderdeel van) onze dienstverlening. In dat geval horen wij dat graag, zodat wij samen met u tot een passende oplossing kunnen komen en onze dienstverlening kunnen verbeteren.</p>
+      <h2 class="disp" style="margin:8px 0 16px">Klachtenprocedure</h2>
+      <p style="color:var(--ink-soft);font-size:.95rem;line-height:1.75;max-width:64ch;margin-bottom:28px">Bij Spring Real Estate streven wij naar een hoge kwaliteit van dienstverlening. Toch kan het voorkomen dat u niet tevreden bent. In dat geval horen wij dat graag &mdash; zodat wij samen tot een passende oplossing kunnen komen.</p>
       <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px">
 
         <div style="background:#fff;border:1px solid var(--line);border-radius:12px;padding:24px">
