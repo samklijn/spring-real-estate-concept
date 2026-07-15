@@ -7,125 +7,62 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,500&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css?v=63">
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<link rel="stylesheet" href="css/styles.css?v=64">
 <link rel="icon" type="image/png" href="images/favicon.png?v=26">
 <meta name="theme-color" content="#7CA73F">
 <style>
-/* ── CBRE-style listings layout ── */
+/* CBRE-style: horizontal filter bar + map left + results right */
 .lst-outer { width:100%; padding:0; }
-.lst-wrap { display:flex; gap:0; align-items:stretch; min-height:calc(100vh - 72px); }
-.lst-sidebar { width:280px; flex-shrink:0; border-right:1px solid var(--line); background:#fff; overflow-y:auto; padding:20px 0; position:sticky; top:72px; max-height:calc(100vh - 72px); }
-.lst-sidebar-head { padding:16px 20px 8px; border-bottom:1px solid var(--line); margin-bottom:8px; }
-.lst-sidebar-head h3 { font-size:.9rem; font-weight:800; color:var(--dark); margin:0; }
-.lst-filter-group { padding:14px 20px; border-bottom:1px solid var(--line); }
-.lst-filter-label { font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:var(--ink-soft); margin-bottom:10px; display:block; }
-.lst-filter-option { display:flex; align-items:center; gap:8px; padding:5px 0; cursor:pointer; font-size:.88rem; color:var(--ink); }
-.lst-filter-option input { accent-color:var(--green); width:16px; height:16px; cursor:pointer; }
-.lst-filter-range { display:flex; gap:8px; }
-.lst-filter-range input { flex:1; padding:7px 10px; border:1px solid var(--line); border-radius:8px; font-size:.82rem; font-family:inherit; color:var(--dark); outline:none; width:0; min-width:0; }
-.lst-filter-range input:focus { border-color:var(--green); }
-.lst-sidebar-btn { margin:16px 20px 0; }
-.lst-sidebar-btn .btn { width:100%; justify-content:center; }
-.lst-shell { flex:1; min-width:0; display:flex; flex-direction:column; height:calc(100vh - 72px); overflow:hidden; border:1px solid var(--line); border-radius:12px; }
-.lst-topbar {
-  display:flex; align-items:center; gap:10px; flex-wrap:wrap;
-  padding:10px 16px; border-bottom:1px solid var(--line);
-  background:#fff; position:relative; z-index:200; flex-shrink:0;
-  border-radius:12px 12px 0 0;
-}
-.lst-search {
-  display:flex; align-items:center; gap:8px;
-  border:1px solid var(--line); border-radius:8px;
-  padding:8px 14px; background:#fff; min-width:220px; flex:0 0 auto;
-}
-.lst-search svg { color:var(--ink-soft); flex-shrink:0; }
-.lst-search input {
-  border:none; outline:none; font-size:.9rem; font-family:inherit;
-  color:var(--dark); background:transparent; width:160px;
-}
-.lst-chips { display:flex; gap:8px; flex-wrap:wrap; flex:1; }
-.lst-chip {
-  display:inline-flex; align-items:center; gap:5px;
-  padding:7px 14px; border-radius:999px; border:1px solid var(--line);
-  background:#fff; font-size:.82rem; font-weight:600; cursor:pointer;
-  color:var(--dark); transition:border-color .15s, background .15s;
-  white-space:nowrap;
-}
-.lst-chip:hover { border-color:var(--green); }
-.lst-chip.active { background:var(--dark); color:#fff; border-color:var(--dark); }
-.lst-chip svg { width:13px; height:13px; }
-.lst-btn-map {
-  display:inline-flex; align-items:center; gap:6px;
-  padding:7px 14px; border-radius:999px;
-  border:1.5px solid var(--dark); background:#fff;
-  font-size:.82rem; font-weight:700; cursor:pointer; color:var(--dark);
-  white-space:nowrap; margin-left:auto;
-  transition:background .15s, color .15s;
-}
-.lst-btn-map:hover { background:var(--dark); color:#fff; }
 
-.lst-body { display:flex; flex:1; overflow:hidden; }
-.lst-map-pane { flex:0 0 55%; position:relative; transition:flex .3s ease; }
-.lst-map-pane.hidden { flex:0 0 0%; overflow:hidden; }
+/* Filter bar */
+.lst-fb { background:#fff; border-bottom:1px solid var(--line); padding:10px 0; position:sticky; top:72px; z-index:200; }
+.lst-fb-inner { display:flex; align-items:center; gap:10px; padding:0 20px; flex-wrap:wrap; }
+.lst-fb-search { display:flex; align-items:center; gap:8px; border:1px solid var(--line); border-radius:8px; padding:8px 12px; background:#fff; flex:0 0 200px; }
+.lst-fb-search svg { color:var(--ink-soft); flex-shrink:0; }
+.lst-fb-search input { border:none; outline:none; font-size:.87rem; font-family:inherit; color:var(--dark); background:transparent; width:130px; }
+.lst-fb-sel { padding:7px 12px; border:1px solid var(--line); border-radius:8px; font-size:.85rem; font-family:inherit; color:var(--dark); background:#fff; cursor:pointer; outline:none; }
+.lst-fb-sel:focus { border-color:var(--green); }
+.lst-fb-range { display:flex; gap:6px; align-items:center; font-size:.82rem; color:var(--ink-soft); }
+.lst-fb-range input { width:76px; padding:7px 10px; border:1px solid var(--line); border-radius:8px; font-size:.83rem; font-family:inherit; color:var(--dark); outline:none; }
+.lst-fb-range input:focus { border-color:var(--green); }
+.lst-fb-count { margin-left:auto; font-size:.85rem; color:var(--ink-soft); white-space:nowrap; }
+.lst-fb-count strong { color:var(--dark); font-weight:700; }
+.lst-fb-reset { font-size:.82rem; color:var(--ink-soft); background:none; border:none; cursor:pointer; text-decoration:underline; font-family:inherit; }
+
+/* Body: map LEFT + results RIGHT */
+.lst-body-wrap { display:flex; height:calc(100vh - 72px - 53px); overflow:hidden; }
+.lst-map-side { flex:0 0 50%; position:relative; border-right:1px solid var(--line); }
 #listingsMap { width:100%; height:100%; }
-
-.lst-results-pane { flex:1; overflow-y:auto; background:#fff; }
-.lst-results-head {
-  padding:16px 20px 12px; border-bottom:1px solid var(--line);
-  position:sticky; top:0; background:#fff; z-index:10;
-}
-.lst-count { font-size:1.1rem; font-weight:700; color:var(--dark); margin-bottom:8px; }
+.lst-results-side { flex:1; overflow-y:auto; background:#fff; display:flex; flex-direction:column; }
+.lst-results-head { padding:10px 16px; border-bottom:1px solid var(--line); position:sticky; top:0; background:#fff; z-index:10; flex-shrink:0; display:flex; align-items:center; gap:12px; }
+.lst-count { font-size:.88rem; font-weight:700; color:var(--dark); margin-right:auto; }
 .lst-count span { color:var(--green); }
-.lst-sort-row {
-  display:flex; align-items:center; gap:10px; flex-wrap:wrap;
-}
-.lst-search-inner {
-  display:flex; align-items:center; gap:6px; border:1px solid var(--line);
-  border-radius:8px; padding:6px 12px; flex:1; max-width:260px;
-}
-.lst-search-inner input { border:none; outline:none; font-size:.85rem; font-family:inherit; background:transparent; width:100%; color:var(--dark); }
 .lst-seg { display:flex; border:1px solid var(--line); border-radius:8px; overflow:hidden; }
-.lst-seg button {
-  padding:6px 14px; border:none; background:#fff; font-size:.8rem;
-  font-weight:600; cursor:pointer; color:var(--ink-soft);
-  transition:background .15s, color .15s;
-}
+.lst-seg button { padding:6px 13px; border:none; background:#fff; font-size:.79rem; font-weight:600; cursor:pointer; color:var(--ink-soft); transition:background .15s, color .15s; }
 .lst-seg button.active { background:var(--dark); color:#fff; }
 .lst-grid { padding:12px; display:flex; flex-direction:column; gap:10px; }
-/* 2-col grid when map is hidden */
-.lst-body.map-hidden .lst-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; padding:16px; }
-.lst-body.map-hidden .lst-grid .prop-card { flex-direction:column; }
-.lst-body.map-hidden .lst-grid .prop-card .ph { flex:none; width:100%; height:200px; }
-.lst-body.map-hidden .lst-grid .prop-card .body { padding:14px 16px; }
 .lst-grid .prop-card { display:flex; flex-direction:row; border-radius:12px; border:1px solid var(--line); overflow:hidden; text-decoration:none; color:inherit; transition:box-shadow .18s; background:#fff; }
 .lst-grid .prop-card:hover { box-shadow:0 4px 20px rgba(0,0,0,.1); }
 .lst-grid .prop-card .ph { flex:0 0 200px; height:140px; position:relative; overflow:hidden; }
 .lst-grid .prop-card .ph img { width:100%; height:100%; object-fit:cover; }
-.lst-grid .prop-card .ph .prop-status,
-.lst-grid .prop-card .ph .prop-status--beschikbaar { display:none; }
-.lst-grid .prop-card .ph .tag { position:absolute; top:10px; left:10px; font-size:.7rem; font-weight:700; text-transform:uppercase; letter-spacing:.06em; padding:3px 8px; border-radius:4px; color:#fff; }
-.lst-grid .prop-card .ph .tag--huur { background:#1C1C1B; }
-.lst-grid .prop-card .ph .tag--koop { background:#1C1C1B; }
+.lst-grid .prop-card .ph .prop-status, .lst-grid .prop-card .ph .prop-status--beschikbaar { display:none; }
+.lst-grid .prop-card .ph .tag { position:absolute; top:10px; left:10px; font-size:.7rem; font-weight:700; text-transform:uppercase; letter-spacing:.06em; padding:3px 8px; border-radius:4px; color:#fff; background:#1C1C1B; }
 .lst-grid .prop-card .ph .fav { position:absolute; top:8px; right:8px; width:28px; height:28px; border-radius:50%; background:rgba(255,255,255,.9); display:flex; align-items:center; justify-content:center; }
 .lst-grid .prop-card .ph .ph-count { position:absolute; bottom:8px; right:8px; background:rgba(0,0,0,.55); color:#fff; font-size:.7rem; padding:2px 7px; border-radius:999px; display:flex; align-items:center; gap:4px; }
-.lst-grid .prop-card .body { flex:1; padding:14px 20px; display:flex; flex-direction:column; justify-content:flex-start; gap:4px; }
-.lst-grid .prop-card .fl-price { font-size:.92rem; font-weight:800; color:var(--dark); margin-bottom:2px; }
-.lst-grid .prop-card h3 { font-size:.95rem; font-weight:700; margin:0 0 2px; color:var(--dark); }
-.lst-grid .prop-card .addr { font-size:.78rem; color:var(--ink-soft); }
+.lst-grid .prop-card .body { flex:1; padding:14px 18px; display:flex; flex-direction:column; justify-content:flex-start; gap:4px; }
+.lst-grid .prop-card .fl-price { font-size:.9rem; font-weight:800; color:var(--dark); margin-bottom:2px; }
+.lst-grid .prop-card h3 { font-size:.93rem; font-weight:700; margin:0 0 2px; color:var(--dark); }
+.lst-grid .prop-card .addr { font-size:.77rem; color:var(--ink-soft); }
 .lst-grid .prop-card .fl-specs { display:flex; gap:10px; flex-wrap:wrap; margin-top:5px; padding-top:5px; border-top:1px solid var(--line); }
-.lst-grid .prop-card .fl-spec { font-size:.75rem; color:var(--ink-soft); display:flex; align-items:center; gap:4px; }
+.lst-grid .prop-card .fl-spec { font-size:.74rem; color:var(--ink-soft); display:flex; align-items:center; gap:4px; }
 .lst-no-results { padding:40px 20px; text-align:center; color:var(--ink-soft); font-size:.9rem; }
+
 @media(max-width:900px){
-  .lst-outer { padding:0 12px; }
-  .lst-shell { height:auto; overflow:visible; border-radius:8px; }
-  .lst-body { flex-direction:column; overflow:visible; }
-  .lst-map-pane { flex:0 0 auto; height:50vw; min-height:260px; }
-  .lst-map-pane.hidden { height:0; min-height:0; overflow:hidden; flex:0 0 0; }
-  .lst-results-pane { overflow:visible; }
-  .lst-grid .prop-card .ph { flex:0 0 100px; height:90px; }
-  .lst-btn-map { margin-left:0; }
-  .lst-body.map-hidden .lst-grid { grid-template-columns:1fr; }
+  .lst-fb-inner { gap:8px; padding:0 12px; }
+  .lst-fb-search { flex:0 0 auto; }
+  .lst-body-wrap { flex-direction:column; height:auto; overflow:visible; }
+  .lst-map-side { flex:0 0 auto; height:52vw; min-height:260px; border-right:none; border-bottom:1px solid var(--line); }
+  .lst-results-side { overflow:visible; }
 }
 </style>
 </head>
@@ -186,84 +123,57 @@
   </div>
 </section>
 
-<!-- ── CBRE-STYLE SHELL ── -->
+<!-- ── CBRE-STYLE: FILTER BAR TOP · MAP LEFT · RESULTS RIGHT ── -->
 <div class="lst-outer">
-<div class="lst-wrap">
-<!-- FILTER SIDEBAR -->
-<aside class="lst-sidebar">
-  <div class="lst-sidebar-head">
-    <h3>Filters</h3>
-  </div>
 
-  <div class="lst-filter-group">
-    <span class="lst-filter-label">Aanbodtype</span>
-    <label class="lst-filter-option"><input type="radio" name="sb-offer" value="" checked onchange="applyFilters()"> Huur &amp; koop</label>
-    <label class="lst-filter-option"><input type="radio" name="sb-offer" value="huur" onchange="applyFilters()"> Verhuur</label>
-    <label class="lst-filter-option"><input type="radio" name="sb-offer" value="koop" onchange="applyFilters()"> Koop &amp; belegging</label>
-  </div>
-
-  <div class="lst-filter-group">
-    <span class="lst-filter-label">Type vastgoed</span>
-    <label class="lst-filter-option"><input type="checkbox" value="kantoor" class="sb-type" onchange="applyFilters()"> Kantoor</label>
-    <label class="lst-filter-option"><input type="checkbox" value="bedrijf" class="sb-type" onchange="applyFilters()"> Bedrijfsruimte</label>
-    <label class="lst-filter-option"><input type="checkbox" value="winkel" class="sb-type" onchange="applyFilters()"> Winkelruimte</label>
-    <label class="lst-filter-option"><input type="checkbox" value="belegging" class="sb-type" onchange="applyFilters()"> Belegging</label>
-  </div>
-
-  <div class="lst-filter-group">
-    <span class="lst-filter-label">Stad</span>
-    <label class="lst-filter-option"><input type="checkbox" value="amsterdam" class="sb-loc" onchange="applyFilters()"> Amsterdam</label>
-    <label class="lst-filter-option"><input type="checkbox" value="utrecht" class="sb-loc" onchange="applyFilters()"> Utrecht</label>
-    <label class="lst-filter-option"><input type="checkbox" value="valencia" class="sb-loc" onchange="applyFilters()"> Valencia</label>
-    <label class="lst-filter-option"><input type="checkbox" value="estepona" class="sb-loc" onchange="applyFilters()"> Estepona</label>
-  </div>
-
-  <div class="lst-filter-group">
-    <span class="lst-filter-label">Oppervlak (m&sup2;)</span>
-    <div class="lst-filter-range">
-      <input type="number" id="sbAreaMin" placeholder="Min" min="0" onchange="applyFilters()">
-      <input type="number" id="sbAreaMax" placeholder="Max" min="0" onchange="applyFilters()">
+<div class="lst-fb">
+  <div class="lst-fb-inner">
+    <div class="lst-fb-search">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>
+      <input id="listSearch" type="text" placeholder="Zoek adres&hellip;" oninput="doListSearch()">
     </div>
-  </div>
-
-  <div class="lst-sidebar-btn">
-    <button class="btn btn--ghost" onclick="resetFilters()">Filters wissen</button>
-  </div>
-</aside>
-
-<div class="lst-shell">
-
-  <!-- TOP BAR -->
-  <div class="lst-topbar">
-    <div class="lst-count" style="font-size:1rem;font-weight:700;color:var(--dark)"><span id="resultCount">16</span> objecten beschikbaar</div>
-    <div style="margin-left:auto;display:flex;gap:8px;align-items:center">
-      <div class="lst-search-inner">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>
-        <input id="listSearch" type="text" placeholder="Zoek adres&hellip;" oninput="doListSearch()">
-      </div>
-      <button class="lst-btn-map" id="toggleMapBtn">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>
-        <span id="toggleMapLabel">Kaart verbergen</span>
-      </button>
+    <select class="lst-fb-sel" id="fbType" onchange="applyFilters()">
+      <option value="">Alle typen</option>
+      <option value="kantoor">Kantoor</option>
+      <option value="bedrijf">Bedrijfsruimte</option>
+      <option value="winkel">Winkelruimte</option>
+      <option value="belegging">Belegging</option>
+    </select>
+    <select class="lst-fb-sel" id="fbLoc" onchange="applyFilters()">
+      <option value="">Alle steden</option>
+      <option value="amsterdam">Amsterdam</option>
+      <option value="utrecht">Utrecht</option>
+      <option value="valencia">Valencia</option>
+      <option value="estepona">Estepona</option>
+    </select>
+    <div class="lst-fb-range">
+      <input type="number" id="sbAreaMin" placeholder="m&sup2; min" oninput="applyFilters()">
+      <span>&mdash;</span>
+      <input type="number" id="sbAreaMax" placeholder="m&sup2; max" oninput="applyFilters()">
     </div>
+    <button class="lst-fb-reset" onclick="resetFilters()">Wissen</button>
+    <span class="lst-fb-count"><strong id="resultCount">16</strong> objecten</span>
+  </div>
+</div>
+
+<div class="lst-body-wrap">
+
+  <!-- MAP (left) -->
+  <div class="lst-map-side" id="mapPane">
+    <div id="listingsMap"></div>
   </div>
 
-  <!-- BODY: RESULTS (left) + MAP (right) -->
-  <div class="lst-body">
-
-    <!-- RESULTS PANE (left) -->
-    <div class="lst-results-pane" id="resultsPane">
-      <div class="lst-results-head">
-        <div class="lst-sort-row">
-          <div class="lst-seg" id="offerSeg">
-            <button class="active" data-offer="">Alle</button>
-            <button data-offer="huur">Verhuur</button>
-            <button data-offer="koop">Koop &amp; belegging</button>
-          </div>
-        </div>
+  <!-- RESULTS (right) -->
+  <div class="lst-results-side">
+    <div class="lst-results-head">
+      <div class="lst-count"><span id="resultCountHead">16</span> objecten</div>
+      <div class="lst-seg" id="offerSeg">
+        <button class="active" data-offer="">Alle</button>
+        <button data-offer="huur">Verhuur</button>
+        <button data-offer="koop">Koop</button>
       </div>
-
-      <div class="lst-grid" id="lstGrid">
+    </div>
+    <div class="lst-grid" id="lstGrid">
 <a class="prop-card flisting" href="aanbod-gustav-mahlerlaan-2999-1082-mk-amsterdam.html" data-offer="huur" data-type="kantoor" data-loc="amsterdam" data-area="1250" data-price="720" data-avail="direct" data-wp="100" data-wensen="parkeren vergaderen lift receptie breeam"><div class="ph"><span class="prop-status">Beschikbaar</span><span class="prop-status prop-status--beschikbaar">Beschikbaar</span><span class="tag tag--huur" data-tr="1" data-en="For rent" data-es="En alquiler">Te huur</span><span class="fav" aria-label="Bewaar"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.5-9.5-9C1 9 2.5 5.5 6 5.5c2 0 3.2 1.2 4 2.3.8-1.1 2-2.3 4-2.3 3.5 0 5 3.5 3.5 6.5C19 16.5 12 21 12 21z"/></svg></span><span class="ph-count"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.5"/><path d="M8 6l1.5-2h5L16 6"/></svg> 18</span><img src="images/photo-1.jpg" alt="Foto: Gustav Mahlerlaan 2999"></div><div class="body"><div class="fl-price">â‚¬720 <small>/mÂ²/jaar</small></div><h3>Gustav Mahlerlaan 2999</h3><span class="addr">1082 MK Amsterdam Â· Zuidas</span><div class="fl-specs"><span class="fl-spec"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h7v7H3zM14 14h7v7h-7z"/><path d="M14 3l7 7M10 14l-7 7"/></svg> <span data-tr="1" data-en="from 1,250 mÂ²" data-es="desde 1.250 mÂ²">vanaf 1.250 mÂ²</span></span><span class="fl-spec"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13"/></svg> <span data-tr="1" data-en="Office space" data-es="Oficina">Kantoorruimte</span></span><span class="fl-spec"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg> <span data-tr="1" data-en="Available now" data-es="Disponible ya">Direct beschikbaar</span></span></div></div></a>
 <a class="prop-card flisting" href="aanbod-claude-debussylaan-24-1082-md-amsterdam.html" data-offer="huur" data-type="kantoor" data-loc="amsterdam" data-area="480" data-price="395" data-avail="direct" data-wp="40" data-wensen="vergaderen lift ov"><div class="ph"><span class="prop-status">Beschikbaar</span><span class="prop-status prop-status--beschikbaar">Beschikbaar</span><span class="tag tag--huur" data-tr="1" data-en="For rent" data-es="En alquiler">Te huur</span><span class="fav" aria-label="Bewaar"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.5-9.5-9C1 9 2.5 5.5 6 5.5c2 0 3.2 1.2 4 2.3.8-1.1 2-2.3 4-2.3 3.5 0 5 3.5 3.5 6.5C19 16.5 12 21 12 21z"/></svg></span><span class="ph-count"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.5"/><path d="M8 6l1.5-2h5L16 6"/></svg> 12</span><img src="images/photo-2.jpg" alt="Foto: Claude Debussylaan 24"></div><div class="body"><div class="fl-price">â‚¬395 <small>/mÂ²/jaar</small></div><h3>Claude Debussylaan 24</h3><span class="addr">1082 MD Amsterdam Â· Zuidas</span><div class="fl-specs"><span class="fl-spec"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h7v7H3zM14 14h7v7h-7z"/><path d="M14 3l7 7M10 14l-7 7"/></svg> <span data-tr="1" data-en="from 480 mÂ²" data-es="desde 480 mÂ²">vanaf 480 mÂ²</span></span><span class="fl-spec"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13"/></svg> <span data-tr="1" data-en="Office space" data-es="Oficina">Kantoorruimte</span></span><span class="fl-spec"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg> <span data-tr="1" data-en="Available now" data-es="Disponible ya">Direct beschikbaar</span></span></div></div></a>
 <a class="prop-card flisting" href="aanbod-mahler-tower-14e-etage-1082-ma-amsterdam.html" data-offer="huur" data-type="kantoor" data-loc="amsterdam" data-area="720" data-price="510" data-avail="overleg" data-wp="60" data-wensen="parkeren vergaderen lift receptie breeam"><div class="ph"><span class="prop-status">Beschikbaar</span><span class="prop-status prop-status--verhuurd">Verhuurd</span><span class="tag tag--huur" data-tr="1" data-en="For rent" data-es="En alquiler">Te huur</span><span class="fav" aria-label="Bewaar"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.5-9.5-9C1 9 2.5 5.5 6 5.5c2 0 3.2 1.2 4 2.3.8-1.1 2-2.3 4-2.3 3.5 0 5 3.5 3.5 6.5C19 16.5 12 21 12 21z"/></svg></span><span class="ph-count"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.5"/><path d="M8 6l1.5-2h5L16 6"/></svg> 20</span><img src="images/hero.jpg" alt="Foto: Mahler Tower Â· 14e etage"></div><div class="body"><div class="fl-price">â‚¬510 <small>/mÂ²/jaar</small></div><h3>Mahler Tower Â· 14e etage</h3><span class="addr">1082 MA Amsterdam Â· Zuidas</span><div class="fl-specs"><span class="fl-spec"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h7v7H3zM14 14h7v7h-7z"/><path d="M14 3l7 7M10 14l-7 7"/></svg> <span data-tr="1" data-en="from 720 mÂ²" data-es="desde 720 mÂ²">vanaf 720 mÂ²</span></span><span class="fl-spec"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13"/></svg> <span data-tr="1" data-en="Office space" data-es="Oficina">Kantoorruimte</span></span><span class="fl-spec"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg> <span data-tr="1" data-en="From Q3 2026" data-es="Desde Q3 2026">Per Q3 2026</span></span></div></div></a>
@@ -280,37 +190,33 @@
 <a class="prop-card flisting" href="aanbod-croeselaan-28-3521-ca-utrecht.html" data-offer="koop" data-type="belegging" data-loc="utrecht" data-area="3400" data-price="8900000" data-avail="overleg" data-wp="0" data-wensen="parkeren vergaderen lift breeam"><div class="ph"><span class="prop-status">Beschikbaar</span><span class="prop-status prop-status--verhuurd">Verhuurd</span><span class="tag tag--koop" data-tr="1" data-en="For sale" data-es="En venta">Te koop</span><span class="fav" aria-label="Bewaar"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.5-9.5-9C1 9 2.5 5.5 6 5.5c2 0 3.2 1.2 4 2.3.8-1.1 2-2.3 4-2.3 3.5 0 5 3.5 3.5 6.5C19 16.5 12 21 12 21z"/></svg></span><span class="ph-count"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.5"/><path d="M8 6l1.5-2h5L16 6"/></svg> 20</span><img src="images/hero.jpg" alt="Foto: Croeselaan 28"></div><div class="body"><div class="fl-price">â‚¬8,9 mln <small>k.k.</small></div><h3>Croeselaan 28</h3><span class="addr">3521 CA Utrecht Â· Beurskwartier</span><div class="fl-specs"><span class="fl-spec"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h7v7H3zM14 14h7v7h-7z"/><path d="M14 3l7 7M10 14l-7 7"/></svg> <span data-tr="1" data-en="3,400 mÂ² LFA" data-es="3.400 mÂ²">3.400 mÂ² v.v.o.</span></span><span class="fl-spec"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13"/></svg> <span data-tr="1" data-en="Investment property" data-es="Inmueble de inversiÃ³n">Beleggingsobject</span></span><span class="fl-spec"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l6-6 4 4 8-8M21 7v6M21 7h-6"/></svg> <span data-tr="1" data-en="6.0% gross yield" data-es="6,0% rent. bruta">6,0% BAR</span></span></div></div></a>
 <a class="prop-card flisting" href="aanbod-carrer-de-col-n-28-46004-valencia.html" data-offer="koop" data-type="belegging" data-loc="valencia" data-area="1450" data-price="3800000" data-avail="overleg" data-wp="0" data-wensen="vergaderen"><div class="ph"><span class="prop-status">Beschikbaar</span><span class="prop-status prop-status--verhuurd">Verhuurd</span><span class="tag tag--koop" data-tr="1" data-en="For sale" data-es="En venta">Te koop</span><span class="fav" aria-label="Bewaar"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.5-9.5-9C1 9 2.5 5.5 6 5.5c2 0 3.2 1.2 4 2.3.8-1.1 2-2.3 4-2.3 3.5 0 5 3.5 3.5 6.5C19 16.5 12 21 12 21z"/></svg></span><span class="ph-count"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.5"/><path d="M8 6l1.5-2h5L16 6"/></svg> 18</span><img src="images/photo-1.jpg" alt="Foto: Carrer de ColÃ³n 28"></div><div class="body"><div class="fl-price">â‚¬3,8 mln <small>k.k.</small></div><h3>Carrer de ColÃ³n 28</h3><span class="addr">46004 Valencia Â· EspaÃ±a</span><div class="fl-specs"><span class="fl-spec"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h7v7H3zM14 14h7v7h-7z"/><path d="M14 3l7 7M10 14l-7 7"/></svg> <span data-tr="1" data-en="1,450 mÂ²" data-es="1.450 mÂ²">1.450 mÂ²</span></span><span class="fl-spec"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13"/></svg> <span data-tr="1" data-en="Investment property" data-es="Inmueble de inversiÃ³n">Beleggingsobject</span></span><span class="fl-spec"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l6-6 4 4 8-8M21 7v6M21 7h-6"/></svg> <span data-tr="1" data-en="7.1% gross yield" data-es="7,1% rent. bruta">7,1% BAR</span></span></div></div></a>
 <a class="prop-card flisting" href="aanbod-estepona-marina-plaza-29680-estepona.html" data-offer="koop" data-type="belegging" data-loc="estepona" data-area="220" data-price="1200000" data-avail="direct" data-wp="0" data-wensen="parkeren"><div class="ph"><span class="prop-status">Beschikbaar</span><span class="prop-status prop-status--beschikbaar">Beschikbaar</span><span class="tag tag--koop" data-tr="1" data-en="For sale" data-es="En venta">Te koop</span><span class="fav" aria-label="Bewaar"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.5-9.5-9C1 9 2.5 5.5 6 5.5c2 0 3.2 1.2 4 2.3.8-1.1 2-2.3 4-2.3 3.5 0 5 3.5 3.5 6.5C19 16.5 12 21 12 21z"/></svg></span><span class="ph-count"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.5"/><path d="M8 6l1.5-2h5L16 6"/></svg> 14</span><img src="images/hero.jpg" alt="Foto: Estepona Marina Plaza"></div><div class="body"><div class="fl-price">â‚¬1,2 mln <small>k.k.</small></div><h3>Estepona Marina Plaza</h3><span class="addr">29680 Estepona Â· Costa del Sol</span><div class="fl-specs"><span class="fl-spec"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h7v7H3zM14 14h7v7h-7z"/><path d="M14 3l7 7M10 14l-7 7"/></svg> <span data-tr="1" data-en="220 mÂ²" data-es="220 mÂ²">220 mÂ²</span></span><span class="fl-spec"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13"/></svg> <span data-tr="1" data-en="Investment property" data-es="Inmueble de inversiÃ³n">Beleggingsobject</span></span><span class="fl-spec"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l6-6 4 4 8-8M21 7v6M21 7h-6"/></svg> <span data-tr="1" data-en="6.8% gross yield" data-es="6,8% rent. bruta">6,8% BAR</span></span></div></div></a>
-      </div>
-      <div class="lst-no-results" id="noResults" style="display:none">Geen objecten gevonden voor uw zoekopdracht.</div>
+    </div>
+    <div class="lst-no-results" id="noResults" style="display:none">Geen objecten gevonden voor uw zoekopdracht.</div>
 
-      <!-- Off-market -->
-      <div style="margin:8px 16px 24px;background:var(--dark);border-radius:14px;padding:28px 32px;color:#fff">
-        <div style="display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap">
-          <div>
-            <div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--green-soft);margin-bottom:6px">Off-market aanbod</div>
-            <h3 style="margin:0 0 8px;font-size:1.15rem">Meer aanbod dan online staat</h3>
-            <p style="font-size:.88rem;color:rgba(255,255,255,.65);margin:0;max-width:40ch">Ontvang discreet aanbod dat niet publiek wordt getoond. Registreer uw zoekopdracht.</p>
-          </div>
-          <a href="contact.html" class="btn btn--primary">Registreer zoekopdracht <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <!-- Off-market -->
+    <div style="margin:8px 16px 24px;background:var(--dark);border-radius:14px;padding:28px 32px;color:#fff">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap">
+        <div>
+          <div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--green-soft);margin-bottom:6px">Off-market aanbod</div>
+          <h3 style="margin:0 0 8px;font-size:1.15rem">Meer aanbod dan online staat</h3>
+          <p style="font-size:.88rem;color:rgba(255,255,255,.65);margin:0;max-width:40ch">Ontvang discreet aanbod dat niet publiek wordt getoond. Registreer uw zoekopdracht.</p>
         </div>
+        <a href="contact.html" class="btn btn--primary">Registreer zoekopdracht <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
     </div>
-
-    <!-- MAP PANE (right) -->
-    <div class="lst-map-pane" id="mapPane">
-      <div id="listingsMap"></div>
-    </div>
-
   </div>
+
 </div>
 </div>
-</div>
+
 
 <footer class="footer"><div class="container">
   <div class="top">
     <div><img src="images/logo-white.png" alt="Spring Real Estate" class="logo-img" style="height:28px;opacity:.85;margin-bottom:12px;display:block"><p style="font-size:.82rem;color:#8a8d82;max-width:24ch;line-height:1.55">Powered by People.<br>Backed by Tech.</p></div>
     <div><h4>Doelgroepen</h4><ul><li><a href="doelgroep-gebruiker.html">Gebruiker</a></li><li><a href="doelgroep-eigenaar.html">Eigenaar</a></li><li><a href="doelgroep-investeerder.html">Investeerder</a></li><li><a href="doelgroep-ontwikkelaar.html">Ontwikkelaar</a></li></ul></div>
-    <div><h4>Navigatie</h4><ul><li><a href="listings.html">Aanbod</a></li><li><a href="cases.html">Cases</a></li><li><a href="resources.html">Nieuws</a></li><li><a href="agents.html">Team</a></li><li><a href="about.html">Over ons</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div><h4>Navigatie</h4><ul><li><a href="listings.html">Aanbod</a></li><li><a href="cases.html">Cases</a></li><li><a href="resources.html">Nieuws</a></li><li><a href="agents.html">Team</a></li><li><a href="begrippen.html">Begrippen</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="about.html">Over ons</a></li><li><a href="contact.html">Contact</a></li></ul></div>
     <div><h4>Vestigingen</h4><ul><li><a href="locaties.html#amsterdam">Amsterdam</a></li><li><a href="locaties.html#utrecht">Utrecht</a></li><li><a href="locaties.html#valencia">Valencia (ES)</a></li><li><a href="locaties.html#estepona">Estepona (ES)</a></li></ul></div>
     <div class="news"><h4>Nieuwsbrief</h4><p style="font-size:.9rem">Marktinzichten &amp; nieuw aanbod in uw inbox.</p><form onsubmit="return false"><input type="email" placeholder="Uw e-mailadres"><button class="btn btn--primary" style="width:100%">Inschrijven</button></form></div>
   </div>
@@ -367,10 +273,9 @@
 })();
 </script>
 
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
 <script>
-// ── Map init ──────────────────────────────────────────────────────────────
+// Map init
 (function(){
   var map = L.map('listingsMap', {scrollWheelZoom:false, zoomControl:true}).setView([48,4],4);
   L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',{
@@ -392,72 +297,54 @@
   setTimeout(function(){map.invalidateSize();},200);
 })();
 
-// ── Kaart verbergen ────────────────────────────────────────────────────────
-document.getElementById('toggleMapBtn').addEventListener('click',function(){
-  var pane=document.getElementById('mapPane');
-  var body=document.querySelector('.lst-body');
-  var label=document.getElementById('toggleMapLabel');
-  pane.classList.toggle('hidden');
-  var hidden=pane.classList.contains('hidden');
-  body.classList.toggle('map-hidden', hidden);
-  label.textContent=hidden?'Kaart tonen':'Kaart verbergen';
-  setTimeout(function(){if(window._lstMap)window._lstMap.invalidateSize();},350);
-});
+// Filter state
+var _offerFilter = '';
 
-// ── Segment filter (Alle / Verhuur / Koop) ────────────────────────────────
-var _offerFilter='';
+// Segment: Alle / Verhuur / Koop
 document.getElementById('offerSeg').addEventListener('click',function(e){
   var btn=e.target.closest('button[data-offer]');
-  if(!btn)return;
-  _offerFilter=btn.dataset.offer;
-  document.querySelectorAll('#offerSeg button').forEach(function(b){b.classList.toggle('active',b===btn);});
-  var chip=document.getElementById('chipOffer');
-  chip.textContent=btn.dataset.offer===''?'Huur & Koop':btn.textContent;
+  if(!btn) return;
+  _offerFilter = btn.dataset.offer;
+  document.querySelectorAll('#offerSeg button').forEach(function(b){ b.classList.toggle('active',b===btn); });
   applyFilters();
 });
 
-// ── Chip filters ──────────────────────────────────────────────────────────
-var _chipState={type:'',loc:''};
-var chipCycles={
-  type:[['','Alle types'],['kantoor','Kantoor'],['bedrijfsruimte','Bedrijfsruimte'],['winkel','Winkel'],['belegging','Belegging']],
-  loc:[['','Alle steden'],['amsterdam','Amsterdam'],['utrecht','Utrecht'],['valencia','Valencia'],['estepona','Estepona']]
-};
-document.querySelectorAll('.lst-chip[data-filter]').forEach(function(chip){
-  chip.addEventListener('click',function(){
-    var f=chip.dataset.filter;
-    if(!chipCycles[f])return;
-    var cycle=chipCycles[f];
-    var cur=_chipState[f];
-    var idx=cycle.findIndex(function(c){return c[0]===cur;});
-    var next=cycle[(idx+1)%cycle.length];
-    _chipState[f]=next[0];
-    chip.querySelector('span[id]').textContent=next[1];
-    chip.classList.toggle('active',next[0]!=='');
-    applyFilters();
-  });
-});
+function doListSearch(){ applyFilters(); }
 
-// ── Text search ───────────────────────────────────────────────────────────
-function doListSearch(){
-  applyFilters();
-}
-
-// ── Apply all filters ─────────────────────────────────────────────────────
 function applyFilters(){
-  var q=(document.getElementById('listSearch').value||'').toLowerCase();
+  var q   = (document.getElementById('listSearch').value||'').toLowerCase();
+  var typ = document.getElementById('fbType').value;
+  var loc = document.getElementById('fbLoc').value;
+  var mn  = parseInt(document.getElementById('sbAreaMin').value)||0;
+  var mx  = parseInt(document.getElementById('sbAreaMax').value)||Infinity;
   var count=0;
   document.querySelectorAll('.flisting').forEach(function(c){
-    var matchOffer=!_offerFilter||c.dataset.offer===_offerFilter;
-    var matchType=!_chipState.type||c.dataset.type===_chipState.type;
-    var matchLoc=!_chipState.loc||c.dataset.loc===_chipState.loc;
-    var matchText=!q||(c.querySelector('h3')||{}).textContent.toLowerCase().includes(q)||
-                       (c.querySelector('.addr')||{}).textContent.toLowerCase().includes(q);
-    var show=matchOffer&&matchType&&matchLoc&&matchText;
-    c.style.display=show?'':'none';
-    if(show)count++;
+    var area=parseInt(c.dataset.area||0);
+    var ok = (!_offerFilter||c.dataset.offer===_offerFilter)
+          && (!typ||c.dataset.type===typ)
+          && (!loc||c.dataset.loc===loc)
+          && (mn===0&&mx===Infinity||(area>=mn&&area<=mx))
+          && (!q||(c.querySelector('h3')||{}).textContent.toLowerCase().includes(q)
+                ||(c.querySelector('.addr')||{}).textContent.toLowerCase().includes(q));
+    c.style.display=ok?'':'none';
+    if(ok) count++;
   });
   document.getElementById('resultCount').textContent=count;
-  document.getElementById('noResults').style.display=count===0?'block':'none';
+  var rch=document.getElementById('resultCountHead');
+  if(rch) rch.textContent=count;
+  var nr=document.getElementById('noResults');
+  if(nr) nr.style.display=count===0?'':'none';
+}
+
+function resetFilters(){
+  document.getElementById('listSearch').value='';
+  document.getElementById('fbType').value='';
+  document.getElementById('fbLoc').value='';
+  document.getElementById('sbAreaMin').value='';
+  document.getElementById('sbAreaMax').value='';
+  _offerFilter='';
+  document.querySelectorAll('#offerSeg button').forEach(function(b){ b.classList.toggle('active',b.dataset.offer===''); });
+  applyFilters();
 }
 </script>
 </body>
