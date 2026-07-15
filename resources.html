@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,500&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css?v=60">
+<link rel="stylesheet" href="css/styles.css?v=62">
 <link rel="icon" type="image/png" href="images/favicon.png?v=26">
 <link rel="apple-touch-icon" href="images/apple-touch-icon.png?v=26">
 <meta name="theme-color" content="#7CA73F">
@@ -365,9 +365,9 @@ function filterArticles(){
   var cat=(document.getElementById("artCat").value||"").toLowerCase();
   var sort=document.getElementById("artSort").value;
   var grid=document.getElementById("articleGrid");
-  var cards=Array.from(grid.querySelectorAll(".ov-card"));
+  var cards=Array.from(grid.querySelectorAll(".news-card"));
   cards.forEach(function(c){
-    var t=(c.querySelector(".ov-card__title")||{}).textContent||"";
+    var t=(c.querySelector(".news-card__title")||{}).textContent||"";
     var dc=c.dataset.cat||"";
     var matchQ=!q||t.toLowerCase().includes(q)||dc.includes(q);
     var matchC=!cat||dc===cat;
@@ -376,8 +376,8 @@ function filterArticles(){
   if(sort==="az"||sort==="za"){
     var vis=cards.filter(function(c){return c.style.display!=="none";});
     vis.sort(function(a,b){
-      var ta=(a.querySelector(".ov-card__title")||{}).textContent||"";
-      var tb=(b.querySelector(".ov-card__title")||{}).textContent||"";
+      var ta=(a.querySelector(".news-card__title")||{}).textContent||"";
+      var tb=(b.querySelector(".news-card__title")||{}).textContent||"";
       return sort==="az"?ta.localeCompare(tb):tb.localeCompare(ta);
     });
     vis.forEach(function(c){grid.appendChild(c);});
