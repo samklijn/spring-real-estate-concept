@@ -55,6 +55,7 @@
   </div>
 </div></header>
 
+<!-- ── HERO ── -->
 <section class="page-hero" style="padding:10px 0 12px !important;position:relative;overflow:hidden">
   <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;z-index:0">
     <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;opacity:.18"><defs><pattern id="dots" x="0" y="0" width="28" height="28" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#7CA73F"/></pattern></defs><rect width="100%" height="100%" fill="url(#dots)"/></svg>
@@ -62,154 +63,59 @@
   </div>
   <div class="container" style="position:relative;z-index:1">
     <div class="crumbs"><a href="index.html">Home</a> <span style="opacity:.4;margin:0 4px">/</span> Werken bij Spring</div>
-    <h1 style="margin:6px 0 4px">Meer dan een <em>baan</em></h1>
-    <p style="color:rgba(255,255,255,.65);font-size:.92rem;margin:0 0 12px;max-width:52ch">Bij Spring groei je in een ambitieus team met korte lijnen, echte verantwoordelijkheid en ruimte om te ondernemen &mdash; in NL en Spanje.</p>
-    <div style="display:flex;gap:10px;flex-wrap:wrap">
-      <a href="vacatures.html" class="cta-pill">Bekijk vacatures <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      <a href="contact.html" class="btn btn--ghost btn--sm" style="border-color:rgba(255,255,255,.3);color:#fff;border-radius:999px;padding:8px 20px;font-size:.85rem;font-weight:600">Open sollicitatie</a>
-    </div>
+    <h1 style="margin:6px 0 4px">Meer dan<br>een <em>baan</em></h1>
+    <p style="color:rgba(255,255,255,.65);font-size:.92rem;margin:0 0 12px;max-width:52ch">Bij Spring groei je in een ambitieus team met korte lijnen, echte verantwoordelijkheid en ruimte om te ondernemen &mdash; in Nederland en Spanje.</p>
+    <a href="vacatures.html" class="cta-pill">Bekijk vacatures <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
   </div>
 </section>
 
-<!-- ── FOTO SLIDER ── -->
-<section class="section section--tight" style="padding-top:32px;padding-bottom:0">
+<!-- ── FOTO GRID ── -->
+<section class="section section--tight" style="padding-top:32px;padding-bottom:32px">
   <div class="container">
-    <div id="cultureSlider" style="position:relative;overflow:hidden">
-      <!-- track -->
-      <div id="cultureTrack" style="display:flex;gap:16px;transition:transform .4s cubic-bezier(.25,.46,.45,.94)">
-
-        <a class="ov-card" href="vacatures.html" style="flex:0 0 calc(33.333% - 11px);min-width:260px">
-          <img src="images/hero.jpg" alt="Spring team op kantoor" loading="lazy">
-          <div class="ov-card__overlay"></div>
-          <div class="ov-card__body">
-            <span class="ov-card__cat">Team</span>
-            <h3 class="ov-card__title">Samenwerken aan ambitie</h3>
-            <div class="ov-card__meta">Utrecht &middot; hoofdkantoor</div>
-          </div>
-        </a>
-
-        <a class="ov-card" href="vacatures.html" style="flex:0 0 calc(33.333% - 11px);min-width:260px">
-          <img src="images/photo-1.jpg" alt="Spring kantoor Amsterdam" loading="lazy">
-          <div class="ov-card__overlay"></div>
-          <div class="ov-card__body">
-            <span class="ov-card__cat">Kantoor</span>
-            <h3 class="ov-card__title">Moderne werkplekken in NL &amp; ES</h3>
-            <div class="ov-card__meta">Amsterdam &middot; Parnassusweg</div>
-          </div>
-        </a>
-
-        <a class="ov-card" href="vacatures.html" style="flex:0 0 calc(33.333% - 11px);min-width:260px">
-          <img src="images/photo-2.jpg" alt="Spring team Valencia" loading="lazy">
-          <div class="ov-card__overlay"></div>
-          <div class="ov-card__body">
-            <span class="ov-card__cat">Internationaal</span>
-            <h3 class="ov-card__title">Groeien over de grens</h3>
-            <div class="ov-card__meta">Valencia &middot; Espa&ntilde;a</div>
-          </div>
-        </a>
-
-        <a class="ov-card" href="vacatures.html" style="flex:0 0 calc(33.333% - 11px);min-width:260px">
-          <img src="images/hero.jpg" alt="Events bij Spring" loading="lazy">
-          <div class="ov-card__overlay"></div>
-          <div class="ov-card__body">
-            <span class="ov-card__cat">Cultuur</span>
-            <h3 class="ov-card__title">Borrels, uitjes &amp; events</h3>
-            <div class="ov-card__meta">Regelmatig &middot; heel Nederland</div>
-          </div>
-        </a>
-
-        <a class="ov-card" href="vacatures.html" style="flex:0 0 calc(33.333% - 11px);min-width:260px">
-          <img src="images/photo-1.jpg" alt="Groei bij Spring" loading="lazy">
-          <div class="ov-card__overlay"></div>
-          <div class="ov-card__body">
-            <span class="ov-card__cat">Groei</span>
-            <h3 class="ov-card__title">Jouw pad, jouw tempo</h3>
-            <div class="ov-card__meta">Persoonlijk ontwikkelbudget</div>
-          </div>
-        </a>
-
-      </div><!-- /track -->
-
-      <!-- nav arrows -->
-      <button id="cPrev" aria-label="Vorige" style="position:absolute;left:8px;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;border:none;background:rgba(255,255,255,.92);box-shadow:0 2px 12px rgba(0,0,0,.18);cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:2;opacity:0;transition:opacity .2s">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1c1c1b" stroke-width="2.2"><path d="M15 18l-6-6 6-6"/></svg>
-      </button>
-      <button id="cNext" aria-label="Volgende" style="position:absolute;right:8px;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;border:none;background:rgba(255,255,255,.92);box-shadow:0 2px 12px rgba(0,0,0,.18);cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:2;transition:opacity .2s">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1c1c1b" stroke-width="2.2"><path d="M9 18l6-6-6-6"/></svg>
-      </button>
+    <div class="ov-grid" style="grid-template-columns:repeat(3,1fr)">
+      <a class="ov-card" href="vacatures.html">
+        <img src="images/hero.jpg" alt="Spring team Utrecht" loading="lazy">
+        <div class="ov-card__overlay"></div>
+        <div class="ov-card__body">
+          <span class="ov-card__cat">Team</span>
+          <h3 class="ov-card__title">Samenwerken aan ambitie</h3>
+          <div class="ov-card__meta">Utrecht &middot; hoofdkantoor</div>
+        </div>
+      </a>
+      <a class="ov-card" href="vacatures.html">
+        <img src="images/photo-1.jpg" alt="Spring kantoor Amsterdam" loading="lazy">
+        <div class="ov-card__overlay"></div>
+        <div class="ov-card__body">
+          <span class="ov-card__cat">Kantoor</span>
+          <h3 class="ov-card__title">Moderne werkplekken in NL &amp; ES</h3>
+          <div class="ov-card__meta">Amsterdam &middot; Parnassusweg</div>
+        </div>
+      </a>
+      <a class="ov-card" href="vacatures.html">
+        <img src="images/photo-2.jpg" alt="Spring Valencia" loading="lazy">
+        <div class="ov-card__overlay"></div>
+        <div class="ov-card__body">
+          <span class="ov-card__cat">Internationaal</span>
+          <h3 class="ov-card__title">Groeien over de grens</h3>
+          <div class="ov-card__meta">Valencia &middot; Espa&ntilde;a</div>
+        </div>
+      </a>
     </div>
-    <!-- dots -->
-    <div id="cDots" style="display:flex;gap:6px;justify-content:center;padding:14px 0 4px"></div>
   </div>
-
-  <script>
-  (function(){
-    var track = document.getElementById('cultureTrack');
-    var slider = document.getElementById('cultureSlider');
-    var cards = track.querySelectorAll('.ov-card');
-    var dotsEl = document.getElementById('cDots');
-    var prev = document.getElementById('cPrev');
-    var next = document.getElementById('cNext');
-    var idx = 0;
-
-    function visibleCount(){
-      var w = slider.offsetWidth;
-      return w < 500 ? 1 : w < 800 ? 2 : 3;
-    }
-
-    function maxIdx(){ return Math.max(0, cards.length - visibleCount()); }
-
-    function go(n){
-      idx = Math.max(0, Math.min(n, maxIdx()));
-      var w = cards[0].offsetWidth + 16;
-      track.style.transform = 'translateX(-' + (idx * w) + 'px)';
-      prev.style.opacity = idx === 0 ? '0' : '1';
-      prev.style.pointerEvents = idx === 0 ? 'none' : '';
-      next.style.opacity = idx >= maxIdx() ? '0' : '1';
-      next.style.pointerEvents = idx >= maxIdx() ? 'none' : '';
-      dotsEl.querySelectorAll('button').forEach(function(d,i){ d.style.background = i===idx ? 'var(--green)' : 'var(--line)'; });
-    }
-
-    function buildDots(){
-      dotsEl.innerHTML = '';
-      var m = maxIdx();
-      for(var i=0;i<=m;i++){
-        (function(i){
-          var d = document.createElement('button');
-          d.style.cssText='width:8px;height:8px;border-radius:50%;border:none;cursor:pointer;padding:0;background:var(--line);transition:background .2s';
-          d.addEventListener('click',function(){go(i);});
-          dotsEl.appendChild(d);
-        })(i);
-      }
-    }
-
-    prev.addEventListener('click',function(){go(idx-1);});
-    next.addEventListener('click',function(){go(idx+1);});
-
-    // touch
-    var tx=0;
-    track.addEventListener('touchstart',function(e){tx=e.touches[0].clientX;},{passive:true});
-    track.addEventListener('touchend',function(e){var dx=tx-e.changedTouches[0].clientX;if(Math.abs(dx)>40)go(dx>0?idx+1:idx-1);},{passive:true});
-
-    window.addEventListener('resize',function(){buildDots();go(0);});
-    buildDots();
-    go(0);
-
-    // show slider on hover
-    slider.addEventListener('mouseenter',function(){prev.style.opacity=idx===0?'0':'1';next.style.opacity=idx>=maxIdx()?'0':'1';});
-    slider.addEventListener('mouseleave',function(){prev.style.opacity='0';next.style.opacity=idx>=maxIdx()?'0':'1';});
-  })();
-  </script>
 </section>
 
+<!-- ── WAAROM SPRING ── -->
 <section class="section">
   <div class="container">
-    <div class="sec-head"><div class="t"><span class="eyebrow">Waarom Spring</span><h2 class="disp">Waarom werken bij <em>Spring</em></h2></div><p class="sec-sub">Een cultuur die je laat groeien, een team dat je uitdaagt en een platform dat grenzen overstijgt.</p></div>
+    <div class="sec-head">
+      <div class="t"><span class="eyebrow">Waarom Spring</span><h2 class="disp">Waarom werken bij <em>Spring</em></h2></div>
+      <p class="sec-sub">Een cultuur die je laat groeien, een team dat je uitdaagt en een platform dat grenzen overstijgt.</p>
+    </div>
     <div class="services-grid">
       <div class="svc-card">
         <div class="svc-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-        <h3>Cultuur</h3>
-        <p>Korte lijnen, open communicatie en een team dat elkaar helpt groeien. Bij Spring ben je geen nummer maar een ondernemer binnen een hecht bedrijf.</p>
+        <h3>Cultuur &amp; mensen</h3>
+        <p>Korte lijnen, open communicatie en een team dat elkaar helpt groeien. Bij Spring ben je geen nummer, maar een ondernemer binnen een hecht bedrijf.</p>
         <ul style="margin:8px 0 0;padding-left:18px;font-size:.86rem;color:var(--ink-soft);line-height:1.7">
           <li>Platte organisatie, directe toegang tot directie</li>
           <li>Maandelijkse team events &amp; borrels</li>
@@ -218,7 +124,7 @@
       </div>
       <div class="svc-card">
         <div class="svc-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
-        <h3>Groei</h3>
+        <h3>Persoonlijke groei</h3>
         <p>Jij bepaalt mede je eigen pad. Met een ruim opleidingsbudget, een persoonlijk ontwikkelplan en doorgroeimogelijkheden naar senior en managementrollen.</p>
         <ul style="margin:8px 0 0;padding-left:18px;font-size:.86rem;color:var(--ink-soft);line-height:1.7">
           <li>Persoonlijk ontwikkelbudget &euro; 2.500/jaar</li>
@@ -228,8 +134,8 @@
       </div>
       <div class="svc-card">
         <div class="svc-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 0 20M12 2a15.3 15.3 0 0 0 0 20"/></svg></div>
-        <h3>Internationaal</h3>
-        <p>Spring is actief in Nederland en Spanje. Je werkt aan grensoverschrijdende deals, bouwt een internationaal netwerk en kunt doorgroeien naar onze vestigingen in Valencia of Estepona.</p>
+        <h3>Internationaal bereik</h3>
+        <p>Spring is actief in Nederland en Spanje. Je werkt aan grensoverschrijdende deals, bouwt een internationaal netwerk en kunt doorgroeien naar onze vestigingen.</p>
         <ul style="margin:8px 0 0;padding-left:18px;font-size:.86rem;color:var(--ink-soft);line-height:1.7">
           <li>Kantoren in Utrecht, Amsterdam &amp; Valencia</li>
           <li>Uitwisselprogramma NL &harr; ES</li>
@@ -238,8 +144,8 @@
       </div>
       <div class="svc-card">
         <div class="svc-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-        <h3>Impact</h3>
-        <p>Jouw werk heeft zichtbaar effect. Van kantoorstrategieën voor grote corporates tot duurzame transformaties van kantoorgebouwen &mdash; je ziet het resultaat terug in de stad.</p>
+        <h3>Zichtbare impact</h3>
+        <p>Jouw werk heeft direct effect. Van kantoorstrategieën voor grote corporates tot duurzame gebiedsontwikkeling &mdash; je ziet het resultaat terug in de stad.</p>
         <ul style="margin:8px 0 0;padding-left:18px;font-size:.86rem;color:var(--ink-soft);line-height:1.7">
           <li>Projecten met maatschappelijke relevantie</li>
           <li>Duurzaamheid als kernwaarde in ieder advies</li>
@@ -250,81 +156,115 @@
   </div>
 </section>
 
+<!-- ── KERNWAARDEN ── -->
 <section class="section dark-sec">
   <div class="container">
-    <div class="values-grid" style="margin-top:40px">
+    <div class="sec-head">
+      <div class="t"><span class="eyebrow" style="color:var(--green-soft)">Onze kernwaarden</span><h2 class="disp" style="color:#fff">Waar wij in <em>geloven</em></h2></div>
+      <p class="sec-sub" style="color:rgba(255,255,255,.55)">Vier waarden die alles bepalen — hoe we adviseren, samenwerken en groeien.</p>
+    </div>
+    <div class="values-grid">
       <div class="value" style="background:rgba(255,255,255,.06);border-radius:14px;padding:28px;border:1px solid rgba(255,255,255,.1)">
-        <div class="ic" style="background:rgba(124,167,63,.2)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.4"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-        <h3 style="color:#fff">People first</h3>
-        <p style="color:rgba(255,255,255,.65)">Jouw groei staat centraal. We geloven dat uitzonderlijke mensen uitzonderlijke resultaten leveren.</p>
+        <div class="ic" style="background:rgba(124,167,63,.2);width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.4"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3 style="color:#fff;margin:0 0 8px">People first</h3>
+        <p style="color:rgba(255,255,255,.65);font-size:.9rem;margin:0">Onze mensen maken het verschil. Groei, welzijn en ontwikkeling staan centraal in alles wat we doen.</p>
       </div>
       <div class="value" style="background:rgba(255,255,255,.06);border-radius:14px;padding:28px;border:1px solid rgba(255,255,255,.1)">
-        <div class="ic" style="background:rgba(124,167,63,.2)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.4"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7L2 9l7-1z"/></svg></div>
-        <h3 style="color:#fff">Excellentie</h3>
-        <p style="color:rgba(255,255,255,.65)">We staan voor de hoogste kwaliteit in alles wat we doen &mdash; van advies tot uitvoering.</p>
+        <div class="ic" style="background:rgba(124,167,63,.2);width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.4"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7L2 9l7-1z"/></svg></div>
+        <h3 style="color:#fff;margin:0 0 8px">Excellentie</h3>
+        <p style="color:rgba(255,255,255,.65);font-size:.9rem;margin:0">We leveren altijd het beste advies. Van analyse tot uitvoering: kwaliteit zonder concessies.</p>
       </div>
       <div class="value" style="background:rgba(255,255,255,.06);border-radius:14px;padding:28px;border:1px solid rgba(255,255,255,.1)">
-        <div class="ic" style="background:rgba(124,167,63,.2)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.4"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
-        <h3 style="color:#fff">Innovatie</h3>
-        <p style="color:rgba(255,255,255,.65)">Data, technologie en creativiteit combineren we om steeds slimmere oplossingen te bieden.</p>
+        <div class="ic" style="background:rgba(124,167,63,.2);width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.4"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.84A2.5 2.5 0 0 1 9.5 2"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.84A2.5 2.5 0 0 0 14.5 2"/></svg></div>
+        <h3 style="color:#fff;margin:0 0 8px">Innovatie</h3>
+        <p style="color:rgba(255,255,255,.65);font-size:.9rem;margin:0">Data, technologie en creativiteit combineren we om steeds slimmere vastgoedoplossingen te bieden.</p>
       </div>
       <div class="value" style="background:rgba(255,255,255,.06);border-radius:14px;padding:28px;border:1px solid rgba(255,255,255,.1)">
-        <div class="ic" style="background:rgba(124,167,63,.2)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.4"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-        <h3 style="color:#fff">Integriteit</h3>
-        <p style="color:rgba(255,255,255,.65)">Eerlijkheid en transparantie zijn de basis &mdash; tegenover klanten en collega&rsquo;s.</p>
+        <div class="ic" style="background:rgba(124,167,63,.2);width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.4"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3 style="color:#fff;margin:0 0 8px">Integriteit</h3>
+        <p style="color:rgba(255,255,255,.65);font-size:.9rem;margin:0">Eerlijkheid en transparantie zijn onze basis &mdash; tegenover klanten, partners en collega&rsquo;s.</p>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ── ARBEIDSVOORWAARDEN ── -->
 <section class="section">
   <div class="container">
-    <div class="sec-head"><div class="t"><span class="eyebrow">Arbeidsvoorwaarden</span><h2 class="disp">Wat je bij ons <em>krijgt</em></h2></div></div>
+    <div class="sec-head">
+      <div class="t"><span class="eyebrow">Arbeidsvoorwaarden</span><h2 class="disp">Wat je bij ons <em>krijgt</em></h2></div>
+    </div>
     <div class="avw-grid">
       <div class="avw-card">
         <div class="avw-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
-        <h3>Marktconform salaris</h3><p>Eerlijk salaris met prestatiebonus passend bij jouw niveau en ervaring.</p>
+        <h3>Marktconform salaris</h3>
+        <p>Eerlijk salaris met prestatiebonus, passend bij jouw niveau en ervaring.</p>
       </div>
       <div class="avw-card">
-        <div class="avw-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
-        <h3>Opleiding &amp; groei</h3><p>Ruim opleidingsbudget en een persoonlijk ontwikkelplan. We investeren in jou.</p>
+        <div class="avw-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+        <h3>Opleiding &amp; groei</h3>
+        <p>Persoonlijk ontwikkelbudget &euro; 2.500/jaar en een opleidingsplan op maat.</p>
       </div>
       <div class="avw-card">
-        <div class="avw-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/></svg></div>
-        <h3>Hybride werken</h3><p>Vanuit kantoor, thuis of een van onze vestigingen &mdash; in overleg met je team.</p>
+        <div class="avw-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+        <h3>Hybride werken</h3>
+        <p>Vanuit kantoor, thuis of een van onze vestigingen &mdash; in overleg met je team.</p>
       </div>
       <div class="avw-card">
-        <div class="avw-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v3"/><rect x="9" y="11" width="14" height="10" rx="2"/><path d="M13 16a1 1 0 1 0 2 0 1 1 0 0 0-2 0z"/></svg></div>
-        <h3>Auto &amp; mobiliteit</h3><p>Mobiliteitsregeling passend bij jouw rol &mdash; van OV-vergoeding tot leaseauto.</p>
+        <div class="avw-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 4v3h-7V8zM5 17a2 2 0 1 0 4 0 2 2 0 0 0-4 0zm11 0a2 2 0 1 0 4 0 2 2 0 0 0-4 0z"/></svg></div>
+        <h3>Mobiliteit</h3>
+        <p>OV-vergoeding of leaseauto, passend bij jouw rol en reisafstand.</p>
       </div>
       <div class="avw-card">
         <div class="avw-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></div>
-        <h3>Internationale kansen</h3><p>Groei mee naar Valencia of Estepona. Spring werkt actief in Nederland &eacute;n Spanje.</p>
+        <h3>Internationale kansen</h3>
+        <p>Uitwisselprogramma naar Valencia of Estepona &mdash; Spring werkt actief in NL &amp; ES.</p>
       </div>
       <div class="avw-card">
         <div class="avw-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-        <h3>Teamspirit</h3><p>Borrels, uitjes, sportmiddagen en successen vieren. Bij Spring is het ook gewoon gezellig.</p>
+        <h3>Teamspirit</h3>
+        <p>Borrels, uitjes, sportmiddagen en successen vieren. Gezelligheid is geen bijzaak.</p>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ── WAT COLLEGA'S ZEGGEN ── -->
 <section class="section dark-sec">
   <div class="container">
-    <div class="sec-head"><div class="t"><span class="eyebrow" style="color:var(--green-soft)">Wat collega&rsquo;s zeggen</span><h2 class="disp" style="color:#fff">Luister naar <em>ons team</em></h2></div></div>
+    <div class="sec-head">
+      <div class="t"><span class="eyebrow" style="color:var(--green-soft)">Wat collega&rsquo;s zeggen</span><h2 class="disp" style="color:#fff">Luister naar <em>ons team</em></h2></div>
+    </div>
     <div class="rev-grid">
-      <div class="review" style="background:var(--dark-2);border-color:rgba(255,255,255,.1)"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p style="color:#e7e9e0">&ldquo;Bij Spring krijg je vanaf dag &eacute;&eacute;n verantwoordelijkheid en de ruimte om te ondernemen.&rdquo;</p><div class="who"><span class="av">SM</span><span><b style="color:#fff">Sofia Mart&iacute;n</b><br><span style="color:#a9ab9f">Investment Advisor &middot; Valencia</span></span></div></div>
-      <div class="review" style="background:var(--dark-2);border-color:rgba(255,255,255,.1)"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p style="color:#e7e9e0">&ldquo;Data en mensenwerk komen hier echt samen. Dat maakt ons advies sterker.&rdquo;</p><div class="who"><span class="av">LB</span><span><b style="color:#fff">Lars Bakker</b><br><span style="color:#a9ab9f">Asset Manager &middot; Utrecht</span></span></div></div>
-      <div class="review" style="background:var(--dark-2);border-color:rgba(255,255,255,.1)"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p style="color:#e7e9e0">&ldquo;We groeien snel, maar houden de korte lijnen en de teamspirit.&rdquo;</p><div class="who"><span class="av">DM</span><span><b style="color:#fff">Daan van der Meer</b><br><span style="color:#a9ab9f">Senior Advisor &middot; Amsterdam</span></span></div></div>
+      <div class="review" style="background:var(--dark-2);border-color:rgba(255,255,255,.1)">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p style="color:#e7e9e0">&ldquo;Bij Spring krijg je vanaf dag &eacute;&eacute;n verantwoordelijkheid en de ruimte om echt te ondernemen.&rdquo;</p>
+        <div class="who"><span class="av">SM</span><span><b style="color:#fff">Sofia Mart&iacute;n</b><br><span style="color:#a9ab9f">Investment Advisor &middot; Valencia</span></span></div>
+      </div>
+      <div class="review" style="background:var(--dark-2);border-color:rgba(255,255,255,.1)">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p style="color:#e7e9e0">&ldquo;Data en mensenwerk komen hier echt samen. Dat maakt ons advies elke dag sterker.&rdquo;</p>
+        <div class="who"><span class="av">LB</span><span><b style="color:#fff">Lars Bakker</b><br><span style="color:#a9ab9f">Asset Manager &middot; Utrecht</span></span></div>
+      </div>
+      <div class="review" style="background:var(--dark-2);border-color:rgba(255,255,255,.1)">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p style="color:#e7e9e0">&ldquo;We groeien snel, maar houden de korte lijnen en de teamspirit. Dat is zeldzaam.&rdquo;</p>
+        <div class="who"><span class="av">DM</span><span><b style="color:#fff">Daan van der Meer</b><br><span style="color:#a9ab9f">Senior Advisor &middot; Amsterdam</span></span></div>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- ── CTA ── -->
 <section class="section--tight"><div class="container"><div class="cta">
   <h2>Klaar voor de volgende stap?</h2>
-  <p>Bekijk onze open vacatures of stuur een open sollicitatie. Anne Schippers helpt je graag verder.</p>
-  <div class="btns"><a href="vacatures.html" class="btn btn--light btn--lg">Bekijk vacatures</a><a href="contact.html" class="btn btn--ghost btn--lg">Open sollicitatie</a></div>
+  <p>Bekijk onze open vacatures of stuur een open sollicitatie. We horen graag van je.</p>
+  <div class="btns">
+    <a href="vacatures.html" class="btn btn--light btn--lg">Bekijk vacatures</a>
+    <a href="contact.html" class="btn btn--ghost btn--lg">Open sollicitatie</a>
+  </div>
 </div></div></section>
+
 
 <footer class="footer"><div class="container">
   <div class="top">
