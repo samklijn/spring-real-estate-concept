@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Onze locaties &mdash; Spring Real Estate</title>
+<title>Onze vestigingen &mdash; Spring Real Estate</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,500&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,500&display=swap" rel="stylesheet">
@@ -50,143 +50,585 @@
     <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </div></header>
+
+<!-- ── HERO ── -->
 <section class="page-hero" style="padding:10px 0 12px !important;position:relative;overflow:hidden">
   <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;z-index:0">
     <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;opacity:.18"><defs><pattern id="dots" x="0" y="0" width="28" height="28" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#7CA73F"/></pattern></defs><rect width="100%" height="100%" fill="url(#dots)"/></svg>
     <div style="position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(180deg,transparent,rgba(124,167,63,.6),transparent)"></div>
   </div>
   <div class="container" style="position:relative;z-index:1">
-    <div class="crumbs"><a href="index.html">Home</a> <span style="opacity:.4;margin:0 4px">/</span> <a href="locaties.html">Locaties</a></div>
+    <div class="crumbs"><a href="index.html">Home</a> <span style="opacity:.4;margin:0 4px">/</span> Onze vestigingen</div>
     <h1 style="margin:6px 0 4px">Onze <em>vestigingen</em></h1>
-    <p style="color:rgba(255,255,255,.65);font-size:.92rem;margin:0 0 12px;max-width:52ch">Met kantoren in Amsterdam, Utrecht, Valencia en Estepona bedienen wij de grootste commerci&euml;le vastgoedmarkten van Nederland en Spanje.</p>
-    <a href="contact.html" class="cta-pill">Neem contact op <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <p style="color:rgba(255,255,255,.65);font-size:.92rem;margin:0 0 12px;max-width:52ch">Amsterdam, Utrecht, Valencia en Estepona &mdash; lokaal verankerd, internationaal verbonden.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:4px"><a href="#utrecht" style="color:rgba(255,255,255,.7);text-decoration:none;font-weight:600;font-size:.88rem">Utrecht</a> &nbsp;&middot;&nbsp; <a href="#amsterdam" style="color:rgba(255,255,255,.7);text-decoration:none;font-weight:600;font-size:.88rem">Amsterdam</a> &nbsp;&middot;&nbsp; <a href="#valencia" style="color:rgba(255,255,255,.7);text-decoration:none;font-weight:600;font-size:.88rem">Valencia</a> &nbsp;&middot;&nbsp; <a href="#estepona" style="color:rgba(255,255,255,.7);text-decoration:none;font-weight:600;font-size:.88rem">Estepona</a></div>
   </div>
 </section>
-<div style="background:var(--bg-soft);border-bottom:1px solid var(--line)">
+
+<!-- ── UTRECHT ── -->
+<section id="utrecht" class="section">
   <div class="container">
-    <div style="display:flex;flex-wrap:wrap;gap:0;padding:0">
-      <div style="flex:1 1 160px;padding:24px 28px;border-right:1px solid var(--line);text-align:center"><strong style="display:block;font-size:1.8rem;font-weight:800;color:var(--green);line-height:1">4</strong><span style="font-size:.76rem;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.07em;font-weight:600">vestigingen</span></div>
-      <div style="flex:1 1 160px;padding:24px 28px;border-right:1px solid var(--line);text-align:center"><strong style="display:block;font-size:1.8rem;font-weight:800;color:var(--green);line-height:1">40+</strong><span style="font-size:.76rem;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.07em;font-weight:600">specialisten</span></div>
-      <div style="flex:1 1 160px;padding:24px 28px;border-right:1px solid var(--line);text-align:center"><strong style="display:block;font-size:1.8rem;font-weight:800;color:var(--green);line-height:1">2</strong><span style="font-size:.76rem;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.07em;font-weight:600">landen</span></div>
-      <div style="flex:1 1 160px;padding:24px 28px;text-align:center"><strong style="display:block;font-size:1.8rem;font-weight:800;color:var(--green);line-height:1">&euro;1,2 mrd</strong><span style="font-size:.76rem;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.07em;font-weight:600">transactiewaarde</span></div>
-    </div>
-  </div>
-</div>
-<section class="section section--tight" style="padding-bottom:8px">
-  <div class="container">
-    <div id="locSlider" style="position:relative;overflow:hidden">
-      <div id="locTrack" style="display:flex;gap:16px;transition:transform .4s cubic-bezier(.25,.46,.45,.94)">
-        <a class="ov-card" href="locatie-utrecht.html" style="flex:0 0 calc(33.333% - 11px);min-width:260px">
-          <img src="images/hero.jpg" alt="Utrecht" loading="lazy">
-          <div class="ov-card__overlay"></div>
-          <div class="ov-card__body">
-            <span class="ov-card__cat">Nederland</span>
-            <h3 class="ov-card__title">Utrecht &mdash; Hoofdkantoor</h3>
-            <div class="ov-card__meta">Croeselaan 28 &middot; hoofdkantoor</div>
-          </div>
-        </a>
-        <a class="ov-card" href="locatie-amsterdam.html" style="flex:0 0 calc(33.333% - 11px);min-width:260px">
-          <img src="images/photo-1.jpg" alt="Amsterdam" loading="lazy">
-          <div class="ov-card__overlay"></div>
-          <div class="ov-card__body">
-            <span class="ov-card__cat">Nederland</span>
-            <h3 class="ov-card__title">Amsterdam &mdash; Zuidas</h3>
-            <div class="ov-card__meta">Parnassusweg 819 &middot; Zuidas</div>
-          </div>
-        </a>
-        <a class="ov-card" href="locatie-valencia.html" style="flex:0 0 calc(33.333% - 11px);min-width:260px">
-          <img src="images/photo-2.jpg" alt="Valencia" loading="lazy">
-          <div class="ov-card__overlay"></div>
-          <div class="ov-card__body">
-            <span class="ov-card__cat">Spanje</span>
-            <h3 class="ov-card__title">Valencia &mdash; Internationaal</h3>
-            <div class="ov-card__meta">Ciudad Vieja &middot; Espa&ntilde;a</div>
-          </div>
-        </a>
-        <a class="ov-card" href="locatie-estepona.html" style="flex:0 0 calc(33.333% - 11px);min-width:260px">
-          <img src="images/hero.jpg" alt="Estepona" loading="lazy">
-          <div class="ov-card__overlay"></div>
-          <div class="ov-card__body">
-            <span class="ov-card__cat">Spanje</span>
-            <h3 class="ov-card__title">Estepona &mdash; Costa del Sol</h3>
-            <div class="ov-card__meta">New Golden Mile &middot; Espa&ntilde;a</div>
-          </div>
-        </a>
+    <div style="display:grid;grid-template-columns:1fr auto;gap:32px;align-items:start;margin-bottom:32px;flex-wrap:wrap">
+      <div>
+        <span class="eyebrow">Hoofdkantoor</span>
+        <h2 class="disp" style="margin:6px 0 16px">Utrecht</h2>
+        <p style="color:var(--ink-soft);line-height:1.7;max-width:65ch;margin:0 0 20px">Utrecht is het geografische hart van Nederland en de thuisbasis van Spring Real Estate. Vanuit ons hoofdkantoor aan de Croeselaan werken meer dan 30 specialisten dagelijks aan adviesvraagstukken voor eigenaren, gebruikers, investeerders en ontwikkelaars.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:16px;font-size:.88rem;color:var(--ink-soft)">
+          <span style="display:flex;align-items:center;gap:6px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Croeselaan 28, 3521 CA Utrecht</span>
+          <span style="display:flex;align-items:center;gap:6px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.6 19.79 19.79 0 0 1 1.65 5c-.07-.56.29-1.12.85-1.33l2.83-1.07a2 2 0 0 1 2.56 1.14l1.41 3.67a2 2 0 0 1-.46 2.19L8.09 10.9a16 16 0 0 0 6 6l1.27-.75a2 2 0 0 1 2.19-.46l3.67 1.41a2 2 0 0 1 1.13 2.56z"/></svg>+31 30 820 88 88</span>
+          <a href="mailto:utrecht@springrealestate.com" style="display:flex;align-items:center;gap:6px;color:var(--green);text-decoration:none;font-weight:600"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>utrecht@springrealestate.com</a>
+        </div>
       </div>
-      <button id="locPrev" aria-label="Vorige" style="position:absolute;left:8px;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;border:none;background:rgba(255,255,255,.92);box-shadow:0 2px 12px rgba(0,0,0,.18);cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:2;opacity:0;transition:opacity .2s;pointer-events:none">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1c1c1b" stroke-width="2.2"><path d="M15 18l-6-6 6-6"/></svg>
-      </button>
-      <button id="locNext" aria-label="Volgende" style="position:absolute;right:8px;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;border:none;background:rgba(255,255,255,.92);box-shadow:0 2px 12px rgba(0,0,0,.18);cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:2;transition:opacity .2s">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1c1c1b" stroke-width="2.2"><path d="M9 18l6-6-6-6"/></svg>
-      </button>
+      <a href="contact.html" class="btn btn--primary" style="white-space:nowrap;align-self:flex-start;margin-top:4px">Contact opnemen</a>
     </div>
-    <div id="locDots" style="display:flex;gap:6px;justify-content:center;padding:14px 0 4px"></div>
+    <div style="margin-top:28px">
+  <div id="suSlider" style="position:relative;overflow:hidden">
+    <div id="suTrack" style="display:flex;gap:16px;transition:transform .4s cubic-bezier(.25,.46,.45,.94)">
+        <a class="ov-card" href="listings.html" style="flex:0 0 calc(33.333% - 11px);min-width:260px">
+          <img src="images/hero.jpg" alt="Spring kantoor Utrecht" loading="lazy">
+          <div class="ov-card__overlay"></div>
+          <div class="ov-card__body">
+            <span class="ov-card__cat">Kantoor</span>
+            <h3 class="ov-card__title">Croeselaan 28 &mdash; Hoofdkantoor</h3>
+            <div class="ov-card__meta">Utrecht Centraal &middot; 5 min</div>
+          </div>
+        </a>
+        <a class="ov-card" href="listings.html" style="flex:0 0 calc(33.333% - 11px);min-width:260px">
+          <img src="images/photo-1.jpg" alt="Spring team Utrecht" loading="lazy">
+          <div class="ov-card__overlay"></div>
+          <div class="ov-card__body">
+            <span class="ov-card__cat">Team</span>
+            <h3 class="ov-card__title">Samen werken aan ambitie</h3>
+            <div class="ov-card__meta">35+ specialisten</div>
+          </div>
+        </a>
+        <a class="ov-card" href="listings.html" style="flex:0 0 calc(33.333% - 11px);min-width:260px">
+          <img src="images/photo-2.jpg" alt="Utrecht stationsgebied" loading="lazy">
+          <div class="ov-card__overlay"></div>
+          <div class="ov-card__body">
+            <span class="ov-card__cat">Markt</span>
+            <h3 class="ov-card__title">Stationsgebied Utrecht</h3>
+            <div class="ov-card__meta">Hoog Catharijne &middot; CBD</div>
+          </div>
+        </a>
+    </div>
+    <button id="suPrev" aria-label="Vorige" style="position:absolute;left:8px;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;border:none;background:rgba(255,255,255,.92);box-shadow:0 2px 12px rgba(0,0,0,.18);cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:2;opacity:0;transition:opacity .2s;pointer-events:none">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1c1c1b" stroke-width="2.2"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <button id="suNext" aria-label="Volgende" style="position:absolute;right:8px;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;border:none;background:rgba(255,255,255,.92);box-shadow:0 2px 12px rgba(0,0,0,.18);cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:2;transition:opacity .2s">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1c1c1b" stroke-width="2.2"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
   </div>
-  <script>
-  (function(){
-    var track=document.getElementById('locTrack'),slider=document.getElementById('locSlider');
-    var cards=track.querySelectorAll('.ov-card'),dotsEl=document.getElementById('locDots');
-    var prev=document.getElementById('locPrev'),next=document.getElementById('locNext'),idx=0;
-    function vis(){var w=slider.offsetWidth;return w<500?1:w<800?2:3;}
-    function max(){return Math.max(0,cards.length-vis());}
-    function go(n){
-      idx=Math.max(0,Math.min(n,max()));
-      track.style.transform='translateX(-'+(idx*(cards[0].offsetWidth+16))+'px)';
-      prev.style.opacity=idx===0?'0':'1'; prev.style.pointerEvents=idx===0?'none':'';
-      next.style.opacity=idx>=max()?'0':'1'; next.style.pointerEvents=idx>=max()?'none':'';
-      dotsEl.querySelectorAll('button').forEach(function(d,i){d.style.background=i===idx?'var(--green)':'var(--line)';});
-    }
-    function buildDots(){
-      dotsEl.innerHTML='';
-      for(var i=0;i<=max();i++){(function(i){var d=document.createElement('button');
-        d.style.cssText='width:8px;height:8px;border-radius:50%;border:none;cursor:pointer;padding:0;background:var(--line);transition:background .2s';
-        d.addEventListener('click',function(){go(i);});dotsEl.appendChild(d);})( i);}
-    }
-    prev.addEventListener('click',function(){go(idx-1);});
-    next.addEventListener('click',function(){go(idx+1);});
-    var tx=0;
-    track.addEventListener('touchstart',function(e){tx=e.touches[0].clientX;},{passive:true});
-    track.addEventListener('touchend',function(e){var dx=tx-e.changedTouches[0].clientX;if(Math.abs(dx)>40)go(dx>0?idx+1:idx-1);},{passive:true});
-    slider.addEventListener('mouseenter',function(){prev.style.opacity=idx===0?'0':'1';next.style.opacity=idx>=max()?'0':'1';});
-    slider.addEventListener('mouseleave',function(){prev.style.opacity='0';next.style.opacity=idx>=max()?'0':'1';});
-    window.addEventListener('resize',function(){buildDots();go(0);});
-    buildDots();go(0);
-  })();
-  </script>
+  <div id="suDots" style="display:flex;gap:6px;justify-content:center;padding:12px 0 0"></div>
+</div>
+<script>
+(function(){
+  var track=document.getElementById('suTrack'),sl=document.getElementById('suSlider');
+  var cards=track.querySelectorAll('.ov-card'),dots=document.getElementById('suDots');
+  var prev=document.getElementById('suPrev'),next=document.getElementById('suNext'),idx=0;
+  function vis(){var w=sl.offsetWidth;return w<500?1:w<800?2:3;}
+  function max(){return Math.max(0,cards.length-vis());}
+  function go(n){idx=Math.max(0,Math.min(n,max()));
+    track.style.transform='translateX(-'+(idx*(cards[0].offsetWidth+16))+'px)';
+    prev.style.opacity=idx===0?'0':'1';prev.style.pointerEvents=idx===0?'none':'';
+    next.style.opacity=idx>=max()?'0':'1';next.style.pointerEvents=idx>=max()?'none':'';
+    dots.querySelectorAll('button').forEach(function(d,i){d.style.background=i===idx?'var(--green)':'var(--line)';});}
+  function buildDots(){dots.innerHTML='';for(var i=0;i<=max();i++){(function(i){var d=document.createElement('button');
+    d.style.cssText='width:8px;height:8px;border-radius:50%;border:none;cursor:pointer;padding:0;background:var(--line);transition:background .2s';
+    d.addEventListener('click',function(){go(i);});dots.appendChild(d);})( i);}}
+  prev.addEventListener('click',function(){go(idx-1);});next.addEventListener('click',function(){go(idx+1);});
+  var tx=0;track.addEventListener('touchstart',function(e){tx=e.touches[0].clientX;},{passive:true});
+  track.addEventListener('touchend',function(e){var dx=tx-e.changedTouches[0].clientX;if(Math.abs(dx)>40)go(dx>0?idx+1:idx-1);},{passive:true});
+  sl.addEventListener('mouseenter',function(){prev.style.opacity=idx===0?'0':'1';next.style.opacity=idx>=max()?'0':'1';});
+  sl.addEventListener('mouseleave',function(){prev.style.opacity='0';next.style.opacity=idx>=max()?'0':'1';});
+  window.addEventListener('resize',function(){buildDots();go(0);});buildDots();go(0);
+})();
+</script>
+    <!-- team -->
+    <div style="margin-top:40px">
+      <h3 style="font-size:1rem;font-weight:700;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.08em;margin:0 0 24px">Het team</h3>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:24px 16px">
+<div style="text-align:center">
+          <div style="width:80px;height:80px;border-radius:50%;overflow:hidden;margin:0 auto 10px;background:var(--bg-soft)">
+            <img src="images/team/bas.sijbom.jpg" alt="Bas Sijbom LLM" style="width:100%;height:100%;object-fit:cover">
+          </div>
+          <strong style="display:block;font-size:.88rem;font-weight:700;color:var(--dark)">Bas Sijbom LLM</strong>
+          <span style="font-size:.78rem;color:var(--ink-soft)">Partner Agency</span>
+        </div>
+<div style="text-align:center">
+          <div style="width:80px;height:80px;border-radius:50%;overflow:hidden;margin:0 auto 10px;background:var(--bg-soft)">
+            <img src="images/team/rolf.vermeer.jpg" alt="ir. Rolf Vermeer" style="width:100%;height:100%;object-fit:cover">
+          </div>
+          <strong style="display:block;font-size:.88rem;font-weight:700;color:var(--dark)">ir. Rolf Vermeer</strong>
+          <span style="font-size:.78rem;color:var(--ink-soft)">Partner Agency</span>
+        </div>
+<div style="text-align:center">
+          <div style="width:80px;height:80px;border-radius:50%;overflow:hidden;margin:0 auto 10px;background:var(--bg-soft)">
+            <img src="images/team/robert.kat.jpg" alt="drs. Robert Kat MSRE MRICS" style="width:100%;height:100%;object-fit:cover">
+          </div>
+          <strong style="display:block;font-size:.88rem;font-weight:700;color:var(--dark)">drs. Robert Kat MSRE MRICS</strong>
+          <span style="font-size:.78rem;color:var(--ink-soft)">Managing Partner Valuations</span>
+        </div>
+<div style="text-align:center">
+          <div style="width:80px;height:80px;border-radius:50%;overflow:hidden;margin:0 auto 10px;background:var(--bg-soft)">
+            <img src="images/team/lennard.hoekstra.jpg" alt="Lennard Hoekstra MSc RT" style="width:100%;height:100%;object-fit:cover">
+          </div>
+          <strong style="display:block;font-size:.88rem;font-weight:700;color:var(--dark)">Lennard Hoekstra MSc RT</strong>
+          <span style="font-size:.78rem;color:var(--ink-soft)">Managing Partner Valuations</span>
+        </div>
+<div style="text-align:center">
+          <div style="width:80px;height:80px;border-radius:50%;overflow:hidden;margin:0 auto 10px;background:var(--bg-soft)">
+            <img src="images/team/beau.carels.jpg" alt="Beau Carels MSc" style="width:100%;height:100%;object-fit:cover">
+          </div>
+          <strong style="display:block;font-size:.88rem;font-weight:700;color:var(--dark)">Beau Carels MSc</strong>
+          <span style="font-size:.78rem;color:var(--ink-soft)">Partner Property Management</span>
+        </div>
+<div style="text-align:center">
+          <div style="width:80px;height:80px;border-radius:50%;overflow:hidden;margin:0 auto 10px;background:var(--bg-soft)">
+            <img src="images/team/willemjan.schouten.jpg" alt="Willem Jan Schouten" style="width:100%;height:100%;object-fit:cover">
+          </div>
+          <strong style="display:block;font-size:.88rem;font-weight:700;color:var(--dark)">Willem Jan Schouten</strong>
+          <span style="font-size:.78rem;color:var(--ink-soft)">Partner Property Management</span>
+        </div>
+<div style="text-align:center">
+          <div style="width:80px;height:80px;border-radius:50%;overflow:hidden;margin:0 auto 10px;background:var(--bg-soft)">
+            <img src="images/team/peter.vandingen.jpg" alt="Peter van Dingen" style="width:100%;height:100%;object-fit:cover">
+          </div>
+          <strong style="display:block;font-size:.88rem;font-weight:700;color:var(--dark)">Peter van Dingen</strong>
+          <span style="font-size:.78rem;color:var(--ink-soft)">Partner Design &amp; Build</span>
+        </div>
+<div style="text-align:center">
+          <div style="width:80px;height:80px;border-radius:50%;overflow:hidden;margin:0 auto 10px;background:var(--bg-soft)">
+            <img src="images/team/lennard.haanstra.jpg" alt="Lennard Haanstra MSc" style="width:100%;height:100%;object-fit:cover">
+          </div>
+          <strong style="display:block;font-size:.88rem;font-weight:700;color:var(--dark)">Lennard Haanstra MSc</strong>
+          <span style="font-size:.78rem;color:var(--ink-soft)">Partner Property Accounting</span>
+        </div>
+<div style="text-align:center">
+          <div style="width:80px;height:80px;border-radius:50%;overflow:hidden;margin:0 auto 10px;background:var(--bg-soft)">
+            <img src="images/team/sam.klijn.jpg" alt="Sam Klijn" style="width:100%;height:100%;object-fit:cover">
+          </div>
+          <strong style="display:block;font-size:.88rem;font-weight:700;color:var(--dark)">Sam Klijn</strong>
+          <span style="font-size:.78rem;color:var(--ink-soft)">Partner Marketing</span>
+        </div>
+<div style="text-align:center">
+          <div style="width:80px;height:80px;border-radius:50%;overflow:hidden;margin:0 auto 10px;background:var(--bg-soft)">
+            <img src="images/team/emily.vanduijnhoven.jpg" alt="Emily van Duijnhoven" style="width:100%;height:100%;object-fit:cover">
+          </div>
+          <strong style="display:block;font-size:.88rem;font-weight:700;color:var(--dark)">Emily van Duijnhoven</strong>
+          <span style="font-size:.78rem;color:var(--ink-soft)">Partner Marketing Agency</span>
+        </div>
+<div style="text-align:center">
+          <div style="width:80px;height:80px;border-radius:50%;overflow:hidden;margin:0 auto 10px;background:var(--bg-soft)">
+            <img src="images/team/mark.haverkamp.jpg" alt="Mark Haverkamp" style="width:100%;height:100%;object-fit:cover">
+          </div>
+          <strong style="display:block;font-size:.88rem;font-weight:700;color:var(--dark)">Mark Haverkamp</strong>
+          <span style="font-size:.78rem;color:var(--ink-soft)">Partner Operations</span>
+        </div>
+<div style="text-align:center">
+          <div style="width:80px;height:80px;border-radius:50%;overflow:hidden;margin:0 auto 10px;background:var(--bg-soft)">
+            <img src="images/team/sam.benninga.jpg" alt="Sam Benninga MSc" style="width:100%;height:100%;object-fit:cover">
+          </div>
+          <strong style="display:block;font-size:.88rem;font-weight:700;color:var(--dark)">Sam Benninga MSc</strong>
+          <span style="font-size:.78rem;color:var(--ink-soft)">Partner Research</span>
+        </div>
+<div style="text-align:center">
+          <div style="width:80px;height:80px;border-radius:50%;overflow:hidden;margin:0 auto 10px;background:var(--bg-soft)">
+            <img src="images/team/ronald.nuijt.jpg" alt="Ronald Nuijt MSc MSRE" style="width:100%;height:100%;object-fit:cover">
+          </div>
+          <strong style="display:block;font-size:.88rem;font-weight:700;color:var(--dark)">Ronald Nuijt MSc MSRE</strong>
+          <span style="font-size:.78rem;color:var(--ink-soft)">Partner Investments &amp; Residential</span>
+        </div>
+<div style="text-align:center">
+          <div style="width:80px;height:80px;border-radius:50%;overflow:hidden;margin:0 auto 10px;background:var(--bg-soft)">
+            <img src="images/team/bart.mittendorff.jpg" alt="ing. Bart Mittendorff" style="width:100%;height:100%;object-fit:cover">
+          </div>
+          <strong style="display:block;font-size:.88rem;font-weight:700;color:var(--dark)">ing. Bart Mittendorff</strong>
+          <span style="font-size:.78rem;color:var(--ink-soft)">Managing Partner Real Estate</span>
+        </div>
+<div style="text-align:center">
+          <div style="width:80px;height:80px;border-radius:50%;overflow:hidden;margin:0 auto 10px;background:var(--bg-soft)">
+            <img src="images/team/stijn.deblaaij.jpg" alt="drs. Stijn de Blaaij" style="width:100%;height:100%;object-fit:cover">
+          </div>
+          <strong style="display:block;font-size:.88rem;font-weight:700;color:var(--dark)">drs. Stijn de Blaaij</strong>
+          <span style="font-size:.78rem;color:var(--ink-soft)">Managing Partner Real Estate</span>
+        </div>
+<div style="text-align:center">
+          <div style="width:80px;height:80px;border-radius:50%;overflow:hidden;margin:0 auto 10px;background:var(--bg-soft)">
+            <img src="images/team/anne.schippers.jpg" alt="Anne Schippers" style="width:100%;height:100%;object-fit:cover">
+          </div>
+          <strong style="display:block;font-size:.88rem;font-weight:700;color:var(--dark)">Anne Schippers</strong>
+          <span style="font-size:.78rem;color:var(--ink-soft)">People Advisor</span>
+        </div>
+</div>
+    </div>
+  </div>
 </section>
-<section class="section section--soft">
+<div style="border-top:1px solid var(--line)"></div>
+<!-- ── AMSTERDAM ── -->
+<section id="amsterdam" class="section section--soft">
   <div class="container">
-    <div class="sec-head">
-      <div class="t"><span class="eyebrow">Alle vestigingen</span><h2 class="disp">Kies jouw <em>locatie</em></h2></div>
+    <div style="display:grid;grid-template-columns:1fr auto;gap:32px;align-items:start;margin-bottom:32px;flex-wrap:wrap">
+      <div>
+        <span class="eyebrow">Zuidas</span>
+        <h2 class="disp" style="margin:6px 0 16px">Amsterdam</h2>
+        <p style="color:var(--ink-soft);line-height:1.7;max-width:65ch;margin:0 0 20px">Onze Amsterdamse vestiging zit midden op de Zuidas &mdash; het financieel en zakelijk hart van Nederland. Het team is gespecialiseerd in kantoor- en bedrijfsruimte, asset management en valuations voor institutionele en particuliere beleggers.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:16px;font-size:.88rem;color:var(--ink-soft)">
+          <span style="display:flex;align-items:center;gap:6px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Parnassusweg 819, 1082 LZ Amsterdam</span>
+          <span style="display:flex;align-items:center;gap:6px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.6 19.79 19.79 0 0 1 1.65 5c-.07-.56.29-1.12.85-1.33l2.83-1.07a2 2 0 0 1 2.56 1.14l1.41 3.67a2 2 0 0 1-.46 2.19L8.09 10.9a16 16 0 0 0 6 6l1.27-.75a2 2 0 0 1 2.19-.46l3.67 1.41a2 2 0 0 1 1.13 2.56z"/></svg>+31 20 820 88 88</span>
+          <a href="mailto:amsterdam@springrealestate.com" style="display:flex;align-items:center;gap:6px;color:var(--green);text-decoration:none;font-weight:600"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>amsterdam@springrealestate.com</a>
+        </div>
+      </div>
+      <a href="contact.html" class="btn btn--primary" style="white-space:nowrap;align-self:flex-start;margin-top:4px">Contact opnemen</a>
     </div>
-    <div class="avw-grid">
-      <a href="locatie-utrecht.html" class="avw-card" style="text-decoration:none;color:inherit">
-        <div class="avw-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
-        <h3>Utrecht</h3>
-        <p style="margin-bottom:12px">Hoofdkantoor &middot; Croeselaan 28 &middot; Full-service vastgoedadvies, 18 business units, 40+ specialisten</p>
-        <span style="font-size:.82rem;font-weight:700;color:var(--green)">Bekijk vestiging &rarr;</span>
-      </a>
-      <a href="locatie-amsterdam.html" class="avw-card" style="text-decoration:none;color:inherit">
-        <div class="avw-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 20h20M4 20V8l5-3v15M14 20V4l6 4v12"/></svg></div>
-        <h3>Amsterdam</h3>
-        <p style="margin-bottom:12px">Regionale vestiging &middot; Parnassusweg 819 &middot; Zuidas-specialist, kantoor &amp; bedrijfsruimte, investment</p>
-        <span style="font-size:.82rem;font-weight:700;color:var(--green)">Bekijk vestiging &rarr;</span>
-      </a>
-      <a href="locatie-valencia.html" class="avw-card" style="text-decoration:none;color:inherit">
-        <div class="avw-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></div>
-        <h3>Valencia</h3>
-        <p style="margin-bottom:12px">Internationale vestiging &middot; Spanje &middot; Residentieel, commercieel, expats &amp; investeerders</p>
-        <span style="font-size:.82rem;font-weight:700;color:var(--green)">Bekijk vestiging &rarr;</span>
-      </a>
-      <a href="locatie-estepona.html" class="avw-card" style="text-decoration:none;color:inherit">
-        <div class="avw-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-        <h3>Estepona</h3>
-        <p style="margin-bottom:12px">Internationale vestiging &middot; Costa del Sol &middot; Luxe residentieel, vakantieverhuur &amp; beleggingen</p>
-        <span style="font-size:.82rem;font-weight:700;color:var(--green)">Bekijk vestiging &rarr;</span>
-      </a>
+    <div style="margin-top:28px">
+  <div id="saSlider" style="position:relative;overflow:hidden">
+    <div id="saTrack" style="display:flex;gap:16px;transition:transform .4s cubic-bezier(.25,.46,.45,.94)">
+        <a class="ov-card" href="listings.html" style="flex:0 0 calc(33.333% - 11px);min-width:260px">
+          <img src="images/photo-2.jpg" alt="Spring Amsterdam Zuidas" loading="lazy">
+          <div class="ov-card__overlay"></div>
+          <div class="ov-card__body">
+            <span class="ov-card__cat">Kantoor</span>
+            <h3 class="ov-card__title">Parnassusweg 819 &mdash; Zuidas</h3>
+            <div class="ov-card__meta">Amsterdam Zuid &middot; Zuidas</div>
+          </div>
+        </a>
+        <a class="ov-card" href="listings.html" style="flex:0 0 calc(33.333% - 11px);min-width:260px">
+          <img src="images/hero.jpg" alt="Zuidas skyline" loading="lazy">
+          <div class="ov-card__overlay"></div>
+          <div class="ov-card__body">
+            <span class="ov-card__cat">Markt</span>
+            <h3 class="ov-card__title">Zuidas &mdash; Top business district</h3>
+            <div class="ov-card__meta">NL&rsquo;s belangrijkste kantoorlocatie</div>
+          </div>
+        </a>
+        <a class="ov-card" href="listings.html" style="flex:0 0 calc(33.333% - 11px);min-width:260px">
+          <img src="images/photo-1.jpg" alt="Spring team Amsterdam" loading="lazy">
+          <div class="ov-card__overlay"></div>
+          <div class="ov-card__body">
+            <span class="ov-card__cat">Team</span>
+            <h3 class="ov-card__title">Expertise op de Zuidas</h3>
+            <div class="ov-card__meta">Agency &middot; Asset management &middot; Valuations</div>
+          </div>
+        </a>
+    </div>
+    <button id="saPrev" aria-label="Vorige" style="position:absolute;left:8px;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;border:none;background:rgba(255,255,255,.92);box-shadow:0 2px 12px rgba(0,0,0,.18);cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:2;opacity:0;transition:opacity .2s;pointer-events:none">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1c1c1b" stroke-width="2.2"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <button id="saNext" aria-label="Volgende" style="position:absolute;right:8px;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;border:none;background:rgba(255,255,255,.92);box-shadow:0 2px 12px rgba(0,0,0,.18);cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:2;transition:opacity .2s">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1c1c1b" stroke-width="2.2"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
+  </div>
+  <div id="saDots" style="display:flex;gap:6px;justify-content:center;padding:12px 0 0"></div>
+</div>
+<script>
+(function(){
+  var track=document.getElementById('saTrack'),sl=document.getElementById('saSlider');
+  var cards=track.querySelectorAll('.ov-card'),dots=document.getElementById('saDots');
+  var prev=document.getElementById('saPrev'),next=document.getElementById('saNext'),idx=0;
+  function vis(){var w=sl.offsetWidth;return w<500?1:w<800?2:3;}
+  function max(){return Math.max(0,cards.length-vis());}
+  function go(n){idx=Math.max(0,Math.min(n,max()));
+    track.style.transform='translateX(-'+(idx*(cards[0].offsetWidth+16))+'px)';
+    prev.style.opacity=idx===0?'0':'1';prev.style.pointerEvents=idx===0?'none':'';
+    next.style.opacity=idx>=max()?'0':'1';next.style.pointerEvents=idx>=max()?'none':'';
+    dots.querySelectorAll('button').forEach(function(d,i){d.style.background=i===idx?'var(--green)':'var(--line)';});}
+  function buildDots(){dots.innerHTML='';for(var i=0;i<=max();i++){(function(i){var d=document.createElement('button');
+    d.style.cssText='width:8px;height:8px;border-radius:50%;border:none;cursor:pointer;padding:0;background:var(--line);transition:background .2s';
+    d.addEventListener('click',function(){go(i);});dots.appendChild(d);})( i);}}
+  prev.addEventListener('click',function(){go(idx-1);});next.addEventListener('click',function(){go(idx+1);});
+  var tx=0;track.addEventListener('touchstart',function(e){tx=e.touches[0].clientX;},{passive:true});
+  track.addEventListener('touchend',function(e){var dx=tx-e.changedTouches[0].clientX;if(Math.abs(dx)>40)go(dx>0?idx+1:idx-1);},{passive:true});
+  sl.addEventListener('mouseenter',function(){prev.style.opacity=idx===0?'0':'1';next.style.opacity=idx>=max()?'0':'1';});
+  sl.addEventListener('mouseleave',function(){prev.style.opacity='0';next.style.opacity=idx>=max()?'0':'1';});
+  window.addEventListener('resize',function(){buildDots();go(0);});buildDots();go(0);
+})();
+</script>
+    <!-- team -->
+    <div style="margin-top:40px">
+      <h3 style="font-size:1rem;font-weight:700;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.08em;margin:0 0 24px">Het team</h3>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:24px 16px">
+<div style="text-align:center">
+          <div style="width:80px;height:80px;border-radius:50%;overflow:hidden;margin:0 auto 10px;background:var(--bg-soft)">
+            <img src="images/team/dave.hendriks.jpg" alt="Dave Hendriks MSc MBA FRICS" style="width:100%;height:100%;object-fit:cover">
+          </div>
+          <strong style="display:block;font-size:.88rem;font-weight:700;color:var(--dark)">Dave Hendriks MSc MBA FRICS</strong>
+          <span style="font-size:.78rem;color:var(--ink-soft)">Partner Valuations</span>
+        </div>
+<div style="text-align:center">
+          <div style="width:80px;height:80px;border-radius:50%;overflow:hidden;margin:0 auto 10px;background:var(--bg-soft)">
+            <img src="images/team/ivar.hillerstrom.jpg" alt="Ivar Hillerstr&ouml;m MSc MSRE" style="width:100%;height:100%;object-fit:cover">
+          </div>
+          <strong style="display:block;font-size:.88rem;font-weight:700;color:var(--dark)">Ivar Hillerstr&ouml;m MSc MSRE</strong>
+          <span style="font-size:.78rem;color:var(--ink-soft)">Partner Agency</span>
+        </div>
+<div style="text-align:center">
+          <div style="width:80px;height:80px;border-radius:50%;overflow:hidden;margin:0 auto 10px;background:var(--bg-soft)">
+            <img src="images/team/edgar.willems.jpg" alt="ir. Edgar Willems" style="width:100%;height:100%;object-fit:cover">
+          </div>
+          <strong style="display:block;font-size:.88rem;font-weight:700;color:var(--dark)">ir. Edgar Willems</strong>
+          <span style="font-size:.78rem;color:var(--ink-soft)">Partner Agency</span>
+        </div>
+<div style="text-align:center">
+          <div style="width:80px;height:80px;border-radius:50%;overflow:hidden;margin:0 auto 10px;background:var(--bg-soft)">
+            <img src="images/team/sjors.vaniersel.jpg" alt="Sjors van Iersel MSc" style="width:100%;height:100%;object-fit:cover">
+          </div>
+          <strong style="display:block;font-size:.88rem;font-weight:700;color:var(--dark)">Sjors van Iersel MSc</strong>
+          <span style="font-size:.78rem;color:var(--ink-soft)">Partner Asset Management</span>
+        </div>
+<div style="text-align:center">
+          <div style="width:80px;height:80px;border-radius:50%;overflow:hidden;margin:0 auto 10px;background:var(--bg-soft)">
+            <img src="images/team/mounir.riffi.jpg" alt="Mounir Riffi MSc" style="width:100%;height:100%;object-fit:cover">
+          </div>
+          <strong style="display:block;font-size:.88rem;font-weight:700;color:var(--dark)">Mounir Riffi MSc</strong>
+          <span style="font-size:.78rem;color:var(--ink-soft)">Partner Asset Management</span>
+        </div>
+<div style="text-align:center">
+          <div style="width:80px;height:80px;border-radius:50%;overflow:hidden;margin:0 auto 10px;background:var(--bg-soft)">
+            <img src="images/team/bastiaan.olfers.jpg" alt="Bastiaan Olfers" style="width:100%;height:100%;object-fit:cover">
+          </div>
+          <strong style="display:block;font-size:.88rem;font-weight:700;color:var(--dark)">Bastiaan Olfers</strong>
+          <span style="font-size:.78rem;color:var(--ink-soft)">Partner Serviced Offices</span>
+        </div>
+</div>
     </div>
   </div>
 </section>
+<div style="border-top:1px solid var(--line)"></div>
+<!-- ── VALENCIA ── -->
+<section id="valencia" class="section">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr auto;gap:32px;align-items:start;margin-bottom:32px;flex-wrap:wrap">
+      <div>
+        <span class="eyebrow">Internacionaal</span>
+        <h2 class="disp" style="margin:6px 0 16px">Valencia</h2>
+        <p style="color:var(--ink-soft);line-height:1.7;max-width:65ch;margin:0 0 20px">In 2022 zette Spring de eerste internationale stap met een vestiging in Valencia. Ons Spaanse team bedient Nederlandse expats, investeerders en lokale opdrachtgevers met residentieel en commercieel advies in de derde stad van Spanje.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:16px;font-size:.88rem;color:var(--ink-soft)">
+          <span style="display:flex;align-items:center;gap:6px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Carrer de Colom 48, 46004 Valencia</span>
+          <span style="display:flex;align-items:center;gap:6px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.6 19.79 19.79 0 0 1 1.65 5c-.07-.56.29-1.12.85-1.33l2.83-1.07a2 2 0 0 1 2.56 1.14l1.41 3.67a2 2 0 0 1-.46 2.19L8.09 10.9a16 16 0 0 0 6 6l1.27-.75a2 2 0 0 1 2.19-.46l3.67 1.41a2 2 0 0 1 1.13 2.56z"/></svg>+34 96 820 88 88</span>
+          <a href="mailto:valencia@springrealestate.com" style="display:flex;align-items:center;gap:6px;color:var(--green);text-decoration:none;font-weight:600"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>valencia@springrealestate.com</a>
+        </div>
+      </div>
+      <a href="contact.html" class="btn btn--primary" style="white-space:nowrap;align-self:flex-start;margin-top:4px">Contact opnemen</a>
+    </div>
+    <div style="margin-top:28px">
+  <div id="svSlider" style="position:relative;overflow:hidden">
+    <div id="svTrack" style="display:flex;gap:16px;transition:transform .4s cubic-bezier(.25,.46,.45,.94)">
+        <a class="ov-card" href="listings.html" style="flex:0 0 calc(33.333% - 11px);min-width:260px">
+          <img src="images/photo-2.jpg" alt="Valencia kantoor" loading="lazy">
+          <div class="ov-card__overlay"></div>
+          <div class="ov-card__body">
+            <span class="ov-card__cat">Kantoor</span>
+            <h3 class="ov-card__title">Carrer de Colom &mdash; Valencia</h3>
+            <div class="ov-card__meta">Ciudad Vieja &middot; Valencia</div>
+          </div>
+        </a>
+        <a class="ov-card" href="listings.html" style="flex:0 0 calc(33.333% - 11px);min-width:260px">
+          <img src="images/hero.jpg" alt="Valencia markt" loading="lazy">
+          <div class="ov-card__overlay"></div>
+          <div class="ov-card__body">
+            <span class="ov-card__cat">Markt</span>
+            <h3 class="ov-card__title">Residenti&euml;el &amp; commercieel</h3>
+            <div class="ov-card__meta">NL expats &middot; investeerders</div>
+          </div>
+        </a>
+        <a class="ov-card" href="listings.html" style="flex:0 0 calc(33.333% - 11px);min-width:260px">
+          <img src="images/photo-1.jpg" alt="Spring team Valencia" loading="lazy">
+          <div class="ov-card__overlay"></div>
+          <div class="ov-card__body">
+            <span class="ov-card__cat">Team</span>
+            <h3 class="ov-card__title">Lokaal verankerd, internationaal verbonden</h3>
+            <div class="ov-card__meta">Espa&ntilde;a &middot; Spring</div>
+          </div>
+        </a>
+    </div>
+    <button id="svPrev" aria-label="Vorige" style="position:absolute;left:8px;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;border:none;background:rgba(255,255,255,.92);box-shadow:0 2px 12px rgba(0,0,0,.18);cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:2;opacity:0;transition:opacity .2s;pointer-events:none">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1c1c1b" stroke-width="2.2"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <button id="svNext" aria-label="Volgende" style="position:absolute;right:8px;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;border:none;background:rgba(255,255,255,.92);box-shadow:0 2px 12px rgba(0,0,0,.18);cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:2;transition:opacity .2s">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1c1c1b" stroke-width="2.2"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
+  </div>
+  <div id="svDots" style="display:flex;gap:6px;justify-content:center;padding:12px 0 0"></div>
+</div>
+<script>
+(function(){
+  var track=document.getElementById('svTrack'),sl=document.getElementById('svSlider');
+  var cards=track.querySelectorAll('.ov-card'),dots=document.getElementById('svDots');
+  var prev=document.getElementById('svPrev'),next=document.getElementById('svNext'),idx=0;
+  function vis(){var w=sl.offsetWidth;return w<500?1:w<800?2:3;}
+  function max(){return Math.max(0,cards.length-vis());}
+  function go(n){idx=Math.max(0,Math.min(n,max()));
+    track.style.transform='translateX(-'+(idx*(cards[0].offsetWidth+16))+'px)';
+    prev.style.opacity=idx===0?'0':'1';prev.style.pointerEvents=idx===0?'none':'';
+    next.style.opacity=idx>=max()?'0':'1';next.style.pointerEvents=idx>=max()?'none':'';
+    dots.querySelectorAll('button').forEach(function(d,i){d.style.background=i===idx?'var(--green)':'var(--line)';});}
+  function buildDots(){dots.innerHTML='';for(var i=0;i<=max();i++){(function(i){var d=document.createElement('button');
+    d.style.cssText='width:8px;height:8px;border-radius:50%;border:none;cursor:pointer;padding:0;background:var(--line);transition:background .2s';
+    d.addEventListener('click',function(){go(i);});dots.appendChild(d);})( i);}}
+  prev.addEventListener('click',function(){go(idx-1);});next.addEventListener('click',function(){go(idx+1);});
+  var tx=0;track.addEventListener('touchstart',function(e){tx=e.touches[0].clientX;},{passive:true});
+  track.addEventListener('touchend',function(e){var dx=tx-e.changedTouches[0].clientX;if(Math.abs(dx)>40)go(dx>0?idx+1:idx-1);},{passive:true});
+  sl.addEventListener('mouseenter',function(){prev.style.opacity=idx===0?'0':'1';next.style.opacity=idx>=max()?'0':'1';});
+  sl.addEventListener('mouseleave',function(){prev.style.opacity='0';next.style.opacity=idx>=max()?'0':'1';});
+  window.addEventListener('resize',function(){buildDots();go(0);});buildDots();go(0);
+})();
+</script>
+    <!-- team -->
+    <div style="margin-top:40px">
+      <h3 style="font-size:1rem;font-weight:700;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.08em;margin:0 0 24px">Het team</h3>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:24px 16px">
+<div style="text-align:center">
+          <div style="width:80px;height:80px;border-radius:50%;overflow:hidden;margin:0 auto 10px;background:var(--bg-soft)">
+            <img src="images/team/natalia.fieraert.jpg" alt="Natalia Manchado Fieraert" style="width:100%;height:100%;object-fit:cover">
+          </div>
+          <strong style="display:block;font-size:.88rem;font-weight:700;color:var(--dark)">Natalia Manchado Fieraert</strong>
+          <span style="font-size:.78rem;color:var(--ink-soft)">Financial Controller</span>
+        </div>
+<div style="text-align:center">
+          <div style="width:80px;height:80px;border-radius:50%;overflow:hidden;margin:0 auto 10px;background:var(--bg-soft)">
+            <img src="images/team/pieter.zijlmans.jpg" alt="Pieter Zijlmans MSc MRICS VRT" style="width:100%;height:100%;object-fit:cover">
+          </div>
+          <strong style="display:block;font-size:.88rem;font-weight:700;color:var(--dark)">Pieter Zijlmans MSc MRICS VRT</strong>
+          <span style="font-size:.78rem;color:var(--ink-soft)">Partner Valuations</span>
+        </div>
+<div style="text-align:center">
+          <div style="width:80px;height:80px;border-radius:50%;overflow:hidden;margin:0 auto 10px;background:var(--bg-soft)">
+            <img src="images/team/gijs.klaassen.jpg" alt="Gijs Klaassen MSc RT" style="width:100%;height:100%;object-fit:cover">
+          </div>
+          <strong style="display:block;font-size:.88rem;font-weight:700;color:var(--dark)">Gijs Klaassen MSc RT</strong>
+          <span style="font-size:.78rem;color:var(--ink-soft)">Associate Director Valuations</span>
+        </div>
+<div style="text-align:center">
+          <div style="width:80px;height:80px;border-radius:50%;overflow:hidden;margin:0 auto 10px;background:var(--bg-soft)">
+            <img src="images/team/norbert.vanworkum.jpg" alt="Norbert van Workum" style="width:100%;height:100%;object-fit:cover">
+          </div>
+          <strong style="display:block;font-size:.88rem;font-weight:700;color:var(--dark)">Norbert van Workum</strong>
+          <span style="font-size:.78rem;color:var(--ink-soft)">Property Manager</span>
+        </div>
+</div>
+    </div>
+  </div>
+</section>
+<div style="border-top:1px solid var(--line)"></div>
+<!-- ── ESTEPONA ── -->
+<section id="estepona" class="section section--soft">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr auto;gap:32px;align-items:start;margin-bottom:32px;flex-wrap:wrap">
+      <div>
+        <span class="eyebrow">Costa del Sol</span>
+        <h2 class="disp" style="margin:6px 0 16px">Estepona</h2>
+        <p style="color:var(--ink-soft);line-height:1.7;max-width:65ch;margin:0 0 20px">Estepona &mdash; de tuin van de Costa del Sol. Onze vestiging richt zich op luxe residentieel vastgoed voor Nederlandse en internationale kopers die zoeken naar een tweede woning, vakantieverhuur of een belegging in het zonnige Spanje.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:16px;font-size:.88rem;color:var(--ink-soft)">
+          <span style="display:flex;align-items:center;gap:6px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Av. Luis de Armiñán 58, 29680 Estepona</span>
+          <span style="display:flex;align-items:center;gap:6px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.6 19.79 19.79 0 0 1 1.65 5c-.07-.56.29-1.12.85-1.33l2.83-1.07a2 2 0 0 1 2.56 1.14l1.41 3.67a2 2 0 0 1-.46 2.19L8.09 10.9a16 16 0 0 0 6 6l1.27-.75a2 2 0 0 1 2.19-.46l3.67 1.41a2 2 0 0 1 1.13 2.56z"/></svg>+34 95 820 88 88</span>
+          <a href="mailto:estepona@springrealestate.com" style="display:flex;align-items:center;gap:6px;color:var(--green);text-decoration:none;font-weight:600"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>estepona@springrealestate.com</a>
+        </div>
+      </div>
+      <a href="contact.html" class="btn btn--primary" style="white-space:nowrap;align-self:flex-start;margin-top:4px">Contact opnemen</a>
+    </div>
+    <div style="margin-top:28px">
+  <div id="seSlider" style="position:relative;overflow:hidden">
+    <div id="seTrack" style="display:flex;gap:16px;transition:transform .4s cubic-bezier(.25,.46,.45,.94)">
+        <a class="ov-card" href="listings.html" style="flex:0 0 calc(33.333% - 11px);min-width:260px">
+          <img src="images/photo-1.jpg" alt="Estepona kantoor" loading="lazy">
+          <div class="ov-card__overlay"></div>
+          <div class="ov-card__body">
+            <span class="ov-card__cat">Kantoor</span>
+            <h3 class="ov-card__title">Av. Luis de Armi&ntilde;&aacute;n &mdash; Estepona</h3>
+            <div class="ov-card__meta">Costa del Sol &middot; Estepona</div>
+          </div>
+        </a>
+        <a class="ov-card" href="listings.html" style="flex:0 0 calc(33.333% - 11px);min-width:260px">
+          <img src="images/photo-2.jpg" alt="Estepona villa" loading="lazy">
+          <div class="ov-card__overlay"></div>
+          <div class="ov-card__body">
+            <span class="ov-card__cat">Residentieel</span>
+            <h3 class="ov-card__title">Luxe villa&rsquo;s &amp; appartementen</h3>
+            <div class="ov-card__meta">New Golden Mile &middot; Marbella</div>
+          </div>
+        </a>
+        <a class="ov-card" href="listings.html" style="flex:0 0 calc(33.333% - 11px);min-width:260px">
+          <img src="images/hero.jpg" alt="Costa del Sol strand" loading="lazy">
+          <div class="ov-card__overlay"></div>
+          <div class="ov-card__body">
+            <span class="ov-card__cat">Markt</span>
+            <h3 class="ov-card__title">300+ dagen zon per jaar</h3>
+            <div class="ov-card__meta">Espa&ntilde;a &middot; Spring</div>
+          </div>
+        </a>
+    </div>
+    <button id="sePrev" aria-label="Vorige" style="position:absolute;left:8px;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;border:none;background:rgba(255,255,255,.92);box-shadow:0 2px 12px rgba(0,0,0,.18);cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:2;opacity:0;transition:opacity .2s;pointer-events:none">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1c1c1b" stroke-width="2.2"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <button id="seNext" aria-label="Volgende" style="position:absolute;right:8px;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;border:none;background:rgba(255,255,255,.92);box-shadow:0 2px 12px rgba(0,0,0,.18);cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:2;transition:opacity .2s">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1c1c1b" stroke-width="2.2"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
+  </div>
+  <div id="seDots" style="display:flex;gap:6px;justify-content:center;padding:12px 0 0"></div>
+</div>
+<script>
+(function(){
+  var track=document.getElementById('seTrack'),sl=document.getElementById('seSlider');
+  var cards=track.querySelectorAll('.ov-card'),dots=document.getElementById('seDots');
+  var prev=document.getElementById('sePrev'),next=document.getElementById('seNext'),idx=0;
+  function vis(){var w=sl.offsetWidth;return w<500?1:w<800?2:3;}
+  function max(){return Math.max(0,cards.length-vis());}
+  function go(n){idx=Math.max(0,Math.min(n,max()));
+    track.style.transform='translateX(-'+(idx*(cards[0].offsetWidth+16))+'px)';
+    prev.style.opacity=idx===0?'0':'1';prev.style.pointerEvents=idx===0?'none':'';
+    next.style.opacity=idx>=max()?'0':'1';next.style.pointerEvents=idx>=max()?'none':'';
+    dots.querySelectorAll('button').forEach(function(d,i){d.style.background=i===idx?'var(--green)':'var(--line)';});}
+  function buildDots(){dots.innerHTML='';for(var i=0;i<=max();i++){(function(i){var d=document.createElement('button');
+    d.style.cssText='width:8px;height:8px;border-radius:50%;border:none;cursor:pointer;padding:0;background:var(--line);transition:background .2s';
+    d.addEventListener('click',function(){go(i);});dots.appendChild(d);})( i);}}
+  prev.addEventListener('click',function(){go(idx-1);});next.addEventListener('click',function(){go(idx+1);});
+  var tx=0;track.addEventListener('touchstart',function(e){tx=e.touches[0].clientX;},{passive:true});
+  track.addEventListener('touchend',function(e){var dx=tx-e.changedTouches[0].clientX;if(Math.abs(dx)>40)go(dx>0?idx+1:idx-1);},{passive:true});
+  sl.addEventListener('mouseenter',function(){prev.style.opacity=idx===0?'0':'1';next.style.opacity=idx>=max()?'0':'1';});
+  sl.addEventListener('mouseleave',function(){prev.style.opacity='0';next.style.opacity=idx>=max()?'0':'1';});
+  window.addEventListener('resize',function(){buildDots();go(0);});buildDots();go(0);
+})();
+</script>
+    <!-- team -->
+    <div style="margin-top:40px">
+      <h3 style="font-size:1rem;font-weight:700;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.08em;margin:0 0 24px">Het team</h3>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:24px 16px">
+<div style="text-align:center">
+          <div style="width:80px;height:80px;border-radius:50%;overflow:hidden;margin:0 auto 10px;background:var(--bg-soft)">
+            <img src="images/team/zakaria.elyoussoufi.jpg" alt="Zakaria El Youssoufi" style="width:100%;height:100%;object-fit:cover">
+          </div>
+          <strong style="display:block;font-size:.88rem;font-weight:700;color:var(--dark)">Zakaria El Youssoufi</strong>
+          <span style="font-size:.78rem;color:var(--ink-soft)">Partner Accounting</span>
+        </div>
+<div style="text-align:center">
+          <div style="width:80px;height:80px;border-radius:50%;overflow:hidden;margin:0 auto 10px;background:var(--bg-soft)">
+            <img src="images/team/achraf.dahraoui.jpg" alt="Achraf Dahraoui" style="width:100%;height:100%;object-fit:cover">
+          </div>
+          <strong style="display:block;font-size:.88rem;font-weight:700;color:var(--dark)">Achraf Dahraoui</strong>
+          <span style="font-size:.78rem;color:var(--ink-soft)">Consultant Accounting</span>
+        </div>
+<div style="text-align:center">
+          <div style="width:80px;height:80px;border-radius:50%;overflow:hidden;margin:0 auto 10px;background:var(--bg-soft)">
+            <img src="images/team/alec.faase.jpg" alt="Alec Faase" style="width:100%;height:100%;object-fit:cover">
+          </div>
+          <strong style="display:block;font-size:.88rem;font-weight:700;color:var(--dark)">Alec Faase</strong>
+          <span style="font-size:.78rem;color:var(--ink-soft)">Valuations Analyst</span>
+        </div>
+<div style="text-align:center">
+          <div style="width:80px;height:80px;border-radius:50%;overflow:hidden;margin:0 auto 10px;background:var(--bg-soft)">
+            <img src="images/team/niek.vandesteeg.jpg" alt="Niek van de Steeg MSc" style="width:100%;height:100%;object-fit:cover">
+          </div>
+          <strong style="display:block;font-size:.88rem;font-weight:700;color:var(--dark)">Niek van de Steeg MSc</strong>
+          <span style="font-size:.78rem;color:var(--ink-soft)">Real Estate Advisor</span>
+        </div>
+</div>
+    </div>
+  </div>
+</section>
+<div style="border-top:1px solid var(--line)"></div>
+
+<!-- ── CTA ── -->
 <section class="section--tight"><div class="container"><div class="cta">
   <h2>Lokale expertise, internationale blik</h2>
   <p>Neem contact op met het team op jouw locatie of laat ons u voorstellen aan de juiste specialist.</p>
@@ -195,6 +637,7 @@
     <a href="agents.html" class="btn btn--ghost btn--lg">Ontmoet het team</a>
   </div>
 </div></div></section>
+
 <footer class="footer"><div class="container">
   <div class="foot-grid">
     <div class="foot-brand">
