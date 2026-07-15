@@ -5216,19 +5216,19 @@ h2.disp { font-size: clamp(1.6rem, 3vw, 2.4rem); line-height: 1.15; font-weight:
 .vac-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}
 .vac-list li{display:flex;gap:10px;font-size:.93rem;color:var(--ink);line-height:1.5;align-items:flex-start}
 .vac-list li svg{color:var(--green);flex-shrink:0;margin-top:3px}
-.vac-perks{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.vac-perk{background:var(--bg-soft);border-radius:12px;padding:16px 18px}
-.vac-perk h4{margin:0 0 4px;font-size:.9rem;font-weight:700;color:var(--dark)}
-.vac-perk p{margin:0;font-size:.82rem;color:var(--ink-soft);line-height:1.5}
-.vac-proc{max-width:1160px;margin:0 auto;padding:44px 24px 52px}
-.vac-proc-head{margin-bottom:28px}
-.vac-proc-head .eyebrow{display:block;margin-bottom:6px}
-.vac-proc-head h2{font-size:1.35rem;font-weight:800;color:var(--dark)}
-.vac-proc-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-.vac-proc-step{padding:20px;background:var(--bg-soft);border-radius:12px;border-top:3px solid var(--green)}
-.vac-proc-step-n{font-size:1.6rem;font-weight:800;color:var(--green-soft);display:block;margin-bottom:10px;line-height:1}
-.vac-proc-step h4{margin:0 0 6px;font-size:.93rem;font-weight:700;color:var(--dark)}
-.vac-proc-step p{margin:0;font-size:.83rem;color:var(--ink-soft);line-height:1.55}
+.vac-perks{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.vac-perk{background:#fff;border-radius:14px;padding:22px 22px 20px;border:1px solid var(--line)}
+.vac-perk h4{margin:10px 0 5px;font-size:.93rem;font-weight:700;color:var(--dark)}
+.vac-perk p{margin:0;font-size:.84rem;color:var(--ink-soft);line-height:1.55}
+.vac-proc{max-width:1160px;margin:0 auto;padding:52px 24px 60px}
+.vac-proc-head{margin-bottom:32px}
+.vac-proc-head .eyebrow{display:block;margin-bottom:8px}
+.vac-proc-head h2{font-size:1.45rem;font-weight:800;color:var(--dark)}
+.vac-proc-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.vac-proc-step{padding:24px 20px 22px;background:#fff;border-radius:14px;border:1px solid var(--line);position:relative}
+.vac-proc-step-n{font-size:.8rem;font-weight:800;letter-spacing:.08em;color:var(--green);background:var(--green-tint,rgba(124,167,63,.12));display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;margin-bottom:14px;line-height:1}
+.vac-proc-step h4{margin:0 0 8px;font-size:.95rem;font-weight:700;color:var(--dark)}
+.vac-proc-step p{margin:0;font-size:.84rem;color:var(--ink-soft);line-height:1.6}
 @media(max-width:900px){
   .vac-grid{grid-template-columns:1fr}
   .aside-card.aside-dark{position:static!important}
