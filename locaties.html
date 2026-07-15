@@ -93,7 +93,7 @@
       <div>
         <span class="eyebrow">Hoofdkantoor</span>
         <h2 class="disp" style="margin:8px 0 16px">Utrecht</h2>
-        <p style="color:var(--ink-soft);font-size:.95rem;line-height:1.75;max-width:52ch">Utrecht is het geografische hart van Nederland en de thuisbasis van Spring Real Estate. Vanuit ons hoofdkantoor aan de Croeselaan coördineren wij onze 18 business units. Een plek waar strategie, service en samenwerking samenkomen.</p>
+        <p style="color:var(--ink-soft);font-size:.95rem;line-height:1.75;max-width:52ch">Utrecht is het geografische hart van Nederland en de thuisbasis van Spring Real Estate. Vanuit ons hoofdkantoor aan de Croeselaan co&ouml;rdineren wij onze 18 business units. Een plek waar strategie, service en samenwerking samenkomen.</p>
         <a href="contact.html" class="cta-pill" style="margin-top:20px;display:inline-flex">Contact opnemen <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
       <div style="background:var(--bg-soft);border-radius:12px;padding:28px 32px;border:1px solid var(--line)">
@@ -116,24 +116,62 @@
       </div>
     </div>
 
-    <div class="ov-card" style="margin:32px 0 0">
-  <div class="ov-track" id="UtrechtTrack"><div class="ov-slide"><img src="images/hero.jpg" alt="Spring kantoor Utrecht" loading="lazy"><div class="ov-cap">Spring kantoor Utrecht</div></div><div class="ov-slide"><img src="images/photo-1.jpg" alt="Werkplek Utrecht" loading="lazy"><div class="ov-cap">Werkplek Utrecht</div></div><div class="ov-slide"><img src="images/photo-2.jpg" alt="Meeting Utrecht" loading="lazy"><div class="ov-cap">Meeting Utrecht</div></div></div>
-  <button class="ov-prev" id="UtrechtPrev" onclick="moveUtrecht(-1)" aria-label="Vorige">&#8592;</button>
-  <button class="ov-next" id="UtrechtNext" onclick="moveUtrecht(1)" aria-label="Volgende">&#8594;</button>
-  <div class="ov-dots" id="UtrechtDots"><button class="ov-dot active" onclick="goToUtrecht(0)" aria-label="Slide 1"></button><button class="ov-dot" onclick="goToUtrecht(1)" aria-label="Slide 2"></button><button class="ov-dot" onclick="goToUtrecht(2)" aria-label="Slide 3"></button></div>
-</div>
-<script>
-(function(){
-  var idx=0,track=document.getElementById('UtrechtTrack'),dots=document.querySelectorAll('#UtrechtDots .ov-dot'),total=track.children.length;
-  function vis(){var w=track.parentElement.clientWidth;track.style.transform='translateX(-'+(idx*w)+'px)';dots.forEach(function(d,i){d.classList.toggle('active',i===idx)})}
-  window.moveUtrecht=function(d){idx=(idx+d+total)%total;vis()};
-  window.goToUtrecht=function(i){idx=i;vis()};
-  window.addEventListener('resize',vis);
-  var sx=0;track.parentElement.addEventListener('touchstart',function(e){sx=e.touches[0].clientX},{passive:true});
-  track.parentElement.addEventListener('touchend',function(e){var dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40)moveUtrecht(dx<0?1:-1)});
-  vis();
-})();
-</script>
+    <div><div id="UtrechtSlider" style="position:relative;overflow:hidden;margin:32px 0 0">
+      <div id="UtrechtTrack" style="display:flex;gap:16px;transition:transform .4s cubic-bezier(.25,.46,.45,.94)">
+        <a class="ov-card" href="listings.html" style="flex:0 0 calc(33.333% - 11px);min-width:260px">
+          <img src="images/hero.jpg" alt="Het bruisende kantoorcentrum" loading="lazy">
+          <div class="ov-card__overlay"></div>
+          <div class="ov-card__body">
+            <span class="ov-card__cat">Stationsgebied</span>
+            <h3 class="ov-card__title">Het bruisende kantoorcentrum</h3>
+            <div class="ov-card__meta">Hoog Catharijne &middot; Utrecht Centraal</div>
+          </div>
+        </a>
+        <a class="ov-card" href="listings.html" style="flex:0 0 calc(33.333% - 11px);min-width:260px">
+          <img src="images/photo-1.jpg" alt="Moderne kantoorparken buiten het centrum" loading="lazy">
+          <div class="ov-card__overlay"></div>
+          <div class="ov-card__body">
+            <span class="ov-card__cat">Papendorp</span>
+            <h3 class="ov-card__title">Moderne kantoorparken buiten het centrum</h3>
+            <div class="ov-card__meta">Business Park Papendorp &middot; Utrecht</div>
+          </div>
+        </a>
+        <a class="ov-card" href="listings.html" style="flex:0 0 calc(33.333% - 11px);min-width:260px">
+          <img src="images/photo-2.jpg" alt="Spring Real Estate Croeselaan 28" loading="lazy">
+          <div class="ov-card__overlay"></div>
+          <div class="ov-card__body">
+            <span class="ov-card__cat">Hoofdkantoor</span>
+            <h3 class="ov-card__title">Spring Real Estate Croeselaan 28</h3>
+            <div class="ov-card__meta">Ons thuiskantoor &middot; 18 business units</div>
+          </div>
+        </a>
+      </div>
+      <button id="UtrechtPrev" style="position:absolute;left:10px;top:50%;transform:translateY(-50%);width:36px;height:36px;border-radius:50%;background:#fff;border:1px solid var(--line);cursor:pointer;font-size:1.1rem;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;z-index:2">&#8592;</button>
+      <button id="UtrechtNext" style="position:absolute;right:10px;top:50%;transform:translateY(-50%);width:36px;height:36px;border-radius:50%;background:#fff;border:1px solid var(--line);cursor:pointer;font-size:1.1rem;display:flex;align-items:center;justify-content:center;z-index:2">&#8594;</button>
+      <div id="UtrechtDots" style="display:flex;justify-content:center;gap:6px;margin-top:12px"><button style="width:8px;height:8px;border-radius:50%;border:none;background:var(--line);cursor:pointer" aria-label="Slide 1"></button><button style="width:8px;height:8px;border-radius:50%;border:none;background:var(--line);cursor:pointer" aria-label="Slide 2"></button><button style="width:8px;height:8px;border-radius:50%;border:none;background:var(--line);cursor:pointer" aria-label="Slide 3"></button></div>
+    </div>
+    <script>
+    (function(){
+      var track=document.getElementById('UtrechtTrack'),slider=document.getElementById('UtrechtSlider');
+      var cards=track.querySelectorAll('.ov-card'),dotsEl=document.getElementById('UtrechtDots');
+      var prev=document.getElementById('UtrechtPrev'),next=document.getElementById('UtrechtNext'),idx=0;
+      function vis(){var w=slider.offsetWidth;return w<500?1:w<800?2:3;}
+      function max(){return Math.max(0,cards.length-vis());}
+      function go(n){
+        idx=Math.max(0,Math.min(n,max()));
+        track.style.transform='translateX(-'+(idx*(cards[0].offsetWidth+16))+'px)';
+        prev.style.opacity=idx===0?'0':'1';prev.style.pointerEvents=idx===0?'none':'';
+        next.style.opacity=idx>=max()?'0':'1';next.style.pointerEvents=idx>=max()?'none':'';
+        dotsEl.querySelectorAll('button').forEach(function(d,i){d.style.background=i===idx?'var(--green)':'var(--line)';});
+      }
+      document.getElementById('UtrechtPrev').onclick=function(){go(idx-1);};
+      document.getElementById('UtrechtNext').onclick=function(){go(idx+1);};
+      var sx=0;slider.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;},{passive:true});
+      slider.addEventListener('touchend',function(e){var dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40)go(idx+(dx<0?1:-1));});
+      window.addEventListener('resize',function(){go(idx);});
+      go(0);
+    })();
+    </script></div>
 
     <div style="margin-top:48px">
       <div class="sec-head" style="margin-bottom:24px"><div class="t">
@@ -268,7 +306,7 @@
       <div>
         <span class="eyebrow">Vestiging Zuidas</span>
         <h2 class="disp" style="margin:8px 0 16px">Amsterdam</h2>
-        <p style="color:var(--ink-soft);font-size:.95rem;line-height:1.75;max-width:52ch">Op de Zuidas, het financiële en zakelijke hart van Nederland, heeft Spring Real Estate een eigen vestiging. Hier bedienen we internationale bedrijven, institutionele investeerders en vastgoedeigenaren in de metropoolregio.</p>
+        <p style="color:var(--ink-soft);font-size:.95rem;line-height:1.75;max-width:52ch">Op de Zuidas, het financi&euml;le en zakelijke hart van Nederland, heeft Spring Real Estate een eigen vestiging. Hier bedienen we internationale bedrijven, institutionele investeerders en vastgoedeigenaren in de metropoolregio.</p>
         <a href="contact.html" class="cta-pill" style="margin-top:20px;display:inline-flex">Contact opnemen <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
       <div style="background:var(--bg-soft);border-radius:12px;padding:28px 32px;border:1px solid var(--line)">
@@ -291,24 +329,62 @@
       </div>
     </div>
 
-    <div class="ov-card" style="margin:32px 0 0">
-  <div class="ov-track" id="AmsterdamTrack"><div class="ov-slide"><img src="images/photo-2.jpg" alt="Spring kantoor Amsterdam" loading="lazy"><div class="ov-cap">Spring kantoor Amsterdam</div></div><div class="ov-slide"><img src="images/hero.jpg" alt="Zuidas uitzicht" loading="lazy"><div class="ov-cap">Zuidas uitzicht</div></div><div class="ov-slide"><img src="images/photo-1.jpg" alt="Team Amsterdam" loading="lazy"><div class="ov-cap">Team Amsterdam</div></div></div>
-  <button class="ov-prev" id="AmsterdamPrev" onclick="moveAmsterdam(-1)" aria-label="Vorige">&#8592;</button>
-  <button class="ov-next" id="AmsterdamNext" onclick="moveAmsterdam(1)" aria-label="Volgende">&#8594;</button>
-  <div class="ov-dots" id="AmsterdamDots"><button class="ov-dot active" onclick="goToAmsterdam(0)" aria-label="Slide 1"></button><button class="ov-dot" onclick="goToAmsterdam(1)" aria-label="Slide 2"></button><button class="ov-dot" onclick="goToAmsterdam(2)" aria-label="Slide 3"></button></div>
-</div>
-<script>
-(function(){
-  var idx=0,track=document.getElementById('AmsterdamTrack'),dots=document.querySelectorAll('#AmsterdamDots .ov-dot'),total=track.children.length;
-  function vis(){var w=track.parentElement.clientWidth;track.style.transform='translateX(-'+(idx*w)+'px)';dots.forEach(function(d,i){d.classList.toggle('active',i===idx)})}
-  window.moveAmsterdam=function(d){idx=(idx+d+total)%total;vis()};
-  window.goToAmsterdam=function(i){idx=i;vis()};
-  window.addEventListener('resize',vis);
-  var sx=0;track.parentElement.addEventListener('touchstart',function(e){sx=e.touches[0].clientX},{passive:true});
-  track.parentElement.addEventListener('touchend',function(e){var dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40)moveAmsterdam(dx<0?1:-1)});
-  vis();
-})();
-</script>
+    <div><div id="AmsterdamSlider" style="position:relative;overflow:hidden;margin:32px 0 0">
+      <div id="AmsterdamTrack" style="display:flex;gap:16px;transition:transform .4s cubic-bezier(.25,.46,.45,.94)">
+        <a class="ov-card" href="listings.html" style="flex:0 0 calc(33.333% - 11px);min-width:260px">
+          <img src="images/photo-2.jpg" alt="Het financiële hart van Nederland" loading="lazy">
+          <div class="ov-card__overlay"></div>
+          <div class="ov-card__body">
+            <span class="ov-card__cat">Zuidas</span>
+            <h3 class="ov-card__title">Het financiële hart van Nederland</h3>
+            <div class="ov-card__meta">WTC &middot; Symphony &middot; Zuidas</div>
+          </div>
+        </a>
+        <a class="ov-card" href="listings.html" style="flex:0 0 calc(33.333% - 11px);min-width:260px">
+          <img src="images/hero.jpg" alt="Toplocaties in de metropoolregio" loading="lazy">
+          <div class="ov-card__overlay"></div>
+          <div class="ov-card__body">
+            <span class="ov-card__cat">Kantoormarkt</span>
+            <h3 class="ov-card__title">Toplocaties in de metropoolregio</h3>
+            <div class="ov-card__meta">Amsterdam &middot; Almere &middot; Schiphol</div>
+          </div>
+        </a>
+        <a class="ov-card" href="listings.html" style="flex:0 0 calc(33.333% - 11px);min-width:260px">
+          <img src="images/photo-1.jpg" alt="Institutionele vastgoedbeleggingen" loading="lazy">
+          <div class="ov-card__overlay"></div>
+          <div class="ov-card__body">
+            <span class="ov-card__cat">Investment</span>
+            <h3 class="ov-card__title">Institutionele vastgoedbeleggingen</h3>
+            <div class="ov-card__meta">Core &middot; Core+ &middot; Value-add</div>
+          </div>
+        </a>
+      </div>
+      <button id="AmsterdamPrev" style="position:absolute;left:10px;top:50%;transform:translateY(-50%);width:36px;height:36px;border-radius:50%;background:#fff;border:1px solid var(--line);cursor:pointer;font-size:1.1rem;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;z-index:2">&#8592;</button>
+      <button id="AmsterdamNext" style="position:absolute;right:10px;top:50%;transform:translateY(-50%);width:36px;height:36px;border-radius:50%;background:#fff;border:1px solid var(--line);cursor:pointer;font-size:1.1rem;display:flex;align-items:center;justify-content:center;z-index:2">&#8594;</button>
+      <div id="AmsterdamDots" style="display:flex;justify-content:center;gap:6px;margin-top:12px"><button style="width:8px;height:8px;border-radius:50%;border:none;background:var(--line);cursor:pointer" aria-label="Slide 1"></button><button style="width:8px;height:8px;border-radius:50%;border:none;background:var(--line);cursor:pointer" aria-label="Slide 2"></button><button style="width:8px;height:8px;border-radius:50%;border:none;background:var(--line);cursor:pointer" aria-label="Slide 3"></button></div>
+    </div>
+    <script>
+    (function(){
+      var track=document.getElementById('AmsterdamTrack'),slider=document.getElementById('AmsterdamSlider');
+      var cards=track.querySelectorAll('.ov-card'),dotsEl=document.getElementById('AmsterdamDots');
+      var prev=document.getElementById('AmsterdamPrev'),next=document.getElementById('AmsterdamNext'),idx=0;
+      function vis(){var w=slider.offsetWidth;return w<500?1:w<800?2:3;}
+      function max(){return Math.max(0,cards.length-vis());}
+      function go(n){
+        idx=Math.max(0,Math.min(n,max()));
+        track.style.transform='translateX(-'+(idx*(cards[0].offsetWidth+16))+'px)';
+        prev.style.opacity=idx===0?'0':'1';prev.style.pointerEvents=idx===0?'none':'';
+        next.style.opacity=idx>=max()?'0':'1';next.style.pointerEvents=idx>=max()?'none':'';
+        dotsEl.querySelectorAll('button').forEach(function(d,i){d.style.background=i===idx?'var(--green)':'var(--line)';});
+      }
+      document.getElementById('AmsterdamPrev').onclick=function(){go(idx-1);};
+      document.getElementById('AmsterdamNext').onclick=function(){go(idx+1);};
+      var sx=0;slider.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;},{passive:true});
+      slider.addEventListener('touchend',function(e){var dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40)go(idx+(dx<0?1:-1));});
+      window.addEventListener('resize',function(){go(idx);});
+      go(0);
+    })();
+    </script></div>
 
     <div style="margin-top:48px">
       <div class="sec-head" style="margin-bottom:24px"><div class="t">
@@ -373,7 +449,7 @@
       <div>
         <span class="eyebrow">Internationale vestiging</span>
         <h2 class="disp" style="margin:8px 0 16px">Valencia</h2>
-        <p style="color:var(--ink-soft);font-size:.95rem;line-height:1.75;max-width:52ch">Valencia is de bruisende poort naar de Spaanse vastgoedmarkt. Spring Real Estate begeleidt hier Nederlandse en internationale klanten bij residentieel vastgoed, investeringen en relocatie — met lokale kennis en het Spring-netwerk.</p>
+        <p style="color:var(--ink-soft);font-size:.95rem;line-height:1.75;max-width:52ch">Valencia is de bruisende poort naar de Spaanse vastgoedmarkt. Spring Real Estate begeleidt hier Nederlandse en internationale klanten bij residentieel vastgoed, investeringen en relocatie &mdash; met lokale kennis en het Spring-netwerk.</p>
         <a href="contact.html" class="cta-pill" style="margin-top:20px;display:inline-flex">Contact opnemen <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
       <div style="background:var(--bg-soft);border-radius:12px;padding:28px 32px;border:1px solid var(--line)">
@@ -396,24 +472,62 @@
       </div>
     </div>
 
-    <div class="ov-card" style="margin:32px 0 0">
-  <div class="ov-track" id="ValenciaTrack"><div class="ov-slide"><img src="images/photo-2.jpg" alt="Spring kantoor Valencia" loading="lazy"><div class="ov-cap">Spring kantoor Valencia</div></div><div class="ov-slide"><img src="images/hero.jpg" alt="Valencia centrum" loading="lazy"><div class="ov-cap">Valencia centrum</div></div><div class="ov-slide"><img src="images/photo-1.jpg" alt="Residentieel aanbod" loading="lazy"><div class="ov-cap">Residentieel aanbod</div></div></div>
-  <button class="ov-prev" id="ValenciaPrev" onclick="moveValencia(-1)" aria-label="Vorige">&#8592;</button>
-  <button class="ov-next" id="ValenciaNext" onclick="moveValencia(1)" aria-label="Volgende">&#8594;</button>
-  <div class="ov-dots" id="ValenciaDots"><button class="ov-dot active" onclick="goToValencia(0)" aria-label="Slide 1"></button><button class="ov-dot" onclick="goToValencia(1)" aria-label="Slide 2"></button><button class="ov-dot" onclick="goToValencia(2)" aria-label="Slide 3"></button></div>
-</div>
-<script>
-(function(){
-  var idx=0,track=document.getElementById('ValenciaTrack'),dots=document.querySelectorAll('#ValenciaDots .ov-dot'),total=track.children.length;
-  function vis(){var w=track.parentElement.clientWidth;track.style.transform='translateX(-'+(idx*w)+'px)';dots.forEach(function(d,i){d.classList.toggle('active',i===idx)})}
-  window.moveValencia=function(d){idx=(idx+d+total)%total;vis()};
-  window.goToValencia=function(i){idx=i;vis()};
-  window.addEventListener('resize',vis);
-  var sx=0;track.parentElement.addEventListener('touchstart',function(e){sx=e.touches[0].clientX},{passive:true});
-  track.parentElement.addEventListener('touchend',function(e){var dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40)moveValencia(dx<0?1:-1)});
-  vis();
-})();
-</script>
+    <div><div id="ValenciaSlider" style="position:relative;overflow:hidden;margin:32px 0 0">
+      <div id="ValenciaTrack" style="display:flex;gap:16px;transition:transform .4s cubic-bezier(.25,.46,.45,.94)">
+        <a class="ov-card" href="listings.html" style="flex:0 0 calc(33.333% - 11px);min-width:260px">
+          <img src="images/photo-2.jpg" alt="Woningen in hart van Valencia" loading="lazy">
+          <div class="ov-card__overlay"></div>
+          <div class="ov-card__body">
+            <span class="ov-card__cat">Residentieel</span>
+            <h3 class="ov-card__title">Woningen in hart van Valencia</h3>
+            <div class="ov-card__meta">Eixample &middot; Ruzafa &middot; El Carmen</div>
+          </div>
+        </a>
+        <a class="ov-card" href="listings.html" style="flex:0 0 calc(33.333% - 11px);min-width:260px">
+          <img src="images/hero.jpg" alt="Begeleiding voor Nederlandse expats" loading="lazy">
+          <div class="ov-card__overlay"></div>
+          <div class="ov-card__body">
+            <span class="ov-card__cat">Expats</span>
+            <h3 class="ov-card__title">Begeleiding voor Nederlandse expats</h3>
+            <div class="ov-card__meta">Relocation &middot; Aankoopbegeleiding</div>
+          </div>
+        </a>
+        <a class="ov-card" href="listings.html" style="flex:0 0 calc(33.333% - 11px);min-width:260px">
+          <img src="images/photo-1.jpg" alt="Rendabele vastgoedbeleggingen Spanje" loading="lazy">
+          <div class="ov-card__overlay"></div>
+          <div class="ov-card__body">
+            <span class="ov-card__cat">Investeren</span>
+            <h3 class="ov-card__title">Rendabele vastgoedbeleggingen Spanje</h3>
+            <div class="ov-card__meta">Toeristische verhuur &middot; Nieuwbouw</div>
+          </div>
+        </a>
+      </div>
+      <button id="ValenciaPrev" style="position:absolute;left:10px;top:50%;transform:translateY(-50%);width:36px;height:36px;border-radius:50%;background:#fff;border:1px solid var(--line);cursor:pointer;font-size:1.1rem;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;z-index:2">&#8592;</button>
+      <button id="ValenciaNext" style="position:absolute;right:10px;top:50%;transform:translateY(-50%);width:36px;height:36px;border-radius:50%;background:#fff;border:1px solid var(--line);cursor:pointer;font-size:1.1rem;display:flex;align-items:center;justify-content:center;z-index:2">&#8594;</button>
+      <div id="ValenciaDots" style="display:flex;justify-content:center;gap:6px;margin-top:12px"><button style="width:8px;height:8px;border-radius:50%;border:none;background:var(--line);cursor:pointer" aria-label="Slide 1"></button><button style="width:8px;height:8px;border-radius:50%;border:none;background:var(--line);cursor:pointer" aria-label="Slide 2"></button><button style="width:8px;height:8px;border-radius:50%;border:none;background:var(--line);cursor:pointer" aria-label="Slide 3"></button></div>
+    </div>
+    <script>
+    (function(){
+      var track=document.getElementById('ValenciaTrack'),slider=document.getElementById('ValenciaSlider');
+      var cards=track.querySelectorAll('.ov-card'),dotsEl=document.getElementById('ValenciaDots');
+      var prev=document.getElementById('ValenciaPrev'),next=document.getElementById('ValenciaNext'),idx=0;
+      function vis(){var w=slider.offsetWidth;return w<500?1:w<800?2:3;}
+      function max(){return Math.max(0,cards.length-vis());}
+      function go(n){
+        idx=Math.max(0,Math.min(n,max()));
+        track.style.transform='translateX(-'+(idx*(cards[0].offsetWidth+16))+'px)';
+        prev.style.opacity=idx===0?'0':'1';prev.style.pointerEvents=idx===0?'none':'';
+        next.style.opacity=idx>=max()?'0':'1';next.style.pointerEvents=idx>=max()?'none':'';
+        dotsEl.querySelectorAll('button').forEach(function(d,i){d.style.background=i===idx?'var(--green)':'var(--line)';});
+      }
+      document.getElementById('ValenciaPrev').onclick=function(){go(idx-1);};
+      document.getElementById('ValenciaNext').onclick=function(){go(idx+1);};
+      var sx=0;slider.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;},{passive:true});
+      slider.addEventListener('touchend',function(e){var dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40)go(idx+(dx<0?1:-1));});
+      window.addEventListener('resize',function(){go(idx);});
+      go(0);
+    })();
+    </script></div>
 
     <div style="margin-top:48px">
       <div class="sec-head" style="margin-bottom:24px"><div class="t">
@@ -472,7 +586,7 @@
         <div style="display:flex;flex-direction:column;gap:12px">
           <div style="display:flex;gap:10px;align-items:flex-start;font-size:.9rem;color:var(--ink)">
             <span style="color:var(--green);flex-shrink:0;margin-top:2px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
-            <span>Avenida de España 10<br>29680 Estepona, Málaga</span>
+            <span>Avenida de Espa&ntilde;a 10<br>29680 Estepona, M&aacute;laga</span>
           </div>
           <div style="display:flex;gap:10px;align-items:center;font-size:.9rem;color:var(--ink)">
             <span style="color:var(--green);flex-shrink:0"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.18 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 5.48 5.48l.97-.97a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
@@ -483,28 +597,66 @@
             <a href="mailto:estepona@springrealestate.com" style="color:var(--ink);text-decoration:none">estepona@springrealestate.com</a>
           </div>
         </div>
-        <a href="https://maps.google.com/?q=Avenida+de+España+10+Estepona" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;margin-top:20px;font-size:.82rem;font-weight:700;color:var(--green);text-decoration:none">Bekijk op kaart <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a href="https://maps.google.com/?q=Avenida+Espa%C3%B1a+10+Estepona" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;margin-top:20px;font-size:.82rem;font-weight:700;color:var(--green);text-decoration:none">Bekijk op kaart <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
     </div>
 
-    <div class="ov-card" style="margin:32px 0 0">
-  <div class="ov-track" id="EsteponaTrack"><div class="ov-slide"><img src="images/photo-1.jpg" alt="Spring kantoor Estepona" loading="lazy"><div class="ov-cap">Spring kantoor Estepona</div></div><div class="ov-slide"><img src="images/photo-2.jpg" alt="Costa del Sol uitzicht" loading="lazy"><div class="ov-cap">Costa del Sol uitzicht</div></div><div class="ov-slide"><img src="images/hero.jpg" alt="Luxe aanbod Estepona" loading="lazy"><div class="ov-cap">Luxe aanbod Estepona</div></div></div>
-  <button class="ov-prev" id="EsteponaPrev" onclick="moveEstepona(-1)" aria-label="Vorige">&#8592;</button>
-  <button class="ov-next" id="EsteponaNext" onclick="moveEstepona(1)" aria-label="Volgende">&#8594;</button>
-  <div class="ov-dots" id="EsteponaDots"><button class="ov-dot active" onclick="goToEstepona(0)" aria-label="Slide 1"></button><button class="ov-dot" onclick="goToEstepona(1)" aria-label="Slide 2"></button><button class="ov-dot" onclick="goToEstepona(2)" aria-label="Slide 3"></button></div>
-</div>
-<script>
-(function(){
-  var idx=0,track=document.getElementById('EsteponaTrack'),dots=document.querySelectorAll('#EsteponaDots .ov-dot'),total=track.children.length;
-  function vis(){var w=track.parentElement.clientWidth;track.style.transform='translateX(-'+(idx*w)+'px)';dots.forEach(function(d,i){d.classList.toggle('active',i===idx)})}
-  window.moveEstepona=function(d){idx=(idx+d+total)%total;vis()};
-  window.goToEstepona=function(i){idx=i;vis()};
-  window.addEventListener('resize',vis);
-  var sx=0;track.parentElement.addEventListener('touchstart',function(e){sx=e.touches[0].clientX},{passive:true});
-  track.parentElement.addEventListener('touchend',function(e){var dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40)moveEstepona(dx<0?1:-1)});
-  vis();
-})();
-</script>
+    <div><div id="EsteponaSlider" style="position:relative;overflow:hidden;margin:32px 0 0">
+      <div id="EsteponaTrack" style="display:flex;gap:16px;transition:transform .4s cubic-bezier(.25,.46,.45,.94)">
+        <a class="ov-card" href="listings.html" style="flex:0 0 calc(33.333% - 11px);min-width:260px">
+          <img src="images/photo-1.jpg" alt="Exclusief wonen aan de Costa del Sol" loading="lazy">
+          <div class="ov-card__overlay"></div>
+          <div class="ov-card__body">
+            <span class="ov-card__cat">Luxe woningen</span>
+            <h3 class="ov-card__title">Exclusief wonen aan de Costa del Sol</h3>
+            <div class="ov-card__meta">Estepona &middot; Marbella &middot; Benahav&iacute;s</div>
+          </div>
+        </a>
+        <a class="ov-card" href="listings.html" style="flex:0 0 calc(33.333% - 11px);min-width:260px">
+          <img src="images/photo-2.jpg" alt="Moderne villa&rsquo;s en appartementen" loading="lazy">
+          <div class="ov-card__overlay"></div>
+          <div class="ov-card__body">
+            <span class="ov-card__cat">Nieuwbouw</span>
+            <h3 class="ov-card__title">Moderne villa&rsquo;s en appartementen</h3>
+            <div class="ov-card__meta">Zeezicht &middot; Golf &middot; Privacygarantie</div>
+          </div>
+        </a>
+        <a class="ov-card" href="listings.html" style="flex:0 0 calc(33.333% - 11px);min-width:260px">
+          <img src="images/hero.jpg" alt="Topsegment vastgoed Costa del Sol" loading="lazy">
+          <div class="ov-card__overlay"></div>
+          <div class="ov-card__body">
+            <span class="ov-card__cat">Investeren</span>
+            <h3 class="ov-card__title">Topsegment vastgoed Costa del Sol</h3>
+            <div class="ov-card__meta">Hoog rendement &middot; Privacylocaties</div>
+          </div>
+        </a>
+      </div>
+      <button id="EsteponaPrev" style="position:absolute;left:10px;top:50%;transform:translateY(-50%);width:36px;height:36px;border-radius:50%;background:#fff;border:1px solid var(--line);cursor:pointer;font-size:1.1rem;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;z-index:2">&#8592;</button>
+      <button id="EsteponaNext" style="position:absolute;right:10px;top:50%;transform:translateY(-50%);width:36px;height:36px;border-radius:50%;background:#fff;border:1px solid var(--line);cursor:pointer;font-size:1.1rem;display:flex;align-items:center;justify-content:center;z-index:2">&#8594;</button>
+      <div id="EsteponaDots" style="display:flex;justify-content:center;gap:6px;margin-top:12px"><button style="width:8px;height:8px;border-radius:50%;border:none;background:var(--line);cursor:pointer" aria-label="Slide 1"></button><button style="width:8px;height:8px;border-radius:50%;border:none;background:var(--line);cursor:pointer" aria-label="Slide 2"></button><button style="width:8px;height:8px;border-radius:50%;border:none;background:var(--line);cursor:pointer" aria-label="Slide 3"></button></div>
+    </div>
+    <script>
+    (function(){
+      var track=document.getElementById('EsteponaTrack'),slider=document.getElementById('EsteponaSlider');
+      var cards=track.querySelectorAll('.ov-card'),dotsEl=document.getElementById('EsteponaDots');
+      var prev=document.getElementById('EsteponaPrev'),next=document.getElementById('EsteponaNext'),idx=0;
+      function vis(){var w=slider.offsetWidth;return w<500?1:w<800?2:3;}
+      function max(){return Math.max(0,cards.length-vis());}
+      function go(n){
+        idx=Math.max(0,Math.min(n,max()));
+        track.style.transform='translateX(-'+(idx*(cards[0].offsetWidth+16))+'px)';
+        prev.style.opacity=idx===0?'0':'1';prev.style.pointerEvents=idx===0?'none':'';
+        next.style.opacity=idx>=max()?'0':'1';next.style.pointerEvents=idx>=max()?'none':'';
+        dotsEl.querySelectorAll('button').forEach(function(d,i){d.style.background=i===idx?'var(--green)':'var(--line)';});
+      }
+      document.getElementById('EsteponaPrev').onclick=function(){go(idx-1);};
+      document.getElementById('EsteponaNext').onclick=function(){go(idx+1);};
+      var sx=0;slider.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;},{passive:true});
+      slider.addEventListener('touchend',function(e){var dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40)go(idx+(dx<0?1:-1));});
+      window.addEventListener('resize',function(){go(idx);});
+      go(0);
+    })();
+    </script></div>
 
     <div style="margin-top:48px">
       <div class="sec-head" style="margin-bottom:24px"><div class="t">
