@@ -1,19 +1,19 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="nl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kantoorruimte Amsterdam | Spring Real Estate</title>
-<meta name="description" content="Amsterdam is de motor van de Nederlandse kantorenmarkt. Van de Zuidas tot de Houthavens — Spring kent elke deelmarkt.">
+<title>Kantoorruimte Amsterdam &mdash; Spring Real Estate</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,500&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css?v=60">
+<link rel="stylesheet" href="css/styles.css?v=61">
 <link rel="icon" type="image/png" href="images/favicon.png?v=26">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png?v=26">
 <meta name="theme-color" content="#7CA73F">
 </head>
 <body>
-    <header class="header header--dark"><div class="container">
+<header class="header header--dark"><div class="container">
   <a href="index.html" class="logo" aria-label="Spring Real Estate"><img src="images/logo-white.png" alt="Spring Real Estate" class="logo-img"></a>
   <nav class="nav">
     <div class="has-drop"><a href="diensten.html" class="nav-btn-link"><span data-i18n="nav.diensten">Oplossingen</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></a>
@@ -50,42 +50,137 @@
     <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </div></header>
-
-<section class="page-hero">
-  <div class="container">
-    <div class="crumbs"><a href="index.html">Home</a> <span style="opacity:.4;margin:0 4px">/</span> <a href="locaties.html">Locaties</a> <span style="opacity:.4;margin:0 4px">/</span> Kantoorruimte Amsterdam</div>
-    <h1>Kantoorruimte in <em>Amsterdam</em></h1>
-    <p class="lead">Amsterdam is de motor van de Nederlandse kantorenmarkt. Van de Zuidas tot de Houthavens &mdash; Spring kent elke deelmarkt.</p>
+<section class="page-hero" style="padding:10px 0 12px !important;position:relative;overflow:hidden">
+  <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;z-index:0">
+    <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;opacity:.18"><defs><pattern id="dots" x="0" y="0" width="28" height="28" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#7CA73F"/></pattern></defs><rect width="100%" height="100%" fill="url(#dots)"/></svg>
+    <div style="position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(180deg,transparent,rgba(124,167,63,.6),transparent)"></div>
+  </div>
+  <div class="container" style="position:relative;z-index:1">
+    <div class="crumbs"><a href="index.html">Home</a> <span style="opacity:.4;margin:0 4px">/</span> <a href="locaties.html">Locaties</a></div>
+    <h1 style="margin:6px 0 4px">Kantoorruimte in <em>Amsterdam</em></h1>
+    <p style="color:rgba(255,255,255,.65);font-size:.92rem;margin:0 0 12px;max-width:52ch">Amsterdam is de motor van de Nederlandse kantorenmarkt. Zuidas, Sloterdijk en de Houthavens trekken nationale en internationale huurders.</p>
     <a href="listings.html" class="cta-pill">Bekijk aanbod <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-    <div class="s-bar"><span class="s-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg></span><input type="text" placeholder="Zoek&hellip;"><button class="s-btn">Zoeken</button></div>
   </div>
 </section>
-<section style="background:var(--bg-soft)"><div class="container"><div class="stat-row"><div class="stat-item"><span class="stat-num">4,2M m&sup2;</span><span class="stat-label">Kantorenvoorraad</span></div><div class="stat-item"><span class="stat-num">8,5%</span><span class="stat-label">Leegstand 2025</span></div><div class="stat-item"><span class="stat-num">&euro; 450</span><span class="stat-label">Tophuurprijs /m&sup2;/jr</span></div><div class="stat-item"><span class="stat-num">45+</span><span class="stat-label">Locaties in portefeuille</span></div></div></div></section>
+<section class="section section--tight" style="padding-bottom:8px">
+  <div class="container">
+    <div id="amSlider" style="position:relative;overflow:hidden">
+      <div id="amTrack" style="display:flex;gap:16px;transition:transform .4s cubic-bezier(.25,.46,.45,.94)">
+        <a class="ov-card" href="listings.html" style="flex:0 0 calc(33.333% - 11px);min-width:260px">
+          <img src="images/hero.jpg" alt="Zuidas Amsterdam" loading="lazy">
+          <div class="ov-card__overlay"></div>
+          <div class="ov-card__body">
+            <span class="ov-card__cat">Zuidas</span>
+            <h3 class="ov-card__title">Het financieel hart van NL</h3>
+            <div class="ov-card__meta">Zuidas &middot; Amsterdam Zuid</div>
+          </div>
+        </a>
+        <a class="ov-card" href="listings.html" style="flex:0 0 calc(33.333% - 11px);min-width:260px">
+          <img src="images/photo-2.jpg" alt="Sloterdijk" loading="lazy">
+          <div class="ov-card__overlay"></div>
+          <div class="ov-card__body">
+            <span class="ov-card__cat">Sloterdijk</span>
+            <h3 class="ov-card__title">Multimodaal knooppunt</h3>
+            <div class="ov-card__meta">Sloterdijk &middot; Amsterdam West</div>
+          </div>
+        </a>
+        <a class="ov-card" href="listings.html" style="flex:0 0 calc(33.333% - 11px);min-width:260px">
+          <img src="images/photo-1.jpg" alt="Houthavens Amsterdam" loading="lazy">
+          <div class="ov-card__overlay"></div>
+          <div class="ov-card__body">
+            <span class="ov-card__cat">Houthavens</span>
+            <h3 class="ov-card__title">Creatief &amp; gemengd woonwerkmilieu</h3>
+            <div class="ov-card__meta">Houthavens &middot; Amsterdam West</div>
+          </div>
+        </a>
+      </div>
+      <button id="amPrev" aria-label="Vorige" style="position:absolute;left:8px;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;border:none;background:rgba(255,255,255,.92);box-shadow:0 2px 12px rgba(0,0,0,.18);cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:2;opacity:0;transition:opacity .2s;pointer-events:none">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1c1c1b" stroke-width="2.2"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <button id="amNext" aria-label="Volgende" style="position:absolute;right:8px;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;border:none;background:rgba(255,255,255,.92);box-shadow:0 2px 12px rgba(0,0,0,.18);cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:2;transition:opacity .2s">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1c1c1b" stroke-width="2.2"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+    </div>
+    <div id="amDots" style="display:flex;gap:6px;justify-content:center;padding:14px 0 4px"></div>
+  </div>
+  <script>
+  (function(){
+    var track=document.getElementById('amTrack'),slider=document.getElementById('amSlider');
+    var cards=track.querySelectorAll('.ov-card'),dotsEl=document.getElementById('amDots');
+    var prev=document.getElementById('amPrev'),next=document.getElementById('amNext'),idx=0;
+    function vis(){var w=slider.offsetWidth;return w<500?1:w<800?2:3;}
+    function max(){return Math.max(0,cards.length-vis());}
+    function go(n){
+      idx=Math.max(0,Math.min(n,max()));
+      track.style.transform='translateX(-'+(idx*(cards[0].offsetWidth+16))+'px)';
+      prev.style.opacity=idx===0?'0':'1'; prev.style.pointerEvents=idx===0?'none':'';
+      next.style.opacity=idx>=max()?'0':'1'; next.style.pointerEvents=idx>=max()?'none':'';
+      dotsEl.querySelectorAll('button').forEach(function(d,i){d.style.background=i===idx?'var(--green)':'var(--line)';});
+    }
+    function buildDots(){
+      dotsEl.innerHTML='';
+      for(var i=0;i<=max();i++){(function(i){var d=document.createElement('button');
+        d.style.cssText='width:8px;height:8px;border-radius:50%;border:none;cursor:pointer;padding:0;background:var(--line);transition:background .2s';
+        d.addEventListener('click',function(){go(i);});dotsEl.appendChild(d);})( i);}
+    }
+    prev.addEventListener('click',function(){go(idx-1);});
+    next.addEventListener('click',function(){go(idx+1);});
+    var tx=0;
+    track.addEventListener('touchstart',function(e){tx=e.touches[0].clientX;},{passive:true});
+    track.addEventListener('touchend',function(e){var dx=tx-e.changedTouches[0].clientX;if(Math.abs(dx)>40)go(dx>0?idx+1:idx-1);},{passive:true});
+    slider.addEventListener('mouseenter',function(){prev.style.opacity=idx===0?'0':'1';next.style.opacity=idx>=max()?'0':'1';});
+    slider.addEventListener('mouseleave',function(){prev.style.opacity='0';next.style.opacity=idx>=max()?'0':'1';});
+    window.addEventListener('resize',function(){buildDots();go(0);});
+    buildDots();go(0);
+  })();
+  </script>
+</section>
+<!-- ── STATS ── -->
+<div style="background:var(--bg-soft);border-bottom:1px solid var(--line)">
+  <div class="container">
+    <div style="display:flex;flex-wrap:wrap;gap:0;padding:0">
+      <div style="flex:1 1 160px;padding:24px 28px;border-right:1px solid var(--line);text-align:center"><strong style="display:block;font-size:1.8rem;font-weight:800;color:var(--green);line-height:1">7,4M m&sup2;</strong><span style="font-size:.76rem;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.07em;font-weight:600">Kantorenvoorraad</span></div>
+      <div style="flex:1 1 160px;padding:24px 28px;border-right:1px solid var(--line);text-align:center"><strong style="display:block;font-size:1.8rem;font-weight:800;color:var(--green);line-height:1">8,1%</strong><span style="font-size:.76rem;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.07em;font-weight:600">Leegstand 2025</span></div>
+      <div style="flex:1 1 160px;padding:24px 28px;border-right:1px solid var(--line);text-align:center"><strong style="display:block;font-size:1.8rem;font-weight:800;color:var(--green);line-height:1">&euro;&thinsp;525</strong><span style="font-size:.76rem;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.07em;font-weight:600">Tophuurprijs /m&sup2;/jr</span></div>
+      <div style="flex:1 1 160px;padding:24px 28px;text-align:center"><strong style="display:block;font-size:1.8rem;font-weight:800;color:var(--green);line-height:1">20+</strong><span style="font-size:.76rem;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.07em;font-weight:600">Locaties in portefeuille</span></div>
+      
+    </div>
+  </div>
+</div>
+<!-- ── MARKTOVERZICHT ── -->
 <section class="section">
   <div class="container">
-    <div class="two-col two-col--60-40" style="align-items:start">
-      <div>
-        <span class="eyebrow">Marktoverzicht</span>
-        <h2 class="disp">De markt in <em>beeld</em></h2>
-        <p>Amsterdam is de meest dynamische kantorenmarkt van Nederland. De Zuidas blijft de toplocatie voor financi&euml;le dienstverleners en multinationals, terwijl buurten als de Houthavens, Sloterdijk en de Poort steeds meer tech- en creatieve bedrijven aantrekken.</p>
-        <a href="contact.html" class="btn btn--primary" style="margin-top:20px">Praat met een lokale specialist</a>
-      </div>
-      <div style="background:var(--bg-soft);border-radius:20px;overflow:hidden;height:320px">
-        <img src="images/photo-2.jpg" alt="Kantoorruimte Amsterdam" style="width:100%;height:100%;object-fit:cover">
-      </div>
+    <div class="sec-head">
+      <div class="t"><span class="eyebrow">Marktoverzicht</span><h2 class="disp">De markt in <em>beeld</em></h2></div>
+      <a href="contact.html" class="btn btn--primary">Praat met een specialist</a>
     </div>
+    <p style="color:var(--ink-soft);line-height:1.7;max-width:72ch">Amsterdam heeft de grootste kantorenmarkt van Nederland met Zuidas als absolute toptier. Sloterdijk en de Houthavens bieden interessante alternatieven voor bedrijven die een dynamische werkplek zoeken op iets lagere huurprijzen.</p>
   </div>
 </section>
-<section class="section--soft">
+<!-- ── DEELMARKTEN ── -->
+<section class="section section--soft">
   <div class="container">
-    <div style="margin-bottom:32px">
-      <span class="eyebrow">Deelmarkten</span>
-      <h2 class="disp">De beste <em>locaties</em></h2>
+    <div class="sec-head">
+      <div class="t"><span class="eyebrow">Deelmarkten</span><h2 class="disp">De beste <em>locaties</em></h2></div>
     </div>
-    <div class="services-grid"><div class="svc-card"><h3>Zuidas</h3><p>Prestigieuze toplocatie, hoofdkwartieren van multinationals.</p><a href="listings.html" class="svc-link">Bekijk aanbod <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div><div class="svc-card"><h3>Sloterdijk / Teleport</h3><p>Uitstekende bereikbaarheid, groot aanbod middelgroot kantoor.</p><a href="listings.html" class="svc-link">Bekijk aanbod <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div><div class="svc-card"><h3>Houthavens</h3><p>Hip &amp; creatief, populair bij tech en media.</p><a href="listings.html" class="svc-link">Bekijk aanbod <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div><div class="svc-card"><h3>Amsterdam Centrum</h3><p>Representatief, historisch, sterk voor boutique kantoren.</p><a href="listings.html" class="svc-link">Bekijk aanbod <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
+    <div class="services-grid">
+      <div class="svc-card"><h3>Zuidas</h3><p>Internationaal business district, hoogste huurprijzen van NL.</p><a href="listings.html" class="svc-link">Bekijk aanbod <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+      <div class="svc-card"><h3>Sloterdijk</h3><p>Multimodale bereikbaarheid, grote units beschikbaar.</p><a href="listings.html" class="svc-link">Bekijk aanbod <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+      <div class="svc-card"><h3>Houthavens</h3><p>Creatief milieu, transformatiegebied met karakter.</p><a href="listings.html" class="svc-link">Bekijk aanbod <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+      <div class="svc-card"><h3>Centrum / IJ-oevers</h3><p>Representatieve kleinschalige kantoren.</p><a href="listings.html" class="svc-link">Bekijk aanbod <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+      
+    </div>
   </div>
 </section>
-<section class="cta-band"><div class="container"><span class="eyebrow">Aan de slag</span><h2>Op zoek naar de perfecte plek?</h2><p>Onze lokale specialisten helpen u de juiste locatie en ruimte te vinden.</p><div class="btn-row"><a href="contact.html" class="btn btn--primary btn--lg">Neem contact op</a><a href="listings.html" class="btn--ghost">Bekijk aanbod</a></div></div></section>
+<!-- ── CTA ── -->
+<section class="section--tight"><div class="container"><div class="cta">
+  <h2>Op zoek naar de perfecte plek?</h2>
+  <p>Onze lokale specialisten helpen u de juiste locatie en ruimte te vinden.</p>
+  <div class="btns">
+    <a href="contact.html" class="btn btn--light btn--lg">Neem contact op</a>
+    <a href="listings.html" class="btn btn--ghost btn--lg">Bekijk aanbod</a>
+  </div>
+</div></div></section>
 <footer class="footer"><div class="container">
   <div class="foot-grid">
     <div class="foot-brand">
@@ -109,7 +204,10 @@
 <script src="js/i18n.js?v=30"></script>
 <script src="js/nav.js?v=26"></script>
 <script src="js/ai-search.js?v=26"></script>
+<div id="searchOverlay" style="display:none;position:fixed;inset:0;background:rgba(10,10,9,.88);backdrop-filter:blur(8px);z-index:9999;align-items:flex-start;justify-content:center;padding-top:clamp(60px,12vh,140px);"><div style="width:min(680px,90vw);"><form class="search ais-form" id="overlayForm" onsubmit="window.location='listings.html?q='+encodeURIComponent(document.getElementById('overlayInput').value);return false;" style="display:flex;align-items:center;gap:0;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:6px 6px 6px 22px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="2" style="flex-shrink:0"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg><input id="overlayInput" type="text" placeholder="Zoek een object, locatie of dienst&rdquo;¦" autocomplete="off" style="flex:1;background:none;border:none;outline:none;padding:10px 14px;font-size:1.1rem;color:#fff;font-family:inherit;" /><button class="btn btn--primary" type="submit" style="border-radius:999px;padding:10px 24px;white-space:nowrap">Zoeken</button></form><p style="text-align:center;margin-top:20px;color:rgba(255,255,255,.35);font-size:.85rem">Druk op Esc om te sluiten</p></div></div>
+<script>(function(){var btn=document.getElementById("searchToggle");var ov=document.getElementById("searchOverlay");if(!btn||!ov)return;btn.addEventListener("click",function(){ov.style.display="flex";setTimeout(function(){var i=document.getElementById("overlayInput");if(i)i.focus();},50);});ov.addEventListener("click",function(e){if(e.target===ov)ov.style.display="none";});document.addEventListener("keydown",function(e){if(e.key==="Escape")ov.style.display="none";});})();</script>
+</body>
 <div id="searchOverlay" style="display:none;position:fixed;inset:0;background:rgba(10,10,9,.88);backdrop-filter:blur(8px);z-index:9999;align-items:flex-start;justify-content:center;padding-top:clamp(60px,12vh,140px);"><div style="width:min(680px,90vw);"><form class="search ais-form" id="overlayForm" onsubmit="window.location='listings.html?q='+encodeURIComponent(document.getElementById('overlayInput').value);return false;" style="display:flex;align-items:center;gap:0;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:6px 6px 6px 22px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="2" style="flex-shrink:0"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg><input id="overlayInput" type="text" placeholder="Zoek een object, locatie of dienst&hellip;" autocomplete="off" style="flex:1;background:none;border:none;outline:none;padding:10px 14px;font-size:1.1rem;color:#fff;font-family:inherit;" /><button class="btn btn--primary" type="submit" style="border-radius:999px;padding:10px 24px;white-space:nowrap">Zoeken</button></form><p style="text-align:center;margin-top:20px;color:rgba(255,255,255,.35);font-size:.85rem">Druk op Esc om te sluiten</p></div></div>
 <script>(function(){var btn=document.getElementById("searchToggle");var ov=document.getElementById("searchOverlay");if(!btn||!ov)return;btn.addEventListener("click",function(){ov.style.display="flex";setTimeout(function(){var i=document.getElementById("overlayInput");if(i)i.focus();},50);});ov.addEventListener("click",function(e){if(e.target===ov)ov.style.display="none";});document.addEventListener("keydown",function(e){if(e.key==="Escape")ov.style.display="none";});})();</script>
-</body></html>
-
+</body>
+</html>
