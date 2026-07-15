@@ -12,6 +12,18 @@
 <link rel="icon" type="image/png" href="images/favicon.png?v=26">
 <link rel="apple-touch-icon" href="images/apple-touch-icon.png?v=26">
 <meta name="theme-color" content="#7CA73F">
+<style>
+.tl-item summary { display:flex; align-items:center; gap:16px; cursor:pointer; padding:18px 24px; border-radius:12px; transition:background .15s; list-style:none; }
+.tl-item summary::-webkit-details-marker { display:none; }
+.tl-item summary:hover { background:var(--green-tint); }
+.tl-item[open] summary { background:var(--green-tint); border-radius:12px 12px 0 0; }
+.tl-yr { font-size:1.3rem; font-weight:800; color:var(--green); min-width:52px; }
+.tl-item summary strong { font-size:1rem; font-weight:700; color:var(--dark); }
+.tl-body { padding:16px 24px 24px; background:var(--green-tint); border-radius:0 0 12px 12px; margin-bottom:4px; }
+.tl-body p { color:var(--ink-soft); line-height:1.7; margin:0; font-size:.92rem; }
+details.tl-item { border-radius:12px; overflow:hidden; margin-bottom:6px; border:1px solid var(--line); }
+details.tl-item[open] { border-color:var(--green); }
+</style>
 </head>
 <body>
 

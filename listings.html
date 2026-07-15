@@ -13,8 +13,21 @@
 <meta name="theme-color" content="#7CA73F">
 <style>
 /* ── CBRE-style listings layout ── */
-.lst-outer { max-width:1400px; margin:0 auto; padding:0 clamp(16px,3vw,40px); width:100%; box-sizing:border-box; }
-.lst-shell { display:flex; flex-direction:column; height:calc(100vh - 72px); overflow:hidden; border:1px solid var(--line); border-radius:12px; }
+.lst-outer { width:100%; padding:0; }
+.lst-wrap { display:flex; gap:0; align-items:stretch; min-height:calc(100vh - 72px); }
+.lst-sidebar { width:280px; flex-shrink:0; border-right:1px solid var(--line); background:#fff; overflow-y:auto; padding:20px 0; position:sticky; top:72px; max-height:calc(100vh - 72px); }
+.lst-sidebar-head { padding:16px 20px 8px; border-bottom:1px solid var(--line); margin-bottom:8px; }
+.lst-sidebar-head h3 { font-size:.9rem; font-weight:800; color:var(--dark); margin:0; }
+.lst-filter-group { padding:14px 20px; border-bottom:1px solid var(--line); }
+.lst-filter-label { font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:var(--ink-soft); margin-bottom:10px; display:block; }
+.lst-filter-option { display:flex; align-items:center; gap:8px; padding:5px 0; cursor:pointer; font-size:.88rem; color:var(--ink); }
+.lst-filter-option input { accent-color:var(--green); width:16px; height:16px; cursor:pointer; }
+.lst-filter-range { display:flex; gap:8px; }
+.lst-filter-range input { flex:1; padding:7px 10px; border:1px solid var(--line); border-radius:8px; font-size:.82rem; font-family:inherit; color:var(--dark); outline:none; width:0; min-width:0; }
+.lst-filter-range input:focus { border-color:var(--green); }
+.lst-sidebar-btn { margin:16px 20px 0; }
+.lst-sidebar-btn .btn { width:100%; justify-content:center; }
+.lst-shell { flex:1; min-width:0; display:flex; flex-direction:column; height:calc(100vh - 72px); overflow:hidden; border:1px solid var(--line); border-radius:12px; }
 .lst-topbar {
   display:flex; align-items:center; gap:10px; flex-wrap:wrap;
   padding:10px 16px; border-bottom:1px solid var(--line);
@@ -166,64 +179,86 @@
   <div class="container" style="position:relative;z-index:1">
     <h1>Vastgoed<br><em>aanbod</em></h1>
     <p class="lead" style="max-width:46ch">Kantoren, bedrijfsruimten en beleggingen in Nederland en Spanje &mdash; filter, vergelijk en neem contact op.</p>
+    <div style="margin-top:16px;display:flex;gap:12px;flex-wrap:wrap">
+      <a href="contact.html" class="btn btn--primary" style="white-space:nowrap">Stel uw zoekopdracht in</a>
+      <a href="#lstGrid" class="btn btn--ghost" style="white-space:nowrap;border-color:rgba(255,255,255,.3);color:#fff">Bekijk aanbod &darr;</a>
+    </div>
   </div>
 </section>
 
 <!-- ── CBRE-STYLE SHELL ── -->
 <div class="lst-outer">
+<div class="lst-wrap">
+<!-- FILTER SIDEBAR -->
+<aside class="lst-sidebar">
+  <div class="lst-sidebar-head">
+    <h3>Filters</h3>
+  </div>
+
+  <div class="lst-filter-group">
+    <span class="lst-filter-label">Aanbodtype</span>
+    <label class="lst-filter-option"><input type="radio" name="sb-offer" value="" checked onchange="applyFilters()"> Huur &amp; koop</label>
+    <label class="lst-filter-option"><input type="radio" name="sb-offer" value="huur" onchange="applyFilters()"> Verhuur</label>
+    <label class="lst-filter-option"><input type="radio" name="sb-offer" value="koop" onchange="applyFilters()"> Koop &amp; belegging</label>
+  </div>
+
+  <div class="lst-filter-group">
+    <span class="lst-filter-label">Type vastgoed</span>
+    <label class="lst-filter-option"><input type="checkbox" value="kantoor" class="sb-type" onchange="applyFilters()"> Kantoor</label>
+    <label class="lst-filter-option"><input type="checkbox" value="bedrijf" class="sb-type" onchange="applyFilters()"> Bedrijfsruimte</label>
+    <label class="lst-filter-option"><input type="checkbox" value="winkel" class="sb-type" onchange="applyFilters()"> Winkelruimte</label>
+    <label class="lst-filter-option"><input type="checkbox" value="belegging" class="sb-type" onchange="applyFilters()"> Belegging</label>
+  </div>
+
+  <div class="lst-filter-group">
+    <span class="lst-filter-label">Stad</span>
+    <label class="lst-filter-option"><input type="checkbox" value="amsterdam" class="sb-loc" onchange="applyFilters()"> Amsterdam</label>
+    <label class="lst-filter-option"><input type="checkbox" value="utrecht" class="sb-loc" onchange="applyFilters()"> Utrecht</label>
+    <label class="lst-filter-option"><input type="checkbox" value="valencia" class="sb-loc" onchange="applyFilters()"> Valencia</label>
+    <label class="lst-filter-option"><input type="checkbox" value="estepona" class="sb-loc" onchange="applyFilters()"> Estepona</label>
+  </div>
+
+  <div class="lst-filter-group">
+    <span class="lst-filter-label">Oppervlak (m&sup2;)</span>
+    <div class="lst-filter-range">
+      <input type="number" id="sbAreaMin" placeholder="Min" min="0" onchange="applyFilters()">
+      <input type="number" id="sbAreaMax" placeholder="Max" min="0" onchange="applyFilters()">
+    </div>
+  </div>
+
+  <div class="lst-sidebar-btn">
+    <button class="btn btn--ghost" onclick="resetFilters()">Filters wissen</button>
+  </div>
+</aside>
+
 <div class="lst-shell">
 
   <!-- TOP BAR -->
   <div class="lst-topbar">
-    <div class="lst-search">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>
-      <input id="locSearch" type="text" placeholder="Locatie of postcode&hellip;" value="Nederland">
-    </div>
-
-    <div class="lst-chips">
-      <button class="lst-chip active" data-filter="type" data-val="">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13"/></svg>
-        <span id="chipType">Kantoor</span>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-      </button>
-      <button class="lst-chip active" data-filter="offer" data-val="">
-        <span id="chipOffer">Huur &amp; Koop</span>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-      </button>
-      <button class="lst-chip" data-filter="loc" data-val="">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        <span id="chipLoc">Alle steden</span>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+    <div class="lst-count" style="font-size:1rem;font-weight:700;color:var(--dark)"><span id="resultCount">16</span> objecten beschikbaar</div>
+    <div style="margin-left:auto;display:flex;gap:8px;align-items:center">
+      <div class="lst-search-inner">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>
+        <input id="listSearch" type="text" placeholder="Zoek adres&hellip;" oninput="doListSearch()">
+      </div>
+      <button class="lst-btn-map" id="toggleMapBtn">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>
+        <span id="toggleMapLabel">Kaart verbergen</span>
       </button>
     </div>
-
-    <button class="lst-btn-map" id="toggleMapBtn">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>
-      <span id="toggleMapLabel">Kaart verbergen</span>
-    </button>
   </div>
 
-  <!-- BODY: MAP + RESULTS -->
+  <!-- BODY: RESULTS (left) + MAP (right) -->
   <div class="lst-body">
 
-    <!-- MAP PANE -->
-    <div class="lst-map-pane" id="mapPane">
-      <div id="listingsMap"></div>
-    </div>
-
-    <!-- RESULTS PANE -->
+    <!-- RESULTS PANE (left) -->
     <div class="lst-results-pane" id="resultsPane">
       <div class="lst-results-head">
-        <div class="lst-count"><span id="resultCount">16</span> objecten beschikbaar in <strong>Nederland</strong></div>
         <div class="lst-sort-row">
           <div class="lst-seg" id="offerSeg">
             <button class="active" data-offer="">Alle</button>
             <button data-offer="huur">Verhuur</button>
             <button data-offer="koop">Koop &amp; belegging</button>
-          </div>
-          <div class="lst-search-inner">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>
-            <input id="listSearch" type="text" placeholder="Zoek adres&hellip;" oninput="doListSearch()">
           </div>
         </div>
       </div>
@@ -261,7 +296,13 @@
       </div>
     </div>
 
+    <!-- MAP PANE (right) -->
+    <div class="lst-map-pane" id="mapPane">
+      <div id="listingsMap"></div>
+    </div>
+
   </div>
+</div>
 </div>
 </div>
 
@@ -270,7 +311,7 @@
     <div><img src="images/logo-white.png" alt="Spring Real Estate" class="logo-img" style="height:28px;opacity:.85;margin-bottom:12px;display:block"><p style="font-size:.82rem;color:#8a8d82;max-width:24ch;line-height:1.55">Powered by People.<br>Backed by Tech.</p></div>
     <div><h4>Doelgroepen</h4><ul><li><a href="doelgroep-gebruiker.html">Gebruiker</a></li><li><a href="doelgroep-eigenaar.html">Eigenaar</a></li><li><a href="doelgroep-investeerder.html">Investeerder</a></li><li><a href="doelgroep-ontwikkelaar.html">Ontwikkelaar</a></li></ul></div>
     <div><h4>Navigatie</h4><ul><li><a href="listings.html">Aanbod</a></li><li><a href="cases.html">Cases</a></li><li><a href="resources.html">Nieuws</a></li><li><a href="agents.html">Team</a></li><li><a href="about.html">Over ons</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-    <div><h4>Vestigingen</h4><ul><li><a href="locaties.html#utrecht">Utrecht</a></li><li><a href="locaties.html#amsterdam">Amsterdam</a></li><li><a href="locaties.html#valencia">Valencia (ES)</a></li><li><a href="locaties.html#estepona">Estepona (ES)</a></li></ul></div>
+    <div><h4>Vestigingen</h4><ul><li><a href="locaties.html#amsterdam">Amsterdam</a></li><li><a href="locaties.html#utrecht">Utrecht</a></li><li><a href="locaties.html#valencia">Valencia (ES)</a></li><li><a href="locaties.html#estepona">Estepona (ES)</a></li></ul></div>
     <div class="news"><h4>Nieuwsbrief</h4><p style="font-size:.9rem">Marktinzichten &amp; nieuw aanbod in uw inbox.</p><form onsubmit="return false"><input type="email" placeholder="Uw e-mailadres"><button class="btn btn--primary" style="width:100%">Inschrijven</button></form></div>
   </div>
   <div class="bottom"><span>&copy; 2026 Spring Real Estate. Alle rechten voorbehouden.</span><div class="links"><a href="privacy.html">Privacyverklaring</a><a href="cookies.html">Cookies</a><a href="voorwaarden.html">Algemene voorwaarden</a></div></div>

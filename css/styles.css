@@ -3647,7 +3647,7 @@ section[style*="background:var(--bg-soft)"] .unit-row > svg:last-child{ color:va
   border-radius:inherit;
 }
 .person:hover .ph .ph-overlay{ opacity:1; }
-.person .ph .ph-overlay svg{ fill:#fff; width:36px; height:36px; }
+.person .ph .ph-overlay svg{ display:none; }
 
 /* ── Diensten dark accordion ── */
 .diensten-dark .accord-head{
