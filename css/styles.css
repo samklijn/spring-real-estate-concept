@@ -5092,14 +5092,25 @@ h2.disp { font-size: clamp(1.6rem, 3vw, 2.4rem); line-height: 1.15; font-weight:
 .sector-pill{display:flex;align-items:center;gap:8px;padding:10px 18px;border-radius:999px;border:1px solid var(--line);background:#fff;font-size:.85rem;font-weight:600;color:var(--ink);text-decoration:none;transition:border-color .15s,background .15s}
 .sector-pill:hover{border-color:var(--green);background:var(--green-tint)}
 .sector-pill svg{flex-shrink:0;color:var(--green)}
-/* PASS-AD — overlay news cards */
-.news-card{position:relative;display:block;border-radius:16px;overflow:hidden;aspect-ratio:4/3;text-decoration:none;color:#fff;flex-shrink:0}
-.news-card img{width:100%;height:100%;object-fit:cover;transition:transform .45s ease;display:block}
-.news-card:hover img{transform:scale(1.05)}
-.news-card__overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.85) 0%,rgba(0,0,0,.28) 55%,transparent 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:20px}
-.news-card__cat{display:inline-block;padding:3px 10px;border-radius:999px;font-size:.68rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;background:rgba(124,167,63,.9);color:#fff;margin-bottom:8px;align-self:flex-start}
-.news-card__title{font-size:.97rem;font-weight:700;line-height:1.32;margin:0 0 6px;color:#fff}
-.news-card__date{font-size:.7rem;color:rgba(255,255,255,.5)}
+/* PASS-AD — news cards (white card, image top) */
+.news-card{display:flex;flex-direction:column;background:var(--bg-soft);border-radius:16px;overflow:hidden;border:1px solid var(--line);text-decoration:none;color:inherit;transition:box-shadow .18s,transform .18s;aspect-ratio:unset;position:static}
+.news-card:hover{box-shadow:0 6px 28px rgba(0,0,0,.1);transform:translateY(-2px)}
+.news-card__img{aspect-ratio:16/9;overflow:hidden;flex-shrink:0;position:relative}
+.news-card__img img{width:100%;height:100%;object-fit:cover;transition:transform .4s;display:block;position:static;inset:unset}
+.news-card:hover .news-card__img img{transform:scale(1.04)}
+.news-card__overlay{display:none}
+.news-card__body{padding:18px 20px 20px;flex:1;display:flex;flex-direction:column;gap:8px}
+.news-card__meta-row{display:flex;align-items:center;gap:8px;font-size:.78rem;color:var(--ink-soft)}
+.news-card__cat{background:var(--green);color:#fff;font-weight:700;font-size:.68rem;text-transform:uppercase;letter-spacing:.06em;padding:3px 10px;border-radius:999px;white-space:nowrap}
+.news-card__title{font-size:1.05rem;font-weight:800;color:var(--dark);margin:0;line-height:1.35}
+.news-card__desc{font-size:.88rem;color:var(--ink-soft);line-height:1.6;flex:1;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;margin:0}
+.news-card__footer{display:flex;align-items:center;justify-content:space-between;margin-top:10px}
+.news-card__loc{font-size:.78rem;color:var(--ink-soft)}
+.news-card__arrow{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;background:var(--dark);color:#fff;font-size:1.1rem;transition:background .15s;flex-shrink:0}
+.news-card:hover .news-card__arrow{background:var(--green)}
+.news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+@media(max-width:960px){.news-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.news-grid{grid-template-columns:1fr}}
 
 /* ── Overlay cards (.ov-card) — cases, nieuws, werken-bij slider ── */
 .ov-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
