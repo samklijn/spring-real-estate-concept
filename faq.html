@@ -8,13 +8,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,500&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css?v=65">
+<link rel="stylesheet" href="css/styles.css?v=66">
 <link rel="icon" type="image/png" href="images/favicon.png?v=26">
 <link rel="apple-touch-icon" href="images/apple-touch-icon.png?v=26">
 <meta name="theme-color" content="#7CA73F">
-<style>
-.page-hero{padding:10px 0 12px !important;position:relative;overflow:hidden}
-</style>
 </head>
 <body>
   <header class="header header--dark"><div class="container">
@@ -66,12 +63,30 @@
   </div>
   <div class="container" style="position:relative;z-index:1">
   <div class="crumbs"><a href="index.html">Home</a> <span style="opacity:.4;margin:0 4px">/</span> FAQ</div>
-  <a href="contact.html" class="cta-pill">Stel uw vraag &rarr;</a>
   <h1>Veelgestelde <em style="color:var(--green);font-style:italic;font-weight:500">vragen</em></h1>
   <p class="lead">Praktische antwoorden op de meest gestelde vragen over vastgoed huren, kopen, beleggen en taxeren.</p>
 </div></section>
 <section class="section"><div class="container">
-  <div style="max-width:720px">
+    <div class="filter-bar" style="margin-bottom:24px">
+    <div class="filter-bar__search">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>
+      <input id="faqSearch" type="text" placeholder="Zoek een vraag…" oninput="filterFaq()">
+      <button onclick="filterFaq()">Zoeken</button>
+    </div>
+    <select id="faqCat" onchange="filterFaq()">
+      <option value="">Alle onderwerpen</option>
+      <option value="algemeen">Algemeen</option>
+      <option value="huur">Huur &amp; kantoor</option>
+      <option value="financieel">Financieel</option>
+      <option value="taxatie">Taxatie</option>
+    </select>
+    <select id="faqSort" onchange="filterFaq()">
+      <option value="">Sortering: Standaard</option>
+      <option value="az">A → Z</option>
+      <option value="za">Z → A</option>
+    </select>
+  </div>
+<div id="faqGrid" style="max-width:720px">
 
     <details style="border-bottom:1px solid var(--line);padding:20px 0" open>
       <summary style="font-weight:700;font-size:1rem;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;color:var(--dark);gap:16px">Wat doet Spring Real Estate precies?<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0"><path d="M6 9l6 6 6-6"/></svg></summary>
@@ -114,6 +129,30 @@
     </details>
 
   </div>
+<script>
+function filterFaq(){
+  var q=(document.getElementById('faqSearch').value||'').toLowerCase();
+  var cat=document.getElementById('faqCat').value;
+  var sort=document.getElementById('faqSort').value;
+  var grid=document.getElementById('faqGrid');
+  var items=Array.from(grid.querySelectorAll('details'));
+  var vis=items.filter(function(d){
+    var text=d.textContent.toLowerCase();
+    var ok=(!q||text.includes(q))&&(!cat||d.dataset.cat===cat);
+    d.style.display=ok?'':'none';
+    return ok;
+  });
+  if(sort==='az'||sort==='za'){
+    vis.sort(function(a,b){
+      var ta=a.querySelector('summary').textContent.trim();
+      var tb=b.querySelector('summary').textContent.trim();
+      return sort==='az'?ta.localeCompare(tb,'nl'):tb.localeCompare(ta,'nl');
+    });
+    vis.forEach(function(d){grid.appendChild(d);});
+  }
+}
+document.getElementById('faqSearch').addEventListener('keydown',function(e){if(e.key==='Enter')filterFaq();});
+</script>
 </div></section>
 <section class="section--tight"><div class="container"><div class="cta">
   <h2>Staat uw vraag er niet bij?</h2>

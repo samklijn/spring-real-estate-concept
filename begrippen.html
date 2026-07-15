@@ -8,13 +8,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,500&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css?v=65">
+<link rel="stylesheet" href="css/styles.css?v=66">
 <link rel="icon" type="image/png" href="images/favicon.png?v=26">
 <link rel="apple-touch-icon" href="images/apple-touch-icon.png?v=26">
 <meta name="theme-color" content="#7CA73F">
-<style>
-.page-hero{padding:10px 0 12px !important;position:relative;overflow:hidden}
-</style>
 </head>
 <body>
   <header class="header header--dark"><div class="container">
@@ -66,16 +63,72 @@
   </div>
   <div class="container" style="position:relative;z-index:1">
   <div class="crumbs"><a href="index.html">Home</a> <span style="opacity:.4;margin:0 4px">/</span> Begrippen</div>
-  <a href="listings.html" class="cta-pill" data-tr="1" data-en="View our listings &rarr;" data-es="Ver nuestro aanbod &rarr;">Bekijk ons aanbod &rarr;</a>
   <h1 data-tr="1" data-en="Vastgoedjargon, &lt;em style=&quot;color:var(--green);font-style:italic;font-weight:500&quot;&gt;helder uitgelegd&lt;/em&gt;" data-es="Jerga inmobiliaria, &lt;em style=&quot;color:var(--green);font-style:italic;font-weight:500&quot;&gt;explicada con claridad&lt;/em&gt;">Vastgoedjargon, <em style="color:var(--green);font-style:italic;font-weight:500">helder uitgelegd</em></h1>
-  <p class="lead" data-tr="1" data-en="The most important terms in commercial real estate, in plain language â€” searchable." data-es="Los tÃ©rminos mÃ¡s importantes del sector inmobiliario comercial, en lenguaje claro â€” con bÃºsqueda.">De belangrijkste begrippen in commercieel vastgoed, in begrijpelijke taal â€” doorzoekbaar.</p>
-  <div class="s-bar"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg><input type="text" id="heroGlossSearch" placeholder="Zoek een begripâ€¦" data-i18n-ph="search.term" aria-label="Zoek een begrip" oninput="(function(v){var si=document.querySelector('.list-search input');if(si){si.value=v;si.dispatchEvent(new Event('input'));}document.querySelector('.filterable') && document.querySelector('.filterable').scrollIntoView({behavior:'smooth',block:'start'});})(this.value)"></div>
+  <p class="lead" data-tr="1" data-en="The most important terms in commercial real estate, in plain language â€” searchable." data-es="Los tÃ©rminos mÃ¡s importantes del sector inmobiliario comercial, en lenguaje claro â€” con bÃºsqueda.">De belangrijkste begrippen in commercieel vastgoed, in begrijpelijke taal â€” doorzoekbaar.</p></div></section>
+<section class="section section--tight"><div class="container">
+  <div class="filter-bar">
+    <div class="filter-bar__search">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>
+      <input id="glossSearch" type="text" placeholder="Zoek een begrip…" oninput="filterGloss()">
+      <button onclick="filterGloss()">Zoeken</button>
+    </div>
+    <select id="glossCat" onchange="filterGloss()">
+      <option value="">Alle diensten</option>
+      <option value="financieel">Financieel</option>
+      <option value="huur">Huur &amp; verhuur</option>
+      <option value="juridisch">Juridisch</option>
+      <option value="duurzaamheid">Duurzaamheid</option>
+      <option value="taxatie">Taxatie &amp; waarde</option>
+    </select>
+    <select id="glossSort" onchange="filterGloss()">
+      <option value="">Sortering: Standaard</option>
+      <option value="az">A → Z</option>
+      <option value="za">Z → A</option>
+    </select>
+  </div>
+  <div class="glossary" id="glossGrid">
+    <div class="gloss" data-cat="juridisch"><b>k.k. — kosten koper</b><p>De koper betaalt de kosten voor de overdracht, zoals overdrachtsbelasting en notariskosten.</p></div>
+    <div class="gloss" data-cat="juridisch"><b>v.o.n. — vrij op naam</b><p>De verkoper betaalt de overdrachtskosten; de prijs is inclusief deze kosten.</p></div>
+    <div class="gloss" data-cat="taxatie"><b>BVO / VVO</b><p>Bruto vloeroppervlak versus verhuurbaar vloeroppervlak — bepalend voor huurprijs en vergelijkbaarheid van objecten.</p></div>
+    <div class="gloss" data-cat="financieel"><b>Bruto aanvangsrendement (BAR)</b><p>De verhouding tussen de bruto jaarhuur en de totale aankoopprijs van een beleggingsobject, uitgedrukt in procenten.</p></div>
+    <div class="gloss" data-cat="financieel"><b>Netto aanvangsrendement (NAR)</b><p>Het rendement na aftrek van de exploitatiekosten — een zuiverder beeld van het werkelijke rendement.</p></div>
+    <div class="gloss" data-cat="huur"><b>Triple net (NNN)</b><p>Huurvorm waarbij de huurder naast de huur ook de belastingen, verzekering en het onderhoud betaalt.</p></div>
+    <div class="gloss" data-cat="duurzaamheid"><b>BREEAM</b><p>Internationaal keurmerk dat de duurzaamheidsprestatie van een gebouw beoordeelt — van Pass tot Outstanding.</p></div>
+    <div class="gloss" data-cat="duurzaamheid"><b>Energielabel</b><p>Wettelijke score (A t/m G) voor de energiezuinigheid van een gebouw; kantoren vereisen minimaal label C.</p></div>
+    <div class="gloss" data-cat="juridisch"><b>Due diligence</b><p>Het grondige onderzoek naar een object vóór aankoop: juridisch, technisch, fiscaal en commercieel.</p></div>
+    <div class="gloss" data-cat="financieel"><b>Leegstandsrisico</b><p>Het risico dat (een deel van) een object niet verhuurd is en dus geen huurinkomsten oplevert.</p></div>
+    <div class="gloss" data-cat="financieel"><b>WALT</b><p>Weighted Average Lease Term — de gewogen gemiddelde resterende looptijd van de huurcontracten in een object.</p></div>
+    <div class="gloss" data-cat="huur"><b>Servicekosten</b><p>Vergoeding voor gemeenschappelijke voorzieningen en diensten, naast de kale huur.</p></div>
+    <div class="gloss" data-cat="huur"><b>Incentives</b><p>Tijdelijke voordelen om een huurder te bewegen, zoals huurvrije periodes of een inrichtingsbijdrage.</p></div>
+    <div class="gloss" data-cat="juridisch"><b>Erfpacht</b><p>Het recht om grond van een ander (vaak de gemeente) langdurig te gebruiken tegen een jaarlijkse canon.</p></div>
+  </div>
+  <p class="filter-empty" id="glossEmpty" style="display:none;color:var(--ink-soft);padding:20px 0">Geen begrip gevonden.</p>
 </div></section>
-<section class="section filterable"><div class="container">
-  <div class="list-search"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg><input type="text" placeholder="Zoek een begripâ€¦" data-i18n-ph="search.term" aria-label="Zoek een begrip"></div>
-  <div class="glossary"><div class="gloss"><b>k.k. â€” kosten koper</b><p>De koper betaalt de kosten voor de overdracht, zoals overdrachtsbelasting en notariskosten.</p></div><div class="gloss"><b>v.o.n. â€” vrij op naam</b><p>De verkoper betaalt de overdrachtskosten; de prijs is inclusief deze kosten.</p></div><div class="gloss"><b>BVO <span style="opacity:.4;margin:0 4px">/</span> VVO</b><p>Bruto vloeroppervlak versus verhuurbaar vloeroppervlak â€” bepalend voor huurprijs en vergelijkbaarheid van objecten.</p></div><div class="gloss"><b>Bruto aanvangsrendement (BAR)</b><p>De verhouding tussen de bruto jaarhuur en de totale aankoopprijs van een beleggingsobject, uitgedrukt in procenten.</p></div><div class="gloss"><b>Netto aanvangsrendement (NAR)</b><p>Het rendement na aftrek van de exploitatiekosten â€” een zuiverder beeld van het werkelijke rendement.</p></div><div class="gloss"><b>Triple net (NNN)</b><p>Huurvorm waarbij de huurder naast de huur ook de belastingen, verzekering en het onderhoud betaalt.</p></div><div class="gloss"><b>BREEAM</b><p>Internationaal keurmerk dat de duurzaamheidsprestatie van een gebouw beoordeelt â€” van Pass tot Outstanding.</p></div><div class="gloss"><b>Energielabel</b><p>Wettelijke score (A t/m G) voor de energiezuinigheid van een gebouw; kantoren vereisen minimaal label C.</p></div><div class="gloss"><b>Due diligence</b><p>Het grondige onderzoek naar een object vÃ³Ã³r aankoop: juridisch, technisch, fiscaal en commercieel.</p></div><div class="gloss"><b>Leegstandsrisico</b><p>Het risico dat (een deel van) een object niet verhuurd is en dus geen huurinkomsten oplevert.</p></div><div class="gloss"><b>WALT</b><p>Weighted Average Lease Term â€” de gewogen gemiddelde resterende looptijd van de huurcontracten in een object.</p></div><div class="gloss"><b>Servicekosten</b><p>Vergoeding voor gemeenschappelijke voorzieningen en diensten, naast de kale huur.</p></div><div class="gloss"><b>Incentives</b><p>Tijdelijke voordelen om een huurder te bewegen, zoals huurvrije periodes of een inrichtingsbijdrage.</p></div><div class="gloss"><b>Erfpacht</b><p>Het recht om grond van een ander (vaak de gemeente) langdurig te gebruiken tegen een jaarlijkse canon.</p></div></div>
-  <p class="filter-empty" style="display:none;color:var(--ink-soft);padding:20px 0">Geen begrip gevonden.</p>
-</div></section>
+<script>
+function filterGloss(){
+  var q=(document.getElementById('glossSearch').value||'').toLowerCase();
+  var cat=document.getElementById('glossCat').value;
+  var sort=document.getElementById('glossSort').value;
+  var grid=document.getElementById('glossGrid');
+  var items=Array.from(grid.querySelectorAll('.gloss'));
+  var vis=items.filter(function(g){
+    var text=g.textContent.toLowerCase();
+    var ok=(!q||text.includes(q))&&(!cat||g.dataset.cat===cat);
+    g.style.display=ok?'':'none';
+    return ok;
+  });
+  if(sort==='az'||sort==='za'){
+    vis.sort(function(a,b){
+      var ta=a.querySelector('b').textContent;
+      var tb=b.querySelector('b').textContent;
+      return sort==='az'?ta.localeCompare(tb,'nl'):tb.localeCompare(ta,'nl');
+    });
+    vis.forEach(function(g){grid.appendChild(g);});
+  }
+  document.getElementById('glossEmpty').style.display=vis.length?'none':'';
+}
+document.getElementById('glossSearch').addEventListener('keydown',function(e){if(e.key==='Enter')filterGloss();});
+</script>
 <section class="section--tight"><div class="container"><div class="cta">
   <h2 data-tr="1" data-en="A term you don't see?" data-es="Â¿Falta algÃºn tÃ©rmino?">Een begrip dat u mist?</h2>
   <p data-tr="1" data-en="Ask our specialists â€” we're happy to explain." data-es="Pregunta a nuestros especialistas â€” te lo explicamos con gusto.">Vraag het onze specialisten â€” we leggen het graag uit.</p>
