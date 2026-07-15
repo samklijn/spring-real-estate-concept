@@ -11,9 +11,15 @@
 <link rel="stylesheet" href="css/styles.css?v=77">
 <style>
 #faqGrid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.faq-item{background:#fff;border-radius:14px;padding:24px 24px 22px;border:1px solid var(--line)}
-.faq-item h4{margin:0 0 10px;font-size:.95rem;font-weight:700;color:var(--dark);line-height:1.4}
-.faq-item p{margin:0;font-size:.88rem;color:var(--ink-soft);line-height:1.65}
+.faq-item{background:#fff;border-radius:14px;padding:0;border:1px solid var(--line);overflow:hidden;cursor:pointer;transition:box-shadow .15s}
+.faq-item:hover{box-shadow:0 2px 12px rgba(0,0,0,.07)}
+.faq-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:20px 22px;user-select:none}
+.faq-head h4{margin:0;font-size:.93rem;font-weight:700;color:var(--dark);line-height:1.35;flex:1}
+.faq-arrow{flex-shrink:0;color:var(--green);transition:transform .2s}
+.faq-item.open .faq-arrow{transform:rotate(180deg)}
+.faq-body{display:none;padding:0 22px 20px}
+.faq-item.open .faq-body{display:block}
+.faq-body p{margin:0;font-size:.88rem;color:var(--ink-soft);line-height:1.65}
 @media(max-width:560px){#faqGrid{grid-template-columns:1fr}}
 </style>
 <link rel="icon" type="image/png" href="images/favicon.png?v=26">
@@ -72,6 +78,7 @@
   <div class="crumbs"><a href="index.html">Home</a> <span style="opacity:.4;margin:0 4px">/</span> FAQ</div>
   <h1>Veelgestelde <em style="color:var(--green);font-style:italic;font-weight:500">vragen</em></h1>
   <p class="lead">Praktische antwoorden op de meest gestelde vragen over vastgoed huren, kopen, beleggen en taxeren.</p>
+  <a href="contact.html" class="cta-pill">Stel uw vraag <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
 </div></section>
 <section class="section section--soft"><div class="container">
   <div class="filter-bar" style="margin-bottom:32px">
@@ -87,61 +94,78 @@
       <option value="taxatie">Taxatie</option>
       <option value="internationaal">Internationaal</option>
     </select>
+    <select id="faqSort" onchange="filterFaq()">
+      <option value="">Sortering: Standaard</option>
+      <option value="az">A &rarr; Z</option>
+      <option value="nieuw">Nieuw &rarr; Oud</option>
+      <option value="oud">Oud &rarr; Nieuw</option>
+    </select>
   </div>
 <div id="faqGrid">
 
-  <div class="faq-item" data-cat="algemeen">
-    <h4>Wat doet Spring Real Estate precies?</h4>
-    <p>Spring Real Estate is een onafhankelijke adviseur in commercieel vastgoed. Wij helpen huurders, eigenaren, investeerders en ontwikkelaars bij het vinden, verhuren, kopen, verkopen en beheren van kantoren, bedrijfsruimten, winkels en beleggingsobjecten in Nederland en Spanje.</p>
+  <div class="faq-item" data-cat="algemeen" data-order="1">
+    <div class="faq-head"><h4>Wat doet Spring Real Estate precies?</h4><svg class="faq-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
+    <div class="faq-body"><p>Spring Real Estate is een onafhankelijke adviseur in commercieel vastgoed. Wij helpen huurders, eigenaren, investeerders en ontwikkelaars bij het vinden, verhuren, kopen, verkopen en beheren van kantoren, bedrijfsruimten, winkels en beleggingsobjecten in Nederland en Spanje.</p></div>
   </div>
 
-  <div class="faq-item" data-cat="huur">
-    <h4>Hoe begin ik met het huren van een kantoor?</h4>
-    <p>Begin met een intakegesprek met een van onze adviseurs. Wij brengen uw behoeften in kaart &mdash; oppervlak, locatie, budget, flexibiliteit &mdash; en stellen een gerichte longlist op. Vervolgens begeleiden wij u bij bezichtigingen, onderhandelingen en het huurcontract.</p>
+  <div class="faq-item" data-cat="huur" data-order="2">
+    <div class="faq-head"><h4>Hoe begin ik met het huren van een kantoor?</h4><svg class="faq-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
+    <div class="faq-body"><p>Begin met een intakegesprek met een van onze adviseurs. Wij brengen uw behoeften in kaart &mdash; oppervlak, locatie, budget, flexibiliteit &mdash; en stellen een gerichte longlist op. Vervolgens begeleiden wij u bij bezichtigingen, onderhandelingen en het huurcontract.</p></div>
   </div>
 
-  <div class="faq-item" data-cat="huur">
-    <h4>Wat kost een kantoor per m&sup2; in Amsterdam of Utrecht?</h4>
-    <p>Op de Zuidas in Amsterdam liggen tophuurprijzen doorgaans tussen &euro;400 en &euro;750 per m&sup2;/jaar. In Utrecht centrum varieert dit van &euro;200 tot &euro;350 per m&sup2;/jaar. Neem contact op voor actuele marktinformatie voor uw specifieke zoekopdracht.</p>
+  <div class="faq-item" data-cat="huur" data-order="3">
+    <div class="faq-head"><h4>Wat kost een kantoor per m&sup2; in Amsterdam of Utrecht?</h4><svg class="faq-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
+    <div class="faq-body"><p>Op de Zuidas in Amsterdam liggen tophuurprijzen doorgaans tussen &euro;400 en &euro;750 per m&sup2;/jaar. In Utrecht centrum varieert dit van &euro;200 tot &euro;350 per m&sup2;/jaar. Neem contact op voor actuele marktinformatie voor uw specifieke zoekopdracht.</p></div>
   </div>
 
-  <div class="faq-item" data-cat="taxatie">
-    <h4>Hoe werkt een taxatie van commercieel vastgoed?</h4>
-    <p>Een taxateur brengt de marktwaarde of herbouwwaarde van een object in kaart op basis van vergelijkbare transacties, huurpotentieel, staat van onderhoud en locatiefactoren. Onze gecertificeerde taxateurs (RT/RICS) leveren rapporten die voldoen aan de eisen van banken, overheden en verzekeraars.</p>
+  <div class="faq-item" data-cat="taxatie" data-order="4">
+    <div class="faq-head"><h4>Hoe werkt een taxatie van commercieel vastgoed?</h4><svg class="faq-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
+    <div class="faq-body"><p>Een taxateur brengt de marktwaarde of herbouwwaarde van een object in kaart op basis van vergelijkbare transacties, huurpotentieel, staat van onderhoud en locatiefactoren. Onze gecertificeerde taxateurs (RT/RICS) leveren rapporten die voldoen aan de eisen van banken, overheden en verzekeraars.</p></div>
   </div>
 
-  <div class="faq-item" data-cat="beleggingen">
-    <h4>Wat is het verschil tussen BAR en NAR?</h4>
-    <p>Het <strong>bruto aanvangsrendement (BAR)</strong> is de verhouding tussen de bruto jaarhuur en de aankoopprijs, zonder aftrek van kosten. Het <strong>netto aanvangsrendement (NAR)</strong> houdt rekening met exploitatiekosten en geeft daardoor een realistischer beeld van het werkelijke rendement.</p>
+  <div class="faq-item" data-cat="beleggingen" data-order="5">
+    <div class="faq-head"><h4>Wat is het verschil tussen BAR en NAR?</h4><svg class="faq-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
+    <div class="faq-body"><p>Het <strong>bruto aanvangsrendement (BAR)</strong> is de verhouding tussen de bruto jaarhuur en de aankoopprijs, zonder aftrek van kosten. Het <strong>netto aanvangsrendement (NAR)</strong> houdt rekening met exploitatiekosten en geeft daardoor een realistischer beeld van het werkelijke rendement.</p></div>
   </div>
 
-  <div class="faq-item" data-cat="internationaal">
-    <h4>Kunnen jullie ook helpen in Spanje (Valencia of Estepona)?</h4>
-    <p>Ja. Spring Real Estate heeft kantoren in Valencia en Estepona en begeleidt Nederlandse investeerders en ondernemers bij vastgoedtransacties in Spanje. Denk aan kantoorhuur, beleggingen of de aankoop van commercieel onroerend goed aan de Costa del Sol of in de regio Valencia.</p>
+  <div class="faq-item" data-cat="internationaal" data-order="6">
+    <div class="faq-head"><h4>Kunnen jullie ook helpen in Spanje (Valencia of Estepona)?</h4><svg class="faq-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
+    <div class="faq-body"><p>Ja. Spring Real Estate heeft kantoren in Valencia en Estepona en begeleidt Nederlandse investeerders en ondernemers bij vastgoedtransacties in Spanje. Denk aan kantoorhuur, beleggingen of de aankoop van commercieel onroerend goed aan de Costa del Sol of in de regio Valencia.</p></div>
   </div>
 
-  <div class="faq-item" data-cat="algemeen">
-    <h4>Wat zijn de kosten voor de inzet van Spring als adviseur?</h4>
-    <p>Onze tarieven zijn afhankelijk van de opdracht. In veel gevallen werken wij op basis van succes &mdash; u betaalt alleen bij een afgeronde transactie. Neem contact op voor een offerte zonder verplichtingen.</p>
+  <div class="faq-item" data-cat="algemeen" data-order="7">
+    <div class="faq-head"><h4>Wat zijn de kosten voor de inzet van Spring als adviseur?</h4><svg class="faq-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
+    <div class="faq-body"><p>Onze tarieven zijn afhankelijk van de opdracht. In veel gevallen werken wij op basis van succes &mdash; u betaalt alleen bij een afgeronde transactie. Neem contact op voor een offerte zonder verplichtingen.</p></div>
   </div>
 
-  <div class="faq-item" data-cat="huur">
-    <h4>Hoe lang duurt het gemiddeld om een kantoor te vinden?</h4>
-    <p>De doorlooptijd hangt sterk af van uw eisen en de markt. Een praktisch kantoor in Utrecht kan soms binnen 4&ndash;6 weken gevonden en gecontracteerd zijn; een maatwerkkantoor op de Zuidas vergt gemiddeld 3&ndash;6 maanden. Wij stemmen de zoekstrategie af op uw tijdslijn.</p>
+  <div class="faq-item" data-cat="huur" data-order="8">
+    <div class="faq-head"><h4>Hoe lang duurt het gemiddeld om een kantoor te vinden?</h4><svg class="faq-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
+    <div class="faq-body"><p>De doorlooptijd hangt sterk af van uw eisen en de markt. Een praktisch kantoor in Utrecht kan soms binnen 4&ndash;6 weken gevonden en gecontracteerd zijn; een maatwerkkantoor op de Zuidas vergt gemiddeld 3&ndash;6 maanden. Wij stemmen de zoekstrategie af op uw tijdslijn.</p></div>
   </div>
 
 </div>
 <script>
+document.getElementById('faqGrid').addEventListener('click', function(e) {
+  var item = e.target.closest('.faq-item');
+  if (!item) return;
+  item.classList.toggle('open');
+});
 function filterFaq(){
   var q=(document.getElementById('faqSearch').value||'').toLowerCase();
   var cat=document.getElementById('faqCat').value;
+  var sort=document.getElementById('faqSort').value;
   var grid=document.getElementById('faqGrid');
   var items=Array.from(grid.querySelectorAll('.faq-item'));
   items.forEach(function(d){
-    var text=d.textContent.toLowerCase();
+    var text=d.querySelector('.faq-head h4').textContent.toLowerCase();
     var ok=(!q||text.includes(q))&&(!cat||d.dataset.cat===cat);
     d.style.display=ok?'':'none';
   });
+  var visible=items.filter(function(d){return d.style.display!=='none';});
+  if(sort==='az') visible.sort(function(a,b){return a.querySelector('h4').textContent.localeCompare(b.querySelector('h4').textContent,'nl');});
+  else if(sort==='nieuw') visible.sort(function(a,b){return parseInt(b.dataset.order)-parseInt(a.dataset.order);});
+  else if(sort==='oud') visible.sort(function(a,b){return parseInt(a.dataset.order)-parseInt(b.dataset.order);});
+  visible.forEach(function(d){grid.appendChild(d);});
 }
 document.getElementById('faqSearch').addEventListener('keydown',function(e){if(e.key==='Enter')filterFaq();});
 </script>

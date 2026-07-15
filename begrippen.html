@@ -84,25 +84,27 @@
     </select>
     <select id="glossSort" onchange="filterGloss()">
       <option value="">Sortering: Standaard</option>
-      <option value="az">A → Z</option>
-      <option value="za">Z → A</option>
+      <option value="az">A &rarr; Z</option>
+      <option value="za">Z &rarr; A</option>
+      <option value="nieuw">Nieuw &rarr; Oud</option>
+      <option value="oud">Oud &rarr; Nieuw</option>
     </select>
   </div>
   <div class="glossary" id="glossGrid">
-    <div class="gloss" data-cat="juridisch"><b>k.k. — kosten koper</b><p>De koper betaalt de kosten voor de overdracht, zoals overdrachtsbelasting en notariskosten.</p></div>
-    <div class="gloss" data-cat="juridisch"><b>v.o.n. — vrij op naam</b><p>De verkoper betaalt de overdrachtskosten; de prijs is inclusief deze kosten.</p></div>
-    <div class="gloss" data-cat="taxatie"><b>BVO / VVO</b><p>Bruto vloeroppervlak versus verhuurbaar vloeroppervlak — bepalend voor huurprijs en vergelijkbaarheid van objecten.</p></div>
-    <div class="gloss" data-cat="financieel"><b>Bruto aanvangsrendement (BAR)</b><p>De verhouding tussen de bruto jaarhuur en de totale aankoopprijs van een beleggingsobject, uitgedrukt in procenten.</p></div>
-    <div class="gloss" data-cat="financieel"><b>Netto aanvangsrendement (NAR)</b><p>Het rendement na aftrek van de exploitatiekosten — een zuiverder beeld van het werkelijke rendement.</p></div>
-    <div class="gloss" data-cat="huur"><b>Triple net (NNN)</b><p>Huurvorm waarbij de huurder naast de huur ook de belastingen, verzekering en het onderhoud betaalt.</p></div>
-    <div class="gloss" data-cat="duurzaamheid"><b>BREEAM</b><p>Internationaal keurmerk dat de duurzaamheidsprestatie van een gebouw beoordeelt — van Pass tot Outstanding.</p></div>
-    <div class="gloss" data-cat="duurzaamheid"><b>Energielabel</b><p>Wettelijke score (A t/m G) voor de energiezuinigheid van een gebouw; kantoren vereisen minimaal label C.</p></div>
-    <div class="gloss" data-cat="juridisch"><b>Due diligence</b><p>Het grondige onderzoek naar een object vóór aankoop: juridisch, technisch, fiscaal en commercieel.</p></div>
-    <div class="gloss" data-cat="financieel"><b>Leegstandsrisico</b><p>Het risico dat (een deel van) een object niet verhuurd is en dus geen huurinkomsten oplevert.</p></div>
-    <div class="gloss" data-cat="financieel"><b>WALT</b><p>Weighted Average Lease Term — de gewogen gemiddelde resterende looptijd van de huurcontracten in een object.</p></div>
-    <div class="gloss" data-cat="huur"><b>Servicekosten</b><p>Vergoeding voor gemeenschappelijke voorzieningen en diensten, naast de kale huur.</p></div>
-    <div class="gloss" data-cat="huur"><b>Incentives</b><p>Tijdelijke voordelen om een huurder te bewegen, zoals huurvrije periodes of een inrichtingsbijdrage.</p></div>
-    <div class="gloss" data-cat="juridisch"><b>Erfpacht</b><p>Het recht om grond van een ander (vaak de gemeente) langdurig te gebruiken tegen een jaarlijkse canon.</p></div>
+    <div class="gloss" data-order="1" data-cat="juridisch"><b>k.k. — kosten koper</b><p>De koper betaalt de kosten voor de overdracht, zoals overdrachtsbelasting en notariskosten.</p></div>
+    <div class="gloss" data-order="2" data-cat="juridisch"><b>v.o.n. — vrij op naam</b><p>De verkoper betaalt de overdrachtskosten; de prijs is inclusief deze kosten.</p></div>
+    <div class="gloss" data-order="3" data-cat="taxatie"><b>BVO / VVO</b><p>Bruto vloeroppervlak versus verhuurbaar vloeroppervlak — bepalend voor huurprijs en vergelijkbaarheid van objecten.</p></div>
+    <div class="gloss" data-order="4" data-cat="financieel"><b>Bruto aanvangsrendement (BAR)</b><p>De verhouding tussen de bruto jaarhuur en de totale aankoopprijs van een beleggingsobject, uitgedrukt in procenten.</p></div>
+    <div class="gloss" data-order="5" data-cat="financieel"><b>Netto aanvangsrendement (NAR)</b><p>Het rendement na aftrek van de exploitatiekosten — een zuiverder beeld van het werkelijke rendement.</p></div>
+    <div class="gloss" data-order="6" data-cat="huur"><b>Triple net (NNN)</b><p>Huurvorm waarbij de huurder naast de huur ook de belastingen, verzekering en het onderhoud betaalt.</p></div>
+    <div class="gloss" data-order="7" data-cat="duurzaamheid"><b>BREEAM</b><p>Internationaal keurmerk dat de duurzaamheidsprestatie van een gebouw beoordeelt — van Pass tot Outstanding.</p></div>
+    <div class="gloss" data-order="8" data-cat="duurzaamheid"><b>Energielabel</b><p>Wettelijke score (A t/m G) voor de energiezuinigheid van een gebouw; kantoren vereisen minimaal label C.</p></div>
+    <div class="gloss" data-order="9" data-cat="juridisch"><b>Due diligence</b><p>Het grondige onderzoek naar een object vóór aankoop: juridisch, technisch, fiscaal en commercieel.</p></div>
+    <div class="gloss" data-order="10" data-cat="financieel"><b>Leegstandsrisico</b><p>Het risico dat (een deel van) een object niet verhuurd is en dus geen huurinkomsten oplevert.</p></div>
+    <div class="gloss" data-order="11" data-cat="financieel"><b>WALT</b><p>Weighted Average Lease Term — de gewogen gemiddelde resterende looptijd van de huurcontracten in een object.</p></div>
+    <div class="gloss" data-order="12" data-cat="huur"><b>Servicekosten</b><p>Vergoeding voor gemeenschappelijke voorzieningen en diensten, naast de kale huur.</p></div>
+    <div class="gloss" data-order="13" data-cat="huur"><b>Incentives</b><p>Tijdelijke voordelen om een huurder te bewegen, zoals huurvrije periodes of een inrichtingsbijdrage.</p></div>
+    <div class="gloss" data-order="14" data-cat="juridisch"><b>Erfpacht</b><p>Het recht om grond van een ander (vaak de gemeente) langdurig te gebruiken tegen een jaarlijkse canon.</p></div>
   </div>
   <p class="filter-empty" id="glossEmpty" style="display:none;color:var(--ink-soft);padding:20px 0">Geen begrip gevonden.</p>
 </div></section>
@@ -119,11 +121,16 @@ function filterGloss(){
     g.style.display=ok?'':'none';
     return ok;
   });
-  if(sort==='az'||sort==='za'){
+  if(sort){
     vis.sort(function(a,b){
-      var ta=a.querySelector('b').textContent;
-      var tb=b.querySelector('b').textContent;
-      return sort==='az'?ta.localeCompare(tb,'nl'):tb.localeCompare(ta,'nl');
+      if(sort==='az'||sort==='za'){
+        var ta=a.querySelector('b').textContent;
+        var tb=b.querySelector('b').textContent;
+        return sort==='az'?ta.localeCompare(tb,'nl'):tb.localeCompare(ta,'nl');
+      }
+      if(sort==='nieuw') return parseInt(b.dataset.order)-parseInt(a.dataset.order);
+      if(sort==='oud') return parseInt(a.dataset.order)-parseInt(b.dataset.order);
+      return 0;
     });
     vis.forEach(function(g){grid.appendChild(g);});
   }
