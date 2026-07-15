@@ -8,10 +8,29 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,500&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css?v=64">
+<link rel="stylesheet" href="css/styles.css?v=65">
 <link rel="icon" type="image/png" href="images/favicon.png?v=26">
 <link rel="apple-touch-icon" href="images/apple-touch-icon.png?v=26">
 <meta name="theme-color" content="#7CA73F">
+<style>
+/* vacature — site-standard layout */
+.vac-detail { display:grid; grid-template-columns:1fr 360px; gap:48px; align-items:start; padding:40px 0 70px; }
+.vac-content h3.vac-eyebrow { font-size:.7rem; font-weight:700; text-transform:uppercase; letter-spacing:.12em; color:var(--green); margin:32px 0 10px; }
+.vac-content h3.vac-eyebrow:first-child { margin-top:0; }
+.vac-content .vstep { border-left:2px solid var(--green-soft,#CDEA86); padding:0 0 24px 20px; margin-left:8px; position:relative; }
+.vac-content .vstep:last-child { padding-bottom:0; }
+.vac-content .vstep-n { display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px; border-radius:50%; background:var(--green); color:#fff; font-size:.72rem; font-weight:800; position:absolute; left:-15px; top:0; }
+.vac-content .vstep h4 { font-size:.97rem; font-weight:700; color:var(--dark); margin:0 0 5px; }
+.vac-content .vstep p { font-size:.87rem; color:var(--ink-soft); line-height:1.6; margin:0; }
+.vac-content .vac-list { list-style:none; padding:0; margin:0 0 4px; display:flex; flex-direction:column; gap:8px; }
+.vac-content .vac-list li { display:flex; align-items:flex-start; gap:10px; font-size:.9rem; color:var(--ink); line-height:1.55; }
+.vac-content .vac-list li svg { flex-shrink:0; color:var(--green); margin-top:2px; }
+.vac-aside { position:sticky; top:96px; }
+@media(max-width:860px){
+  .vac-detail { grid-template-columns:1fr; }
+  .vac-aside { position:static; }
+}
+</style>
 </head>
 <body>
   <header class="header header--dark"><div class="container">
